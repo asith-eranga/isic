@@ -85,9 +85,9 @@ function addPost(){
 	if( $permission->insert() ){
 		
 		$activity_log = new ActivityLog();
-		$activity_log->newLogRecord("mod_user_permission","add","User Permission has been added succesfully");
+		$activity_log->newLogRecord("mod_user_permission","add","User Permission has been added Successfully");
 
-			Default_Common::jsonSuccess( "User Permission has been added succesfully." );
+			Default_Common::jsonSuccess( "User Permission has been added Successfully." );
 	}else{
 			Default_Common::jsonError( "Error" );
 	}
@@ -116,9 +116,9 @@ function updatePost(){
 	if( $permission->update() ){
 		
 		$activity_log = new ActivityLog();
-		$activity_log->newLogRecord("mod_user_permission","edit","User Permission has been updated succesfully");
+		$activity_log->newLogRecord("mod_user_permission","edit","User Permission has been updated Successfully");
 
-			Default_Common::jsonSuccess( "User Permission has been Updated succesfully." );
+			Default_Common::jsonSuccess( "User Permission has been Updated Successfully." );
 	}else{
 			Default_Common::jsonError( "Error" );
 	}
@@ -136,9 +136,9 @@ function doDelete(){
 	if( $permission->delete() ){
 		
 		$activity_log = new ActivityLog();
-		$activity_log->newLogRecord("mod_user_permission","delete","User Permission has been deleted succesfully");
+		$activity_log->newLogRecord("mod_user_permission","delete","User Permission has been deleted Successfully");
 
-			Default_Common::jsonSuccess( "User Permission Deleted succesfully." );
+			Default_Common::jsonSuccess( "User Permission Deleted Successfully." );
 	}else{
 			Default_Common::jsonError( "Error" );
 	}

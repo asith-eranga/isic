@@ -156,7 +156,7 @@ $(document).ready(function(){
 	<form id="data_form">
 
 	  <div class="ui error message"></div>
-	  <div id="form_submit_msg" class="ui green message"><i class="ok sign icon"></i>New permission has been added succesfully.</div>
+	  <div id="form_submit_msg" class="ui green message"><i class="ok sign icon"></i>New permission has been added Successfully.</div>
 
 	<input type="hidden" id="id" name="id" value="<?php echo $permission->id(); ?>" />
 	 

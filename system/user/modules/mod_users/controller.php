@@ -89,9 +89,9 @@ function addPost() {
       if ($users->insert()) {
 
             $activity_log = new ActivityLog();
-            $activity_log->newLogRecord("mod_users", "add", "New User has been added succesfully");
+            $activity_log->newLogRecord("mod_users", "add", "New User has been added Successfully");
 
-            Default_Common::jsonSuccess("New user has been added succesfully.");
+            Default_Common::jsonSuccess("New user has been added Successfully.");
       } else {
             Default_Common::jsonError("Error");
       }
@@ -116,9 +116,9 @@ function updatePost() {
       if ($users->update()) {
 
             $activity_log = new ActivityLog();
-            $activity_log->newLogRecord("mod_users", "edit", "User Details has been Updated succesfully.");
+            $activity_log->newLogRecord("mod_users", "edit", "User Details has been Updated Successfully.");
 
-            Default_Common::jsonSuccess("User Details has been Updated succesfully.");
+            Default_Common::jsonSuccess("User Details has been Updated Successfully.");
       } else {
             Default_Common::jsonError("Error");
       }
@@ -135,9 +135,9 @@ function doDelete() {
       if ($users->delete()) {
 
             $activity_log = new ActivityLog();
-            $activity_log->newLogRecord("mod_users", "delete", "User Deleted succesfully.");
+            $activity_log->newLogRecord("mod_users", "delete", "User Deleted Successfully.");
 
-            Default_Common::jsonSuccess("User Deleted succesfully.");
+            Default_Common::jsonSuccess("User Deleted Successfully.");
       } else {
             Default_Common::jsonError("Error");
       }
@@ -172,9 +172,9 @@ function doLogin() {
             $users->updateLastLogin();
 
             $activity_log = new ActivityLog();
-            $activity_log->newLogRecord("mod_users", "Login", "Logged in Succesfully");
+            $activity_log->newLogRecord("mod_users", "Login", "Logged in Successfully");
 
-            Default_Common::jsonSuccess("Succesfully Logged In. Please Wait...");
+            Default_Common::jsonSuccess("Successfully Logged In. Please Wait...");
       } else {
             Default_Common::jsonError("Wrong Username/Password. Try Again");
       }
@@ -198,7 +198,7 @@ function doLoginProperty() {
       $users->extractor($users->getById());
 
       if ($users->password() == md5($password)) {
-            Default_Common::jsonSuccess("Succesfully Redirect. Please Wait..");
+            Default_Common::jsonSuccess("Successfully Redirect. Please Wait..");
       } else {
             Default_Common::jsonError("Wrong Password. Try Again");
       }

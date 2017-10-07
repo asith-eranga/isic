@@ -398,7 +398,7 @@ class timthumb {
 				$this->debug(3, "Trying to serve cachefile {$this->cachefile}");
 			}
 			if($this->serveCacheFile()){
-				$this->debug(3, "Succesfully served cachefile {$this->cachefile}");
+				$this->debug(3, "Successfully served cachefile {$this->cachefile}");
 				return true;
 			} else {
 				$this->debug(3, "Failed to serve cachefile {$this->cachefile} - Deleting it from cache.");
@@ -980,7 +980,7 @@ class timthumb {
 		}
 		$this->cropTop = true;
 		if($this->processImageAndWriteToCache($tempfile)){
-			$this->debug(3, "Image processed succesfully. Serving from cache");
+			$this->debug(3, "Image processed Successfully. Serving from cache");
 			return $this->serveCacheFile();
 		} else {
 			return false;
@@ -1012,7 +1012,7 @@ class timthumb {
 			return false;
 		}
 		if($this->processImageAndWriteToCache($tempfile)){
-			$this->debug(3, "Image processed succesfully. Serving from cache");
+			$this->debug(3, "Image processed Successfully. Serving from cache");
 			return $this->serveCacheFile();
 		} else {
 			return false;
