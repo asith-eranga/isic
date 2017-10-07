@@ -1,41 +1,24 @@
 <?php
 
 # database.php - database handling.
-
 # Created: 24/05/2010
-
-
-
-
 
 // no direct access
 
 //defined( '_MEXEC' ) or die( 'Restricted access' );
 //require_once("config.php");
 
-
-
 class Default_Database{
 
-
-
 public $connection;
-
-private $db_host = '';  
-
-private $db_user = '';  
-
-private $db_pass = '';  
-
-private $db_name = ''; 
-
 public $sqlquery;
-
 public $result = array();
-
 public $rowsPerPage = 2;
-
 public $navFirst = '', $navPrev = '', $navLinks = '', $navNext = '', $navLast = '';
+private $db_host = '';
+private $db_user = '';
+private $db_pass = '';
+private $db_name = '';
 
 
 
@@ -58,20 +41,14 @@ public $navFirst = '', $navPrev = '', $navLinks = '', $navNext = '', $navLast = 
 		
 
 		//Connect to database
+		$this->connection = mysqli_connect($this->db_host,$this->db_user,$this->db_pass, $this->db_name);
 
-		$this->connection = mysql_connect($this->db_host,$this->db_user,$this->db_pass);		
-
-		
-
-		//Select database
-
-		if (!mysql_select_db($this->db_name,$this->connection)){
-
-			echo ("Error selecting a database");
-
-			exit();
-
-		}
+        // Check connection
+        if (mysqli_connect_errno())
+        {
+            echo ("Failed to connect to MySQL: " . mysqli_connect_error());
+            exit();
+        }
 
 	}
 
@@ -83,15 +60,18 @@ public $navFirst = '', $navPrev = '', $navLinks = '', $navNext = '', $navLast = 
 
 	{
 
-	if($this->con){
+	if($this->connection){
 
-		if(mysql_close()){$this->con = false;return true;}else{return false;}
+		if(mysqli_close($this->connection)){
+		    $this->connection = false;
+		    return true;
+		} else {
+		    return false;
+		}
 
 	}
 
 	}
-
-	
 
 	// Get last mysql query
 
@@ -101,91 +81,23 @@ public $navFirst = '', $navPrev = '', $navLinks = '', $navNext = '', $navLast = 
 
 	}
 
-	
-
-	
-
 	## -- CHECK FOR TABLE EXISTANCE --
 
 	//How to use :: boolean isTable('TableName');
 
-	public function isTable($table)
-
-    {
-
-		$tablesInDb = @mysql_query('SHOW TABLES FROM '.$this->db_name.' LIKE "'.$table.'"');
-
-        if($tablesInDb){
-
-            if(mysql_num_rows($tablesInDb)==1){
-
-                return true;
-
-            }
-
-            else{
-
-                return false;
-
-            }
-
-        }
-
-    }
-
-	
-
-	
-
-	## -- Prevent SQL Injections --
-
-	public function clean_sql_query($post) {
-
-        foreach($post as $key => $value) {
-
-            // stripslashes, we don't want to rely on magic quotes
-
-            if(get_magic_quotes_gpc()) {
-
-                //$post[$key] = stripslashes($value);
-
-				$post[$key] = mysql_real_escape_string($value);
-
-            }
-
-            // quote if not a number
-
-            if(!is_numeric($value)) {
-
-                $post[$key] = mysql_real_escape_string($value);
-
-            }
-
-        }
-
-        return $post;
-
-	}
-
-	
-
-	## -- INSERT VALUE TO TABLE --
-
-	// How to use :: boolean insert('TableName', array('value1', 'value2', 'value3'), 'col1, col2, col3');
-
 	public function insert($table,$values){
 
-		
 
-		
+
+
 
         if($this->isTable($table)){
 
 			$values = $this->clean_sql_query($values);
 
-            $insert = 'INSERT INTO '.$table;          
+            $insert = 'INSERT INTO '.$table;
 
-			
+
 
 			//generate column list
 
@@ -223,9 +135,9 @@ public $navFirst = '', $navPrev = '', $navLinks = '', $navNext = '', $navLast = 
 
 			$cols .= ')';
 
-			
 
-			
+
+
 
             //generate value list
 
@@ -261,17 +173,17 @@ public $navFirst = '', $navPrev = '', $navLinks = '', $navNext = '', $navLast = 
 
 			$valList .= ")";
 
-			
+
 
 			$insert = $insert.$cols.$valList;
 
-			
+
 
 			$this->sqlquery = $insert;
 
-			
 
-            $insert = @mysql_query($insert);
+
+            $insert = @mysqli_query($this->connection, $insert);
 
             if($insert){
 
@@ -286,6 +198,70 @@ public $navFirst = '', $navPrev = '', $navLinks = '', $navNext = '', $navLast = 
         }
 
     }
+
+	
+
+	
+
+	## -- Prevent SQL Injections --
+
+	public function isTable($table)
+
+    {
+
+		$tablesInDb = @mysqli_query($this->connection, 'SHOW TABLES FROM '.$this->db_name.' LIKE "'.$table.'"');
+
+        if($tablesInDb){
+
+            if(mysqli_num_rows($tablesInDb)==1){
+
+                return true;
+
+            }
+
+            else{
+
+                return false;
+
+            }
+
+        }
+
+    }
+
+	
+
+	## -- INSERT VALUE TO TABLE --
+
+	// How to use :: boolean insert('TableName', array('value1', 'value2', 'value3'), 'col1, col2, col3');
+
+	public function clean_sql_query($post) {
+
+        foreach($post as $key => $value) {
+
+            // stripslashes, we don't want to rely on magic quotes
+
+            if(get_magic_quotes_gpc()) {
+
+                //$post[$key] = stripslashes($value);
+
+				$post[$key] = mysqli_real_escape_string($this->connection, $value);
+
+            }
+
+            // quote if not a number
+
+            if(!is_numeric($value)) {
+
+                $post[$key] = mysqli_real_escape_string($this->connection, $value);
+
+            }
+
+        }
+
+        return $post;
+
+	}
 
 	
 
@@ -311,7 +287,7 @@ public $navFirst = '', $navPrev = '', $navLinks = '', $navNext = '', $navLast = 
 
 			$this->sqlquery = $delete;
 
-			$del = @mysql_query($delete);
+			$del = @mysqli_query($this->connection, $delete);
 
 			
 
@@ -427,7 +403,7 @@ public $navFirst = '', $navPrev = '', $navLinks = '', $navNext = '', $navLast = 
 
 			$this->sqlquery = $update;
 
-            $query = @mysql_query($update);
+            $query = @mysqli_query($this->connection, $update);
 
             if($query){
 
@@ -484,11 +460,11 @@ public $navFirst = '', $navPrev = '', $navLinks = '', $navNext = '', $navLast = 
 			
 
 
-			$query = @mysql_query($q);
+			$query = @mysqli_query($this->connection, $q);
 
         	if($query)
 
-			$resultRows = mysql_num_rows($query);
+			$resultRows = mysqli_num_rows($query);
 
 			$this->generatePageLinks($pageNumber, $resultRows);
 
@@ -508,13 +484,13 @@ public $navFirst = '', $navPrev = '', $navLinks = '', $navNext = '', $navLast = 
 
 		$this->sqlquery = $q;
 
-        $query = @mysql_query($q);
+        $query = @mysqli_query($this->connection, $q);
 
         if($query)
 
         {
 
-            $this->numResults = mysql_num_rows($query);
+            $this->numResults = mysqli_num_rows($query);
 
 			
 
@@ -524,7 +500,7 @@ public $navFirst = '', $navPrev = '', $navLinks = '', $navNext = '', $navLast = 
 
             {
 
-                $r = mysql_fetch_array($query);
+                $r = mysqli_fetch_array($query);
 
 				
 
@@ -540,11 +516,11 @@ public $navFirst = '', $navPrev = '', $navLinks = '', $navNext = '', $navLast = 
 
                     {
 
-                        if(mysql_num_rows($query) > 1)
+                        if(mysqli_num_rows($query) > 1)
 
                             $this->result[$i][$key[$x]] = stripslashes($r[$key[$x]]);
 
-                        else if(mysql_num_rows($query) < 1)
+                        else if(mysqli_num_rows($query) < 1)
 
                             $this->result = null;
 
@@ -670,9 +646,9 @@ public $navFirst = '', $navPrev = '', $navLinks = '', $navNext = '', $navLast = 
 
 	public function getNextId($tbl_name){
 
-		$query = mysql_query("select auto_increment from information_schema.TABLES where TABLE_NAME='".$tbl_name."' and TABLE_SCHEMA='".$this->db_name."'");
+		$query = mysqli_query($this->connection, "select auto_increment from information_schema.TABLES where TABLE_NAME='".$tbl_name."' and TABLE_SCHEMA='".$this->db_name."'");
 
-		$row = mysql_fetch_array($query);
+		$row = mysqli_fetch_array($query);
 
 		return $row['auto_increment'];
 
@@ -681,15 +657,15 @@ public $navFirst = '', $navPrev = '', $navLinks = '', $navNext = '', $navLast = 
 	public function custom($q){
 
 
-						$query = @mysql_query($q);
+						$query = @mysqli_query($this->connection, $q);
 			
-						$this->numResults = mysql_num_rows($query);
+						$this->numResults = mysqli_num_rows($query);
 			
 						for($i = 0; $i < $this->numResults; $i++)
 			
 						{
 			
-							$r = mysql_fetch_array($query);
+							$r = mysqli_fetch_array($query);
 			
 			
 			
@@ -705,11 +681,11 @@ public $navFirst = '', $navPrev = '', $navLinks = '', $navNext = '', $navLast = 
 			
 								{
 			
-									if(mysql_num_rows($query) > 1)
+									if(mysqli_num_rows($query) > 1)
 			
 										$this->result[$i][$key[$x]] = stripslashes($r[$key[$x]]);
 			
-									else if(mysql_num_rows($query) < 1)
+									else if(mysqli_num_rows($query) < 1)
 			
 										$this->result = null;
 			
@@ -730,7 +706,7 @@ public $navFirst = '', $navPrev = '', $navLinks = '', $navNext = '', $navLast = 
 	}
 
 	public function customNoResults($q){
-		$query = mysql_query($q);
+		$query = mysqli_query($this->connection, $q);
 		return $query;
 	}
 
@@ -739,7 +715,7 @@ public $navFirst = '', $navPrev = '', $navLinks = '', $navNext = '', $navLast = 
 
 	public function cleanValue($value){
 	
-		return mysql_real_escape_string($value);
+		return mysqli_real_escape_string($this->connection, $value);
 		
 	}
 
