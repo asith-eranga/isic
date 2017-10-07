@@ -1,7 +1,6 @@
 <?php
 
 /**
- * Weblook Framework ( http://www.weblook.com/ )
  * 
  * PHP related configurations
  *
