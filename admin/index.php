@@ -79,6 +79,13 @@ require_once("../system/load.php");
                                     <?php } ?>
                               </div>
                         </div>-->
+
+                        <div class="ui dropdown item main-menu">
+                            Page Contents <i class="dropdown icon"></i>
+                            <div class="menu">
+                              <a onclick="loadModule('mod_home_content')" class="item main-menu"><?php echo Default_ModManager::niceName('mod_home_content'); ?></a>
+                            </div>
+                        </div>
                         
                         <div class="ui dropdown item main-menu">
                             Tour Packages <i class="dropdown icon"></i>
