@@ -16,7 +16,7 @@ require_once("../system/load.php");
             <link rel="stylesheet" type="text/css" href="../admin/ui/packaged/jquery.fancybox.css">
 
 <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>-->
-            <script src="../system/application/libs/js/jquery-2.1.1.min.js"></script>
+            <script src="../system/application/libs/js/jquery-3.2.1.min.js"></script>
             <script src="../admin/ui/packaged/semantic.js"></script>
             <script src="../admin/ui/packaged/tablesort.js"></script>
             <script src="../admin/ui/packaged/components/tab.js"></script>

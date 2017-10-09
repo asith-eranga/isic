@@ -47,7 +47,7 @@ function create(){
 		
 			$variable_manager->createVariableSession();
 			
-			Default_Common::jsonSuccess( "Variable Created Succesfully." );
+			Default_Common::jsonSuccess( "Variable Created Successfully." );
 	}else{
 			Default_Common::jsonError( "Error" );
 	}
@@ -65,7 +65,7 @@ function updateValue(){
 
 			$variable_manager->createVariableSession();
 		
-			Default_Common::jsonSuccess( "Variable Updated Succesfully." );
+			Default_Common::jsonSuccess( "Variable Updated Successfully." );
 	}else{
 			Default_Common::jsonError( "Error" );
 	}
@@ -82,7 +82,7 @@ function doDelete(){
 
 			$variable_manager->createVariableSession();
 
-			Default_Common::jsonSuccess( "Variable Updated Succesfully." );
+			Default_Common::jsonSuccess( "Variable Updated Successfully." );
 	}else{
 			Default_Common::jsonError( "Error" );
 	}
@@ -104,13 +104,13 @@ function setTemplate(){
 	
 				$variable_manager->createVariableSession();
 			
-				Default_Common::jsonSuccess( "Template Saved Succesfully." );
+				Default_Common::jsonSuccess( "Template Saved Successfully." );
 		}else{
 				Default_Common::jsonError( "Error" );
 		}
 	}else{
 		$template = $variable_manager->getVariableValue("general_template", array("value" => $_POST['template'], "mod_name" => "system"));
-		Default_Common::jsonSuccess( "Template Saved Succesfully." );
+		Default_Common::jsonSuccess( "Template Saved Successfully." );
 	}
 }
 
