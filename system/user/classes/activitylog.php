@@ -134,7 +134,6 @@ function searchCount($search_text){
 function insert(){
 	
 	 $status = $this->MDatabase->insert($this->table_name,array(
-      "id" => $this->id(),
       "created_date" => $this->createdDate(),
       "user" => $this->user(),
       "module" => $this->module(),
