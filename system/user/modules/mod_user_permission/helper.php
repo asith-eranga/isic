@@ -100,7 +100,6 @@ function searchCount($search_text){
 function insert(){
 	
 	 $status = $this->MDatabase->insert($this->table_name,array(
-		"id" => $this->id(),
 		"permission_name" => $this->permissionName(),
 		"permission" => $this->permission(),
 		"system_manager_permission" => $this->systemManagerPermission()
