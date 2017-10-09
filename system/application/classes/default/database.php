@@ -63,7 +63,7 @@ class Default_Database
             $insert = 'INSERT INTO '.$table;
 
             //generate column list
-            $cols = ' (';
+            $cols = '(';
             $keys = array_keys($values);
                 for ($i = 0; $i < count($values); $i++) {
                     if (is_string($values[$keys[$i]])) {
@@ -167,7 +167,7 @@ class Default_Database
 
 			foreach ($where as $whereCol => $whereValue) {
 				$whereStr .= $whereCol.' = '.$whereValue;
-				if ($whereCol !== $last_key) {
+				if ($whereCol != $last_key) {
 					//not last index
 					$whereStr .= ' AND ';
 				}
@@ -205,10 +205,10 @@ class Default_Database
     {
 		$this->result = null;
         $q = 'SELECT '.$rows.' FROM '.$table;
-        if ($where !== null) {
+        if ($where != null) {
             $q .= ' WHERE '.$where;
         }
-        if ($order !== null) {
+        if ($order != null) {
             $q .= ' ORDER BY '.$order;
         }
 
