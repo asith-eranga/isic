@@ -1,12 +1,12 @@
 <?php
-$home_page = new Mod_HomePage();
+$about_page = new Mod_AboutPage();
 
 if (isset($_POST['search_text'])) {
-      $data = $home_page->searchPaginated($_POST['search_text'], $_POST['page']);
-      $count = $home_page->searchCount($_POST['search_text']);
+      $data = $about_page->searchPaginated($_POST['search_text'], $_POST['page']);
+      $count = $about_page->searchCount($_POST['search_text']);
 } else {
-      $data = $home_page->selectAllPaginated($_POST['page']);
-      $count = $home_page->selectAllCount();
+      $data = $about_page->selectAllPaginated($_POST['page']);
+      $count = $about_page->selectAllCount();
 }
 
 $pagination = new Default_Pagination();
@@ -19,7 +19,7 @@ $pagination->makePagination();
 ?>
 <?php if ($_POST['page'] == 1) { ?>
       <script>
-            function fixWidthHelper(e, ui) {
+            function fixWidthHelper(ui) {
                   ui.children().each(function () {
                         $(this).width($(this).width());
                   });
@@ -36,7 +36,7 @@ $pagination->makePagination();
 								  serial += '&thisid=' + $(this);
 
 								  $.ajax({
-										url: "../system/user/modules/mod_home_page/controller.php",
+										url: "../system/user/modules/mod_about_page/controller.php",
 										type: "post",
 										data: serial,
 										error: function () {
@@ -54,8 +54,8 @@ $pagination->makePagination();
       <h2 class="ui header">
             <i class="certificate icon"></i>
             <div class="content">
-                  Home Page Content
-                  <div class="sub header">Manage home page content</div>
+                  About Page Content
+                  <div class="sub header">Manage about page content</div>
             </div>
       </h2>
 
@@ -74,15 +74,15 @@ $pagination->makePagination();
             <tbody id="sortTable">
                   <?php
                   for ($i = 0; $i < count($data); $i++) {
-                        $home_page->extractor($data, $i);						
+                        $about_page->extractor($data, $i);						
                         ?>
-                        <tr id="row_<?php echo $home_page->id(); ?>">
+                        <tr id="row_<?php echo $about_page->id(); ?>">
                               <td><i class="sort icon"></i></td>
-                              <td><?php echo $home_page->title(); ?></td>
+                              <td><?php echo $about_page->title(); ?></td>
                               <td>
                               	<div class="ui icon buttons">
-								<?php if (Sessions::checkUserPermission("mod_home_page", 3)) { ?>
-                             		<div class="mini ui button" onclick="edit(<?php echo $home_page->id(); ?>)"><i class="teal edit icon"></i></div>
+								<?php if (Sessions::checkUserPermission("mod_about_page", 3)) { ?>
+                             		<div class="mini ui button" onclick="edit(<?php echo $about_page->id(); ?>)"><i class="teal edit icon"></i></div>
                             	<?php } ?>
                          		</div>
                               </td>

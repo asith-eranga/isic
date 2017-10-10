@@ -81,9 +81,10 @@ require_once("../system/load.php");
                         </div>-->
 
                         <div class="ui dropdown item main-menu">
-                            Pages <i class="dropdown icon"></i>
+                            Content <i class="dropdown icon"></i>
                             <div class="menu">
-                              <a onclick="loadModule('mod_home_page')" class="item main-menu"><?php echo Default_ModManager::niceName('mod_home_page'); ?></a>
+                                <a onclick="loadModule('mod_home_page')" class="item main-menu"><?php echo Default_ModManager::niceName('mod_home'); ?></a>
+                                <a onclick="loadModule('mod_about_page')" class="item main-menu"><?php echo Default_ModManager::niceName('mod_about'); ?></a>
                             </div>
                         </div>
                         
