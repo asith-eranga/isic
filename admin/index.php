@@ -79,6 +79,13 @@ require_once("../system/load.php");
                                     <?php } ?>
                               </div>
                         </div>-->
+
+                        <div class="ui dropdown item main-menu">
+                            Pages <i class="dropdown icon"></i>
+                            <div class="menu">
+                              <a onclick="loadModule('mod_home_page')" class="item main-menu"><?php echo Default_ModManager::niceName('mod_home_page'); ?></a>
+                            </div>
+                        </div>
                         
                         <div class="ui dropdown item main-menu">
                             Tour Packages <i class="dropdown icon"></i>
@@ -140,7 +147,7 @@ require_once("../system/load.php");
                         <div class="sixteen wide column">
                               <?php if (Sessions::isAdminLogged()) { ?>
                                     <div id="ajax_breadcrumb" class="ui small breadcrumb">
-                                          <div class="active section">Home</div>
+                                          <div class="active section">Dashboard</div>
                                           <i class="right arrow icon divider"></i>
                                     </div>
                               <?php } ?>
