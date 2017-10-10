@@ -57,7 +57,7 @@ $status 		= $testimonials->getAllStatus();
 </script>
 
 <div class="thirteen wide column">
-  <h2 class="ui header"> <i class="star icon"></i>
+  <h2 class="ui header"> <i class="comments outline icon"></i>
     <div class="content"> Add Testimonial
       <div class="sub header">Add new testimonial</div>
     </div>

@@ -52,7 +52,7 @@ $pagination->makePagination();
 <div class="thirteen wide column">
 
       <h2 class="ui header">
-            <i class="certificate icon"></i>
+            <i class="building outline icon"></i>
             <div class="content">
                   Home Page Content
                   <div class="sub header">Manage home page content</div>

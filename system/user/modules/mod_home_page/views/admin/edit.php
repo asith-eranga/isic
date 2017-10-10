@@ -61,7 +61,7 @@ $(document).ready(function(){
 <div class="thirteen wide column">
 
 		<h2 class="ui header">
-		  <i class="certificate icon"></i>
+		  <i class="building outline icon"></i>
 		  <div class="content">
 		    Edit Home Page Content
 		    <div class="sub header">Edit home content</div>

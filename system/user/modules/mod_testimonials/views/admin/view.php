@@ -54,7 +54,7 @@ $pagination->makePagination();
 <div class="thirteen wide column">
 
       <h2 class="ui header">
-            <i class="star icon"></i>
+            <i class="comments outline icon"></i>
             <div class="content">
                   View Testimonials
                   <div class="sub header">Manage testimonials</div>

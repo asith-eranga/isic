@@ -63,7 +63,7 @@ $(document).ready(function(){
 <div class="thirteen wide column">
 
 		<h2 class="ui header">
-		  <i class="star icon"></i>
+		  <i class="comments outline icon"></i>
 		  <div class="content">
 		    Edit Testimonial
 		    <div class="sub header">Edit testimonial details</div>
