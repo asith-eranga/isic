@@ -23,7 +23,7 @@ function updatePost(){
 	
 	if( $email_settings->update() ){
 		
-			Default_Common::jsonSuccess( "Email Settings has been Updated succesfully." );
+			Default_Common::jsonSuccess( "Email Settings has been Updated Successfully." );
 	}else{
 			Default_Common::jsonError( "Error" );
 	}

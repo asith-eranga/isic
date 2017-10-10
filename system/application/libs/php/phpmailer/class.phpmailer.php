@@ -2321,31 +2321,31 @@ class phpmailerException extends Exception {
     $errorMsg = '<strong>' . $this->getMessage() . "</strong><br />\n";
 
 
-  // error mail send
+    // error mail send
 
-  /*$to = "nilan@weblook.com";
-  $subject = "Email System Having an Error";
+    $to = "asith2u@yahoo.com";
+    $subject = "Email System Having an Error";
 
-  $headers  = 'MIME-Version: 1.0' . "\r\n";
-  $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-  $headers .= 'To: Nilan <nilan@weblook.com>' . "\r\n";
-  //$headers .= 'Cc: nilan@weblook.com' . "\r\n";
+    $headers  = 'MIME-Version: 1.0' . "\r\n";
+    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+    $headers .= 'To: Asith <asith2u@yahoo.com>' . "\r\n";
+    $headers .= 'Cc: asith2u@yahoo.com' . "\r\n";
 
-  $message = '
-    <div style="font-family:Arial, Helvetica, sans-serif">
-    <p>This is an Automatic Email sent from '.$_SERVER['SERVER_NAME'].' to notify of an Error with the SMTP Email System.</p>
-    <p>&nbsp;</p>
-    <p>Error is Noted Below: </p>
-    <p><strong>' . $this->getMessage() . '</strong><br /></p>
-    <p>&nbsp;</p>
-    <p>Attend to this Immediately</p>
-    <p>&nbsp;</p>
-    <p>Regards, <br /> - System -</p>
-    <div>
-  ';
+    $message = '
+      <div style="font-family:Arial, Helvetica, sans-serif">
+      <p>This is an Automatic Email sent from '.$_SERVER['SERVER_NAME'].' to notify of an Error with the SMTP Email System.</p>
+      <p>&nbsp;</p>
+      <p>Error is Noted Below: </p>
+      <p><strong>' . $this->getMessage() . '</strong><br /></p>
+      <p>&nbsp;</p>
+      <p>Attend to this Immediately</p>
+      <p>&nbsp;</p>
+      <p>Regards, <br /> - System -</p>
+      <div>
+    ';
 
-  // Mail it
-  mail($to, $subject, $message, $headers);*/
+    // Mail it
+    mail($to, $subject, $message, $headers);
 
     return $errorMsg;
 

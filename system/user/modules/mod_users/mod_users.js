@@ -75,7 +75,6 @@ function add() {
 function addPost() {
 
       url_data = $("#data_form").serialize();
-      ;
 
       sendData("addPost", url_data, "../system/user/modules/" + MODULE_NAME + "/controller.php", function (res) {
 
@@ -111,7 +110,6 @@ function edit(id) {
 function updatePost() {
 
       url_data = $("#data_form").serialize();
-      ;
 
       sendData("updatePost", url_data, "../system/user/modules/" + MODULE_NAME + "/controller.php", function (res) {
 
@@ -137,8 +135,7 @@ function confirmDelete(id) {
                           doDelete(id);
                     }
               })
-              .modal('show')
-              ;
+              .modal('show');
 
 }
 
@@ -165,7 +162,6 @@ function doDelete(id) {
 function doLogin() {
 
       url_data = $("#login_form").serialize();
-      ;
 
       sendData("doLogin", url_data, "../system/user/modules/" + MODULE_NAME + "/controller.php", function (res) {
 

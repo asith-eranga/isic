@@ -16,7 +16,7 @@ require_once("../system/load.php");
             <link rel="stylesheet" type="text/css" href="../admin/ui/packaged/jquery.fancybox.css">
 
 <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>-->
-            <script src="../system/application/libs/js/jquery-2.1.1.min.js"></script>
+            <script src="../system/application/libs/js/jquery-3.2.1.min.js"></script>
             <script src="../admin/ui/packaged/semantic.js"></script>
             <script src="../admin/ui/packaged/tablesort.js"></script>
             <script src="../admin/ui/packaged/components/tab.js"></script>
@@ -79,6 +79,14 @@ require_once("../system/load.php");
                                     <?php } ?>
                               </div>
                         </div>-->
+
+                        <div class="ui dropdown item main-menu">
+                            Content <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <a onclick="loadModule('mod_home_page')" class="item main-menu"><?php echo Default_ModManager::niceName('mod_home'); ?></a>
+                                <a onclick="loadModule('mod_about_page')" class="item main-menu"><?php echo Default_ModManager::niceName('mod_about'); ?></a>
+                            </div>
+                        </div>
                         
                         <div class="ui dropdown item main-menu">
                             Tour Packages <i class="dropdown icon"></i>
@@ -140,7 +148,7 @@ require_once("../system/load.php");
                         <div class="sixteen wide column">
                               <?php if (Sessions::isAdminLogged()) { ?>
                                     <div id="ajax_breadcrumb" class="ui small breadcrumb">
-                                          <div class="active section">Home</div>
+                                          <div class="active section">Dashboard</div>
                                           <i class="right arrow icon divider"></i>
                                     </div>
                               <?php } ?>

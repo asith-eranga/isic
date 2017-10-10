@@ -167,7 +167,7 @@ function addRoom(){
 	$status     = $rate_plans->addRoom($_POST);
 	
 	if($status['no_allotments'] == 0 && $status['exceed_min_rooms'] == 0 && $status['exceed_exta_beds'] == 0 && $status['exceed_extra_children'] == 0){
-		Default_Common::jsonSuccess("Room has been added succesfully.");
+		Default_Common::jsonSuccess("Room has been added Successfully.");
 	}else{
 		if($status['no_allotments'] == 1){
 			Default_Common::jsonError("Sorry! Requested room is currently not available");

@@ -145,15 +145,13 @@ class Mod_Users extends Default_DBConnection implements Default_DBInterface {
       function insert() {
 
             $status = $this->MDatabase->insert($this->table_name, array(
-                "id" => $this->id(),
-                "type" => $this->type(),
+                "type" => 0,
                 "firstname" => $this->firstname(),
                 "lastname" => $this->lastname(),
                 "user_permission" => $this->userPermission(),
                 "username" => $this->username(),
                 "password" => md5($this->password()),
-                "email" => $this->email(),
-                "last_login" => $this->lastLogin()
+                "email" => $this->email()
             ));
 
             return $status;
@@ -164,7 +162,7 @@ class Mod_Users extends Default_DBConnection implements Default_DBInterface {
             if ($this->password() != "") {
 
                   $status = $this->MDatabase->update($this->table_name, array(
-                      "type" => $this->type(),
+                      "type" => 0,
                       "firstname" => $this->firstname(),
                       "lastname" => $this->lastname(),
                       "user_permission" => $this->userPermission(),
@@ -175,7 +173,7 @@ class Mod_Users extends Default_DBConnection implements Default_DBInterface {
             } else {
 
                   $status = $this->MDatabase->update($this->table_name, array(
-                      "type" => $this->type(),
+                      "type" => 0,
                       "firstname" => $this->firstname(),
                       "lastname" => $this->lastname(),
                       "user_permission" => $this->userPermission(),

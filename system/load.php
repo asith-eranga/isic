@@ -1,7 +1,6 @@
 <?php
 
 /**
- * Weblook Framework ( http://www.weblook.com/ )
  * 
  * include this file to any file that needs to use the framework
  * handles all the loading and initial startup functions of the framework.
