@@ -1,10 +1,10 @@
 <?php
-$home_page = new Mod_HomePage();
-$home_page->setId($_POST['id']);
-$bt_data   = $home_page->getById();
-$home_page->extractor($bt_data);
+$about_page = new Mod_AboutPage();
+$about_page->setId($_POST['id']);
+$bt_data   = $about_page->getById();
+$about_page->extractor($bt_data);
 
-$data		= $home_page->selectAll();
+$data		= $about_page->selectAll();
 ?>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -63,8 +63,8 @@ $(document).ready(function(){
 		<h2 class="ui header">
 		  <i class="certificate icon"></i>
 		  <div class="content">
-		    Edit Home Page Content
-		    <div class="sub header">Edit home content</div>
+		    Edit About Page Content
+		    <div class="sub header">Edit about content</div>
 		  </div>
 		</h2>
 
@@ -75,20 +75,20 @@ $(document).ready(function(){
 	  <div class="ui error message"></div>
 	  <div id="form_submit_msg" class="ui green message"><i class="ok sign icon"></i></div>
 
-      <input type="hidden" id="id" name="id" value="<?php echo $home_page->id(); ?>" />
+      <input type="hidden" id="id" name="id" value="<?php echo $about_page->id(); ?>" />
       
       <div class="field">
         <label>Title</label>
-        <input placeholder="Name" id="title" name="title" type="text" value="<?php echo $home_page->title(); ?>">
+        <input placeholder="Name" id="title" name="title" type="text" value="<?php echo $about_page->title(); ?>">
       </div>
       
       <div class="field">
         <label>Description</label>
-        <textarea cols="80" rows="5" placeholder="Add Description" id="description" name="description"><?php echo $home_page->description(); ?></textarea>
+        <textarea cols="80" rows="5" placeholder="Add Description" id="description" name="description"><?php echo $about_page->description(); ?></textarea>
       </div>
       
       <div class="fields" id="image_preview_wrapper">
-	  	<input type="hidden" id="image" name="image" value="<?php echo $home_page->image(); ?>"/>
+	  	<input type="hidden" id="image" name="image" value="<?php echo $about_page->image(); ?>"/>
 	     <div class="six wide field">
 	     	<label>Image</label>
 	    	<input placeholder="Select Image" name="selected_file" id="selected_file" type="text" readonly>
