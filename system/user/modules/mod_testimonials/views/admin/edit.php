@@ -1,11 +1,11 @@
 <?php
-$standard_tours = new Mod_StandardTours();
-$standard_tours->setId($_POST['id']);
-$bt_data   = $standard_tours->getById();
-$standard_tours->extractor($bt_data);
+$testimonials = new Mod_Testimonials();
+$testimonials->setId($_POST['id']);
+$bt_data   = $testimonials->getById();
+$testimonials->extractor($bt_data);
 
-$data		= $standard_tours->selectAll();
-$status     = $standard_tours->getAllStatus();
+$data		= $testimonials->selectAll();
+$status     = $testimonials->getAllStatus();
 
 ?>
 <script type="text/javascript">
@@ -18,7 +18,7 @@ $(document).ready(function(){
 			rules: [
 				{
 					type: 'empty',
-					prompt: 'Please enter room type name'
+					prompt: 'Please enter testimonial name'
 				}
 			]
 		},				
@@ -27,7 +27,7 @@ $(document).ready(function(){
 			rules: [
 				{
 					type: 'empty',
-					prompt: 'Please enter room type content'
+					prompt: 'Please enter testimonial content'
 				}
 			]
 		},
@@ -65,8 +65,8 @@ $(document).ready(function(){
 		<h2 class="ui header">
 		  <i class="star icon"></i>
 		  <div class="content">
-		    Edit Standard Tour
-		    <div class="sub header">Edit standard tour</div>
+		    Edit Testimonial
+		    <div class="sub header">Edit testimonial details</div>
 		  </div>
 		</h2>
 
@@ -77,20 +77,20 @@ $(document).ready(function(){
 	  <div class="ui error message"></div>
 	  <div id="form_submit_msg" class="ui green message"><i class="ok sign icon"></i></div>
 
-      <input type="hidden" id="id" name="id" value="<?php echo $standard_tours->id(); ?>" />
+      <input type="hidden" id="id" name="id" value="<?php echo $testimonials->id(); ?>" />
       
       <div class="field">
         <label>Name</label>
-        <input placeholder="Name" id="name" name="name" type="text" value="<?php echo $standard_tours->name(); ?>">
+        <input placeholder="Name" id="name" name="name" type="text" value="<?php echo $testimonials->name(); ?>">
       </div>
       
       <div class="field">
         <label>Description</label>
-        <textarea cols="80" rows="5" placeholder="Add Description" id="description" name="description"><?php echo $standard_tours->description(); ?></textarea>
+        <textarea cols="80" rows="5" placeholder="Add Description" id="description" name="description"><?php echo $testimonials->description(); ?></textarea>
       </div>
       
       <div class="fields" id="image_preview_wrapper">
-	  	<input type="hidden" id="image" name="image" value="<?php echo $standard_tours->image(); ?>"/>
+	  	<input type="hidden" id="image" name="image" value="<?php echo $testimonials->image(); ?>"/>
 	     <div class="six wide field">
 	     	<label>Image</label>
 	    	<input placeholder="Select Image" name="selected_file" id="selected_file" type="text" readonly>
@@ -110,8 +110,8 @@ $(document).ready(function(){
 	    <label>Status</label>
        
         <div class="ui selection dropdown">
-          <input type="hidden" id="status" name="status" value="<?php echo $standard_tours->status(); ?>">
-          <div class="default text"><?php echo $status[$standard_tours->status()]; ?></div>
+          <input type="hidden" id="status" name="status" value="<?php echo $testimonials->status(); ?>">
+          <div class="default text"><?php echo $status[$testimonials->status()]; ?></div>
           <i class="dropdown icon"></i>
           <div class="menu ui transition hidden">
           <?php 

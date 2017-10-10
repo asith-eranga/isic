@@ -87,11 +87,14 @@ require_once("../system/load.php");
                                 <a onclick="loadModule('mod_about_page')" class="item main-menu"><?php echo Default_ModManager::niceName('mod_about'); ?></a>
                             </div>
                         </div>
+
+                        <a class="item" onclick="loadModule('mod_testimonials')" >
+                            <i class="comment outline icon"></i> <?php echo Default_ModManager::niceName('mod_testimonials'); ?>
+                        </a>
                         
                         <div class="ui dropdown item main-menu">
                             Tour Packages <i class="dropdown icon"></i>
                             <div class="menu">
-                            	<a onclick="loadModule('mod_standard_tours')" class="item main-menu"><i class="star icon"></i> <?php echo Default_ModManager::niceName('mod_standard_tours'); ?></a>
                                 <a onclick="loadModule('mod_special_tours')" class="item main-menu"><i class="certificate icon"></i> <?php echo Default_ModManager::niceName('mod_special_tours'); ?></a>
                             </div>
                         </div>

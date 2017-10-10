@@ -1,15 +1,15 @@
 <?php
-$standard_tours = new Mod_StandardTours();
+$testimonials = new Mod_Testimonials();
 
 if (isset($_POST['search_text'])) {
-      $data = $standard_tours->searchPaginated($_POST['search_text'], $_POST['page']);
-      $count = $standard_tours->searchCount($_POST['search_text']);
+      $data = $testimonials->searchPaginated($_POST['search_text'], $_POST['page']);
+      $count = $testimonials->searchCount($_POST['search_text']);
 } else {
-      $data = $standard_tours->selectAllPaginated($_POST['page']);
-      $count = $standard_tours->selectAllCount();
+      $data = $testimonials->selectAllPaginated($_POST['page']);
+      $count = $testimonials->selectAllCount();
 }
 
-$status = $standard_tours->getAllStatus();
+$status = $testimonials->getAllStatus();
 
 $pagination = new Default_Pagination();
 $pagination->setLimit(30);
@@ -38,7 +38,7 @@ $pagination->makePagination();
 								  serial += '&thisid=' + $(this);
 
 								  $.ajax({
-										url: "../system/user/modules/mod_standard_tours/controller.php",
+										url: "../system/user/modules/mod_testimonials/controller.php",
 										type: "post",
 										data: serial,
 										error: function () {
@@ -56,8 +56,8 @@ $pagination->makePagination();
       <h2 class="ui header">
             <i class="star icon"></i>
             <div class="content">
-                  View Standard Tours
-                  <div class="sub header">Manage standard tours</div>
+                  View Testimonials
+                  <div class="sub header">Manage testimonials</div>
             </div>
       </h2>
 
@@ -65,8 +65,8 @@ $pagination->makePagination();
 
       <div class="ui divider"></div>
 
-      <?php if (Sessions::checkUserPermission("mod_standard_tours", 2)) { ?>
-            <a class="ui small black labeled icon button" onclick="add()"><i class="add icon"></i>Add Standard Tour</a>
+      <?php if (Sessions::checkUserPermission("mod_testimonials", 2)) { ?>
+            <a class="ui small black labeled icon button" onclick="add()"><i class="add icon"></i>Add Testimonial</a>
       <?php } ?>
 
       <table id="ajax_module_sub" class="ui small table segment">
@@ -82,19 +82,19 @@ $pagination->makePagination();
             <tbody id="sortTable">
                   <?php
                   for ($i = 0; $i < count($data); $i++) {
-                        $standard_tours->extractor($data, $i);						
+                        $testimonials->extractor($data, $i);						
                         ?>
-                        <tr id="row_<?php echo $standard_tours->id(); ?>">
+                        <tr id="row_<?php echo $testimonials->id(); ?>">
                               <td><i class="sort icon"></i></td>
-                              <td><?php echo $standard_tours->name(); ?></td>
-                              <td><?php echo $standard_tours->sortOrder(); ?></td>                             
-                              <td><?php echo $status[$standard_tours->status()]; ?></td>
+                              <td><?php echo $testimonials->name(); ?></td>
+                              <td><?php echo $testimonials->sortOrder(); ?></td>                             
+                              <td><?php echo $status[$testimonials->status()]; ?></td>
                               <td>
                               	<div class="ui icon buttons">
-								<?php if (Sessions::checkUserPermission("mod_standard_tours", 3)) { ?>
-                             		<div class="mini ui button" onclick="edit(<?php echo $standard_tours->id(); ?>)"><i class="teal edit icon"></i></div>
-                         		<?php } if (Sessions::checkUserPermission("mod_standard_tours", 4)) { ?>
-                               		<div class="mini ui button" onclick="confirmDelete(<?php echo $standard_tours->id(); ?>)"><i class="red remove icon"></i></div>
+								<?php if (Sessions::checkUserPermission("mod_testimonials", 3)) { ?>
+                             		<div class="mini ui button" onclick="edit(<?php echo $testimonials->id(); ?>)"><i class="teal edit icon"></i></div>
+                         		<?php } if (Sessions::checkUserPermission("mod_testimonials", 4)) { ?>
+                               		<div class="mini ui button" onclick="confirmDelete(<?php echo $testimonials->id(); ?>)"><i class="red remove icon"></i></div>
                             	<?php } ?>
                          		</div>
                               </td>
