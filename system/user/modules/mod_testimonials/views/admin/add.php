@@ -1,6 +1,6 @@
 <?php 
-$standard_tours	= new Mod_StandardTours();
-$status 		= $standard_tours->getAllStatus();
+$testimonials	= new Mod_Testimonials();
+$status 		= $testimonials->getAllStatus();
 ?>
 <script type="text/javascript">
 	$(document).ready(function () {
@@ -30,7 +30,7 @@ $status 		= $standard_tours->getAllStatus();
 					rules: [
 						{
 							type: 'empty',
-							prompt: 'Please enter room type name'
+							prompt: 'Please enter testimonial name'
 						}
 					]
 				},				
@@ -39,7 +39,7 @@ $status 		= $standard_tours->getAllStatus();
 					rules: [
 						{
 							type: 'empty',
-							prompt: 'Please enter room type content'
+							prompt: 'Please enter testimonial content'
 						}
 					]
 				},
@@ -57,9 +57,9 @@ $status 		= $standard_tours->getAllStatus();
 </script>
 
 <div class="thirteen wide column">
-  <h2 class="ui header"> <i class="star icon"></i>
-    <div class="content"> Add Standard Tour
-      <div class="sub header">Add new standard tour</div>
+  <h2 class="ui header"> <i class="comments outline icon"></i>
+    <div class="content"> Add Testimonial
+      <div class="sub header">Add new testimonial</div>
     </div>
   </h2>
   <div class="ui small form segment">

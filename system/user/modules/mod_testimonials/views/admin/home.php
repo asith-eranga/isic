@@ -2,18 +2,18 @@
 
 $views = new Default_Views();
 
-$views->setModule('standard_tours');
+$views->setModule('testimonials');
 
 $views->loadAppLibs('js/tinymce/tinymce.min.js'); 
 
-$views->loadFile('mod_standard_tours.js',true); 
+$views->loadFile('mod_testimonials.js',true); 
 
 $views->load('admin/sidenav','',true); ?>
 
 <div id="ajax_module_sub" class="thirteen wide column">
 
 <?php
- Sessions::checkUserPermission("mod_standard_tours",1);
+ Sessions::checkUserPermission("mod_testimonials",1);
 ?>
 
 </div>

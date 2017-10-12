@@ -1,4 +1,4 @@
-MODULE_NAME = "mod_standard_tours";
+MODULE_NAME = "mod_testimonials";
 
 $(document).ready(function(){
 
@@ -9,7 +9,7 @@ $(document).ready(function(){
 
 	});
 
-	setModuleBreadCrumb(new Array("Home","Modules","Standard Tours"));
+	setModuleBreadCrumb(new Array("Dashboard", "Testimonials"));
 
 	_page_hash = getPageHashValue("nav");
 

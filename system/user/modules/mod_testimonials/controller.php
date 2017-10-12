@@ -38,11 +38,11 @@ function load() {
 
       // create table if not exsists
       require_once(dirname(__FILE__) . '/helper.php');
-      $standard_tours = new Mod_StandardTours();
-      $standard_tours->createTable();
+      $testimonials = new Mod_Testimonials();
+      $testimonials->createTable();
 
       $views = new Default_Views();
-      $views->setModule('standard_tours');
+      $views->setModule('testimonials');
 
       //load default view
       if (!Sessions::isAdminLogged()) {
@@ -58,7 +58,7 @@ function view() {
       require_once(dirname(__FILE__) . '/helper.php');
 
       $views = new Default_Views();
-      $views->setModule('standard_tours');
+      $views->setModule('testimonials');
 
       $views->load('admin/view', '', true);
 }
@@ -68,7 +68,7 @@ function add() {
       require_once(dirname(__FILE__) . '/helper.php');
 
       $views = new Default_Views();
-      $views->setModule('standard_tours');
+      $views->setModule('testimonials');
       $views->load('admin/add', '', true);
 }
 
@@ -76,18 +76,18 @@ function addPost() {
 
       require_once(dirname(__FILE__) . '/helper.php');
 
-      $standard_tours = new Mod_StandardTours();
+      $testimonials = new Mod_Testimonials();
 
-      $standard_tours->setValues($_POST);
-	  $standard_tours->setSortOrder($standard_tours->nextOrderValue());
-      $standard_tours->setCreatedBy(Sessions::getAdminId());
-      $standard_tours->setCreatedDate(time());
+      $testimonials->setValues($_POST);
+	  $testimonials->setSortOrder($testimonials->nextOrderValue());
+      $testimonials->setCreatedBy(Sessions::getAdminId());
+      $testimonials->setCreatedDate(time());
 
-      if ($standard_tours->insert()) {
+      if ($testimonials->insert()) {
             $activity_log = new ActivityLog();
-            $activity_log->newLogRecord("mod_standard_tours", "add", "New Standard tour has been added successfully");
+            $activity_log->newLogRecord("mod_testimonials", "add", "New Testimonial has been added successfully");
 
-            Default_Common::jsonSuccess("New Standard tour has been added successfully.");
+            Default_Common::jsonSuccess("New Testimonial has been added successfully.");
       } else {
             Default_Common::jsonError("Error");
       }
@@ -98,7 +98,7 @@ function edit() {
       require_once(dirname(__FILE__) . '/helper.php');
 
       $views = new Default_Views();
-      $views->setModule('standard_tours');
+      $views->setModule('testimonials');
       $views->load('admin/edit', '', true);
 }
 
@@ -106,19 +106,19 @@ function updatePost() {
 
       require_once(dirname(__FILE__) . '/helper.php');
 
-      $standard_tours = new Mod_StandardTours();
+      $testimonials = new Mod_Testimonials();
 
-      $standard_tours->setValues($_POST);
+      $testimonials->setValues($_POST);
 
-      $standard_tours->setModifiedBy(Sessions::getAdminId());
-      $standard_tours->setModifiedDate(time());
+      $testimonials->setModifiedBy(Sessions::getAdminId());
+      $testimonials->setModifiedDate(time());
 
-      if ($standard_tours->update()) {
+      if ($testimonials->update()) {
 
             $activity_log = new ActivityLog();
-            $activity_log->newLogRecord("mod_standard_tours", "edit", "Standard tour Details has been Updated successfully.");
+            $activity_log->newLogRecord("mod_testimonials", "edit", "Testimonial Details has been Updated successfully.");
 
-            Default_Common::jsonSuccess("Standard tour Details has been Updated successfully.");
+            Default_Common::jsonSuccess("Testimonial Details has been Updated successfully.");
       } else {
             Default_Common::jsonError("Error");
       }
@@ -128,16 +128,16 @@ function doDelete() {
 
       require_once(dirname(__FILE__) . '/helper.php');
 
-      $standard_tours = new Mod_StandardTours();
+      $testimonials = new Mod_Testimonials();
 
-      $standard_tours->setId($_POST['id']);
+      $testimonials->setId($_POST['id']);
 
-      if ($standard_tours->delete()) {
+      if ($testimonials->delete()) {
 
             $activity_log = new ActivityLog();
-            $activity_log->newLogRecord("mod_standard_tours", "delete", "Standard tour Deleted successfully.");
+            $activity_log->newLogRecord("mod_testimonials", "delete", "Testimonial Deleted successfully.");
 
-            Default_Common::jsonSuccess("Standard tour Deleted successfully.");
+            Default_Common::jsonSuccess("Testimonial Deleted successfully.");
       } else {
             Default_Common::jsonError("Error");
       }
@@ -147,10 +147,10 @@ function sortTable() {
       require_once(dirname(__FILE__) . '/helper.php');
       foreach ($_POST['row'] as $position => $item) {
 
-            $standard_tours = new Mod_StandardTours();
-            $standard_tours->setSortOrder($position);
-            $standard_tours->setId($item);
-            $standard_tours->updateSortOrder();
+            $testimonials = new Mod_Testimonials();
+            $testimonials->setSortOrder($position);
+            $testimonials->setId($item);
+            $testimonials->updateSortOrder();
       }
 }
 

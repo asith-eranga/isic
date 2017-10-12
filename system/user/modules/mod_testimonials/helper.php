@@ -1,6 +1,6 @@
 <?php
 
-class Mod_StandardTours extends Default_DBConnection implements Default_DBInterface {
+class Mod_Testimonials extends Default_DBConnection implements Default_DBInterface {
 
       private $id;
 	  private $name;
@@ -12,7 +12,7 @@ class Mod_StandardTours extends Default_DBConnection implements Default_DBInterf
       private $created_date;
       private $modified_by;
       private $modified_date;
-      private $table_name = "standard_tours";
+      private $table_name = "testimonials";
 
       function id() {
             return $this->id;
@@ -153,16 +153,13 @@ class Mod_StandardTours extends Default_DBConnection implements Default_DBInterf
       function insert() {
 
             $status = $this->MDatabase->insert($this->table_name, array(
-                "id" => $this->id(),
                 "name" => $this->name(),
                 "image" => $this->image(),
                 "description" => $this->description(),
 				"sort_order" => $this->sortOrder(),
                 "status" => $this->status(),
                 "created_by" => $this->createdBy(),
-                "created_date" => $this->createdDate(),
-                "modified_by" => $this->modifiedBy(),
-                "modified_date" => $this->modifiedDate()
+                "created_date" => $this->createdDate()
             ));
 
             return $status;
@@ -171,7 +168,6 @@ class Mod_StandardTours extends Default_DBConnection implements Default_DBInterf
       function update() {
 
             $status = $this->MDatabase->update($this->table_name, array(
-                "id" => $this->id(),
                 "name" => $this->name(),
                 "image" => $this->image(),
                 "description" => $this->description(),
@@ -198,8 +194,7 @@ class Mod_StandardTours extends Default_DBConnection implements Default_DBInterf
 
       function createTable() {
 
-            $sql = '
-					CREATE TABLE IF NOT EXISTS `standard_tours` (
+            $sql = 'CREATE TABLE IF NOT EXISTS `testimonials` (
 					`id` INT(11) NOT NULL AUTO_INCREMENT,
 					`name` VARCHAR(200) NULL DEFAULT NULL,
 					`image` VARCHAR(500) NULL DEFAULT NULL,
@@ -215,13 +210,13 @@ class Mod_StandardTours extends Default_DBConnection implements Default_DBInterf
 				  )
 				  AUTO_INCREMENT=1;';
 
-            $status = $this->MDatabase->customNoResults($sql);
+            $this->MDatabase->customNoResults($sql);
       }
 
       function getAllStatus() {
 
             $variable_manager = new VariableManager();
-            $data = $variable_manager->getVariableValue("mod_standard_tours_status", array("value" => "Disable,Enable", "mod_name" => "mod_standard_tours"));
+            $data = $variable_manager->getVariableValue("mod_testimonials_status", array("value" => "Disable,Enable", "mod_name" => "mod_testimonials"));
 
             return explode(",", $data);
       }
