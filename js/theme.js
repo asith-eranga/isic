@@ -8,7 +8,7 @@ var publisher_theme_global_loc = {
                 "style": "style-1",
                 "boxed": "boxed"
             },
-            "ajax_url": "http:\/\/localhost\/wordpress\/wp-admin\/admin-ajax.php",
+            "ajax_url": "p",
             "loading": "<div class=\"bs-loading\"><div><\/div><div><\/div><div><\/div><div><\/div><div><\/div><div><\/div><div><\/div><div><\/div><div><\/div><\/div>",
             "translations": {
                 "tabs_all": "All",

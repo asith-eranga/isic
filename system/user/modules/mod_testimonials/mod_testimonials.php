@@ -6,7 +6,7 @@ require_once(dirname(__FILE__).'/helper.php');
 
 $views = new Default_Views();
 
-$views->setModule('standard_tours');
+$views->setModule('testimonials');
 
 $views->load('admin/home','','true');
 

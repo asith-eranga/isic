@@ -68,7 +68,7 @@ require_once("../system/load.php");
 
                   <div class="ui blue menu">
                         <a class="active item main-menu home-btn" onclick="adminLoadNav('home')">
-                              <i class="home inverted icon"></i> 
+                              <i class="dashboard inverted icon"></i>
                         </a>
 
                         <!--<div class="ui dropdown item">
@@ -83,15 +83,24 @@ require_once("../system/load.php");
                         <div class="ui dropdown item main-menu">
                             Content <i class="dropdown icon"></i>
                             <div class="menu">
-                                <a onclick="loadModule('mod_home_page')" class="item main-menu"><?php echo Default_ModManager::niceName('mod_home'); ?></a>
-                                <a onclick="loadModule('mod_about_page')" class="item main-menu"><?php echo Default_ModManager::niceName('mod_about'); ?></a>
+                                <a onclick="loadModule('mod_home_page')" class="item main-menu">
+                                    <i class="building outline icon"></i>
+                                    <?php echo Default_ModManager::niceName('mod_home'); ?>
+                                </a>
+                                <a onclick="loadModule('mod_about_page')" class="item main-menu">
+                                    <i class="newspaper outline icon"></i>
+                                    <?php echo Default_ModManager::niceName('mod_about'); ?>
+                                </a>
                             </div>
                         </div>
+
+                        <a class="item" onclick="loadModule('mod_testimonials')" >
+                            <i class="comments outline icon"></i> <?php echo Default_ModManager::niceName('mod_testimonials'); ?>
+                        </a>
                         
                         <div class="ui dropdown item main-menu">
                             Tour Packages <i class="dropdown icon"></i>
                             <div class="menu">
-                            	<a onclick="loadModule('mod_standard_tours')" class="item main-menu"><i class="star icon"></i> <?php echo Default_ModManager::niceName('mod_standard_tours'); ?></a>
                                 <a onclick="loadModule('mod_special_tours')" class="item main-menu"><i class="certificate icon"></i> <?php echo Default_ModManager::niceName('mod_special_tours'); ?></a>
                             </div>
                         </div>
