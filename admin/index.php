@@ -97,6 +97,10 @@ require_once("../system/load.php");
                         <a class="item" onclick="loadModule('mod_testimonials')" >
                             <i class="comments outline icon"></i> <?php echo Default_ModManager::niceName('mod_testimonials'); ?>
                         </a>
+
+                        <a class="item" onclick="adminLoadNav('site-details')" >
+                            <i class="browser icon"></i> Site Details
+                        </a>
                         
                         <div class="ui dropdown item main-menu">
                             Tour Packages <i class="dropdown icon"></i>
