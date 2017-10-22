@@ -12,7 +12,7 @@
             <div class="">
                 <nav class="main-menu-container">
                     <ul id="main-navigation" class="main-menu menu bsm-pure clearfix">
-                        <li class="menu-item menu-item-object-page better-anim-fade "><a href="<?php  echo HTTP_PATH; ?>">Home</a></li>
+                        <li class="menu-item menu-item-object-page better-anim-fade current-menu-item current_page_item "><a href="<?php  echo HTTP_PATH; ?>">Home</a></li>
                         <li class="menu-item menu-item-object-page "><a href="<?php echo HTTP_PATH; ?>about">About</a></li>
                         <li  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children ">
                             <a href="<?php echo HTTP_PATH; ?>cards">Cards</a>
@@ -22,7 +22,7 @@
                                 <li class="menu-item  better-anim-fade "><a href="#">Teachers</a></li>
                             </ul>
                         </li>
-                        <li  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children current-menu-item current_page_item ">
+                        <li  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children">
                             <a href="<?php echo HTTP_PATH; ?>discount">Discounts</a>
                             <ul class="sub-menu">
                                 <li class="menu-item menu-item-object-page current-menu-item current_page_item better-anim-fade "><a href="#">Flights</a></li>

@@ -12,7 +12,7 @@
             <span class="menu-handler"><span class="lines"></span></span>
         </div>
         <div class="logo-container">
-            <a href="#" itemprop="url" rel="home">
+            <a href="<?php echo HTTP_PATH; ?>" itemprop="url" rel="home">
                 <img src="<?php echo HTTP_PATH; ?>images/isic2_logo.png" alt="" />
             </a>
         </div>

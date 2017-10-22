@@ -70,7 +70,7 @@
         <div class="container">
             <div id="site-branding" class="site-branding">
                 <h1 id="site-title" class="logo h1 img-logo">
-                    <a href="#" rel="home">
+                    <a href="<?php echo HTTP_PATH; ?>" rel="home">
                         <img id="logo" src="<?php echo HTTP_PATH; ?>images/isic2_logo.png"
                              alt="isic logo"  />
 
