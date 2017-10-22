@@ -18,24 +18,19 @@ defined( '_MEXEC' ) or die( 'Restricted access' );
 $protocol_url = explode("/",$_SERVER["SERVER_PROTOCOL"]);
 $ori_uri = explode("/",$_SERVER["REQUEST_URI"]);
 
-
-$GLOBAL_SETTINGS = array(
+$GLOBAL_SETTINGS = [
 	'HTTP_PATH' => 'http://localhost/isic/',
-	'DOC_ROOT' => '',
-
+	'DOC_ROOT' => 'C:/wamp64/www/isic/',
 	'DB_HOST' => 'localhost',
 	'DB_USER' => 'root',
 	'DB_PASSWORD' => '',
 	'DB_NAME' => 'isic',
-);
+];
 
-$ADMIN_SETTINGS = array(
-'NAV_SHORTCUTS' => 'mod_users',
-'FILEMANAGER_CURRENT_PATH' => '../../../../../../../uploads/'
-);
+$ADMIN_SETTINGS = [
+    'NAV_SHORTCUTS' => 'mod_users',
+    'FILEMANAGER_CURRENT_PATH' => '../../../../../../../uploads/'
+];
 
 #-- Set time zone --
 date_default_timezone_set('Asia/Colombo');
-
-
-?>
