@@ -2221,7 +2221,7 @@ ul.menu.bsm-initialized li.menu-item-has-children.better-anim-buzz.bsm-enter>.su
 .main-menu>li>a {
     line-height: 48px;
     display: inline-block;
-    padding: 0 12px
+    padding: 0 10px
 }
 
 .main-menu .sub-menu>li>a {
@@ -2230,8 +2230,8 @@ ul.menu.bsm-initialized li.menu-item-has-children.better-anim-buzz.bsm-enter>.su
 }
 
 .main-menu.menu>li .sub-menu {
-    width: 210px;
-    background-color: #FFF;
+    width: auto;
+    background-color: #026868;
     -webkit-box-shadow: 0 7px 7px rgba(0, 0, 0, .15);
     -moz-box-shadow: 0 7px 7px rgba(0, 0, 0, .15);
     box-shadow: 0 7px 7px rgba(0, 0, 0, .15)
@@ -2239,17 +2239,33 @@ ul.menu.bsm-initialized li.menu-item-has-children.better-anim-buzz.bsm-enter>.su
 
 .main-menu.menu .sub-menu li>a {
     line-height: 1.7;
-    padding: 8px 16px
+    padding: 2px 14px
 }
 
 .main-menu.menu .sub-menu>li {
-    position: relative
+    position: relative;
+    display: inline-block;
+	
 }
 
 .main-menu.menu .sub-menu>li,
 .main-menu.menu .sub-menu>li>a {
-    color: #434343
+    color: #000;
+	    text-transform: uppercase !important;
 }
+ .main-menu.menu li.current-menu-item>a{color: #026868 !important;}
+ .main-menu.menu .sub-menu li.current-menu-item>a{color: #fff !important;}
+ .main-menu.menu .sub-menu>li:after{
+	content: '';
+    height: 15px;
+    width: 2px;
+    position: absolute;
+    top: 6px;
+    background: #000000;
+ }
+  .main-menu.menu .sub-menu>li:first-child:after{
+	  content:none;
+  }
 
 .main-menu.menu .sub-menu li.current-menu-item:hover>a,
 .main-menu.menu .sub-menu>li:hover>a {
@@ -2591,8 +2607,10 @@ body.boxed .site-header .main-menu-wrapper {
 .menu .mega-menu,
 ul.menu>li .sub-menu {
     top: 107%;
-    top: calc(100% + 3px)
+    top: -20px
 }
+
+
 
 .site-header.header-style-5 .search-container .search-handler,
 .site-header.header-style-8 .search-container .search-handler {
@@ -6087,6 +6105,25 @@ body.bs-ll-d .listing-mg-type-1 .img-cont {
     vertical-align: middle;
 }
 
+.border-bottom >div >a {
+	width: 83.33333333%;
+    margin: auto;
+    display: block;
+    padding: 0 15px;
+    letter-spacing: 3px;
+    font-size: 15px;
+}
+.border-bottom >div:after{
+	 content: '';
+    background: black;
+    position: absolute;
+    width: 100%;
+    height: 1px;
+	bottom: 0;
+}
+.border-bottom >div >a:hover,.bg-green.spec .txt-white:hover{
+	color: #f0ff00;
+}
 @media only screen and (max-width:780px) {
 	.site-header .menu-action-buttons {
     position: relative;
@@ -6262,3 +6299,4 @@ ol, ul {
     padding-top: 30px;
     position: relative;
 }
+
