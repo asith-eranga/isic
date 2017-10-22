@@ -30,23 +30,7 @@
             <?php include_once(DOC_ROOT . 'partials/card.php'); ?>
             <?php include(DOC_ROOT . 'partials/main-menu.php'); ?>
         </header>
-
-        <div class="rh-header clearfix light deferred-block-exclude">
-            <div class="rh-container clearfix">
-
-                <div class="menu-container close">
-                    <span class="menu-handler"><span class="lines"></span></span>
-                </div>
-
-                <div class="logo-container">
-                    <a href="#" itemprop="url" rel="home">
-                        <img src="images/isic2_logo.png" alt="" /> </a>
-                </div>
-
-            </div>
-
-        </div>
-
+        <?php include(DOC_ROOT . 'partials/mobile-logo.php'); ?>
         <div class="content-wrap">
             <main id="content" class="content-container dis-flex">
                 <div class="col-md-9 col-xs-12 layout-1-col layout-no-sidebar layout-bc-before no-padd">
@@ -60,7 +44,7 @@
                                             <div class="item-3-cont">
                                                 <article class="type-post format-standard has-post-thumbnail  listing-item-3 listing-item listing-mg-item listing-mg-type-1 listing-mg-1-item main-term-2">
                                                     <div class="item-content">
-                                                        <a title="See how the fashion world was influenced by Prince’s Legendary" data-src="images/img-1.jpg" class="img-cont" href="#"></a>
+                                                        <a title="See how the fashion world was influenced by Prince’s Legendary" data-src="<?php echo HTTP_PATH; ?>images/img-1.jpg" class="img-cont" href="#"></a>
 
                                                     </div>
                                                 </article>
@@ -68,7 +52,7 @@
                                             <div class="item-4-cont">
                                                 <article class="type-post format-standard has-post-thumbnail  listing-item-4 listing-item listing-mg-item listing-mg-type-1 listing-mg-1-item main-term-3">
                                                     <div class="item-content">
-                                                        <a title="..." data-src="images/img-2.jpg" class="img-cont" href="#"></a>
+                                                        <a title="..." data-src="<?php echo HTTP_PATH; ?>images/img-2.jpg" class="img-cont" href="#"></a>
 
                                                     </div>
                                                 </article>
@@ -77,7 +61,7 @@
                                         <div class="mg-row mg-row-2">
                                             <article class="type-post format-standard has-post-thumbnail  listing-item-2 listing-item listing-mg-item listing-mg-type-1 listing-mg-1-item main-term-2">
                                                 <div class="item-content">
-                                                    <a title="..." data-src="images/img-4.jpg" class="img-cont" href="#"></a>
+                                                    <a title="..." data-src="<?php echo HTTP_PATH; ?>images/img-4.jpg" class="img-cont" href="#"></a>
                                                     <span class="format-icon format-audio"><i class="fa fa-eye"></i></span>
 
                                                     <div class="content-container">
@@ -100,7 +84,7 @@ members control over their health is paramount ....</span>
                                     <div class="mg-col mg-col-1">
                                         <article class="type-post format-standard has-post-thumbnail  listing-item-1 listing-item listing-mg-item listing-mg-type-1 listing-mg-1-item main-term-4">
                                             <div class="item-content">
-                                                <a title="..." data-src="images/img-3.jpg" class="img-cont " href="#"></a>
+                                                <a title="..." data-src="<?php echo HTTP_PATH; ?>images/img-3.jpg" class="img-cont " href="#"></a>
 
                                             </div>
                                         </article>
@@ -109,7 +93,7 @@ members control over their health is paramount ....</span>
                                         <div class="item-3-cont">
                                             <article class="type-post format-standard has-post-thumbnail  listing-item-5 listing-item listing-mg-item listing-mg-type-1 listing-mg-1-item main-term-2">
                                                 <div class="item-content">
-                                                    <a title="See how the fashion world was influenced by Prince’s Legendary" data-src="images/img-5.jpg" class="img-cont " href="#"></a>
+                                                    <a title="See how the fashion world was influenced by Prince’s Legendary" data-src="<?php echo HTTP_PATH; ?>images/img-5.jpg" class="img-cont " href="#"></a>
 
                                                 </div>
                                             </article>
@@ -117,7 +101,7 @@ members control over their health is paramount ....</span>
                                         <div class="item-4-cont">
                                             <article class="type-post format-standard has-post-thumbnail listing-item-6 listing-item listing-mg-item listing-mg-type-1 listing-mg-1-item main-term-3">
                                                 <div class="item-content">
-                                                    <a title="..." data-src="images/img-6.jpg" class="img-cont" href="#"></a>
+                                                    <a title="..." data-src="<?php echo HTTP_PATH; ?>images/img-6.jpg" class="img-cont" href="#"></a>
 
                                                 </div>
                                             </article>
@@ -149,7 +133,7 @@ members control over their health is paramount ....</span>
                             <div class="mg-col mg-col-1 ">
                                 <article class="type-post format-standard has-post-thumbnail  listing-item-1 listing-item listing-mg-item listing-mg-type-2 listing-mg-1-item ">
                                     <div class="item-content">
-                                        <a title="..." data-src="images/img-7.jpg" href="#" class="img-cont"></a>
+                                        <a title="..." data-src="<?php echo HTTP_PATH; ?>images/img-7.jpg" href="#" class="img-cont"></a>
 
                                     </div>
                                 </article>
@@ -157,7 +141,7 @@ members control over their health is paramount ....</span>
                             <div class="mg-col mg-col-1">
                                 <article class="type-post format-standard listing-item-1 listing-item listing-mg-item listing-mg-type-2 listing-mg-2-item">
                                     <div class="item-content">
-                                        <a title="#" data-src="images/img-8.jpg" class="img-cont" href="#" style=""></a>
+                                        <a title="#" data-src="<?php echo HTTP_PATH; ?>images/img-8.jpg" class="img-cont" href="#" style=""></a>
 
                                     </div>
                                 </article>
@@ -233,56 +217,6 @@ members control over their health is paramount ....</span>
                 <?php include(DOC_ROOT . 'partials/footer.php'); ?>
             </footer>
         </div>
-    </div>
-
-    <span class="back-top"><i class="fa fa-arrow-up"></i></span>
-    <div class="rh-cover noscroll gr-5">
-        <span class="rh-close"></span>
-
-    </div>
-    <div class="rh-cover gr-5">
-        <span class="rh-close"></span>
-        <div class="rh-panel rh-pm">
-
-            <div class="rh-p-b">
-                <div class="rh-c-m clearfix">
-                    <ul id="resp-navigation" class="menu clearfix resp-menu bsm-initialized">
-                        <li  class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item  current_page_item better-anim-fade "><a href="#">Home</a></li>
-                        <li  class="menu-item menu-item-type-taxonomy menu-item-object-category better-anim-slide-bottom-in menu-item-has-children menu-item-has-mega menu-item-mega-tabbed-grid-posts  bsm-leave"><a href="#">Fashion</a>
-                           
-                            <ul class="sub-menu">
-
-                                <li>
-                                    <a href="#"> Vogue</a>
-                                </li>
-                                <li>
-                                    <a href="#">Beauty</a>
-                                </li>
-                                <li>
-                                    <a href="#"> Street fashion</a>
-                                </li>
-                            </ul><span class="children-button"></span></li>
-                        <li class="menu-item menu-item-type-taxonomy menu-item-object-category better-anim-fade "><a href="#">Tech &amp; Gadget</a></li>
-                        <li class="menu-item menu-item-type-taxonomy menu-item-object-category better-anim-slide-fade menu-item-has-children menu-item-has-mega menu-item-mega-grid-posts  bsm-leave"><a href="#">Lifestyle</a>
-                           
-                        </li>
-                    </ul>
-                    <ul class="menu clearfix resp-menu bsm-initialized">
-                        <li class="menu-item menu-item-type-taxonomy menu-item-object-category better-anim-fade "><a href="#">Tech &amp; Gadget</a></li>
-                        <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children  better-anim-fade  bsm-leave"><a href="#">Lifestyle</a>
-                            <ul class="sub-menu">
-                                <li class="menu-item menu-item-type-taxonomy menu-item-object-category  better-anim-fade "><a href="#">Family Activity</a></li>
-                                <li class="menu-item menu-item-type-taxonomy menu-item-object-category  better-anim-fade "><a href="#">Health</a></li>
-                                <li  class="menu-item menu-item-type-taxonomy menu-item-object-category  better-anim-fade "><a href="#">Motivation</a></li>
-                            </ul>
-                            <span class="children-button"></span></li>
-
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-
     </div>
 </body>
 
