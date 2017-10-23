@@ -5,7 +5,7 @@ require_once("../../../../system/load.php");
 
 $action = $_POST['action'];
 
-$module_name = "test";
+$module_name = "cards";
 
 switch ($action) {
       case "load":
@@ -38,11 +38,11 @@ function load() {
 
       // create table if not exsists
       require_once(dirname(__FILE__) . '/helper.php');
-      $special_tours = new Mod_SpecialTours();
-      $special_tours->createTable();
+      $cards = new Mod_Cards();
+      $cards->createTable();
 
       $views = new Default_Views();
-      $views->setModule('special_tours');
+      $views->setModule('cards');
 
       //load default view
       if (!Sessions::isAdminLogged()) {
@@ -58,7 +58,7 @@ function view() {
       require_once(dirname(__FILE__) . '/helper.php');
 
       $views = new Default_Views();
-      $views->setModule('special_tours');
+      $views->setModule('cards');
 
       $views->load('admin/view', '', true);
 }
@@ -68,7 +68,7 @@ function add() {
       require_once(dirname(__FILE__) . '/helper.php');
 
       $views = new Default_Views();
-      $views->setModule('special_tours');
+      $views->setModule('cards');
       $views->load('admin/add', '', true);
 }
 
@@ -76,18 +76,18 @@ function addPost() {
 
       require_once(dirname(__FILE__) . '/helper.php');
 
-      $special_tours = new Mod_SpecialTours();
+      $cards = new Mod_Cards();
 
-      $special_tours->setValues($_POST);
-	  $special_tours->setSortOrder($special_tours->nextOrderValue());
-      $special_tours->setCreatedBy(Sessions::getAdminId());
-      $special_tours->setCreatedDate(time());
+      $cards->setValues($_POST);
+	  $cards->setSortOrder($cards->nextOrderValue());
+      $cards->setCreatedBy(Sessions::getAdminId());
+      $cards->setCreatedDate(time());
 
-      if ($special_tours->insert()) {
+      if ($cards->insert()) {
             $activity_log = new ActivityLog();
-            $activity_log->newLogRecord("mod_special_tours", "add", "New Special tour has been added successfully");
+            $activity_log->newLogRecord("mod_cards", "add", "New Card has been added successfully");
 
-            Default_Common::jsonSuccess("New Special tour has been added successfully.");
+            Default_Common::jsonSuccess("New Card has been added successfully.");
       } else {
             Default_Common::jsonError("Error");
       }
@@ -98,7 +98,7 @@ function edit() {
       require_once(dirname(__FILE__) . '/helper.php');
 
       $views = new Default_Views();
-      $views->setModule('special_tours');
+      $views->setModule('cards');
       $views->load('admin/edit', '', true);
 }
 
@@ -106,19 +106,19 @@ function updatePost() {
 
       require_once(dirname(__FILE__) . '/helper.php');
 
-      $special_tours = new Mod_SpecialTours();
+      $cards = new Mod_Cards();
 
-      $special_tours->setValues($_POST);
+      $cards->setValues($_POST);
 
-      $special_tours->setModifiedBy(Sessions::getAdminId());
-      $special_tours->setModifiedDate(time());
+      $cards->setModifiedBy(Sessions::getAdminId());
+      $cards->setModifiedDate(time());
 
-      if ($special_tours->update()) {
+      if ($cards->update()) {
 
             $activity_log = new ActivityLog();
-            $activity_log->newLogRecord("mod_special_tours", "edit", "Special tour Details has been Updated successfully.");
+            $activity_log->newLogRecord("mod_cards", "edit", "Card Details has been Updated successfully.");
 
-            Default_Common::jsonSuccess("Special tour Details has been Updated successfully.");
+            Default_Common::jsonSuccess("Card Details has been Updated successfully.");
       } else {
             Default_Common::jsonError("Error");
       }
@@ -128,16 +128,16 @@ function doDelete() {
 
       require_once(dirname(__FILE__) . '/helper.php');
 
-      $special_tours = new Mod_SpecialTours();
+      $cards = new Mod_Cards();
 
-      $special_tours->setId($_POST['id']);
+      $cards->setId($_POST['id']);
 
-      if ($special_tours->delete()) {
+      if ($cards->delete()) {
 
             $activity_log = new ActivityLog();
-            $activity_log->newLogRecord("mod_special_tours", "delete", "Special tour Deleted successfully.");
+            $activity_log->newLogRecord("mod_cards", "delete", "Card Deleted successfully.");
 
-            Default_Common::jsonSuccess("Special tour Deleted successfully.");
+            Default_Common::jsonSuccess("Card Deleted successfully.");
       } else {
             Default_Common::jsonError("Error");
       }
@@ -147,11 +147,9 @@ function sortTable() {
       require_once(dirname(__FILE__) . '/helper.php');
       foreach ($_POST['row'] as $position => $item) {
 
-            $special_tours = new Mod_SpecialTours();
-            $special_tours->setSortOrder($position);
-            $special_tours->setId($item);
-            $special_tours->updateSortOrder();
+            $cards = new Mod_Cards();
+            $cards->setSortOrder($position);
+            $cards->setId($item);
+            $cards->updateSortOrder();
       }
 }
-
-?>

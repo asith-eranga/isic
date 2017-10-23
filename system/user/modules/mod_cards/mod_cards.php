@@ -6,8 +6,6 @@ require_once(dirname(__FILE__).'/helper.php');
 
 $views = new Default_Views();
 
-$views->setModule('special_tours');
+$views->setModule('cards');
 
 $views->load('admin/home','','true');
-
-?>

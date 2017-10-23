@@ -1,33 +1,73 @@
 <?php
 
-class Mod_SpecialTours extends Default_DBConnection implements Default_DBInterface {
+class Mod_Cards extends Default_DBConnection implements Default_DBInterface {
 
       private $id;
-	  private $name;
+      private $name;
+	  private $title_1;
+	  private $description_1;
+      private $title_2;
+      private $description_2;
+      private $title_3;
+      private $description_3;
+      private $date_of_issue;
+      private $price;
+      private $itinerary;
       private $image;
-      private $description;
 	  private $sort_order;
       private $status;
       private $created_by;
       private $created_date;
       private $modified_by;
       private $modified_date;
-      private $table_name = "special_tours";
+      private $table_name = "cards";
 
       function id() {
             return $this->id;
       }
+
+      function name() {
+        return $this->name;
+      }
 	  
-	  function name() {
-            return $this->name;
+	  function title1() {
+            return $this->title_1;
+      }
+
+      function description1() {
+          return $this->description_1;
+      }
+
+      function title2() {
+          return $this->title_2;
+      }
+
+      function description2() {
+          return $this->description_2;
+      }
+
+      function title3() {
+          return $this->title_3;
+      }
+
+      function description3() {
+          return $this->description_3;
+      }
+
+      function dateOfIssue() {
+          return $this->date_of_issue;
+      }
+
+      function price() {
+          return $this->price;
+      }
+
+      function itinerary() {
+          return $this->itinerary;
       }
 
       function image() {
             return $this->image;
-      }
-
-      function description() {
-            return $this->description;
       }
 	  
 	  function sortOrder() {
@@ -59,17 +99,49 @@ class Mod_SpecialTours extends Default_DBConnection implements Default_DBInterfa
       function setId($id) {
             $this->id = $id;
       }
+
+      function setName($name) {
+          $this->name = $name;
+      }
 	  
-	  function setName($name) {
-            $this->name = $name;
+	  function setTitle1($title_1) {
+            $this->title_1 = $title_1;
+      }
+
+      function setDescription1($description_1) {
+          $this->description_1 = $description_1;
+      }
+
+      function setTitle2($title_2) {
+          $this->title_2 = $title_2;
+      }
+
+      function setDescription2($description_2) {
+          $this->description_2 = $description_2;
+      }
+
+      function setTitle3($title_3) {
+          $this->title_3 = $title_3;
+      }
+
+      function setDescription3($description_3) {
+          $this->description_3 = $description_3;
+      }
+
+      function setDateOfIssue($date_of_issue) {
+          $this->date_of_issue = $date_of_issue;
+      }
+
+      function setPrice($price) {
+          $this->price = $price;
+      }
+
+      function setItinerary($itinerary) {
+          $this->itinerary = $itinerary;
       }
 
       function setImage($image) {
             $this->image = $image;
-      }
-
-      function setDescription($description) {
-            $this->description = $description;
       }
 	  
 	  function setSortOrder($sort_order) {
@@ -99,9 +171,17 @@ class Mod_SpecialTours extends Default_DBConnection implements Default_DBInterfa
       function extractor($results, $row = 0) {
 
             $this->setId($results[$row]['id']);
-			$this->setName($results[$row]['name']);
+            $this->setName($results[$row]['name']);
+			$this->setTitle1($results[$row]['title_1']);
+            $this->setTitle2($results[$row]['title_2']);
+            $this->setTitle3($results[$row]['title_3']);
+            $this->setDescription1($results[$row]['description_1']);
+            $this->setDescription2($results[$row]['description_2']);
+            $this->setDescription3($results[$row]['description_3']);
+            $this->setDateOfIssue($results[$row]['date_of_issue']);
+            $this->setPrice($results[$row]['price']);
+            $this->setItinerary($results[$row]['itinerary']);
             $this->setImage($results[$row]['image']);
-            $this->setDescription($results[$row]['description']);
 			$this->setSortOrder($results[$row]['sort_order']);
             $this->setStatus($results[$row]['status']);
             $this->setCreatedBy($results[$row]['created_by']);
@@ -151,35 +231,44 @@ class Mod_SpecialTours extends Default_DBConnection implements Default_DBInterfa
       }
 
       function insert() {
-
             $status = $this->MDatabase->insert($this->table_name, array(
-                "id" => $this->id(),
                 "name" => $this->name(),
+                "title_1" => $this->title1(),
+                "title_2" => $this->title2(),
+                "title_3" => $this->title3(),
+                "description_1" => $this->description1(),
+                "description_2" => $this->description2(),
+                "description_3" => $this->description3(),
+                "date_of_issue" => $this->dateOfIssue(),
+                "price" => $this->price(),
+                "itinerary" => $this->itinerary(),
                 "image" => $this->image(),
-                "description" => $this->description(),
 				"sort_order" => $this->sortOrder(),
                 "status" => $this->status(),
                 "created_by" => $this->createdBy(),
-                "created_date" => $this->createdDate(),
-                "modified_by" => $this->modifiedBy(),
-                "modified_date" => $this->modifiedDate()
+                "created_date" => $this->createdDate()
             ));
-
             return $status;
       }
 
       function update() {
 
             $status = $this->MDatabase->update($this->table_name, array(
-                "id" => $this->id(),
                 "name" => $this->name(),
+                "title_1" => $this->title1(),
+                "title_2" => $this->title2(),
+                "title_3" => $this->title3(),
+                "description_1" => $this->description1(),
+                "description_2" => $this->description2(),
+                "description_3" => $this->description3(),
+                "date_of_issue" => $this->dateOfIssue(),
+                "price" => $this->price(),
+                "itinerary" => $this->itinerary(),
                 "image" => $this->image(),
-                "description" => $this->description(),
                 "status" => $this->status(),
                 "modified_by" => $this->modifiedBy(),
                 "modified_date" => $this->modifiedDate()
                     ), array("id" => $this->id()));
-
             return $status;
       }
 
@@ -199,11 +288,19 @@ class Mod_SpecialTours extends Default_DBConnection implements Default_DBInterfa
       function createTable() {
 
             $sql = '
-					CREATE TABLE IF NOT EXISTS `special_tours` (
+					CREATE TABLE IF NOT EXISTS `cards` (
 					`id` INT(11) NOT NULL AUTO_INCREMENT,
 					`name` VARCHAR(200) NULL DEFAULT NULL,
-					`image` VARCHAR(500) NULL DEFAULT NULL,
-					`description` TEXT NULL DEFAULT NULL,
+					`title_1` VARCHAR(200) NULL DEFAULT NULL,
+					`title_2` VARCHAR(200) NULL DEFAULT NULL,
+					`title_3` VARCHAR(200) NULL DEFAULT NULL,
+					`description_1` TEXT NULL DEFAULT NULL,
+					`description_2` TEXT NULL DEFAULT NULL,
+					`description_3` TEXT NULL DEFAULT NULL,
+					`date_of_issue` VARCHAR(200) NULL DEFAULT NULL,
+					`price` VARCHAR(200) NULL DEFAULT NULL,
+					`itinerary` VARCHAR(200) NULL DEFAULT NULL,
+					`image` VARCHAR(500) NULL DEFAULT NULL,					
 					`sort_order` INT(11) NULL DEFAULT NULL,
 					`status` INT(11) NULL DEFAULT NULL,
 					`created_by` INT(11) NULL DEFAULT NULL,
@@ -221,7 +318,7 @@ class Mod_SpecialTours extends Default_DBConnection implements Default_DBInterfa
       function getAllStatus() {
 
             $variable_manager = new VariableManager();
-            $data = $variable_manager->getVariableValue("mod_special_tours_status", array("value" => "Disable,Enable", "mod_name" => "mod_special_tours"));
+            $data = $variable_manager->getVariableValue("mod_cards_status", array("value" => "Disable,Enable", "mod_name" => "mod_cards"));
 
             return explode(",", $data);
       }
@@ -240,5 +337,3 @@ class Mod_SpecialTours extends Default_DBConnection implements Default_DBInterfa
 	  }
 
 }
-
-?>

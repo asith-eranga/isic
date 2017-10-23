@@ -1,4 +1,4 @@
-MODULE_NAME = "mod_special_tours";
+MODULE_NAME = "mod_cards";
 
 $(document).ready(function(){
 
@@ -9,7 +9,7 @@ $(document).ready(function(){
 
 	});
 
-	setModuleBreadCrumb(new Array("Home","Modules","Special Tours"));
+	setModuleBreadCrumb(new Array("Dashboard", "Cards"));
 
 	_page_hash = getPageHashValue("nav");
 

@@ -2,18 +2,18 @@
 
 $views = new Default_Views();
 
-$views->setModule('special_tours');
+$views->setModule('cards');
 
 $views->loadAppLibs('js/tinymce/tinymce.min.js'); 
 
-$views->loadFile('mod_special_tours.js',true); 
+$views->loadFile('mod_cards.js',true);
 
 $views->load('admin/sidenav','',true); ?>
 
 <div id="ajax_module_sub" class="thirteen wide column">
 
 <?php
- Sessions::checkUserPermission("mod_special_tours",1);
+ Sessions::checkUserPermission("mod_cards",1);
 ?>
 
 </div>

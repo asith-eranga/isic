@@ -1,6 +1,6 @@
 <?php 
-$special_tours	= new Mod_SpecialTours();
-$status 		= $special_tours->getAllStatus();
+$cards	= new Mod_Cards();
+$status = $cards->getAllStatus();
 ?>
 <script type="text/javascript">
 	$(document).ready(function () {
@@ -57,9 +57,9 @@ $status 		= $special_tours->getAllStatus();
 </script>
 
 <div class="thirteen wide column">
-  <h2 class="ui header"> <i class="certificate icon"></i>
-    <div class="content"> Add Special Tour
-      <div class="sub header">Add new special tour</div>
+  <h2 class="ui header"> <i class="browser icon"></i>
+    <div class="content"> Add New Card
+      <div class="sub header">Add new card detail</div>
     </div>
   </h2>
   <div class="ui small form segment">
@@ -67,15 +67,55 @@ $status 		= $special_tours->getAllStatus();
     
       <div class="ui error message"></div>
       <div id="form_submit_msg" class="ui green message"><i class="ok sign icon"></i></div>
-      
+
       <div class="field">
-        <label>Title</label>
+        <label>Name</label>
         <input placeholder="Name" id="name" name="name" type="text">
+      </div>
+
+      <div class="field">
+        <label>Title 1</label>
+        <input placeholder="Title 1" id="title_1" name="title_1" type="text">
       </div>
       
       <div class="field">
-        <label>Description</label>
-        <textarea cols="80" rows="5" placeholder="Add Description" id="description" name="description"></textarea>
+        <label>Description 1</label>
+        <textarea cols="80" rows="5" placeholder="Add Description 1" id="description_1" name="description_1"></textarea>
+      </div>
+
+      <div class="field">
+        <label>Title 2</label>
+        <input placeholder="Title 2" id="title_2" name="title_2" type="text">
+      </div>
+
+      <div class="field">
+        <label>Description 2</label>
+        <textarea cols="80" rows="5" placeholder="Add Description 2" id="description_2" name="description_2"></textarea>
+      </div>
+
+      <div class="field">
+        <label>Title 3</label>
+        <input placeholder="Title 3" id="title_3" name="title_3" type="text">
+      </div>
+
+      <div class="field">
+        <label>Description 3</label>
+        <textarea cols="80" rows="3" placeholder="Add Description 3" id="description_3" name="description_3"></textarea>
+      </div>
+
+      <div class="field">
+        <label>Date of issue</label>
+        <input placeholder="Date of issue" id="date_of_issue" name="date_of_issue" type="text">
+      </div>
+
+      <div class="field">
+        <label>Price</label>
+        <input placeholder="Price" id="price" name="price" type="text">
+      </div>
+
+      <div class="field">
+        <label>Itinerary</label>
+        <input placeholder="Itinerary" id="itinerary" name="itinerary" type="text">
       </div>
       
       <div class="fields" id="image_preview_wrapper">

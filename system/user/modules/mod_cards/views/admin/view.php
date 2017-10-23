@@ -1,15 +1,15 @@
 <?php
-$special_tours = new Mod_SpecialTours();
+$cards = new Mod_Cards();
 
 if (isset($_POST['search_text'])) {
-      $data = $special_tours->searchPaginated($_POST['search_text'], $_POST['page']);
-      $count = $special_tours->searchCount($_POST['search_text']);
+      $data = $cards->searchPaginated($_POST['search_text'], $_POST['page']);
+      $count = $cards->searchCount($_POST['search_text']);
 } else {
-      $data = $special_tours->selectAllPaginated($_POST['page']);
-      $count = $special_tours->selectAllCount();
+      $data = $cards->selectAllPaginated($_POST['page']);
+      $count = $cards->selectAllCount();
 }
 
-$status = $special_tours->getAllStatus();
+$status = $cards->getAllStatus();
 
 $pagination = new Default_Pagination();
 $pagination->setLimit(30);
@@ -38,7 +38,7 @@ $pagination->makePagination();
 								  serial += '&thisid=' + $(this);
 
 								  $.ajax({
-										url: "../system/user/modules/mod_special_tours/controller.php",
+										url: "../system/user/modules/mod_cards/controller.php",
 										type: "post",
 										data: serial,
 										error: function () {
@@ -54,10 +54,10 @@ $pagination->makePagination();
 <div class="thirteen wide column">
 
       <h2 class="ui header">
-            <i class="certificate icon"></i>
+            <i class="browser icon"></i>
             <div class="content">
-                  View Special Tours
-                  <div class="sub header">Manage special tours</div>
+                  View Cards
+                  <div class="sub header">Manage cards</div>
             </div>
       </h2>
 
@@ -65,15 +65,15 @@ $pagination->makePagination();
 
       <div class="ui divider"></div>
 
-      <?php if (Sessions::checkUserPermission("mod_special_tours", 2)) { ?>
-            <a class="ui small black labeled icon button" onclick="add()"><i class="add icon"></i>Add Special Tour</a>
+      <?php if (Sessions::checkUserPermission("mod_cards", 2)) { ?>
+            <a class="ui small black labeled icon button" onclick="add()"><i class="add icon"></i>Add Card</a>
       <?php } ?>
 
       <table id="ajax_module_sub" class="ui small table segment">
             <thead>
                   <tr>
                         <th width="2px"></th>
-                        <th>Title</th>
+                        <th>Name</th>
                         <th>Order</th>
                         <th>Status</th>
                         <th></th>
@@ -82,19 +82,19 @@ $pagination->makePagination();
             <tbody id="sortTable">
                   <?php
                   for ($i = 0; $i < count($data); $i++) {
-                        $special_tours->extractor($data, $i);						
+                        $cards->extractor($data, $i);						
                         ?>
-                        <tr id="row_<?php echo $special_tours->id(); ?>">
+                        <tr id="row_<?php echo $cards->id(); ?>">
                               <td><i class="sort icon"></i></td>
-                              <td><?php echo $special_tours->name(); ?></td>
-                              <td><?php echo $special_tours->sortOrder(); ?></td>                             
-                              <td><?php echo $status[$special_tours->status()]; ?></td>
+                              <td><?php echo $cards->name(); ?></td>
+                              <td><?php echo $cards->sortOrder(); ?></td>                             
+                              <td><?php echo $status[$cards->status()]; ?></td>
                               <td>
                               	<div class="ui icon buttons">
-								<?php if (Sessions::checkUserPermission("mod_special_tours", 3)) { ?>
-                             		<div class="mini ui button" onclick="edit(<?php echo $special_tours->id(); ?>)"><i class="teal edit icon"></i></div>
-                         		<?php } if (Sessions::checkUserPermission("mod_special_tours", 4)) { ?>
-                               		<div class="mini ui button" onclick="confirmDelete(<?php echo $special_tours->id(); ?>)"><i class="red remove icon"></i></div>
+								<?php if (Sessions::checkUserPermission("mod_cards", 3)) { ?>
+                             		<div class="mini ui button" onclick="edit(<?php echo $cards->id(); ?>)"><i class="teal edit icon"></i></div>
+                         		<?php } if (Sessions::checkUserPermission("mod_cards", 4)) { ?>
+                               		<div class="mini ui button" onclick="confirmDelete(<?php echo $cards->id(); ?>)"><i class="red remove icon"></i></div>
                             	<?php } ?>
                          		</div>
                               </td>
