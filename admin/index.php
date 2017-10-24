@@ -98,6 +98,10 @@ require_once("../system/load.php");
                             <i class="browser icon"></i> <?php echo Default_ModManager::niceName('mod_cards'); ?>
                         </a>
 
+                        <a class="item" onclick="loadModule('mod_discounts')" >
+                            <i class="dollar icon"></i> <?php echo Default_ModManager::niceName('mod_discounts'); ?>
+                        </a>
+
                         <a class="item" onclick="loadModule('mod_testimonials')" >
                             <i class="comments outline icon"></i> <?php echo Default_ModManager::niceName('mod_testimonials'); ?>
                         </a>
