@@ -4,6 +4,11 @@
  * Date: 22-Oct-17
  * Time: 6:51 PM
  */
+
+$discounts = new Mod_Discounts();
+
+$discount_cards = $discounts->getAllCardTypes();
+$discount_categories = $discounts->getAllCategories();
 ?>
 
 <div class="col-md-3 col-xs-12 no-padd">
@@ -22,12 +27,13 @@
             <h3 class="txt-green text-upper">Cards</h3>
         </div>
         <div class="bg-green" >
-
             <div class="border-bottom">
-                <div class=" padd-v-5 pos-rela"><a class="txt-white " href="#">ISIC <img src="<?php echo HTTP_PATH; ?>images/icons/cat-1.png"></a></div>
-                <div class=" padd-v-5 pos-rela"><a class="txt-white " href="#">ITIC <img src="<?php echo HTTP_PATH; ?>images/icons/cat-2.png"></a></div>
-                <div class=" padd-v-5 pos-rela"><a class="txt-white " href="#">IYTC <img src="<?php echo HTTP_PATH; ?>images/icons/cat-3.png"></a></div>
-
+                <?php
+                    foreach ($discount_cards as $k => $v) {
+                        $discount_page_url = strtolower(str_replace(' ', '-', $v));
+                ?>
+                    <div class=" padd-v-5 pos-rela"><a class="txt-white " href="<?php echo $discount_page_url; ?>"><?php echo $v; ?> <img src="<?php echo HTTP_PATH; ?>images/icons/cat-1.png"></a></div>
+                <?php } ?>
             </div>
         </div>
         <br>
@@ -38,13 +44,12 @@
 
             <div class="border-bottom">
                 <div class=" padd-v-5 pos-rela"><a class="txt-white text-upper" href="#">all </a></div>
-                <div class=" padd-v-5 pos-rela"><a class="txt-white text-upper " href="#">Accommadaton </a></div>
-                <div class=" padd-v-5 pos-rela"><a class="txt-white text-upper" href="#">Activities</a></div>
-                <div class=" padd-v-5 pos-rela"><a class="txt-white text-upper " href="#">Attractions </a></div>
-                <div class=" padd-v-5 pos-rela"><a class="txt-white text-upper " href="#">Dining & takeway </a></div>
-                <div class=" padd-v-5 pos-rela"><a class="txt-white text-upper " href="#">Education </a></div>
-                <div class=" padd-v-5 pos-rela"><a class="txt-white text-upper " href="#">Entertainment </a></div>
-
+                <?php
+                    foreach ($discount_categories as $k => $v) {
+                        $discount_page_url = strtolower(str_replace(' ', '-', $v));
+                ?>
+                    <div class=" padd-v-5 pos-rela"><a class="txt-white text-upper " href="<?php echo $discount_page_url; ?>"><?php echo $v; ?></a></div>
+                <?php } ?>
             </div>
         </div>
         <div class="dis-tbl-ftr-grp">

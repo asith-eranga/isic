@@ -94,16 +94,17 @@ require_once("../system/load.php");
                             </div>
                         </div>
 
+                        <a class="item" onclick="loadModule('mod_cards')" >
+                            <i class="browser icon"></i> <?php echo Default_ModManager::niceName('mod_cards'); ?>
+                        </a>
+
+                        <a class="item" onclick="loadModule('mod_discounts')" >
+                            <i class="dollar icon"></i> <?php echo Default_ModManager::niceName('mod_discounts'); ?>
+                        </a>
+
                         <a class="item" onclick="loadModule('mod_testimonials')" >
                             <i class="comments outline icon"></i> <?php echo Default_ModManager::niceName('mod_testimonials'); ?>
                         </a>
-                        
-                        <div class="ui dropdown item main-menu">
-                            Tour Packages <i class="dropdown icon"></i>
-                            <div class="menu">
-                                <a onclick="loadModule('mod_special_tours')" class="item main-menu"><i class="certificate icon"></i> <?php echo Default_ModManager::niceName('mod_special_tours'); ?></a>
-                            </div>
-                        </div>
 
                         <a class="item" onclick="adminLoadNav('settings');">
                               <i class="laptop icon"></i> System

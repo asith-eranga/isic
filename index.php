@@ -1,6 +1,7 @@
 <?php
     define("_MEXEC", "OK");
     require_once("system/load.php");
+    require_once(DOC_ROOT . 'system/user/modules/mod_home_page/helper.php');
 ?>
 
 <!DOCTYPE html>
@@ -151,25 +152,23 @@ members control over their health is paramount ....</span>
 
                 </div>
 
+                <?php
+                    $home_1 = new Mod_HomePage();
+                    $home_1->setId(1);
+                    $home_data_1 = $home_1->getById();
+                    $home_1->extractor($home_data_1);
+                ?>
                 <div class="col-md-9 col-xs-12 bg-green txt-white dis-flex">
                     <div class="col-md-7 col-xs-12 padd-10">
-
-                        <h1 class="fnt-50 text-upper txt-black">
-			WHAT IS ISIC?
-
-			</h1>
+                        <h1 class="fnt-50 txt-black"><?php echo $home_1->title(); ?></h1>
                         <p class="text-upper txt-white">
-                            The International Student Identity Card (ISIC) is your passport to fantastic discounts and services at home and around the world.
-                            <br>
-                            <br> The ISIC card is the only internationally recognised student ID and ISIC card holders are members of a truly global club. Every year more than 4.5 million students from 120 countries use their student card to take advantage of offers on travel, shopping, museums and more, worldwide. The ISIC card and its benefits are now available to all Sri Lankan students. Sign up today and join our ever expanding community...
-
+                            <?php echo str_replace(['<p>', '</p>', '<pre>', '</pre>'], '', $home_1->description()); ?>
                         </p>
-
                     </div>
                     <div class="col-md-5 col-xs-12 ">
                         <div class="dis-tbl full-height full-width">
                             <div class="dis-tbl-cell full-height full-width tbl-con-algn-center">
-                                <img src="" alt="...." data-src="images/id-card.jpg" class="img-responsive img-cont center-block"></a>
+                                <img src="<?php echo $home_1->image(); ?>" alt="...." data-src="<?php echo $home_1->image(); ?>" class="img-responsive img-cont center-block"></a>
                             </div>
                         </div>
                     </div>
@@ -204,9 +203,15 @@ members control over their health is paramount ....</span>
                             </div>
                             <a class="text-upper padd-h-30 txt-green padd-v-15 show" href="#">view all...</a>
                         </div>
+                        <?php
+                        $home_2 = new Mod_HomePage();
+                        $home_2->setId(2);
+                        $home_data_2 = $home_2->getById();
+                        $home_2->extractor($home_data_2);
+                        ?>
                         <div class="col-md-4 col-xs-12 bg-green padd-40 full-height">
-                            <h2 class="h1 txt-black">WHY ISIC?</h2>
-                            <p>You'll use your ISIC card to save money as you travel the world on a well deserved break from college. And it's just as useful back home. There are tens of thousands of student discounts on offer, so check what's available at your local restaurants, cinemas and shops.</p>
+                            <h2 class="h1 txt-black"><?php echo $home_2->title(); ?></h2>
+                            <?php echo str_replace(['<pre>', '</pre>'], '', $home_2->description()); ?>
                         </div>
                     </div>
                 </div>
