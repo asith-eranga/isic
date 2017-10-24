@@ -5,6 +5,8 @@
  * Time: 2:37 PM
  */
 
+require_once(DOC_ROOT . 'system/user/modules/mod_cards/helper.php');
+
 $current_path = $_SERVER['REQUEST_URI'];
 $current_path = rtrim($current_path, '/');
 $current_path = end(explode('/',$current_path));
@@ -19,12 +21,22 @@ $current_page_class = 'current-menu-item current_page_item';
                     <ul id="main-navigation" class="main-menu menu bsm-pure clearfix">
                         <li class="menu-item menu-item-object-page better-anim-fade <?php if ($current_path == 'isic') { echo $current_page_class; } ?>"><a href="<?php  echo HTTP_PATH; ?>">Home</a></li>
                         <li class="menu-item menu-item-object-page <?php if ($current_path == 'about') { echo $current_page_class; } ?>"><a href="<?php echo HTTP_PATH; ?>about">About</a></li>
-                        <li  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children ">
-                            <a href="<?php echo HTTP_PATH; ?>cards">Cards</a>
+                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children">
+                            <a href="#">Cards</a>
                             <ul class="sub-menu">
-                                <li class="menu-item menu-item-object-page better-anim-fade "><a href="#">Students</a></li>
-                                <li class="menu-item better-anim-fade "><a href="#">Youth</a></li>
-                                <li class="menu-item  better-anim-fade "><a href="#">Teachers</a></li>
+                                <?php
+                                    $cards = new Mod_Cards();
+                                    $data = $cards->selectAll();
+                                    for ($i = 0; $i < count($data); $i++) {
+                                        $cards->extractor($data, $i);
+                                        $card_page_url = strtolower(str_replace(' ', '-', $cards->name()));
+                                ?>
+                                    <li class="menu-item better-anim-fade <?php if ($current_path == $card_page_url) { echo $current_page_class; } ?>">
+                                        <a href="<?php echo HTTP_PATH; ?>cards/<?php echo $card_page_url; ?>">
+                                            <?php echo $cards->name(); ?>
+                                        </a>
+                                    </li>
+                                <?php } ?>
                             </ul>
                         </li>
                         <li  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children <?php if ($current_path == 'discount') { echo $current_page_class; } ?>">
