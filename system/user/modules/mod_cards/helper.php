@@ -214,6 +214,12 @@ class Mod_Cards extends Default_DBConnection implements Default_DBInterface {
             return $this->MDatabase->result;
       }
 
+      function getByName() {
+
+            $this->MDatabase->select($this->table_name, "*", "LOWER(name)='" . $this->name() . "'", "id DESC");
+            return $this->MDatabase->result;
+      }
+
       function search() {
             
       }
