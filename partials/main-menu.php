@@ -6,6 +6,7 @@
  */
 
 require_once(DOC_ROOT . 'system/user/modules/mod_cards/helper.php');
+require_once(DOC_ROOT . 'system/user/modules/mod_discounts/helper.php');
 
 $current_path = $_SERVER['REQUEST_URI'];
 $current_path = rtrim($current_path, '/');
@@ -31,7 +32,7 @@ $current_page_class = 'current-menu-item current_page_item';
                                         $cards->extractor($data, $i);
                                         $card_page_url = strtolower(str_replace(' ', '-', $cards->name()));
                                 ?>
-                                    <li class="menu-item better-anim-fade <?php if ($current_path == $card_page_url) { echo $current_page_class; } ?>">
+                                    <li class="menu-item better-anim-fade <?php if ($current_path == $card_page_url) { echo 'menu-item-object-page current-menu-item current_page_item'; } ?>">
                                         <a href="<?php echo HTTP_PATH; ?>cards/<?php echo $card_page_url; ?>">
                                             <?php echo $cards->name(); ?>
                                         </a>
@@ -42,12 +43,14 @@ $current_page_class = 'current-menu-item current_page_item';
                         <li  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children <?php if ($current_path == 'discount') { echo $current_page_class; } ?>">
                             <a href="<?php echo HTTP_PATH; ?>discount">Discounts</a>
                             <ul class="sub-menu">
-                                <li class="menu-item menu-item-object-page current-menu-item current_page_item better-anim-fade "><a href="#">Flights</a></li>
-                                <li class="menu-item better-anim-fade "><a href="#">Hotels</a></li>
-                                <li class="menu-item  better-anim-fade "><a href="#">Visas</a></li>
-                                <li class="menu-item  better-anim-fade "><a href="#">Rail</a></li>
-                                <li class="menu-item  better-anim-fade "><a href="#">Transfers</a></li>
-                                <li class="menu-item  better-anim-fade "><a href="#">Insurance</a></li>
+                                <?php
+                                    $discounts = new Mod_Discounts();
+                                    $discount_categories = $discounts->getAllCategories();
+                                    foreach ($discount_categories as $k => $v) {
+                                        $discount_page_url = strtolower(str_replace(' ', '-', $v));
+                                ?>
+                                    <li class="menu-item better-anim-fade <?php if ($current_path == $discount_page_url) { echo 'menu-item-object-page current-menu-item current_page_item'; } ?>"><a href="<?php echo $discount_page_url; ?>"><?php echo $v; ?></a></li>
+                                <?php } ?>
                             </ul>
                         </li>
                         <li class="menu-item menu-item-type-taxonomy menu-item-object-category  better-anim-fade "><a href="#"> Partner with isic </a></li>

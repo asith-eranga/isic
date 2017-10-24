@@ -282,7 +282,7 @@ class Mod_Discounts extends Default_DBConnection implements Default_DBInterface 
       function getAllCategories() {
 
             $variable_manager = new VariableManager();
-            $data = $variable_manager->getVariableValue("mod_discounts_categories", array("value" => "ACCOMMODATION,ACTIVITIES,ATTRACTIONS,DINING & TAKEAWAY,EDUCATION,ENTERTAINMENT", "mod_name" => "mod_discounts"));
+            $data = $variable_manager->getVariableValue("mod_discounts_categories", array("value" => "ACCOMMODATION,ACTIVITIES,ATTRACTIONS,DINING AND TAKEAWAY,EDUCATION,ENTERTAINMENT", "mod_name" => "mod_discounts"));
 
             return explode(",", $data);
       }
