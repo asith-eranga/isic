@@ -1,6 +1,7 @@
 <?php
 define("_MEXEC", "OK");
 require_once("../system/load.php");
+require_once(DOC_ROOT . 'system/user/modules/mod_discounts/helper.php');
 ?>
 <!DOCTYPE html>
 <!--[if IE 8]>
