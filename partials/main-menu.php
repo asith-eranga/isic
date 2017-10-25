@@ -70,9 +70,7 @@ $current_page_class = 'current-menu-item current_page_item';
                     </ul>
                     <div class="menu-action-buttons bg-green col-md-3">
                         <div class="off-canvas-menu-icon-container off-icon-right">
-                            <div class="off-canvas-menu-icon">
-                                <h5 class="txt-yellow">GET YOUR CARD</h5>
-                            </div>
+                            <a href="#"><h5 class="txt-yellow" >GET YOUR CARD</h5></a>
                         </div>
                     </div>
                 </nav>
