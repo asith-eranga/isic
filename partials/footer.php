@@ -94,3 +94,24 @@
 <div class="col-md-12 col-xs-12 bg-black txt-white padd-v-10 text-center text-upper no-padd-h">
     <span>© 2017 ISIC. All rights reserved </span>
 </div>
+
+<script>
+    var dateSelect     = jQuery('#flight-datepicker');
+    var dateDepart     = jQuery('#start-date');
+    var dateReturn     = jQuery('#end-date');
+    var spanDepart     = jQuery('.date-depart');
+    var spanReturn     = jQuery('.date-return');
+    var spanDateFormat = 'ddd, MMMM D yyyy';
+
+    dateSelect.datepicker({
+        autoclose: true,
+        format: "mm/dd/yy",
+        maxViewMode: 0,
+        startDate: "now"
+    }).on('change', function() {
+        var start = $.format.date(dateDepart.datepicker('getDate'), spanDateFormat);
+        var end = $.format.date(dateReturn.datepicker('getDate'), spanDateFormat);
+        spanDepart.text(start);
+        spanReturn.text(end);
+    });
+</script>

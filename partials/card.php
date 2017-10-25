@@ -5,7 +5,6 @@
  * Time: 5:27 PM
  */
 ?>
-
 <div class="bg-black padd-v-25">
     <div class="bg-green dis-flex pos-rela over-hidden">
         <div class="col-md-9 col-xs-12 text-upper padd-h-25">
@@ -24,34 +23,38 @@
 
                         <form class="form-horizontal">
 
+
                             <div class="">
                                 <div class="col-sm-5 no-padd">
                                     <h4 class="txt-white text-upper padd-h-5">where do you want to go</h4>
-                                    <div class="col-sm-8 padd-h-5">
+                                    <div class="col-sm-8 padd-h-5 ">
 
-                                        <div class="input-group">
-                                            <input id="appendedcheckbox" name="appendedcheckbox" class="form-control" type="text" placeholder="FROM (enter city or airport) ">
+
+                                        <div class="input-group form-item">
+                                            <input id="start-date-location" name="start-loc" class="form-control" type="text" placeholder="FROM (enter city or airport) " data-date-format="DD, MM d">
+
+                                        </div>
+
+                                        <div class="input-group form-item">
+                                            <input id="end-date-location" name="end-loc" class="form-control" type="text" placeholder="To (exit city or airport)" data-date-format="DD, MM d">
 
                                         </div>
 
-                                        <div class="input-group">
-                                            <input id="appendedcheckbox" name="appendedcheckbox" class="form-control" type="text" placeholder="To (enter city or airport)">
-
-                                        </div>
 
                                     </div>
                                     <div class="col-sm-4 padd-h-5">
                                         <div class="col-md-12 no-padd form-inline">
+                                            <div class="input-daterange " id="flight-datepicker">
+                                                <div class="input-group form-item">
+                                                    <input id="start-date" name="start" class="form-control text-upper" type="text" placeholder="Departure" data-date-format="DD, MM d">
+                                                    <div class="input-group-addon bg-white"><i class="fa fa-calendar" aria-hidden="true"></i></div>
 
-                                            <div class="input-group">
-                                                <input id="appendedcheckbox" name="appendedcheckbox" class="form-control text-upper" type="text" placeholder="Departure">
-                                                <div class="input-group-addon bg-white"><i class="fa fa-calendar" aria-hidden="true"></i></div>
+                                                </div>
+                                                <div class="input-group form-item">
+                                                    <input id="end-date" name="end" class="form-control text-upper" type="text" placeholder="return" data-date-format="DD, MM d">
+                                                    <div class="input-group-addon bg-white"><i class="fa fa-calendar" aria-hidden="true"></i></div>
 
-                                            </div>
-                                            <div class="input-group">
-                                                <input id="appendedcheckbox" name="appendedcheckbox" class="form-control text-upper" type="text" placeholder="return">
-                                                <div class="input-group-addon bg-white"><i class="fa fa-calendar" aria-hidden="true"></i></div>
-
+                                                </div>
                                             </div>
 
                                         </div>
@@ -60,44 +63,73 @@
                                 <div class="col-sm-3 no-padd">
 
                                     <div class="col-sm-6 padd-h-5 form-inline">
-                                        <div class="input-group">
-                                            <input id="appendedcheckbox" name="appendedcheckbox" class="form-control text-upper" type="text" placeholder="Student">
-                                            <div class="input-group-addon"><i class="fa fa-circle" aria-hidden="true"></i></div>
+                                        <div class="form-row">
+                                            <div class="radio">
+                                                <label>
+                                                    <span>STUDENTS</span>
+                                                    <input type="radio" name="sampleRadio" id="" checked>
+                                                    <span class="input-group-addon"><span class="custom-radio"></span></span>
+
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <span>Youth</span>
+                                                    <input type="radio" name="sampleRadio" id="">
+                                                    <span class="input-group-addon"><span class="custom-radio"></span></span>
+
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <span>Teacher</span>
+                                                    <input type="radio" name="sampleRadio" id="">
+                                                    <span class="input-group-addon"><span class="custom-radio"></span></span>
+
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <span>Other</span>
+                                                    <input type="radio" name="sampleRadio" id="">
+                                                    <span class="input-group-addon"><span class="custom-radio"></span></span>
+
+                                                </label>
+                                            </div>
                                         </div>
 
-                                        <div class="input-group">
-                                            <input id="appendedcheckbox" name="appendedcheckbox" class="form-control text-upper" type="text" placeholder="Youth">
-                                            <div class="input-group-addon"><i class="fa fa-circle" aria-hidden="true"></i></div>
-                                        </div>
-                                        <div class="input-group">
-                                            <input id="appendedcheckbox" name="appendedcheckbox" class="form-control text-upper" type="text" placeholder="Teacher">
-                                            <div class="input-group-addon"><i class="fa fa-circle" aria-hidden="true"></i></div>
-
-                                        </div>
-                                        <div class="input-group">
-                                            <input id="appendedcheckbox" name="appendedcheckbox" class="form-control text-upper" type="text" placeholder="Other">
-                                            <div class="input-group-addon"><i class="fa fa-circle" aria-hidden="true"></i></div>
-
-                                        </div>
 
                                     </div>
                                     <div class="col-sm-6 padd-h-5 form-inline">
                                         <h4 class="txt-white text-upper padd-h-5">&nbsp;</h4>
-                                        <div class="input-group">
-                                            <input id="appendedcheckbox" name="appendedcheckbox" class="form-control text-upper" type="text" placeholder="oneway">
-                                            <div class="input-group-addon"><i class="fa fa-circle" aria-hidden="true"></i></div>
+                                        <div class="form-row">
+                                            <div class="radio">
+                                                <label>
+                                                    <span>oneway</span>
+                                                    <input type="radio" name="sampleRadio1" id="" checked>
+                                                    <span class="input-group-addon"><span class="custom-radio"></span></span>
+
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <span>return</span>
+                                                    <input type="radio" name="sampleRadio1" id="">
+                                                    <span class="input-group-addon"><span class="custom-radio"></span></span>
+
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <span>multiple</span>
+                                                    <input type="radio" name="sampleRadio1" id="">
+                                                    <span class="input-group-addon"><span class="custom-radio"></span></span>
+
+                                                </label>
+                                            </div>
 
                                         </div>
-                                        <div class="input-group">
-                                            <input id="appendedcheckbox" name="appendedcheckbox" class="form-control text-upper" type="text" placeholder="return">
-                                            <div class="input-group-addon"><i class="fa fa-circle" aria-hidden="true"></i></div>
 
-                                        </div>
-                                        <div class="input-group">
-                                            <input id="appendedcheckbox" name="appendedcheckbox" class="form-control text-upper" type="text" placeholder="multiple">
-                                            <div class="input-group-addon"><i class="fa fa-circle" aria-hidden="true"></i></div>
-
-                                        </div>
 
                                     </div>
                                 </div>
@@ -120,7 +152,7 @@
                                     <div class="col-sm-12 padd-h-5">
 
                                         <div class="input-group">
-                                            <textarea id="appendedcheckbox" cols="5" rows="3" name="appendedcheckbox" class="form-control text-upper" type="text" placeholder="message"></textarea>
+                                            <textarea id="appendedcheckbox" cols="5" rows="3" name="appendedcheckbox" class="form-control text-upper" placeholder="message"></textarea>
 
                                         </div>
                                     </div>
@@ -140,5 +172,6 @@
             <h3 class="txt-green-light text-upper"><span class="txt-yellow">click here to <br>enjoy your journey</h3>
             <img src="<?php echo HTTP_PATH; ?>images/airplane.png" class="off-canvas-menu-icon marg-n-left-25">
         </div>
+
     </div>
 </div>
