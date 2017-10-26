@@ -61,12 +61,23 @@ require_once(DOC_ROOT . 'system/user/modules/mod_cards/helper.php');
                     <?php echo str_replace(['<p>', '</p>', '<pre>', '</pre>'], '', $card->description2()); ?>
                     <br>
                     <div class="bdr-5-yellow bg-black pos-rela take-top100 marg-btm-15">
-                        <div class="padd-20">
-                            <p class="txt-white padd-h-15">“Went for dinner to this great little restaurant down the road from where I live. Found it through the ISIC App. The food was amazing but I re-ceived a 20% off my meal with my ISIC - that was even better!"
-                            </p>
-
-                            <img src="<?php echo HTTP_PATH; ?>images/testimo_1.jpg" alt=".." class="pull-right" />
-                            <h4 class="txt-green">Saj.Melbourne<br>March 2017</h4>
+                        <div class="owl-carousel owl-theme">
+                            <div class="item">
+                                <div class="padd-20">
+                                    <p class="txt-white padd-h-15">“Went for dinner to this great little restaurant down the road from where I live. Found it through the ISIC App. The food was amazing but I re-ceived a 20% off my meal with my ISIC - that was even better!"
+                                    </p>
+                                    <img src="<?php echo HTTP_PATH; ?>images/testimo_1.jpg" alt=".." class="img-responsive pull-right" style="width:auto;"/>
+                                    <h4 class="txt-green">Saj.Melbourne<br>March 2017</h4>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="padd-20">
+                                    <p class="txt-white padd-h-15">“Went for dinner to this great little restaurant down the road from where I live. Found it through the ISIC App. The food was amazing but I re-ceived a 20% off my meal with my ISIC - that was even better!"
+                                    </p>
+                                    <img src="<?php echo HTTP_PATH; ?>images/testimo_1.jpg" alt=".." class="img-responsive pull-right" style="width:auto;"/>
+                                    <h4 class="txt-green">Saj.Melbourne<br>March 2017</h4>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -106,5 +117,22 @@ require_once(DOC_ROOT . 'system/user/modules/mod_cards/helper.php');
         </div>
     </div>
 </body>
-
+<script>
+    jQuery('.owl-carousel').owlCarousel({
+        loop:true,
+        margin:10,
+        nav:false,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:1
+            },
+            1000:{
+                items:1
+            }
+        }
+    })
+</script>
 </html>
