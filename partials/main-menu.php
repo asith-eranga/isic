@@ -40,7 +40,8 @@ $current_page_class = 'current-menu-item current_page_item';
                                 <?php } ?>
                             </ul>
                         </li>
-                        <li  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children <?php if ($current_path == 'discount') { echo $current_page_class; } ?>">
+                        <li class="menu-item menu-item-object-page <?php if ($current_path == 'discount') { echo $current_page_class; } ?>"><a href="<?php echo HTTP_PATH; ?>discount">discounts</a></li>
+                        <!--<li  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children <?php if ($current_path == 'discount') { echo $current_page_class; } ?>">
                             <a href="<?php echo HTTP_PATH; ?>discount">Discounts</a>
                             <ul class="sub-menu">
                                 <?php
@@ -52,7 +53,7 @@ $current_page_class = 'current-menu-item current_page_item';
                                     <li class="menu-item better-anim-fade <?php if ($current_path == $discount_page_url) { echo 'menu-item-object-page current-menu-item current_page_item'; } ?>"><a href="<?php echo $discount_page_url; ?>"><?php echo $v; ?></a></li>
                                 <?php } ?>
                             </ul>
-                        </li>
+                        </li>-->
                         <li class="menu-item menu-item-type-taxonomy menu-item-object-category  better-anim-fade "><a href="#"> Partner with isic </a></li>
                         <li  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children <?php if ($current_path == 'travel-with-us') { echo $current_page_class; } ?>">
                             <a href="<?php echo HTTP_PATH; ?>travel-with-us">Travel With us</a>
