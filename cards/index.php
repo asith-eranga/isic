@@ -2,6 +2,7 @@
 define("_MEXEC", "OK");
 require_once("../system/load.php");
 require_once(DOC_ROOT . 'system/user/modules/mod_cards/helper.php');
+require_once(DOC_ROOT . 'system/user/modules/mod_testimonials/helper.php');
 ?>
 
 <!DOCTYPE html>
@@ -62,22 +63,22 @@ require_once(DOC_ROOT . 'system/user/modules/mod_cards/helper.php');
                     <br>
                     <div class="bdr-5-yellow bg-black pos-rela take-top100 marg-btm-15">
                         <div class="owl-carousel owl-theme">
+                            <?php
+                                $testimonials = new Mod_Testimonials();
+                                $data = $testimonials->selectAll();
+                                for ($i = 0; $i < count($data); $i++) {
+                                    $testimonials->extractor($data, $i);
+                            ?>
                             <div class="item">
                                 <div class="padd-20">
-                                    <p class="txt-white padd-h-15">“Went for dinner to this great little restaurant down the road from where I live. Found it through the ISIC App. The food was amazing but I re-ceived a 20% off my meal with my ISIC - that was even better!"
+                                    <p class="txt-white padd-h-15">
+                                        <?php echo str_replace(['<p>', '</p>', '<pre>', '</pre>'], '', $testimonials->description()); ?>
                                     </p>
-                                    <img src="<?php echo HTTP_PATH; ?>images/testimo_1.jpg" alt=".." class="img-responsive pull-right" style="width:auto;"/>
-                                    <h4 class="txt-green">Saj.Melbourne<br>March 2017</h4>
+                                    <img src="<?php echo $testimonials->image(); ?>" alt=".." class="img-responsive pull-right" style="width:auto;"/>
+                                    <h4 class="txt-green"><?php echo $testimonials->name(); ?></h4>
                                 </div>
                             </div>
-                            <div class="item">
-                                <div class="padd-20">
-                                    <p class="txt-white padd-h-15">“Went for dinner to this great little restaurant down the road from where I live. Found it through the ISIC App. The food was amazing but I re-ceived a 20% off my meal with my ISIC - that was even better!"
-                                    </p>
-                                    <img src="<?php echo HTTP_PATH; ?>images/testimo_1.jpg" alt=".." class="img-responsive pull-right" style="width:auto;"/>
-                                    <h4 class="txt-green">Saj.Melbourne<br>March 2017</h4>
-                                </div>
-                            </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
