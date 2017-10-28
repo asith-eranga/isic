@@ -91,6 +91,10 @@ require_once("../system/load.php");
                                     <i class="newspaper outline icon"></i>
                                     <?php echo Default_ModManager::niceName('mod_about'); ?>
                                 </a>
+                                <a onclick="loadModule('mod_partner_with_isic')" class="item main-menu">
+                                    <i class="newspaper outline icon"></i>
+                                    <?php echo Default_ModManager::niceName('mod_partner_with_ISIC'); ?>
+                                </a>
                             </div>
                         </div>
 
