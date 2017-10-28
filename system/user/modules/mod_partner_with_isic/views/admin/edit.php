@@ -63,7 +63,7 @@ $(document).ready(function(){
 <div class="thirteen wide column">
 
 		<h2 class="ui header">
-		  <i class="sitemap icon"></i>
+		  <i class="child icon"></i>
 		  <div class="content">
 		    Edit Partner With ISIC
 		    <div class="sub header">Edit partner with isic</div>

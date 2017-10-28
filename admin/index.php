@@ -92,7 +92,7 @@ require_once("../system/load.php");
                                     <?php echo Default_ModManager::niceName('mod_about'); ?>
                                 </a>
                                 <a onclick="loadModule('mod_partner_with_isic')" class="item main-menu">
-                                    <i class="sitemap icon"></i>
+                                    <i class="child icon"></i>
                                     <?php echo Default_ModManager::niceName('mod_partner_with_ISIC'); ?>
                                 </a>
                                 <a onclick="loadModule('mod_travel_with_us')" class="item main-menu">
