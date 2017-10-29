@@ -18,3 +18,6 @@ RewriteRule ^partner-with-isic/([a-zA-Z0-9_-]+)$ partner-with-isic/index.php#$1 
 
 #-------------- Travel With Us -------------------------------------------
 RewriteRule ^travel-with-us/([a-zA-Z0-9_-]+)$ travel-with-us/index.php#$1 [L]
+
+#-------------- Take A Vacation -------------------------------------------
+RewriteRule ^take-a-vacation/([a-zA-Z0-9_-]+)$ take-a-vacation/index.php#$1 [L]
