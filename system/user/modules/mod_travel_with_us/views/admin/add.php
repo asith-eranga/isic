@@ -57,7 +57,7 @@ $status 		= $travel_with_us->getAllStatus();
 </script>
 
 <div class="thirteen wide column">
-  <h2 class="ui header"> <i class="child icon"></i>
+  <h2 class="ui header"> <i class="map signs icon"></i>
     <div class="content"> Add Partner With ISIC
       <div class="sub header">Add partner with isic</div>
     </div>

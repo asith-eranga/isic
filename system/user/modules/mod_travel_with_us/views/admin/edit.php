@@ -63,7 +63,7 @@ $(document).ready(function(){
 <div class="thirteen wide column">
 
 		<h2 class="ui header">
-		  <i class="child icon"></i>
+		  <i class="map signs icon"></i>
 		  <div class="content">
 		    Edit Travel With Us
 		    <div class="sub header">Edit travel with us</div>
