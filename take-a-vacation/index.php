@@ -17,7 +17,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ISIC | Travel with us</title>
+    <title>ISIC | Take A Vacation</title>
     <?php include(DOC_ROOT . 'partials/head.php'); ?>
 </head>
 
@@ -33,37 +33,37 @@
         <div class="content-wrap">
             <main id="content" class="content-container dis-flex">
                 <?php
-                    $travel_with_us = new Mod_TravelWithUs();
-                    $travel_with_us_data = $travel_with_us->selectAll();
-                    for ($i = 0; $i < count($travel_with_us_data); $i++) {
-                        $travel_with_us->extractor($travel_with_us_data, $i);
-                        $travel_with_us_target = strtolower(str_replace(' ', '-', $travel_with_us->name()));
+                    $take_a_vacation = new Mod_TakeAVacation();
+                    $take_a_vacation_data = $take_a_vacation->selectAll();
+                    for ($i = 0; $i < count($take_a_vacation_data); $i++) {
+                        $take_a_vacation->extractor($take_a_vacation_data, $i);
+                        $take_a_vacation_target = strtolower(str_replace(' ', '-', $take_a_vacation->name()));
                         if (!$i%2){
                 ?>
-                <div class="bg-green padd-v-30" id="<?php echo $travel_with_us_target; ?>">
+                <div class="bg-green padd-v-30" id="<?php echo $take_a_vacation_target; ?>">
                     <div class="col-md-6 col-xs-12 text-left bg-green col-md-push-6 no-padd-rght">
                         <span class="bder-L-shape">
-		                    <img src="" alt="...." data-src="<?php echo $travel_with_us->image(); ?>" class="img-responsive img-cont full-width " >
+		                    <img src="" alt="...." data-src="<?php echo $take_a_vacation->image(); ?>" class="img-responsive img-cont full-width " >
 		                </span>
                     </div>
                     <div class="col-md-6 col-xs-12 txt-white bg-green col-md-pull-6 ">
-                        <h1 class="fnt-40 text-upper txt-black text-right"><?php echo $travel_with_us->name(); ?></h1>
+                        <h1 class="fnt-40 text-upper txt-black text-right"><?php echo $take_a_vacation->name(); ?></h1>
                         <p class="txt-white text-right">
-                            <?php echo str_replace(['<p>', '</p>', '<pre>', '</pre>'], '', $travel_with_us->description()); ?>
+                            <?php echo str_replace(['<p>', '</p>', '<pre>', '</pre>'], '', $take_a_vacation->description()); ?>
                         </p>
                     </div>
                 </div>
                 <?php } else { ?>
-                <div class="bg-green padd-v-30" id="<?php echo $travel_with_us_target; ?>">
+                <div class="bg-green padd-v-30" id="<?php echo $take_a_vacation_target; ?>">
                     <div class="col-md-6 col-xs-12 text-left bg-green no-padd-left">
                         <span class="bder-L-shape right">
-		                    <img src="" alt="...." data-src="<?php echo $travel_with_us->image(); ?>" class="img-responsive img-cont full-width " >
+		                    <img src="" alt="...." data-src="<?php echo $take_a_vacation->image(); ?>" class="img-responsive img-cont full-width " >
 		                </span>
                     </div>
                     <div class="col-md-6 col-xs-12 txt-white bg-green ">
-                        <h1 class="fnt-40 text-upper txt-black text-left"><?php echo $travel_with_us->name(); ?></h1>
+                        <h1 class="fnt-40 text-upper txt-black text-left"><?php echo $take_a_vacation->name(); ?></h1>
                         <p class="txt-white text-left">
-                            <?php echo str_replace(['<p>', '</p>', '<pre>', '</pre>'], '', $travel_with_us->description()); ?>
+                            <?php echo str_replace(['<p>', '</p>', '<pre>', '</pre>'], '', $take_a_vacation->description()); ?>
                         </p>
                     </div>
                 </div>
