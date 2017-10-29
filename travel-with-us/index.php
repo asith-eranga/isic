@@ -1,6 +1,7 @@
 <?php
-define("_MEXEC", "OK");
-require_once("../system/load.php");
+    define("_MEXEC", "OK");
+    require_once("../system/load.php");
+    //require_once(DOC_ROOT . 'system/user/modules/mod_travel_with_us/helper.php');
 ?>
 
 <!DOCTYPE html>
@@ -32,73 +33,42 @@ require_once("../system/load.php");
         <?php include(DOC_ROOT . 'partials/mobile-logo.php'); ?>
         <div class="content-wrap">
             <main id="content" class="content-container dis-flex">
-                <div class="bg-green padd-v-30">
+                <?php
+                    $travel_with_us = new Mod_TravelWithUs();
+                    $travel_with_us_data = $travel_with_us->selectAll();
+                    for ($i = 0; $i < count($travel_with_us_data); $i++) {
+                        $travel_with_us->extractor($travel_with_us_data, $i);
+                        $travel_with_us_target = strtolower(str_replace(' ', '-', $travel_with_us->name()));
+                        if (!$i%2){
+                ?>
+                <div class="bg-green padd-v-30" id="<?php echo $travel_with_us_target; ?>">
                     <div class="col-md-6 col-xs-12 text-left bg-green col-md-push-6 no-padd-rght">
-
-                        <span class="bder-L-shape ">
-		<img src="" alt="...." data-src="<?php echo HTTP_PATH; ?>images/travel_1.jpg" class="img-responsive img-cont full-width " >
-		</span>
-
+                        <span class="bder-L-shape">
+		                    <img src="" alt="...." data-src="<?php echo $travel_with_us->image(); ?>" class="img-responsive img-cont full-width " >
+		                </span>
                     </div>
                     <div class="col-md-6 col-xs-12 txt-white bg-green col-md-pull-6 ">
-
-                        <h1 class="fnt-40 text-upper txt-black text-right">
-			its time to fly favourite
-
-			</h1>
+                        <h1 class="fnt-40 text-upper txt-black text-right"><?php echo $travel_with_us->name(); ?></h1>
                         <p class="txt-white text-right">
-
-                            The ISIC card is your ultimate student lifestyle card. Want awesome travel deals, money off online shopping, discounts on restaurants, cafes and takeaways? We've got you covered, ISIC is the only internationally-recognized student ID. It is your ticket to fantastic discounts and services in Sri Lanka and globally.
-                            <br>There are over 150,000 discounts worldwide.
-
+                            <?php echo str_replace(['<p>', '</p>', '<pre>', '</pre>'], '', $travel_with_us->description()); ?>
                         </p>
                     </div>
                 </div>
-
-                <div class="bg-green padd-v-30">
+                <?php } else { ?>
+                <div class="bg-green padd-v-30" id="<?php echo $travel_with_us_target; ?>">
                     <div class="col-md-6 col-xs-12 text-left bg-green no-padd-left">
-
                         <span class="bder-L-shape right">
-		<img src="" alt="...." data-src="<?php echo HTTP_PATH; ?>images/travel_2.jpg" class="img-responsive img-cont full-width " >
-		</span>
-
+		                    <img src="" alt="...." data-src="<?php echo $travel_with_us->image(); ?>" class="img-responsive img-cont full-width " >
+		                </span>
                     </div>
                     <div class="col-md-6 col-xs-12 txt-white bg-green ">
-
-                        <h1 class="fnt-40 text-upper txt-black text-left">
-			you do your things
-
-			</h1>
+                        <h1 class="fnt-40 text-upper txt-black text-left"><?php echo $travel_with_us->name(); ?></h1>
                         <p class="txt-white text-left">
-
-                            The ISIC card is your ultimate student lifestyle card. Want awesome travel deals, money off online shopping, discounts on restaurants, cafes and takeaways? We've got you covered, ISIC is the only internationally-recognized student ID. It is your ticket to fantastic discounts and services in Sri Lanka and globally.
-                            <br>There are over 150,000 discounts worldwide.
-
+                            <?php echo str_replace(['<p>', '</p>', '<pre>', '</pre>'], '', $travel_with_us->description()); ?>
                         </p>
                     </div>
                 </div>
-                <div class="bg-green padd-v-30">
-                    <div class="col-md-6 col-xs-12 text-left bg-green col-md-push-6 no-padd-rght">
-
-                        <span class="bder-L-shape ">
-		<img src="" alt="...." data-src="<?php echo HTTP_PATH; ?>images/travel_1.jpg" class="img-responsive img-cont full-width " >
-		</span>
-
-                    </div>
-                    <div class="col-md-6 col-xs-12 txt-white bg-green col-md-pull-6 ">
-
-                        <h1 class="fnt-40 text-upper txt-black text-right">
-			its time to fly favourite
-
-			</h1>
-                        <p class="txt-white text-right">
-
-                            The ISIC card is your ultimate student lifestyle card. Want awesome travel deals, money off online shopping, discounts on restaurants, cafes and takeaways? We've got you covered, ISIC is the only internationally-recognized student ID. It is your ticket to fantastic discounts and services in Sri Lanka and globally.
-                            <br>There are over 150,000 discounts worldwide.
-
-                        </p>
-                    </div>
-                </div>
+                <?php } } ?>
             </main>
             <footer>
                 <?php include(DOC_ROOT . 'partials/footer.php'); ?>
