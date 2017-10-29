@@ -99,6 +99,10 @@ require_once("../system/load.php");
                                     <i class="map signs icon"></i>
                                     <?php echo Default_ModManager::niceName('mod_travel_with_us'); ?>
                                 </a>
+                                <a onclick="loadModule('mod_take_a_vacation')" class="item main-menu">
+                                    <i class="travel icon"></i>
+                                    <?php echo Default_ModManager::niceName('mod_take_a_vacation'); ?>
+                                </a>
                             </div>
                         </div>
 
