@@ -182,27 +182,49 @@ members control over their health is paramount ....</span>
                     </div>
                 </div>
 
-                <div class="col-md-12 col-xs-12 bg-black padd-v-20 txt-white dis-flex">
-                    <div class="row full-height">
-                        <div class="col-md-4 col-xs-12 ">
-                            <span class="bder-L-shape ">
-		<img src="" alt="...." data-src="images/img-9.jpg" class="img-responsive img-cont " >
-		</span>
-                        </div>
-                        <div class="col-md-4 col-xs-12 no-padd green-border-right">
-                            <h2 class="padd-h-30 txt-white">EVENTS</h2>
-
-                            <div class="bdr-5-yellow bg-black pos-rela take-top100">
-                                <div class="padd-h-30">
-                                    <h4 class="txt-green">YOUNG DRUMS 2011</h4>
-                                    <p class="text-upper">OUR SCHOOL HAD SUCH A GREAT TIME AT ISIC' YOUNG DRUMS 2011 SO LOOKING FORWARD TO YOUNG DRUMS 2012
-                                        <br>
-                                        <br> THANK YOU TEAM ISIC FOR MAKING YOUNG DRUMS MEMORABLE - ROYAL COLLEGE WESTERN BAND. COLOMBO 07 -</p>
+                    <div class="col-md-12 col-xs-12 bg-black padd-v-20 txt-white">
+                        <div class=" full-height">
+                            <div class="col-md-8 col-xs-12 no-padd">
+                                <div class="owl-carousel owl-theme">
+                                    <div class="item">
+                                        <div class="col-md-6 col-xs-12 ">
+                                            <span class="bder-L-shape ">
+		                                        <img src="" alt="...." data-src="<?php echo HTTP_PATH; ?>images/img-9.jpg" class="img-responsive img-cont " >
+		                                    </span>
+                                        </div>
+                                        <div class="col-md-6 col-xs-12 no-padd green-border-right">
+                                            <h2 class="padd-h-30 txt-white">EVENTS</h2>
+                                            <div class="bdr-5-yellow bg-black pos-rela take-top100">
+                                                <div class="padd-h-30">
+                                                    <h4 class="txt-green">YOUNG DRUMS 2011</h4>
+                                                    <p class="text-upper">OUR SCHOOL HAD SUCH A GREAT TIME AT ISIC' YOUNG DRUMS 2011 SO LOOKING FORWARD TO YOUNG DRUMS 2012<br><br> THANK YOU TEAM ISIC FOR MAKING YOUNG DRUMS MEMORABLE - ROYAL COLLEGE WESTERN BAND. COLOMBO 07 -</p>
+                                                </div>
+                                            </div>
+                                            <a class="text-upper padd-h-30 txt-green padd-v-15 show" href="#">view all...</a>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="col-md-6 col-xs-12 ">
+                    	                    <span class="bder-L-shape ">
+							                    <img src="" alt="...." data-src="<?php echo HTTP_PATH; ?>images/img-9.jpg" class="img-responsive img-cont " >
+						                    </span>
+                                        </div>
+                                        <div class="col-md-6 col-xs-12 no-padd green-border-right">
+                                            <h2 class="padd-h-30 txt-white">EVENTS</h2>
+                                            <div class="bdr-5-yellow bg-black pos-rela take-top100">
+                                                <div class="padd-h-30">
+                                                    <h4 class="txt-green">YOUNG DRUMS 2011</h4>
+                                                    <p class="text-upper">OUR SCHOOL HAD SUCH A GREAT TIME AT ISIC' YOUNG DRUMS 2011 SO LOOKING FORWARD TO YOUNG DRUMS 2012
+                                                        <br>
+                                                        <br> THANK YOU TEAM ISIC FOR MAKING YOUNG DRUMS MEMORABLE - ROYAL COLLEGE WESTERN BAND. COLOMBO 07 -</p>
+                                                </div>
+                                            </div>
+                                            <a class="text-upper padd-h-30 txt-green padd-v-15 show" href="#">view all...</a>
+                                        </div>
+                                    </div>
 
                                 </div>
                             </div>
-                            <a class="text-upper padd-h-30 txt-green padd-v-15 show" href="#">view all...</a>
-                        </div>
                         <?php
                         $home_2 = new Mod_HomePage();
                         $home_2->setId(2);
@@ -224,5 +246,22 @@ members control over their health is paramount ....</span>
         </div>
     </div>
 </body>
-
+<script>
+    jQuery('.owl-carousel').owlCarousel({
+        loop:true,
+        margin:10,
+        nav:false,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:1
+            },
+            1000:{
+                items:1
+            }
+        }
+    });
+</script>
 </html>

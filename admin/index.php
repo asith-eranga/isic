@@ -91,6 +91,18 @@ require_once("../system/load.php");
                                     <i class="newspaper outline icon"></i>
                                     <?php echo Default_ModManager::niceName('mod_about'); ?>
                                 </a>
+                                <a onclick="loadModule('mod_partner_with_isic')" class="item main-menu">
+                                    <i class="child icon"></i>
+                                    <?php echo Default_ModManager::niceName('mod_partner_with_ISIC'); ?>
+                                </a>
+                                <a onclick="loadModule('mod_travel_with_us')" class="item main-menu">
+                                    <i class="map signs icon"></i>
+                                    <?php echo Default_ModManager::niceName('mod_travel_with_us'); ?>
+                                </a>
+                                <a onclick="loadModule('mod_take_a_vacation')" class="item main-menu">
+                                    <i class="travel icon"></i>
+                                    <?php echo Default_ModManager::niceName('mod_take_a_vacation'); ?>
+                                </a>
                             </div>
                         </div>
 
