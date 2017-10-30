@@ -166,7 +166,7 @@ function deleteUserPermission(){
 }
 
 function getSystemManagerCategories(){
-	return array("activity-log"=>"Activity Log","email-settings"=>"Email Settings","variable-manager"=>"Variable Manager");
+	return array("activity-log"=>"Activity Log","email-settings"=>"Email Settings","variable-manager"=>"Variable Manager","system-settings"=>"System Settings");
 }
 
 }
