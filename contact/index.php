@@ -55,35 +55,56 @@ require_once("../system/load.php");
 			Contacts
 
 			</h1>
-
-                    <p class="txt-black text-upper no-marg">
-                        Hotlines
-                    </p>
-                    <p class="txt-white">
-                        +94 115 47 47 47 | +94 115 22 00 85
-                    </p>
-
-                    <p class="txt-black text-upper no-marg">
-                        isic/sta travel
-                    </p>
-                    <p class="txt-white">
-                        3rd FLOOR. NO. 54 WALUKARAMA ROAD. COLOMBO 3. SRI LANKA
-                    </p>
-
-                    <p class="txt-black text-upper no-marg">
-                        General mail
-                    </p>
-                    <p class="txt-white">
-                        JUDE@UNITEDYENTURESSL.COM
-                    </p>
-
-                    <p class="txt-black text-upper no-marg">
-                        General fax
-                    </p>
-                    <p class="txt-white">
-                        +94 115 22 00 66
-                    </p>
-
+                    <?php if (!empty($system_settings->telephone1())){ ?>
+                        <p class="txt-black text-upper no-marg">
+                            Hotlines
+                        </p>
+                        <p class="txt-white">
+                            <?php echo $system_settings->telephone1(); ?>
+                            <?php
+                                if (!empty($system_settings->telephone2())) {
+                                    echo ' | ' . $system_settings->telephone2();
+                                }
+                            ?>
+                        </p>
+                    <?php } ?>
+                    <?php if (!empty($system_settings->addressLine1())){ ?>
+                        <p class="txt-black text-upper no-marg">
+                            <?php echo $system_settings->addressLine1(); ?>
+                        </p>
+                        <p class="txt-white">
+                            <?php
+                                if (!empty($system_settings->addressLine2())) {
+                                   echo $system_settings->addressLine2();
+                                }
+                                if (!empty($system_settings->addressLine3())) {
+                                    echo ', ' . $system_settings->addressLine3();
+                                }
+                                if (!empty($system_settings->addressLine4())) {
+                                    echo ', ' . $system_settings->addressLine4();
+                                }
+                                if (!empty($system_settings->addressLine5())) {
+                                    echo ', ' . $system_settings->addressLine5() . '.';
+                                }
+                            ?>
+                        </p>
+                    <?php } ?>
+                    <?php if (!empty($system_settings->email())){ ?>
+                        <p class="txt-black text-upper no-marg">
+                            General mail
+                        </p>
+                        <p class="txt-white">
+                            <?php echo $system_settings->email(); ?>
+                        </p>
+                    <?php } ?>
+                    <?php if (!empty($system_settings->fax())){ ?>
+                        <p class="txt-black text-upper no-marg">
+                            General fax
+                        </p>
+                        <p class="txt-white">
+                            <?php echo $system_settings->fax(); ?>
+                        </p>
+                    <?php } ?>
                 </div>
                 <div class="col-md-12 col-xs-12 bg-black txt-white padd-v-40 marg-v-20">
                     <form class="form-horizontal">
@@ -152,7 +173,7 @@ require_once("../system/load.php");
     jQuery(document).ready(function() {
 
         function initialize() {
-            var myLatlng = new google.maps.LatLng(6.904856, 79.853174);
+            var myLatlng = new google.maps.LatLng(<?php echo $system_settings->mapCoordinates(); ?>);
             var imagePath = 'images/Pin-location.png'
             var mapOptions = {
                 zoom: 17,
