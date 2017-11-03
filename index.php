@@ -38,31 +38,64 @@
                     <div class="main-section">
                         <div class="content-column">
                             <div class="grid">
-                                <div class="grid-item "><a href="#"><img src="" data-src="<?php echo HTTP_PATH; ?>images/img-1.jpg" class="img-responsive img-cont "/></a></div>
-                                <div class="grid-item grid-item--height2"><img src="" data-src="<?php echo HTTP_PATH; ?>images/img-2.jpg" class="img-responsive img-cont " /></div>
-                                <div class="grid-item"><img src="" data-src="<?php echo HTTP_PATH; ?>images/img-3.jpg" class="img-responsive img-cont "/></div>
-                                <div class="grid-item grid-item--width2">
-                                    <a href="" class="listing-mg-1-item ">
-                                        <img src="" data-src="<?php echo HTTP_PATH; ?>images/img-4.jpg" class="img-responsive img-cont "/>
-                                        <span class="format-icon format-audio"><i class="fa fa-eye"></i></span>
-                                        <div class="content-container pos-abs bottom_0 ">
-                                            <img src="<?php echo HTTP_PATH; ?>images/power-world-logo.jpg" class="img-responsive pull-left">
-                                            <div class="padd-10 over-hidden">
-                                                            <span class="title text-yellow"> <span class="post-url post-title">
-RS. 5000/- DISCOUNT</span></span>
-                                                <br>
-                                                <span class="txt-white">from 5.00am to 5.00 pm - monday to saturday
-Providing a quality healthcare service and giving our
-members control over their health is paramount ....</span>
+                                <?php
+                                $discounts = new Mod_Discounts();
+                                $discounts_data = $discounts->selectAll();
+                                for ($i = 0; $i < count($discounts_data); $i++) {
+                                    if($i==6){
+                                        break;
+                                    }
+                                    $discounts->extractor($discounts_data, $i);
 
-                                            </div>
+                                    // generate the image size classes
+                                    $image_properties = getimagesize($discounts->image());
+                                    if ($image_properties[0] <= 340) {
+                                        $width = null;
+                                    } elseif ($image_properties[0] < 506) {
+                                        $width = 'grid-item--half';
+                                    } elseif ($image_properties[0] < 676) {
+                                        $width = 'grid-item--width2';
+                                    } else {
+                                        $width = 'grid-item--full';
+                                    }
+
+                                    if ($image_properties[1] <= 340) {
+                                        $height = null;
+                                    } else {
+                                        $height = 'grid-item--height2';
+                                    }
+
+                                    if ($discounts->displayType() == 0) { ?>
+                                        <div class="grid-item <?php echo $width . ' ' . $height . ' card-' . $discounts->cardType() . ' category-' . $discounts->category(); ?>">
+                                            <a href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->id(); ?>">
+                                                <img src="" data-src="<?php echo $discounts->image(); ?>" class="img-responsive img-cont "/>
+                                            </a>
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="grid-item grid-item--half"><img src="" data-src="<?php echo HTTP_PATH; ?>images/img-5.jpg" class="img-responsive img-cont "/></div>
-                                <div class="grid-item grid-item--half"><img src="" data-src="<?php echo HTTP_PATH; ?>images/img-6.jpg" class="img-responsive img-cont "/></div>
+                                    <?php } else { ?>
+                                        <div class="grid-item grid-item--width2 <?php echo 'card-' . $discounts->cardType() . ' category-' . $discounts->category(); ?>">
+                                            <a href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->id(); ?>" class="listing-mg-1-item ">
+                                                <img src="" data-src="<?php echo $discounts->image(); ?>" class="img-responsive img-cont "/>
+                                                <span class="format-icon format-audio"><i class="fa fa-eye"></i></span>
+                                                <div class="content-container pos-abs bottom_0 ">
+                                                    <img src="<?php echo HTTP_PATH; ?>images/power-world-logo.jpg" class="img-responsive pull-left">
+                                                    <div class="padd-10 over-hidden">
+                                                            <span class="title text-yellow">
+                                                                <span class="post-url post-title">
+                                                                    <?php echo $discounts->name(); ?>
+                                                                </span>
+                                                            </span>
+                                                        <br>
+                                                        <span class="txt-white">
+                                                                <?php echo str_replace(['<pre>', '</pre>'], '', $discounts->description()); ?>
+                                                            </span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    <?php }
+                                }
+                                ?>
                             </div>
-
                         </div>
                     </div>
                 </div>

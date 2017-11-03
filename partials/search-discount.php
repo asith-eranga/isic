@@ -36,7 +36,7 @@ $discount_categories = $discounts->getAllCategories();
                 ?>
                     <div class="button padd-v-5 pos-rela" data-filter=".card-<?php echo $k; ?>">
                         <a class="txt-white" href="javascript:void(0);">
-                            <?php echo $discount_card; ?> <img src="<?php echo HTTP_PATH; ?>images/icons/cat-1.png">
+                            <?php echo $discount_card; ?> <img src="<?php echo HTTP_PATH; ?>images/icons/cat-<?php echo $k+1; ?>.png">
                         </a>
                     </div>
                 <?php } ?>
