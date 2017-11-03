@@ -17,7 +17,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ISIC | Discount inner</title>
+    <title>ISIC | Discount</title>
     <?php include(DOC_ROOT . 'partials/head.php'); ?>
 </head>
 
@@ -29,49 +29,40 @@
             <?php include_once(DOC_ROOT . 'partials/card.php'); ?>
             <?php include(DOC_ROOT . 'partials/main-menu.php'); ?>
         </header>
-        <?php include(DOC_ROOT . 'partials/mobile-logo.php'); ?>
+        <?php include(DOC_ROOT . 'partials/mobile-logo.php');
+            $id = $_GET['id'];
+            $discounts = new Mod_Discounts();
+            $discounts->setId($id);
+            $discounts_data = $discounts->getById();
+            $discounts->extractor($discounts_data);
+        ?>
         <div class="content-wrap">
             <main id="content" class="content-container dis-flex">
                 <div class="col-md-9 col-xs-12 padd-v-10 padd-h-25 marg-tp-5 layout-bc-before  bg-green">
                     <div class="main-section padd-v-25 ">
-					<div class="col-xs-12">
-                        <img src="<?php echo HTTP_PATH; ?>images/power-world-logo2.jpg" class="img-responsive pull-left">
-						<h3 class="dis-in-blk text-upper padd-h-15 txt-black">Power World- Colombo/Kandy/jaffna</h3>
-                    </div>
-					<div class="col-xs-12">
-						<h3 class="btn btn-primary txt-black pull-left">Rs 5,000.00 Discount</h3>
-						<h4 class="txt-yellow text-upper dis-in-blk padd-15">offer valid for</h4>
-						<img src="<?php echo HTTP_PATH; ?>images/offer-labels.jpg">
-						<span class="share-handler padd-h-15">
-							<i class="bf-icon  fa fa-share-alt txt-yellow fnt-20"></i> 
-						</span>
-					</div>
-					<div class="col-xs-12">
-						<p class="txt-white">Excellent choice for busy corporate executives to walk in any time for the work out, for those who are unable to exercise during the morning and daytime and for those who prefer to end the day with an energising work out. </p>
-						
-						<p class="txt-white">Ideal for those wanting to stay active throughout the day with an early work out, for those who work late hours and are too tired to work out in the evening. for those who are early birds and for those who work flexi hours. </p>
-						<p class="txt-white">All ISIC cardholdaers receive a <span class="txt-yellow">Rs.5,000 discount</span> for their caffeine quota for the day I So grab yours now I </p>
-						<br>
-					</div>
-					<div class="col-xs-12">
-						<span class="bder-L-shape ">
-		<img src="<?php echo HTTP_PATH; ?>images/gym-image.jpg" alt="...." class="img-responsive img-cont ">
-		</span>
-		
-					</div>
-					<br>
-					<div class="col-xs-12 padd-v-25">
-					<p class="txt-white">Excellent choice for busy corporate executives to walk in any time for the work out, for those who are unable to exercise during the morning and daytime and for those who prefer to end the day with an energising work out. </p>
-					</div>
-					<div class="col-xs-12">
-					<span class="bder-L-shape right">
-		<div id="map_container"></div>
-                        <div id="map"></div>
-		</span>
-						
-					</div>
-					
-					
+                        <div class="col-xs-12">
+                            <img src="<?php echo HTTP_PATH; ?>images/power-world-logo2.jpg" class="img-responsive pull-left">
+                            <h3 class="dis-in-blk text-upper padd-h-15 txt-black">
+                                <?php echo $discounts->name(); ?>
+                            </h3>
+                        </div>
+                        <div class="col-xs-12">
+                            <h3 class="btn btn-primary txt-black pull-left">Rs 5,000.00 Discount</h3>
+                            <h4 class="txt-yellow text-upper dis-in-blk padd-15">offer valid for</h4>
+                            <img src="<?php echo HTTP_PATH; ?>images/icons/cat-<?php echo $discounts->cardType()+1; ?>.png">
+                            <span class="share-handler padd-h-15">
+                                <i class="bf-icon  fa fa-share-alt txt-yellow fnt-20"></i>
+                            </span>
+                        </div>
+                        <div class="col-xs-12">
+                            <?php echo str_replace(['<pre>', '</pre>'], '', $discounts->description()); ?>
+                        </div>
+                        <div class="col-xs-12">
+                            <span class="bder-L-shape right">
+                                <div id="map_container"></div>
+                                <div id="map"></div>
+                            </span>
+                        </div>
                     </div>
                 </div>
                 <?php include(DOC_ROOT . 'partials/search-discount.php'); ?>
