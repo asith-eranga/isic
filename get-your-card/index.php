@@ -40,24 +40,18 @@ require_once("../system/load.php");
 
                 <div class="col-md-9 col-xs-12 bg-green txt-white dis-flex">
                     <div class="col-md-12 col-xs-12 padd-10">
-
                         <h1 class="fnt-40 text-upper txt-black">
-                            150,000 BENIFITS<br>Across 130 countries!
-
+                            get your card
                         </h1>
                         <p class="txt-white">
                             Our Team is standing by to assist you with any questions or clarifications you might have about the International Student Identity Card (ISIC). Please get in touch with one of our executives today to embark on your ISIC experience opening doors to limiteless possibilities and offers.
-
                         </p>
                         <p>Equipped with just 2 staff members and minimal marketing budgets, ISIC Sri Lanka started with the humblest of beginning to say the least! </p>
-
                     </div>
-
                 </div>
                 <div class="col-md-3 col-xs-12 no-padd text-left bg-green padd-h-15">
                     <h1 class="fnt-40 text-upper txt-black">
                         Contacts
-
                     </h1>
                     <?php if (!empty($system_settings->telephone1())){ ?>
                         <p class="txt-black text-upper no-marg">
@@ -112,7 +106,6 @@ require_once("../system/load.php");
 
                 </div>
                 <div class="col-md-12 col-xs-12 bg-black txt-white padd-v-40 marg-v-20">
-
                     <h2 class="fnt-30 text-upper txt-white text-center">
                         Application Form
                     </h2>
@@ -122,40 +115,36 @@ require_once("../system/load.php");
                         <div class="col-sm-10 col-xs-12 float-n center-block dis-flex" style="float:none">
                             <div class="col-sm-8 padd-v-10">
                                 <div class="input-container">
-                                    <label for="firstname" class="text-upper">University /College</label>
+                                    <label for="universityCollege" class="text-upper">University / College</label>
                                     <input class="material" type="text" id="universityCollege">
                                 </div>
                                 <div class="input-container">
-                                    <label for="lastname" class="text-upper">Ful Name</label>
+                                    <label for="fullname" class="text-upper">Full Name</label>
                                     <input class="material" type="text" id="fullname">
                                 </div>
                                 <div class="input-container">
-                                    <label for="company" class="text-upper">Date of Birth</label>
+                                    <label for="birthday" class="text-upper">Date of Birth</label>
                                     <input class="material" type="text" id="birthday">
                                 </div>
 
                                 <div class="input-container col-sm-6 no-padd">
-                                    <label for="company" class="text-upper">E-mail</label>
+                                    <label for="email" class="text-upper">E-mail</label>
                                     <input class="material" type="text" id="email">
                                 </div>
                                 <div class="input-container col-sm-1 no-padd">
                                 </div>
-                                <div class="input-container col-sm-5 no-padd">
-                                    <label for="company" class="text-upper">Telephone</label>
+                                <div class="input-container col-sm-5">
+                                    <label for="telephone" class="text-upper">Telephone</label>
                                     <input class="material" type="text" id="telephone">
                                 </div>
-                                <div class="input-container  clearfix"></div>
+                                <div class="input-container clearfix"></div>
                                 <div class="input-container">
-                                    <label for="company" class="text-upper">How did u hear about us?</label>
-                                    <input class="material" type="text" id="birthday">
+                                    <label for="hear" class="text-upper">How did you hear about us?</label>
+                                    <input class="material" type="text" id="hear">
                                 </div>
                                 <div class="input-group marg-tp-30">
-                                    <textarea id="appendedcheckbox" name="appendedcheckbox" class="form-control bg-black border-2-white" type="text" placeholder="ADDRESS" rows="5"></textarea>
-
+                                    <textarea id="address" name="address" class="form-control bg-black border-2-white" type="text" placeholder="ADDRESS" rows="5"></textarea>
                                 </div>
-
-
-
                             </div>
                             <div class="col-sm-4 padd-v-10">
                                 <div class="input-container">
