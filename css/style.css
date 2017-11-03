@@ -5380,7 +5380,7 @@ ul.sub-menu.bs-pretty-tabs-elements .mega-menu.mega-type-link .mega-links>li:hov
     vertical-align: middle
 }
 
-.listing-modern-grid.slider-overlay-simple .listing-mg-item .content-container {
+.listing-mg-1-item .content-container {
     background: rgba(0, 0, 0, .42);
     left: 0!important;
     right: 0!important;
@@ -5645,7 +5645,7 @@ ul.sub-menu.bs-pretty-tabs-elements .mega-menu.mega-type-link .mega-links>li:hov
     transform: none
 }
 
-.listing-mg-item:hover .format-icon {
+.listing-mg-1-item:hover .format-icon {
     right: 50%;
     top: 50%;
     margin-top: -16px;
@@ -5732,11 +5732,11 @@ body.bs-ll-d .listing-mg-type-1 .img-cont.img-cont {
 }
 
 .listing-mg-type-2:before {
-    height: 300px
+    height: 288px
 }
 
 .listing-mg-type-2.listing-mg-2-item:before {
-    height: 500px
+    height: 510px
 }
 
 .listing-modern-grid-1.l-2 .listing-item-3 .term-badges,
@@ -5806,21 +5806,16 @@ body.bs-ll-d .listing-mg-type-1 .img-cont {
     background-size: cover!important
 }
 
-.listing-mg-type-1 .img-cont:after {
+.listing-mg-type-1 .img-cont:after,.grid-item {
     -webkit-transition: all .35s ease;
     -moz-transition: all .35s ease;
     -o-transition: all .35s ease;
     transition: all .35s ease;
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0
+ 
 }
 
 .listing-mg-type-1:hover .img-cont,
-.listing-mg-type-2:hover .img-cont {
+.listing-mg-type-2:hover .img-cont{
     transform: scale3d(1.1, 1.1, 1);
     -webkit-transform: scale3d(1.1, 1.1, 1);
     -moz-transform: scale3d(1.1, 1.1, 1)
@@ -6298,4 +6293,31 @@ ol, ul {
     padding-top: 30px;
     position: relative;
 }
+* { box-sizing: border-box; }
+
+body { font-family: sans-serif; }
+
+/* ---- grid ---- */
+
+
+
+/* clear fix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- .grid-item ---- */
+
+.grid-item {
+  float: left;
+  width: 33.333%;
+  background: #000;
+  position:relative;
+}
+
+.grid-item--width2 { width: 66.666%; }
+.grid-item--half { width: 50%; }
+
 
