@@ -81,7 +81,7 @@ require_once(DOC_ROOT . 'system/user/modules/mod_discounts/helper.php');
                                                             </span>
                                                             <br>
                                                             <span class="txt-white">
-                                                                <?php echo str_replace(['<pre>', '</pre>'], '', $discounts->description()); ?>
+                                                                <?php echo substr(str_replace(['<pre>', '</pre>'], '', $discounts->description()), 0, 150) . '...'; ?>
                                                             </span>
                                                         </div>
                                                     </div>

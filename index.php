@@ -86,8 +86,8 @@
                                                             </span>
                                                         <br>
                                                         <span class="txt-white">
-                                                                <?php echo str_replace(['<pre>', '</pre>'], '', $discounts->description()); ?>
-                                                            </span>
+                                                            <?php echo substr(str_replace(['<pre>', '</pre>'], '', $discounts->description()), 0, 150) . '...'; ?>
+                                                        </span>
                                                     </div>
                                                 </div>
                                             </a>
