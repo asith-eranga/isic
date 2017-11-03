@@ -6321,3 +6321,56 @@ body { font-family: sans-serif; }
 .grid-item--half { width: 50%; }
 
 
+
+input {
+  border: 2px solid #eee;
+  padding: 1em .25em;
+  width: 96%;
+  color: #999;
+  border-radius: 4px;
+}
+
+
+.left {
+  width: 80%;
+  min-width: 80%;
+  padding-right: 1em;
+  margin:auto;
+}
+.left img {
+  width: 100%;
+}
+
+.img-holder {
+  display: block;
+  vertical-align: middle;
+  width: 2em;
+  height: 2em;
+}
+.img-holder img {
+  width: 100%;
+  max-width: 100%;
+}
+
+.file-wrapper {
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+}
+.file-wrapper:hover .btn {
+  background-color: #33adff !important;
+}
+
+.file-wrapper input {
+  cursor: pointer;
+  font-size: 100px;
+  height: 100%;
+  filter: alpha(opacity=1);
+  -moz-opacity: 0.01;
+  opacity: 0.01;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 9;
+}

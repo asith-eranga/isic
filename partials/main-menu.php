@@ -103,7 +103,8 @@ $current_page_class = 'current-menu-item current_page_item';
                     </ul>
                     <div class="menu-action-buttons bg-green col-md-3">
                         <div class="off-canvas-menu-icon-container off-icon-right">
-                            <a href="#"><h5 class="txt-yellow" >GET YOUR CARD</h5></a>
+                            <a href="<?php echo HTTP_PATH; ?>get-your-card">
+                                <h5 class="<?php if ($current_path == 'get-your-card') { echo 'txt-white'; } else { echo 'txt-yellow'; } ?>">GET YOUR CARD</h5></a>
                         </div>
                     </div>
                 </nav>

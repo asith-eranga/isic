@@ -125,6 +125,8 @@
     <span>© 2017 ISIC. All rights reserved </span>
 </div>
 
+<span class="back-top"><i class="fa fa-arrow-up"></i></span>
+
 <script>
     var dateSelect     = jQuery('#flight-datepicker');
     var dateDepart     = jQuery('#start-date');
