@@ -6319,7 +6319,7 @@ body { font-family: sans-serif; }
 
 .grid-item--width2 { width: 66.666%; }
 .grid-item--half { width: 50%; }
-
+.grid-item--full { width: 100%; }
 
 
 input {

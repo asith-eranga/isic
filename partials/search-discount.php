@@ -32,9 +32,9 @@ $discount_categories = $discounts->getAllCategories();
                     <a class="txt-white text-upper" href="javascript:void(0);">all </a>
                 </div>
                 <?php
-                    foreach ($discount_cards as $discount_card) {
+                    foreach ($discount_cards as $k => $discount_card) {
                 ?>
-                    <div class="button padd-v-5 pos-rela" data-filter=".<?php echo $discount_card; ?>">
+                    <div class="button padd-v-5 pos-rela" data-filter=".card-<?php echo $k; ?>">
                         <a class="txt-white" href="javascript:void(0);">
                             <?php echo $discount_card; ?> <img src="<?php echo HTTP_PATH; ?>images/icons/cat-1.png">
                         </a>
@@ -52,9 +52,9 @@ $discount_categories = $discounts->getAllCategories();
                     <a class="txt-white text-upper" href="javascript:void(0);">all </a>
                 </div>
                 <?php
-                    foreach ($discount_categories as $discount_category) {
+                    foreach ($discount_categories as $k => $discount_category) {
                 ?>
-                    <div class="button padd-v-5 pos-rela" data-filter=".<?php echo $discount_category; ?>">
+                    <div class="button padd-v-5 pos-rela" data-filter=".category-<?php echo $k; ?>">
                         <a class="txt-white text-upper" href="javascript:void(0);">
                             <?php echo $discount_category; ?>
                         </a>
