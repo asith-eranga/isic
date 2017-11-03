@@ -26,13 +26,19 @@ $discount_categories = $discounts->getAllCategories();
         <div class="col-sm-10 col-xs-12 center-block" style="float:none">
             <h3 class="txt-green text-upper">Cards</h3>
         </div>
-        <div class="bg-green" >
-            <div class="border-bottom">
+        <div class="bg-green">
+            <div class="border-bottom filter-button-group">
+                <div class="button padd-v-5 pos-rela" data-filter=".grid-item">
+                    <a class="txt-white text-upper" href="javascript:void(0);">all </a>
+                </div>
                 <?php
-                    foreach ($discount_cards as $k => $v) {
-                        $discount_page_url = strtolower(str_replace(' ', '-', $v));
+                    foreach ($discount_cards as $discount_card) {
                 ?>
-                    <div class=" padd-v-5 pos-rela"><a class="txt-white " href="<?php echo $discount_page_url; ?>"><?php echo $v; ?> <img src="<?php echo HTTP_PATH; ?>images/icons/cat-1.png"></a></div>
+                    <div class="button padd-v-5 pos-rela" data-filter=".<?php echo $discount_card; ?>">
+                        <a class="txt-white" href="javascript:void(0);">
+                            <?php echo $discount_card; ?> <img src="<?php echo HTTP_PATH; ?>images/icons/cat-1.png">
+                        </a>
+                    </div>
                 <?php } ?>
             </div>
         </div>
@@ -41,14 +47,18 @@ $discount_categories = $discounts->getAllCategories();
             <h3 class="txt-green text-upper">Categories</h3>
         </div>
         <div class="bg-green" >
-
-            <div class="border-bottom">
-                <div class=" padd-v-5 pos-rela"><a class="txt-white text-upper" href="#">all </a></div>
+            <div class="border-bottom filter-button-group">
+                <div class="button padd-v-5 pos-rela" data-filter=".grid-item">
+                    <a class="txt-white text-upper" href="javascript:void(0);">all </a>
+                </div>
                 <?php
-                    foreach ($discount_categories as $k => $v) {
-                        $discount_page_url = strtolower(str_replace(' ', '-', $v));
+                    foreach ($discount_categories as $discount_category) {
                 ?>
-                    <div class=" padd-v-5 pos-rela"><a class="txt-white text-upper " href="<?php echo $discount_page_url; ?>"><?php echo $v; ?></a></div>
+                    <div class="button padd-v-5 pos-rela" data-filter=".<?php echo $discount_category; ?>">
+                        <a class="txt-white text-upper" href="javascript:void(0);">
+                            <?php echo $discount_category; ?>
+                        </a>
+                    </div>
                 <?php } ?>
             </div>
         </div>
