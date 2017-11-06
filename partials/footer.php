@@ -146,4 +146,11 @@
         spanDepart.text(start);
         spanReturn.text(end);
     });
+
+    jQuery(function(){
+        var location = ["Katunayake", "Maththala", "Delhi", "Malaysia", "USA", "Africa", "Russia"];
+        jQuery("#start-date-location, #end-date-location").autocomplete({
+            source: location
+        });
+    });
 </script>

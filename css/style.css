@@ -3445,7 +3445,7 @@ ul.sub-menu.bs-pretty-tabs-elements .mega-menu.mega-type-link .mega-links>li:hov
     position: absolute;
     width: 300px;
     height: 100%;
-    z-index: 999999;
+    /*z-index: 999999;*/
     -webkit-transition: .6s cubic-bezier(.55, -.01, .19, .98) 0s;
     -moz-transition: .6s cubic-bezier(.55, -.01, .19, .98) 0s;
     -o-transition: .6s cubic-bezier(.55, -.01, .19, .98) 0s;

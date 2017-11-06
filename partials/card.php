@@ -168,7 +168,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3 col-xs-12 pos-rela take-top1k" style="background:url(<?php echo HTTP_PATH; ?>'images/header-back.jpg') right bottom / cover">
+        <div class="col-md-3 col-xs-12 pos-rela take-top1k" style="background:url(<?php echo HTTP_PATH . 'images/header-back.jpg'; ?>) right bottom / cover">
             <h3 class="txt-green-light text-upper"><span class="txt-yellow">click here to <br>enjoy your journey</h3>
             <img src="<?php echo HTTP_PATH; ?>images/airplane.png" class="off-canvas-menu-icon marg-n-left-25">
         </div>
