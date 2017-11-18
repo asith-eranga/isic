@@ -68,13 +68,13 @@
                                     if ($discounts->displayType() == 0) { ?>
                                         <div class="grid-item <?php echo $width . ' ' . $height . ' card-' . $discounts->cardType() . ' category-' . $discounts->category(); ?>">
                                             <a href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->id(); ?>">
-                                                <img src="" data-src="<?php echo $discounts->image(); ?>" class="img-responsive img-cont "/>
+                                                <img src="<?php echo $discounts->image(); ?>" class="img-responsive "/>
                                             </a>
                                         </div>
                                     <?php } else { ?>
                                         <div class="grid-item grid-item--width2 <?php echo 'card-' . $discounts->cardType() . ' category-' . $discounts->category(); ?>">
                                             <a href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->id(); ?>" class="listing-mg-1-item ">
-                                                <img src="" data-src="<?php echo $discounts->image(); ?>" class="img-responsive img-cont "/>
+                                                <img src="<?php echo $discounts->image(); ?>" class="img-responsive"/>
                                                 <span class="format-icon format-audio"><i class="fa fa-eye"></i></span>
                                                 <div class="content-container pos-abs bottom_0 ">
                                                     <img src="<?php echo HTTP_PATH; ?>images/power-world-logo.jpg" class="img-responsive pull-left">
@@ -163,16 +163,16 @@
                 </div>
 
                     <div class="col-md-12 col-xs-12 bg-black padd-v-20 txt-white">
-                        <div class=" full-height">
+                        <div class="dis-flex full-height">
                             <div class="col-md-8 col-xs-12 no-padd">
-                                <div class="owl-carousel owl-theme">
+                                <div class="owl-carousel owl-theme green-border-right">
                                     <div class="item">
                                         <div class="col-md-6 col-xs-12 ">
                                             <span class="bder-L-shape ">
 		                                        <img src="" alt="...." data-src="<?php echo HTTP_PATH; ?>images/img-9.jpg" class="img-responsive img-cont " >
 		                                    </span>
                                         </div>
-                                        <div class="col-md-6 col-xs-12 no-padd green-border-right">
+                                        <div class="col-md-6 col-xs-12 no-padd ">
                                             <h2 class="padd-h-30 txt-white">EVENTS</h2>
                                             <div class="bdr-5-yellow bg-black pos-rela take-top100">
                                                 <div class="padd-h-30">
@@ -189,7 +189,7 @@
 							                    <img src="" alt="...." data-src="<?php echo HTTP_PATH; ?>images/img-9.jpg" class="img-responsive img-cont " >
 						                    </span>
                                         </div>
-                                        <div class="col-md-6 col-xs-12 no-padd green-border-right">
+                                        <div class="col-md-6 col-xs-12 no-padd ">
                                             <h2 class="padd-h-30 txt-white">EVENTS</h2>
                                             <div class="bdr-5-yellow bg-black pos-rela take-top100">
                                                 <div class="padd-h-30">
@@ -211,7 +211,7 @@
                         $home_data_2 = $home_2->getById();
                         $home_2->extractor($home_data_2);
                         ?>
-                        <div class="col-md-4 col-xs-12 bg-green padd-40 full-height">
+                        <div class="col-md-4 col-xs-12 bg-green padd-40 ">
                             <h2 class="h1 txt-black"><?php echo $home_2->title(); ?></h2>
                             <?php echo str_replace(['<pre>', '</pre>'], '', $home_2->description()); ?>
                         </div>
@@ -225,10 +225,11 @@
             </footer>
         </div>
     </div>
+<?php include(DOC_ROOT . 'partials/mobile-menu.php'); ?>
 </body>
 <script type="text/javascript" src="//unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
 <script type="text/javascript" src="//unpkg.com/isotope-packery@2/packery-mode.pkgd.js"></script>
-<script type="text/javascript" src="http://imagesloaded.desandro.com/imagesloaded.pkgd.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.min.js"></script>
 <script>
     jQuery('.owl-carousel').owlCarousel({
         loop:true,
@@ -246,13 +247,14 @@
             }
         }
     });
-    jQuery(document).ready(function() {
-        var $grid = jQuery('.grid').isotope({
+jQuery(window).load(function () {
+       var $grid = jQuery('.grid').isotope({
             layoutMode: 'packery',
             itemSelector: '.grid-item'
         });
-        // layout Isotope after each image loads
+
         $grid.imagesLoaded().progress( function() {
+
             $grid.isotope('layout');
         });
     });

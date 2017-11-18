@@ -186,6 +186,7 @@ require_once("../system/load.php");
             </footer>
         </div>
     </div>
+<?php include(DOC_ROOT . 'partials/mobile-menu.php'); ?>
 </body>
 <script>
     jQuery(function() {

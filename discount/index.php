@@ -102,12 +102,13 @@ require_once(DOC_ROOT . 'system/user/modules/mod_discounts/helper.php');
             </footer>
         </div>
     </div>
+<?php include(DOC_ROOT . 'partials/mobile-menu.php'); ?>
 </body>
 <script type="text/javascript" src="//unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
 <script type="text/javascript" src="//unpkg.com/isotope-packery@2/packery-mode.pkgd.js"></script>
 <script type="text/javascript" src="http://imagesloaded.desandro.com/imagesloaded.pkgd.js"></script>
 <script>
-    jQuery(document).ready(function() {
+    jQuery(window).load(function () {
         var $grid = jQuery('.grid').isotope({
             layoutMode: 'packery',
             itemSelector: '.grid-item'

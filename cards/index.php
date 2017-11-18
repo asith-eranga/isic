@@ -117,6 +117,7 @@ require_once(DOC_ROOT . 'system/user/modules/mod_testimonials/helper.php');
             </footer>
         </div>
     </div>
+<?php include(DOC_ROOT . 'partials/mobile-menu.php'); ?>
 </body>
 <script>
     jQuery('.owl-carousel').owlCarousel({

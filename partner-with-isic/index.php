@@ -74,6 +74,7 @@
             </footer>
         </div>
     </div>
+<?php include(DOC_ROOT . 'partials/mobile-menu.php'); ?>
 </body>
 
 </html>
