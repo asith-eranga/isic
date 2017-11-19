@@ -13,7 +13,7 @@
 <link rel='stylesheet' href='<?php echo HTTP_PATH; ?>css/style.css' type='text/css' media='all' />
 
 <script type='text/javascript' src='<?php echo HTTP_PATH; ?>js/blazy.js'></script>
-<script type='text/javascript' src='<?php echo HTTP_PATH; ?>js/jquery.js'></script>
+<script type='text/javascript' src='<?php echo HTTP_PATH; ?>js/jquery-3.2.1.min.js'></script>
 <script type='text/javascript' src='<?php echo HTTP_PATH; ?>js/jquery-migrate.min.js'></script>
 <script type='text/javascript' src='https://code.jquery.com/ui/1.12.1/jquery-ui.js'></script>
 
@@ -21,7 +21,8 @@
 <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js'></script>
 <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery-dateFormat/1.0/jquery.dateFormat.js'></script>
 <script type='text/javascript' src='<?php echo HTTP_PATH; ?>js/element-query.min.js'></script>
-<script type='text/javascript' src='<?php echo HTTP_PATH;  ?>js/theme-libs.js'></script>
+<script type='text/javascript' src='<?php echo HTTP_PATH; ?>js/theme-libs.js'></script>
+<script type='text/javascript' src='<?php echo HTTP_PATH; ?>js/get-a-quote.js'></script>
 
 <script type='text/javascript' src='<?php echo HTTP_PATH; ?>js/theme.js'></script>
 <!--[if lt IE 9]>

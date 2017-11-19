@@ -153,3 +153,38 @@ function sortTable() {
             $cards->updateSortOrder();
       }
 }
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get the form fields and remove whitespace.
+    $start_date_location = $_POST["start_date_location"];
+    $end_date_location = $_POST["end_date_location"];
+    $start_date = $_POST["start_date"];
+    $end_date = $_POST["end_date"];
+    $user_type = $_POST["user_type"];
+    $ticket_type = $_POST["ticket_type"];
+    $mobile = filter_var(trim($_POST["mobile"]), FILTER_SANITIZE_NUMBER_INT);
+    $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
+    $message = trim($_POST["message"]);
+
+    // Set the recipient email address.
+    // FIXME: Update this to your desired email address.
+    $recipient = "hello@example.com";
+
+    // Set the email subject.
+    $subject = "New contact from $name";
+
+    // Build the email content.
+    $email_content = "Name: $name\n";
+    $email_content .= "Email: $email\n\n";
+    $email_content .= "Message:\n$message\n";
+
+    // Build the email headers.
+    $email_headers = "From: $name <$email>";
+
+    // Send the email.
+    if (mail($recipient, $subject, $email_content, $email_headers)) {
+        Default_Common::jsonSuccess("Thank You! Your message has been sent.");
+    } else {
+        Default_Common::jsonError("Oops! Something went wrong and we couldn't send your message.");
+    }
+}
