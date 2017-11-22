@@ -196,7 +196,7 @@ class Mod_Discounts extends Default_DBConnection implements Default_DBInterface 
 
       function getByName() {
 
-            $this->MDatabase->select($this->table_name, "*", "LOWER(name)='" . $this->name() . "'", "id DESC");
+            $this->MDatabase->select($this->table_name, "*", "LOWER(name) LIKE '%" . $this->name() . "%' OR LOWER(description) LIKE '%" . $this->name() . "%'", "id DESC");
             return $this->MDatabase->result;
       }
 

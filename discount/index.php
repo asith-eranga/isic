@@ -38,7 +38,14 @@ require_once(DOC_ROOT . 'system/user/modules/mod_discounts/helper.php');
                             <div class="grid">
                                 <?php
                                     $discounts = new Mod_Discounts();
-                                    $discounts_data = $discounts->selectAll();
+                                    $search_keyword = $_POST['keyword'];
+                                    if (!empty($search_keyword))
+                                    {
+                                        $discounts->setName($search_keyword);
+                                        $discounts_data = $discounts->getByName();
+                                    } else {
+                                        $discounts_data = $discounts->selectAll();
+                                    }
                                     for ($i = 0; $i < count($discounts_data); $i++) {
                                         $discounts->extractor($discounts_data, $i);
 
