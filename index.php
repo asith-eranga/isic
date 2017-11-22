@@ -77,7 +77,7 @@
                                                 <img src="<?php echo $discounts->image(); ?>" class="img-responsive"/>
                                                 <span class="format-icon format-audio"><i class="fa fa-eye"></i></span>
                                                 <div class="content-container pos-abs bottom_0 ">
-                                                    <img src="<?php echo HTTP_PATH; ?>images/power-world-logo.jpg" class="img-responsive pull-left">
+                                                    <img src="<?php echo $discounts->logo(); ?>" class="img-responsive pull-left">
                                                     <div class="padd-10 over-hidden">
                                                             <span class="title text-yellow">
                                                                 <span class="post-url post-title">

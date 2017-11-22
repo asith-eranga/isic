@@ -55,13 +55,13 @@
                 <div class="col-md-9 col-xs-12 padd-v-10 padd-h-25 marg-tp-5 layout-bc-before  bg-green">
                     <div class="main-section padd-v-25 ">
                         <div class="col-xs-12">
-                            <img src="<?php echo HTTP_PATH; ?>images/power-world-logo2.jpg" class="img-responsive pull-left">
+                            <img src="<?php echo $discounts_inner->logo(); ?>" class="img-responsive pull-left">
                             <h3 class="dis-in-blk text-upper padd-h-15 txt-black">
                                 <?php echo $discounts_inner->name(); ?>
                             </h3>
                         </div>
                         <div class="col-xs-12">
-                            <h3 class="btn btn-primary txt-black pull-left">Rs 5,000.00 Discount</h3>
+                            <h3 class="btn btn-primary txt-black pull-left">Rs <?php echo $discounts_inner->discount(); ?> Discount</h3>
                             <h4 class="txt-yellow text-upper dis-in-blk padd-15">offer valid for</h4>
                             <img src="<?php echo HTTP_PATH; ?>images/icons/cat-<?php echo $discounts_inner->cardType()+1; ?>.png">
                             <div class="fb-share-button" data-href="https://www.facebook.com/ISICsrilanka/" data-layout="box_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2FISICsrilanka%2F&amp;src=sdkpreparse">Share</a></div>
@@ -98,7 +98,7 @@ jQuery('button').on('click', function() {
     jQuery(document).ready(function() {
 
         function initialize() {
-            var myLatlng = new google.maps.LatLng(6.904856, 79.853174);
+            var myLatlng = new google.maps.LatLng(<?php echo $discounts_inner->mapCoordinates(); ?>);
             var imagePath = 'images/Pin-location.png'
             var mapOptions = {
                 zoom: 17,

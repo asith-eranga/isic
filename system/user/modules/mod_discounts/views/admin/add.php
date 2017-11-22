@@ -30,6 +30,7 @@ $categories = $discounts->getAllCategories();
 		});
 	
 		$("#image").imagemanager({image_plugin_wrapper: "#image_preview_wrapper", image_select: "#selected_file"});
+        $("#logo").imagemanager({image_plugin_wrapper: "#image_preview_wrapper_logo", image_select: "#selected_file_logo"});
 		$('.ui.checkbox').checkbox();
 			
 		$('.ui.form').form({
@@ -80,6 +81,16 @@ $categories = $discounts->getAllCategories();
         <label>Name</label>
         <input placeholder="Name" id="name" name="name" type="text">
       </div>
+
+        <div class="field">
+            <label>Discount (Rs.)</label>
+            <input placeholder="Discount" id="discount" name="discount" type="text">
+        </div>
+
+        <div class="field">
+            <label>Map Coordinates</label>
+            <input placeholder="Map Coordinates" id="map_coordinates" name="map_coordinates" type="text">
+        </div>
       
       <div class="field">
         <label>Description</label>
@@ -91,6 +102,21 @@ $categories = $discounts->getAllCategories();
             <div class="six wide field">
                 <label>Image</label>
                 <input placeholder="Select Image" name="selected_file" id="selected_file" type="text" readonly>
+            </div>
+            <div class="four wide field">
+                <label>&nbsp;</label>
+                <div class="small ui button teal select_image">Select Image</div>
+                <div class="small ui icon button teal add_to_preview"><i class="add icon"></i></div>
+            </div>
+            <div class="sixteen wide field ui small images image_list">
+            </div>
+        </div>
+
+        <div class="fields" id="image_preview_wrapper_logo">
+            <input type="hidden" id="logo" name="logo" />
+            <div class="six wide field">
+                <label>Logo</label>
+                <input placeholder="Select Image" name="selected_file_logo" id="selected_file_logo" type="text" readonly>
             </div>
             <div class="four wide field">
                 <label>&nbsp;</label>

@@ -154,7 +154,7 @@ function sortTable() {
       }
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["start_date_location"])) {
     // Get the form fields and remove whitespace.
     $start_date_location = $_POST["start_date_location"];
     $end_date_location = $_POST["end_date_location"];
