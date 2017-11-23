@@ -66,7 +66,7 @@ $pagination->makePagination();
       <div class="ui divider"></div>
 
       <?php if (Sessions::checkUserPermission("mod_events", 2)) { ?>
-            <a class="ui small black labeled icon button" onclick="add()"><i class="add icon"></i>Add Testimonial</a>
+            <a class="ui small black labeled icon button" onclick="add()"><i class="add icon"></i>Add Event</a>
       <?php } ?>
 
       <table id="ajax_module_sub" class="ui small table segment">
