@@ -2,6 +2,7 @@
     define("_MEXEC", "OK");
     require_once("system/load.php");
     require_once(DOC_ROOT . 'system/user/modules/mod_home_page/helper.php');
+    require_once(DOC_ROOT . 'system/user/modules/mod_events/helper.php');
 ?>
 
 <!DOCTYPE html>
@@ -166,43 +167,32 @@
                         <div class="dis-flex full-height">
                             <div class="col-md-8 col-xs-12 no-padd">
                                 <div class="owl-carousel owl-theme green-border-right">
+                                    <?php
+                                        $events = new Mod_Events();;
+                                        $events_data = $events->selectAll();
+                                        for ($i = 0; $i < count($events_data); $i++) {
+                                            $events->extractor($events_data, $i);
+                                    ?>
                                     <div class="item">
                                         <div class="col-md-6 col-xs-12 ">
                                             <span class="bder-L-shape ">
-		                                        <img src="" alt="...." data-src="<?php echo HTTP_PATH; ?>images/img-9.jpg" class="img-responsive img-cont " >
+		                                        <img src="" alt="...." data-src="<?php echo $events->image(); ?>" class="img-responsive img-cont " >
 		                                    </span>
                                         </div>
                                         <div class="col-md-6 col-xs-12 no-padd ">
                                             <h2 class="padd-h-30 txt-white">EVENTS</h2>
                                             <div class="bdr-5-yellow bg-black pos-rela take-top100">
                                                 <div class="padd-h-30">
-                                                    <h4 class="txt-green">YOUNG DRUMS 2011</h4>
-                                                    <p class="text-upper">OUR SCHOOL HAD SUCH A GREAT TIME AT ISIC' YOUNG DRUMS 2011 SO LOOKING FORWARD TO YOUNG DRUMS 2012<br><br> THANK YOU TEAM ISIC FOR MAKING YOUNG DRUMS MEMORABLE - ROYAL COLLEGE WESTERN BAND. COLOMBO 07 -</p>
+                                                    <h4 class="txt-green"><?php echo $events->name(); ?></h4>
+                                                    <p class="text-upper">
+                                                        <?php echo str_replace(['<p>', '</p>', '<pre>', '</pre>'], '', $events->description()); ?>
+                                                    </p>
                                                 </div>
                                             </div>
-                                            <a class="text-upper padd-h-30 txt-green padd-v-15 show" href="#">view all...</a>
+                                            <!--<a class="text-upper padd-h-30 txt-green padd-v-15 show" href="#">view all...</a>-->
                                         </div>
                                     </div>
-                                    <div class="item">
-                                        <div class="col-md-6 col-xs-12 ">
-                    	                    <span class="bder-L-shape ">
-							                    <img src="" alt="...." data-src="<?php echo HTTP_PATH; ?>images/img-9.jpg" class="img-responsive img-cont " >
-						                    </span>
-                                        </div>
-                                        <div class="col-md-6 col-xs-12 no-padd ">
-                                            <h2 class="padd-h-30 txt-white">EVENTS</h2>
-                                            <div class="bdr-5-yellow bg-black pos-rela take-top100">
-                                                <div class="padd-h-30">
-                                                    <h4 class="txt-green">YOUNG DRUMS 2011</h4>
-                                                    <p class="text-upper">OUR SCHOOL HAD SUCH A GREAT TIME AT ISIC' YOUNG DRUMS 2011 SO LOOKING FORWARD TO YOUNG DRUMS 2012
-                                                        <br>
-                                                        <br> THANK YOU TEAM ISIC FOR MAKING YOUNG DRUMS MEMORABLE - ROYAL COLLEGE WESTERN BAND. COLOMBO 07 -</p>
-                                                </div>
-                                            </div>
-                                            <a class="text-upper padd-h-30 txt-green padd-v-15 show" href="#">view all...</a>
-                                        </div>
-                                    </div>
-
+                                    <?php } ?>
                                 </div>
                             </div>
                         <?php
