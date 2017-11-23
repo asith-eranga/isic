@@ -13,7 +13,7 @@
 <link rel='stylesheet' href='<?php echo HTTP_PATH; ?>css/style.css' type='text/css' media='all' />
 
 <script type='text/javascript' src='<?php echo HTTP_PATH; ?>js/blazy.js'></script>
-<script type='text/javascript' src='<?php echo HTTP_PATH; ?>js/jquery-3.2.1.min.js'></script>
+<script type='text/javascript' src='<?php echo HTTP_PATH; ?>js/jquery.js'></script>
 <script type='text/javascript' src='<?php echo HTTP_PATH; ?>js/jquery-migrate.min.js'></script>
 <script type='text/javascript' src='https://code.jquery.com/ui/1.12.1/jquery-ui.js'></script>
 

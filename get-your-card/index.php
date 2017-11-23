@@ -22,6 +22,7 @@ require_once("../system/load.php");
 	    .input-container + .input-container {
             margin-top: 1.5em;
         }
+.float-n{float:none}
 	</style>
 </head>
 
@@ -127,13 +128,12 @@ require_once("../system/load.php");
                                     <input class="material" type="text" id="birthday">
                                 </div>
 
-                                <div class="input-container col-sm-6 no-padd">
+                                <div class="input-container col-sm-5 no-padd float-n  dis-in-blk">
                                     <label for="email" class="text-upper">E-mail</label>
                                     <input class="material" type="text" id="email">
                                 </div>
-                                <div class="input-container col-sm-1 no-padd">
-                                </div>
-                                <div class="input-container col-sm-5">
+                              	<div class="input-container col-sm-1 float-n dis-in-blk padd-h-30"> </div>
+                                <div class="input-container col-sm-5 float-n  dis-in-blk">
                                     <label for="telephone" class="text-upper">Telephone</label>
                                     <input class="material" type="text" id="telephone">
                                 </div>

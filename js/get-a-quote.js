@@ -1,4 +1,4 @@
-$(function() {
+jQuery(function($) { 
     $(".button").click(function() {
         // validate and process form here
         var error = false;

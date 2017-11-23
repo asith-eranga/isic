@@ -234,7 +234,8 @@
     jQuery('.owl-carousel').owlCarousel({
         loop:true,
         margin:10,
-        nav:false,
+        nav:true,
+        navText : ["<i class='fa fa-chevron-left fnt-20 padd-5'></i>","<i class='fa fa-chevron-right fnt-20 padd-5'></i>"],
         responsive:{
             0:{
                 items:1
