@@ -68,23 +68,20 @@
 
                                     if ($discounts->displayType() == 0) { ?>
                                         <div class="grid-item <?php echo $width . ' ' . $height . ' card-' . $discounts->cardType() . ' category-' . $discounts->category(); ?>">
-                                            <a href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->id(); ?>">
-                                                <img src="<?php echo $discounts->image(); ?>" class="img-responsive "/>
-                                            </a>
-                                        </div>
                                     <?php } else { ?>
                                         <div class="grid-item grid-item--width2 <?php echo 'card-' . $discounts->cardType() . ' category-' . $discounts->category(); ?>">
-                                            <a href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->id(); ?>" class="listing-mg-1-item ">
+                                    <?php } ?>
+                                            <a href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->id(); ?>" class="listing-mg-1-item">
                                                 <img src="<?php echo $discounts->image(); ?>" class="img-responsive"/>
                                                 <span class="format-icon format-audio"><i class="fa fa-eye"></i></span>
                                                 <div class="content-container pos-abs bottom_0 ">
                                                     <img src="<?php echo $discounts->logo(); ?>" class="img-responsive pull-left">
                                                     <div class="padd-10 over-hidden">
-                                                            <span class="title text-yellow">
-                                                                <span class="post-url post-title">
-                                                                    <?php echo $discounts->name(); ?>
-                                                                </span>
+                                                        <span class="title text-yellow">
+                                                            <span class="post-url post-title">
+                                                                <?php echo $discounts->name(); ?>
                                                             </span>
+                                                        </span>
                                                         <br>
                                                         <span class="txt-white">
                                                             <?php echo substr(str_replace(['<pre>', '</pre>'], '', $discounts->description()), 0, 150) . '...'; ?>
@@ -93,9 +90,7 @@
                                                 </div>
                                             </a>
                                         </div>
-                                    <?php }
-                                }
-                                ?>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
