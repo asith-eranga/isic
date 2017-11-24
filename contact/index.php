@@ -1,6 +1,7 @@
 <?php
 define("_MEXEC", "OK");
 require_once("../system/load.php");
+require_once(DOC_ROOT . 'system/user/modules/mod_contact/helper.php');
 ?>
 
 <!DOCTYPE html>
@@ -32,29 +33,24 @@ require_once("../system/load.php");
         <?php include(DOC_ROOT . 'partials/mobile-logo.php'); ?>
         <div class="content-wrap">
             <main id="content" class="content-container dis-flex">
+                <?php
+                    $contact = new Mod_Contact();
+                    $contact->setId(1);
+                    $contact_data = $contact->getById();
+                    $contact->extractor($contact_data);
+                ?>
                 <div class="col-md-9 col-xs-12 bg-green txt-white dis-flex">
                     <div class="col-md-12 col-xs-12 padd-10">
-
                         <h1 class="fnt-40 text-upper txt-black">
-			Team Lk
-
-			</h1>
-                        <p class="txt-white">
-                            Our Team is standing by to assist you with any questions or clarifications you might have about the International Student Identity Card (ISIC). Please get in touch with one of our executives today to embark on your ISIC experience opening doors to limiteless possibilities and offers.
-
+                            <?php echo $contact->title(); ?>
+			            </h1>
+                        <p>
+                            <?php echo $contact->description(); ?>
                         </p>
-                        <p>Equipped with just 2 staff members and minimal marketing budgets, ISIC Sri Lanka started with the humblest of beginning to say the least! </p>
-                        <p>Innovative marketing ideas and the company's ability to gain the credibility of benefit merchants WrIffr, JUDEOUNITEDYENTURESSL.COM have turned ISIC from a travel card to a lifestyle card, essential to any students wallet! </p>
-                        <p>Today, we are proud to comprise of a team of 8, 56 benefit providers, 1 financial co-brand, 1 aca-demic co-brand and a profitable business unit within the company. </p>
-
                     </div>
-
                 </div>
                 <div class="col-md-3 col-xs-12 no-padd text-left bg-green padd-h-15">
-                    <h1 class="fnt-40 text-upper txt-black">
-			Contacts
-
-			</h1>
+                    <h1 class="fnt-40 text-upper txt-black">Contacts</h1>
                     <?php if (!empty($system_settings->telephone1())){ ?>
                         <p class="txt-black text-upper no-marg">
                             Hotlines
