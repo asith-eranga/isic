@@ -38,7 +38,7 @@
                     for ($i = 0; $i < count($take_a_vacation_data); $i++) {
                         $take_a_vacation->extractor($take_a_vacation_data, $i);
                         $take_a_vacation_target = strtolower(str_replace(' ', '-', $take_a_vacation->name()));
-                        if (!$i%2){
+                        if ($i%2 == 0){
                 ?>
                 <div class="bg-green padd-v-30" id="<?php echo $take_a_vacation_target; ?>">
                     <div class="col-md-6 col-xs-12 text-left bg-green col-md-push-6 no-padd-rght">

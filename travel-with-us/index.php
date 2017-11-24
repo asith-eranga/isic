@@ -38,7 +38,7 @@
                     for ($i = 0; $i < count($travel_with_us_data); $i++) {
                         $travel_with_us->extractor($travel_with_us_data, $i);
                         $travel_with_us_target = strtolower(str_replace(' ', '-', $travel_with_us->name()));
-                        if (!$i%2){
+                        if ($i%2 == 0){
                 ?>
                 <div class="bg-green padd-v-30" id="<?php echo $travel_with_us_target; ?>">
                     <div class="col-md-6 col-xs-12 text-left bg-green col-md-push-6 no-padd-rght">
