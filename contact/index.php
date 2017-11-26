@@ -171,7 +171,7 @@ require_once(DOC_ROOT . 'system/user/modules/mod_contact/helper.php');
 
         function initialize() {
             var myLatlng = new google.maps.LatLng(<?php echo $system_settings->mapCoordinates(); ?>);
-            var imagePath = 'images/Pin-location.png'
+            var imagePath = '../images/Pin-location.png'
             var mapOptions = {
                 zoom: 17,
                 center: myLatlng,
