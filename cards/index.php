@@ -90,8 +90,10 @@ require_once(DOC_ROOT . 'system/user/modules/mod_testimonials/helper.php');
                         <p class="txt-white ">
                             <?php echo str_replace(['<p>', '</p>', '<pre>', '</pre>'], '', $card->description3()); ?>
                         </p>
-                        <h3 class="fnt-30 text-upper txt-yellow pull-right marg-v-10">
-			                apply now >>
+                        <h3 class="fnt-30 text-upper pull-right marg-v-10">
+                            <a href="<?php echo HTTP_PATH; ?>/get-your-card">
+                                <span class="txt-yellow">apply now >></span>
+                            </a>
 			            </h3>
                     </div>
                     <div class="col-md-4 col-xs-12 text-left marg-btm-20 padd-v-30">
