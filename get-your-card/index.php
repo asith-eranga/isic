@@ -23,6 +23,26 @@ require_once("../system/load.php");
             margin-top: 1.5em;
         }
 .float-n{float:none}
+#file-upload {
+  position: absolute;
+  left: -9999px;
+}
+
+#filename {
+     padding: 0.5em;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    border: 2px solid white;
+    font-size: 1em;
+     padding: 7px;
+    cursor: text;
+    transition: all .35s;
+    color: #999;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.file-holder{display:none;}
 	</style>
 </head>
 
@@ -163,6 +183,14 @@ require_once("../system/load.php");
 </span>
                                     </div>
                                 </div>
+ <div class="input-container left">
+		<span id="filename">Select your file</span>
+		<label for="file-upload" class="file-wrapper marg-v-10 full-width text-center">
+ <input type="file" id="file-upload">
+  <span class="btn btn-large btn-alpha">Upload CV</span>
+</label>
+
+  </div>
 
                             </div>
                             <div class="col-sm-2 padd-v-10">
@@ -211,7 +239,7 @@ require_once("../system/load.php");
           $button = $this.siblings('.btn'),
           $fakeFile = $this.siblings('.file-holder');
       if(newVal !== '') {
-        $button.text('Photo Chosen');
+        $button.text('File Chosen');
         if($fakeFile.length === 0) {
           $button.after('<span class="file-holder">' + newVal + '</span>');
         } else {
@@ -239,5 +267,12 @@ require_once("../system/load.php");
     jQuery(".uploader").change(function(){
       readURL(this);
     });
+jQuery('#file-upload').change(function() {
+    var filepath = this.value;
+    var m = filepath.match(/([^\/\\]+)$/);
+    var filename = m[1];
+    jQuery('#filename').html(filename);
+
+});
 </script>
 </html>

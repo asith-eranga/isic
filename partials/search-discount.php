@@ -30,13 +30,13 @@ $discount_categories = $discounts->getAllCategories();
         </div>
         <div class="bg-green">
             <div class="border-bottom filter-button-group">
-                <div class="button padd-v-5 pos-rela" data-filter=".grid-item">
+                <div class="flt-button padd-v-5 pos-rela" data-filter=".grid-item">
                     <a class="txt-white text-upper" href="javascript:void(0);">all </a>
                 </div>
                 <?php
                     foreach ($discount_cards as $k => $discount_card) {
                 ?>
-                    <div class="button padd-v-5 pos-rela" data-filter=".card-<?php echo $k; ?>">
+                    <div class="flt-button padd-v-5 pos-rela" data-filter=".card-<?php echo $k; ?>">
                         <a class="txt-white" href="javascript:void(0);">
                             <?php echo $discount_card; ?> <img src="<?php echo HTTP_PATH; ?>images/icons/cat-<?php echo $k+1; ?>.png">
                         </a>
@@ -50,13 +50,13 @@ $discount_categories = $discounts->getAllCategories();
         </div>
         <div class="bg-green" >
             <div class="border-bottom filter-button-group">
-                <div class="button padd-v-5 pos-rela" data-filter=".grid-item">
+                <div class="flt-button padd-v-5 pos-rela" data-filter=".grid-item">
                     <a class="txt-white text-upper" href="javascript:void(0);">all </a>
                 </div>
                 <?php
                     foreach ($discount_categories as $k => $discount_category) {
                 ?>
-                    <div class="button padd-v-5 pos-rela" data-filter=".category-<?php echo $k; ?>">
+                    <div class="flt-button padd-v-5 pos-rela" data-filter=".category-<?php echo $k; ?>">
                         <a class="txt-white text-upper" href="javascript:void(0);">
                             <?php echo $discount_category; ?>
                         </a>

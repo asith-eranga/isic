@@ -6116,6 +6116,7 @@ body.bs-ll-d .listing-mg-type-1 .img-cont {
 }
 .input-group .form-control, .input-group-addon, .input-group-btn {
     display: table-cell;
+    overflow: hidden;
 }
 .inline-tbl{
 	display: inline-table;
@@ -6321,7 +6322,7 @@ ol, ul {
 body { font-family: sans-serif; }
 
 /* ---- grid ---- */
-
+.datepicker.dropdown-menu{z-index: 100000 !important;}
 
 
 /* clear fix */

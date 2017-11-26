@@ -124,6 +124,7 @@ require_once(DOC_ROOT . 'system/user/modules/mod_testimonials/helper.php');
         loop:true,
         margin:10,
         nav:false,
+        dots: true,
         responsive:{
             0:{
                 items:1
