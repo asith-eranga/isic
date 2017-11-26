@@ -6,13 +6,13 @@ if (isset($_POST['search_text'])) {
       $count = $take_a_vacation->searchCount($_POST['search_text']);
 } else {
       $data = $take_a_vacation->selectAllPaginated($_POST['page']);
-      $count = $take_a_vacation->selectAllCount();
+      $count = count($take_a_vacation->selectAllCount());
 }
 
 $status = $take_a_vacation->getAllStatus();
 
 $pagination = new Default_Pagination();
-$pagination->setLimit(30);
+$pagination->setLimit(10);
 $pagination->setPage($_POST['page']);
 $pagination->setJSCallback("view");
 $pagination->setTotalPages($count);

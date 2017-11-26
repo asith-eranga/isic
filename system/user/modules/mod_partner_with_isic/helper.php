@@ -124,8 +124,8 @@ class Mod_PartnerWithIsic extends Default_DBConnection implements Default_DBInte
 
       function selectAllCount() {
 
-            $this->MDatabase->select($this->table_name, "COUNT(*) as count", " ", "");
-            return $this->MDatabase->result[0]["count"];
+            $this->MDatabase->select($this->table_name, "*", "", "id ASC");
+            return $this->MDatabase->result;
       }
 
       function getById() {

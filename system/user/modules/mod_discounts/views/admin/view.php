@@ -6,13 +6,13 @@ if (isset($_POST['search_text'])) {
       $count = $discounts->searchCount($_POST['search_text']);
 } else {
       $data = $discounts->selectAllPaginated($_POST['page']);
-      $count = $discounts->selectAllCount();
+      $count = count($discounts->selectAllCount());
 }
 
 $status = $discounts->getAllStatus();
 
 $pagination = new Default_Pagination();
-$pagination->setLimit(30);
+$pagination->setLimit(10);
 $pagination->setPage($_POST['page']);
 $pagination->setJSCallback("view");
 $pagination->setTotalPages($count);

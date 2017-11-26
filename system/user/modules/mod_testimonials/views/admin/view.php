@@ -6,13 +6,13 @@ if (isset($_POST['search_text'])) {
       $count = $testimonials->searchCount($_POST['search_text']);
 } else {
       $data = $testimonials->selectAllPaginated($_POST['page']);
-      $count = $testimonials->selectAllCount();
+      $count = count($testimonials->selectAllCount());
 }
 
 $status = $testimonials->getAllStatus();
 
 $pagination = new Default_Pagination();
-$pagination->setLimit(30);
+$pagination->setLimit(10);
 $pagination->setPage($_POST['page']);
 $pagination->setJSCallback("view");
 $pagination->setTotalPages($count);
