@@ -21,3 +21,6 @@ RewriteRule ^travel-with-us/([a-zA-Z0-9_-]+)$ travel-with-us/index.php#$1 [L]
 
 #-------------- Take A Vacation -------------------------------------------
 RewriteRule ^take-a-vacation/([a-zA-Z0-9_-]+)$ take-a-vacation/index.php#$1 [L]
+
+#-------------- Fly Now, Pay Later -------------------------------------------
+RewriteRule ^fly-now-pay-later/([a-zA-Z0-9_-]+)$ fly-now-pay-later/index.php#$1 [L]
