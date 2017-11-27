@@ -200,6 +200,16 @@ class Mod_Discounts extends Default_DBConnection implements Default_DBInterface 
             return $this->MDatabase->result;
       }
 
+    function getByCardType() {
+        $this->MDatabase->select($this->table_name, "*", "card_type = " . $this->cardType() , "id DESC");
+        return $this->MDatabase->result;
+    }
+
+    function getByCategoryType() {
+        $this->MDatabase->select($this->table_name, "*", "category = " . $this->category() , "id DESC");
+        return $this->MDatabase->result;
+    }
+
       function search() {
             
       }

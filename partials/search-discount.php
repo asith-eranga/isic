@@ -41,6 +41,20 @@ $discount_categories = $discounts->getAllCategories();
                             <?php echo $discount_card; ?> <img src="<?php echo HTTP_PATH; ?>images/icons/cat-<?php echo $k+1; ?>.png">
                         </a>
                     </div>
+                    <?php
+                        $discounts->setCardType($k);
+                        $discount_cards_types = $discounts->getByCardType();
+                        for ($i = 0; $i < count($discount_cards_types); $i++) {
+                            $discounts->extractor($discount_cards_types, $i);
+                    ?>
+                    <!-- sub types - start -->
+                    <div class="flt-button padd-v-5 pos-rela">
+                        <a class="txt-white" href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->id(); ?>">
+                            -- <?php echo $discounts->name(); ?>
+                        </a>
+                    </div>
+                    <?php } ?>
+                    <!-- sub types - end -->
                 <?php } ?>
             </div>
         </div>
@@ -61,6 +75,20 @@ $discount_categories = $discounts->getAllCategories();
                             <?php echo $discount_category; ?>
                         </a>
                     </div>
+                    <!-- sub categories - start -->
+                    <?php
+                        $discounts->setCategory($k);
+                        $discount_category_types = $discounts->getByCategoryType();
+                        for ($i = 0; $i < count($discount_category_types); $i++) {
+                            $discounts->extractor($discount_category_types, $i);
+                        ?>
+                        <div class="flt-button padd-v-5 pos-rela">
+                            <a class="txt-white" href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->id(); ?>">
+                                -- <?php echo $discounts->name(); ?>
+                            </a>
+                        </div>
+                    <?php } ?>
+                    <!-- sub categories - end -->
                 <?php } ?>
             </div>
         </div>
