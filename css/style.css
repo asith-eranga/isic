@@ -6350,7 +6350,7 @@ body { font-family: sans-serif; }
 input {
   border: 2px solid #eee;
   padding: 1em .25em;
-  width: 96%;
+  width: 100%;
   color: #999;
   border-radius: 4px;
 }

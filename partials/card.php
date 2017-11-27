@@ -139,7 +139,11 @@
                                             <textarea id="message" cols="5" rows="3" name="message" class="form-control text-upper" placeholder="message"></textarea>
                                         </div>
                                     </div>
-                                    <input type="submit" name="submit" id="submit_btn" value="get a quote" class="btn btn-primary pull-right button">
+                                    <div class="col-sm-12 padd-h-5">
+                                        <div class="input-group">
+                                            <input type="submit" name="submit" id="submit_btn" value="get a quote" class="btn btn-primary pull-right button">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </form>
