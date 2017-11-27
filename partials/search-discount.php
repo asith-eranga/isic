@@ -64,7 +64,7 @@ $discount_categories = $discounts->getAllCategories();
                 <?php } ?>
             </div>
         </div>
-        <div class="dis-tbl-ftr-grp">
+        <!--<div class="dis-tbl-ftr-grp">
             <ul class="text-center bg-green no-marg text-white">
                 <li class="dis-in-blk"><a href="#" class="txt-white">PRE</a></li>
                 <li class="dis-in-blk"><a href="#" class="txt-white">1</a></li>
@@ -75,7 +75,7 @@ $discount_categories = $discounts->getAllCategories();
                 <li class="dis-in-blk"><a href="#" class="txt-white">....</a></li>
                 <li class="dis-in-blk"><a href="#" class="txt-white">LAST</a></li>
             </ul>
-        </div>
+        </div>-->
     </div>
 
 

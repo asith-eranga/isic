@@ -10,6 +10,7 @@ require_once(DOC_ROOT . 'system/user/modules/mod_discounts/helper.php');
 require_once(DOC_ROOT . 'system/user/modules/mod_partner_with_isic/helper.php');
 require_once(DOC_ROOT . 'system/user/modules/mod_travel_with_us/helper.php');
 require_once(DOC_ROOT . 'system/user/modules/mod_take_a_vacation/helper.php');
+require_once(DOC_ROOT . 'system/user/modules/mod_fly_now_pay_later/helper.php');
 
 $current_path = $_SERVER['REQUEST_URI'];
 $current_path = rtrim($current_path, '/');
@@ -96,6 +97,20 @@ $current_page_class = 'current-menu-item current_page_item';
                                     $take_a_vacation_page_url = strtolower(str_replace(' ', '-', $take_a_vacation->name()));
                                     ?>
                                     <li class="menu-item better-anim-fade"><a href="<?php echo HTTP_PATH; ?>take-a-vacation#<?php echo $take_a_vacation_page_url; ?>"><?php echo $take_a_vacation->name(); ?></a></li>
+                                <?php } ?>
+                            </ul>
+                        </li>
+                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children <?php if ($current_path == 'fly-now-pay-later') { echo $current_page_class; } ?>">
+                            <a href="<?php echo HTTP_PATH; ?>fly-now-pay-later">Fly now, pay later</a>
+                            <ul class="sub-menu">
+                                <?php
+                                $fly_now_pay_later = new Mod_FlyNowPayLater();
+                                $fly_now_pay_later_data = $fly_now_pay_later->selectAll();
+                                for ($i = 0; $i < count($fly_now_pay_later_data); $i++) {
+                                    $fly_now_pay_later->extractor($fly_now_pay_later_data, $i);
+                                    $fly_now_pay_later_page_url = strtolower(str_replace(' ', '-', $fly_now_pay_later->name()));
+                                    ?>
+                                    <li class="menu-item better-anim-fade"><a href="<?php echo HTTP_PATH; ?>fly-now-pay-later#<?php echo $fly_now_pay_later_page_url; ?>"><?php echo $fly_now_pay_later->name(); ?></a></li>
                                 <?php } ?>
                             </ul>
                         </li>

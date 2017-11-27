@@ -107,6 +107,10 @@ require_once("../system/load.php");
                                     <i class="travel icon"></i>
                                     <?php echo Default_ModManager::niceName('mod_take_a_vacation'); ?>
                                 </a>
+                                <a onclick="loadModule('mod_fly_now_pay_later')" class="item main-menu">
+                                    <i class="plane icon"></i>
+                                    <?php echo Default_ModManager::niceName('mod_fly_now_pay_later'); ?>
+                                </a>
                             </div>
                         </div>
 

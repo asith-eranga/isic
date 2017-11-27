@@ -2019,7 +2019,8 @@ ul.menu.bsm-initialized li.menu-item-has-children.better-anim-buzz.bsm-enter>.su
     top: 0;
     bottom: 0;
     right: 0;
-    z-index: 99
+    z-index: 99;
+    width: 23%;
 }
 
 .header-style-2.site-header.boxed .menu-action-buttons,
