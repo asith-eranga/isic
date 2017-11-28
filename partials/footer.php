@@ -82,14 +82,25 @@
                 <div class="dis-tbl-row full-height full-width tbl-con-algn-center">
                     <div class="bg-black padd-15">
                         <span class="txt-white">Newsletter</span>
-                        <form class="newsletter">
+                        <form class="newsletter" action="" id="newsletter">
                             <div class="padd-v-15">
                                 <div class="input-group pos-rela">
-                                    <input type="text" class="form-control" id="newsletterform" placeholder="Email">
-                                    <div class="input-group-addon pos-abs top_0 right_0 padd-10 "><i class="fa fa-paper-plane txt-white" aria-hidden="true"></i></div>
+                                    <input type="email" name="newsletter_email" id="newsletter_email" class="form-control" id="newsletterform" placeholder="Email" required>
+                                    <div class="input-group-addon pos-abs top_0 right_0 padd-10 ">
+                                        <button type="submit" class="button">
+                                            <i class="fa fa-paper-plane txt-white" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                    <div id="wait" style="display: none; position: absolute; top: 0; left: 80%;">
+                                        <img src='https://www.w3schools.com/jquery/demo_wait.gif' width="64" height="64" />
+                                    </div>
+                                    <center>
+                                        <span class="txt-white padd-v-5 bg-green" id="newsletter_success" style="display: none">
+                                            Thank you for subscribe
+                                        </span>
+                                    </center>
                                 </div>
                             </div>
-
                         </form>
                         <span class="txt-white text-upper">Follow Us
                             <?php if (!empty($system_settings->facebook())){ ?>

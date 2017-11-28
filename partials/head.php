@@ -26,6 +26,7 @@
 <script type='text/javascript' src='<?php echo HTTP_PATH; ?>js/element-query.min.js'></script>
 <script type='text/javascript' src='<?php echo HTTP_PATH; ?>js/theme-libs.js'></script>
 <script type='text/javascript' src='<?php echo HTTP_PATH; ?>js/get-a-quote.js'></script>
+<script type='text/javascript' src='<?php echo HTTP_PATH; ?>js/newsletter.js'></script>
 
 <script type='text/javascript' src='<?php echo HTTP_PATH; ?>js/theme.js'></script>
 <!--[if lt IE 9]>
