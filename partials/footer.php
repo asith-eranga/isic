@@ -18,7 +18,7 @@
                     <li><a href="<?php echo HTTP_PATH; ?>travel-with-us">Travel With Us</a></li>
                     <li><a href="<?php echo HTTP_PATH; ?>take-a-vacation">Take a Vacation</a></li>
                     <li><a href="<?php echo HTTP_PATH; ?>contact">Contacts</a></li>
-                    <li><a href="#">GET YOUR CARD</a></li>
+                    <li><a href="<?php echo HTTP_PATH; ?>get-your-card">Get Your Card</a></li>
                 </ul>
             </div>
             <div class="col-sm-4 col-xs-12 bg-white padd-v-15 ">
