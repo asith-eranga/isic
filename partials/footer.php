@@ -86,8 +86,8 @@
                             <div class="padd-v-15">
                                 <div class="input-group pos-rela">
                                     <input type="email" name="newsletter_email" id="newsletter_email" class="form-control" id="newsletterform" placeholder="Email" required>
-                                    <div class="input-group-addon pos-abs top_0 right_0 padd-10 ">
-                                        <button type="submit" class="button">
+                                    <div class="input-group-addon pos-abs top_0 right_0 padd-10" id="newsletter-button-div">
+                                        <button type="submit" class="newsletter-button">
                                             <i class="fa fa-paper-plane txt-white" aria-hidden="true"></i>
                                         </button>
                                     </div>

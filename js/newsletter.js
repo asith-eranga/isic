@@ -1,5 +1,5 @@
 jQuery(function($) { 
-    $(".button").click(function() {
+    $(".newsletter-button").click(function() {
         // validate and process form here
         var error = false;
 
@@ -23,7 +23,7 @@ jQuery(function($) {
             setTimeout(function(){
                 $("#wait").css("display", "none");
                 $("input#newsletter_email").css("display", "none");
-                $(".input-group-addon").css("display", "none");
+                $("#newsletter-button-div").css("display", "none");
                 $("#newsletter_success").css("display", "block");
             }, 2000);
 
@@ -50,8 +50,9 @@ jQuery(function($) {
                         }, 5000);
                     }
                 }
-            });
-            return false;*/
+            });*/
+
+            return false;
         }
     });
 });
