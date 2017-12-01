@@ -137,6 +137,17 @@ jQuery('button').on('click', function() {
 
         google.maps.event.addDomListener(window, 'load', initialize);
 
+        jQuery('.filter-button-group').on( 'click', '.expand', function() {
+            if(jQuery(this).hasClass('active'))
+            {
+                jQuery(this).removeClass('active');
+                jQuery(this).parent().next().stop().slideUp(300);
+            } else {
+                jQuery(this).addClass('active');
+                jQuery(this).parent().next().stop().slideDown(300);
+            }
+        });
+
     });
 </script>
 </html>

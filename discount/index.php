@@ -129,19 +129,17 @@ require_once(DOC_ROOT . 'system/user/modules/mod_discounts/helper.php');
         });
     });
 
-  jQuery(document).ready(function(){
-jQuery('.filter-button-group').on( 'click', '.expand', function() {
-   if(jQuery(this).hasClass('active'))
-     {
-       jQuery(this).removeClass('active');
-       jQuery(this).parent().next().stop().slideUp(300);
-     }
-   else
-     {
-       jQuery(this).addClass('active');
-       jQuery(this).parent().next().stop().slideDown(300);
-     }
- });
-});
+    jQuery(document).ready(function(){
+        jQuery('.filter-button-group').on( 'click', '.expand', function() {
+            if(jQuery(this).hasClass('active'))
+            {
+                jQuery(this).removeClass('active');
+                jQuery(this).parent().next().stop().slideUp(300);
+            } else {
+                jQuery(this).addClass('active');
+                jQuery(this).parent().next().stop().slideDown(300);
+            }
+        });
+    });
 </script>
 </html>

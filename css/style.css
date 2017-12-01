@@ -48,6 +48,11 @@ body.full-width .main-wrap {
     width: 100%
 }
 
+.bg-lite-green {
+    background:#048c8c;
+    border-bottom: 1px solid black;
+}
+
 @media(min-width:768px) {
     .boxed .main-wrap {
         width: 100%!important
@@ -6160,8 +6165,13 @@ body.bs-ll-d .listing-mg-type-1 .img-cont {
     font-size: 15px;
 }
 .border-bottom .panel>div a:hover{color:#fff;}
+
 .border-bottom >div >a:hover,.bg-green.spec .txt-white:hover{
 	color: #f0ff00;
+}
+
+.pos-rela > a:hover {
+    color: #f0ff00;
 }
 @media only screen and (max-width:780px) {
 	.site-header .menu-action-buttons {

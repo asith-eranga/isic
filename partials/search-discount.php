@@ -50,7 +50,7 @@ $discount_categories = $discounts->getAllCategories();
                     <div class="expand fnt-12 txt-white pos-abs padd-h-5" style=" top: 8px; right: 20px;"><i class="fa fa-plus" aria-hidden="true"></i></div>
                     <?php } ?>
                 </div>
-                <div class="panel">
+                <div class="panel pos-rela">
                     <?php
                         $discounts->setCardType($k);
                         $discount_cards_types = $discounts->getByCardType();
@@ -58,7 +58,7 @@ $discount_categories = $discounts->getAllCategories();
                             $discounts->extractor($discount_cards_types, $i);
                     ?>
                     <!-- sub types - start -->
-                    <div class="flt-button padd-v-5 pos-rela">
+                    <div class="flt-button padd-v-5 pos-rela bg-lite-green">
                         <a class="txt-white" href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->id(); ?>">
                           <?php echo $discounts->name(); ?>
                         </a>
@@ -95,13 +95,13 @@ $discount_categories = $discounts->getAllCategories();
                     <div class="expand fnt-12 txt-white pos-abs padd-h-5" style=" top: 8px; right: 20px;"><i class="fa fa-plus" aria-hidden="true"></i></div>
                     <?php } ?>
                 </div>
-                <div class="panel">
+                <div class="panel pos-rela">
                     <!-- sub categories - start -->
                     <?php
                         for ($i = 0; $i < count($discount_category_types); $i++) {
                             $discounts->extractor($discount_category_types, $i);
                         ?>
-                        <div class="flt-button padd-v-5 pos-rela">
+                        <div class="flt-button padd-v-5 pos-rela bg-lite-green">
                             <a class="txt-white" href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->id(); ?>">
                               <?php echo $discounts->name(); ?>
                             </a>
