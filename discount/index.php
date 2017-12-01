@@ -19,6 +19,9 @@ require_once(DOC_ROOT . 'system/user/modules/mod_discounts/helper.php');
 
     <title>ISIC | Discount</title>
     <?php include(DOC_ROOT . 'partials/head.php'); ?>
+<style>
+
+	</style>
 </head>
 
 <body class="main-menu-sticky-smart ">
@@ -125,5 +128,20 @@ require_once(DOC_ROOT . 'system/user/modules/mod_discounts/helper.php');
             $grid.isotope({ filter: filterValue });
         });
     });
+
+  jQuery(document).ready(function(){
+jQuery('.filter-button-group').on( 'click', '.expand', function() {
+   if(jQuery(this).hasClass('active'))
+     {
+       jQuery(this).removeClass('active');
+       jQuery(this).parent().next().stop().slideUp(300);
+     }
+   else
+     {
+       jQuery(this).addClass('active');
+       jQuery(this).parent().next().stop().slideDown(300);
+     }
+ });
+});
 </script>
 </html>

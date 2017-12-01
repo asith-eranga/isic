@@ -6124,7 +6124,7 @@ body.bs-ll-d .listing-mg-type-1 .img-cont {
     vertical-align: middle;
 }
 
-.border-bottom >div >a {
+.border-bottom div >a {
 	width: 83.33333333%;
     margin: auto;
     display: block;
@@ -6140,6 +6140,26 @@ body.bs-ll-d .listing-mg-type-1 .img-cont {
     height: 1px;
 	bottom: 0;
 }
+
+.filter-button-group .panel{
+  display:none;
+  overflow: hidden;
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    background-color: #026868;
+
+}
+
+.border-bottom .panel>div a {
+    width: 70.333333%;
+    margin: auto;
+    display: block;
+    padding: 0 15px;
+    letter-spacing: 3px;
+    font-size: 15px;
+}
+.border-bottom .panel>div a:hover{color:#fff;}
 .border-bottom >div >a:hover,.bg-green.spec .txt-white:hover{
 	color: #f0ff00;
 }

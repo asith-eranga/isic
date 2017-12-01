@@ -21,6 +21,7 @@ require_once(DOC_ROOT . 'system/user/modules/mod_testimonials/helper.php');
 
     <title>ISIC | Cards</title>
     <?php include(DOC_ROOT . 'partials/head.php'); ?>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.css' type='text/css' media='all' />
 </head>
 
 <body class="main-menu-sticky-smart ">
@@ -62,7 +63,7 @@ require_once(DOC_ROOT . 'system/user/modules/mod_testimonials/helper.php');
                     <?php echo str_replace(['<p>', '</p>', '<pre>', '</pre>'], '', $card->description2()); ?>
                     <br>
                     <div class="bdr-5-yellow bg-black pos-rela take-top100 marg-btm-15">
-                        <div class="owl-carousel owl-theme">
+                        <div class="testimonial owl-carousel owl-theme">
                             <?php
                                 $testimonials = new Mod_Testimonials();
                                 $data = $testimonials->selectAll();
@@ -70,7 +71,7 @@ require_once(DOC_ROOT . 'system/user/modules/mod_testimonials/helper.php');
                                     $testimonials->extractor($data, $i);
                             ?>
                             <div class="item">
-                                <div class="padd-20">
+                                <div class="padd-20 dis-in-blk">
                                     <p class="txt-white padd-h-15">
                                         <?php echo str_replace(['<p>', '</p>', '<pre>', '</pre>'], '', $testimonials->description()); ?>
                                     </p>
@@ -79,6 +80,7 @@ require_once(DOC_ROOT . 'system/user/modules/mod_testimonials/helper.php');
                                 </div>
                             </div>
                             <?php } ?>
+
                         </div>
                     </div>
                 </div>
@@ -122,7 +124,7 @@ require_once(DOC_ROOT . 'system/user/modules/mod_testimonials/helper.php');
 <?php include(DOC_ROOT . 'partials/mobile-menu.php'); ?>
 </body>
 <script>
-    jQuery('.owl-carousel').owlCarousel({
+    jQuery('.testimonial').owlCarousel({
         loop:true,
         margin:10,
         nav:false,

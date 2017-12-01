@@ -36,11 +36,21 @@ $discount_categories = $discounts->getAllCategories();
                 <?php
                     foreach ($discount_cards as $k => $discount_card) {
                 ?>
+                <div class="pos-rela">
                     <div class="flt-button padd-v-5 pos-rela" data-filter=".card-<?php echo $k; ?>">
                         <a class="txt-white" href="javascript:void(0);">
                             <?php echo $discount_card; ?> <img src="<?php echo HTTP_PATH; ?>images/icons/cat-<?php echo $k+1; ?>.png">
                         </a>
                     </div>
+                    <?php
+                        $discounts->setCardType($k);
+                        $discount_cards_types = $discounts->getByCardType();
+                        if (count($discount_cards_types) > 0) {
+                    ?>
+                    <div class="expand fnt-12 txt-white pos-abs padd-h-5" style=" top: 8px; right: 20px;"><i class="fa fa-plus" aria-hidden="true"></i></div>
+                    <?php } ?>
+                </div>
+                <div class="panel">
                     <?php
                         $discounts->setCardType($k);
                         $discount_cards_types = $discounts->getByCardType();
@@ -50,11 +60,12 @@ $discount_categories = $discounts->getAllCategories();
                     <!-- sub types - start -->
                     <div class="flt-button padd-v-5 pos-rela">
                         <a class="txt-white" href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->id(); ?>">
-                            -- <?php echo $discounts->name(); ?>
+                          <?php echo $discounts->name(); ?>
                         </a>
                     </div>
-                    <?php } ?>
                     <!-- sub types - end -->
+                    <?php } ?>
+                </div>
                 <?php } ?>
             </div>
         </div>
@@ -70,25 +81,34 @@ $discount_categories = $discounts->getAllCategories();
                 <?php
                     foreach ($discount_categories as $k => $discount_category) {
                 ?>
+                <div class="pos-rela">
                     <div class="flt-button padd-v-5 pos-rela" data-filter=".category-<?php echo $k; ?>">
                         <a class="txt-white text-upper" href="javascript:void(0);">
                             <?php echo $discount_category; ?>
                         </a>
                     </div>
-                    <!-- sub categories - start -->
                     <?php
                         $discounts->setCategory($k);
                         $discount_category_types = $discounts->getByCategoryType();
+                        if (count($discount_category_types) > 0) {
+                    ?>
+                    <div class="expand fnt-12 txt-white pos-abs padd-h-5" style=" top: 8px; right: 20px;"><i class="fa fa-plus" aria-hidden="true"></i></div>
+                    <?php } ?>
+                </div>
+                <div class="panel">
+                    <!-- sub categories - start -->
+                    <?php
                         for ($i = 0; $i < count($discount_category_types); $i++) {
                             $discounts->extractor($discount_category_types, $i);
                         ?>
                         <div class="flt-button padd-v-5 pos-rela">
                             <a class="txt-white" href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->id(); ?>">
-                                -- <?php echo $discounts->name(); ?>
+                              <?php echo $discounts->name(); ?>
                             </a>
                         </div>
                     <?php } ?>
                     <!-- sub categories - end -->
+                </div>
                 <?php } ?>
             </div>
         </div>
