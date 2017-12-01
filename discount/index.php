@@ -134,9 +134,11 @@ require_once(DOC_ROOT . 'system/user/modules/mod_discounts/helper.php');
             if(jQuery(this).hasClass('active'))
             {
                 jQuery(this).removeClass('active');
+                jQuery(this).html("<i class=\"fa fa-plus\" aria-hidden=\"true\"></i>");
                 jQuery(this).parent().next().stop().slideUp(300);
             } else {
                 jQuery(this).addClass('active');
+                jQuery(this).html("<i class=\"fa fa-minus\" aria-hidden=\"true\"></i>");
                 jQuery(this).parent().next().stop().slideDown(300);
             }
         });
