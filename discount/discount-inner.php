@@ -77,7 +77,7 @@
                         </div>
                     </div>
                 </div>
-                <?php include(DOC_ROOT . 'partials/search-discount.php'); ?>
+                <?php include(DOC_ROOT . 'partials/search-discount-inner.php'); ?>
             </main>
             <footer>
                 <?php include(DOC_ROOT . 'partials/footer.php'); ?>
