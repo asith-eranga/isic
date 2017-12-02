@@ -26,7 +26,7 @@ $discount_categories = $discounts->getAllCategories();
 
         </form>
         <div class="col-sm-10 col-xs-12 center-block" style="float:none">
-            <h3 class="txt-green text-upper">Cards ss</h3>
+            <h3 class="txt-green text-upper">Cards</h3>
         </div>
         <div class="bg-green">
             <div class="border-bottom filter-button-group">
