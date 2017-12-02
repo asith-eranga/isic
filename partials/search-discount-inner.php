@@ -26,7 +26,7 @@ $discount_categories = $discounts->getAllCategories();
 
         </form>
         <div class="col-sm-10 col-xs-12 center-block" style="float:none">
-            <h3 class="txt-green text-upper">Cards</h3>
+            <h3 class="txt-green text-upper">Cards ss</h3>
         </div>
         <div class="bg-green">
             <div class="border-bottom filter-button-group">
@@ -38,7 +38,7 @@ $discount_categories = $discounts->getAllCategories();
                 ?>
                 <div class="pos-rela">
                     <div class="flt-button padd-v-5 pos-rela" data-filter=".card-<?php echo $k; ?>">
-                        <a class="txt-white" href="javascript:void(0);">
+                        <a class="txt-white" href="<?php echo HTTP_PATH; ?>discount/index.php?card=<?php echo $k; ?>">
                             <?php echo $discount_card; ?> <img src="<?php echo HTTP_PATH; ?>images/icons/cat-<?php echo $k+1; ?>.png">
                         </a>
                     </div>
@@ -83,7 +83,7 @@ $discount_categories = $discounts->getAllCategories();
                 ?>
                 <div class="pos-rela">
                     <div class="flt-button padd-v-5 pos-rela" data-filter=".category-<?php echo $k; ?>">
-                        <a class="txt-white text-upper" href="javascript:void(0);">
+                        <a class="txt-white text-upper" href="<?php echo HTTP_PATH; ?>discount/index.php?category=<?php echo $k; ?>">
                             <?php echo $discount_category; ?>
                         </a>
                     </div>

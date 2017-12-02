@@ -41,11 +41,15 @@ require_once(DOC_ROOT . 'system/user/modules/mod_discounts/helper.php');
                             <div class="grid">
                                 <?php
                                     $discounts = new Mod_Discounts();
-                                    $search_keyword = $_POST['keyword'];
-                                    if (!empty($search_keyword))
-                                    {
-                                        $discounts->setName($search_keyword);
+                                    if (!empty($_POST['keyword'])) {
+                                        $discounts->setName($_POST['keyword']);
                                         $discounts_data = $discounts->getByName();
+                                    } else if ($_GET['card'] != null) {
+                                        $discounts->setCardType($_GET['card']);
+                                        $discounts_data = $discounts->getByCardType();
+                                    } else if ($_GET['category'] != null) {
+                                        $discounts->setCategory($_GET['category']);
+                                        $discounts_data = $discounts->getByCategoryType();
                                     } else {
                                         $discounts_data = $discounts->selectAll();
                                     }
