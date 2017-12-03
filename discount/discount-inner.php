@@ -39,6 +39,15 @@
             js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.11';
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
+ <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.css' type='text/css' media='all' />
+ <style>
+	 .owl-theme .owl-dots .owl-dot span {
+    background: #9e9c79;
+	}
+	.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+    background: #fff333;
+}
+	 </style>
 </head>
 
 <body class="main-menu-sticky-smart ">
@@ -75,6 +84,34 @@
                                 <div id="map"></div>
                             </span>
                         </div>
+
+                        <?php
+                            $discounts_related_data = $discounts_inner->getRelatedDiscounts($discounts_inner->cardType(), $discounts_inner->category());
+                            if (count($discounts_related_data) > 1) {
+                        ?>
+                        <br><br>
+					    <div class="col-xs-12 padd-v-25">
+                            <h3 class="dis-in-blk text-upper padd-h-15 txt-black">Related Discounts</h3>
+                            <div id="RelatedProducts" class="owl-carousel owl-theme">
+                            <?php
+                                for ($i = 0; $i < count($discounts_related_data); $i++) {
+                                    $discounts_inner->extractor($discounts_related_data, $i);
+                                    if ($discounts_inner->id() != $id) {
+                            ?>
+                                <div class="item">
+                                    <div class="padd-10">
+                                        <article class="type-post format-standard has-post-thumbnail  listing-item-1 listing-item listing-mg-item listing-mg-type-2 listing-mg-1-item ">
+                                            <div class="item-content">
+                                                <a title="..." href="#" class="img-cont b-loaded" style="background-image: url(<?php echo $discounts_inner->image(); ?>);"></a>
+                                            </div>
+                                        </article>
+                                        <h5 class="txt-white"><?php echo $discounts_inner->name(); ?></h5>
+                                    </div>
+                                </div>
+                            <?php } } ?>
+                            </div>
+					    </div>
+                        <?php } ?>
                     </div>
                 </div>
                 <?php include(DOC_ROOT . 'partials/search-discount-inner.php'); ?>
@@ -149,6 +186,24 @@ jQuery('button').on('click', function() {
                 jQuery(this).parent().next().stop().slideDown(300);
             }
         });
+
+        jQuery('#RelatedProducts').owlCarousel({
+            loop:true,
+            margin:5,
+            nav:false,
+            dots:true,
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:1
+                },
+                1000:{
+                    items:3
+                }
+            }
+        })
 
     });
 </script>
