@@ -155,6 +155,11 @@ function sortTable() {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["start_date_location"])) {
+
+    require "../../../../system/user/classes/emailsettings.php";
+    //require_once(DOC_ROOT.'system/application/libs/php/phpmailer/class.phpmailer.php');
+    //require_once(DOC_ROOT.'system/application/libs/php/phpmailer/class.smtp.php');
+
     // Get the form fields and remove whitespace.
     $start_date_location = $_POST["start_date_location"];
     $end_date_location = $_POST["end_date_location"];
@@ -166,25 +171,125 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["start_date_location"]
     $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
     $message = trim($_POST["message"]);
 
-    // Set the recipient email address.
-    // FIXME: Update this to your desired email address.
-    $recipient = "hello@example.com";
+    $msg = '<TABLE style="font-family: arial; font-size: 14px;" width="530" BORDER="0" cellpadding="5" CELLSPACING="0" COLS="8" FRAME="VOID" RULES="NONE" WTDTH="800">
+				  <TBODY>
+					<TR>
+					  <TD COLSPAN="8" HEIGHT="46" ALIGN="CENTER"><img src="'.HTTP_PATH.'images/logo.png"/></TD>
+					</TR>
+					<TR>
+					  <TD COLSPAN="8" HEIGHT="46" ALIGN="CENTER"><strong style="font-size: 24px; color: #006699">Holidays By Design Sri Lanka.</strong></TD>
+					</TR>
+					<TR>
+					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">54 | Walukarama Road | Colombo 3 | Sri Lanka.</TD>
+					</TR>
+					<TR>
+					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">Tel:  (+94) 115 48 48 48 / (+61) 413 62 72 81</TD>
+					</TR>
+					<TR>
+					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">Email: invoice@unitedventuressl.com </TD>
+					</TR>
+					<TR>
+					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">Web: www.hbdasia.com</TD>
+					</TR>
+					<TR>
+					  <TD COLSPAN="8" HEIGHT="19" ALIGN="CENTER"><BR></TD>
+					</TR>
+					<TR>
+					  <TD HEIGHT="37" COLSPAN="8" ALIGN="CENTER" VALIGN="MIDDLE"><strong><em style="color: #036; font-size: 18px;">:: Online payment details::</em></strong></TD>
+					</TR>
+					<TR>
+					  <TD HEIGHT="19" colspan="8" ALIGN="LEFT">&nbsp;</TD>
+					</TR>
+					<TR>
+					  <TD width="147" HEIGHT="31" ALIGN="LEFT" bgcolor="#E1E1E1"><strong style="color: #666666; font-size: 14px;">Name</strong></TD>
+					  <TD width="348" COLSPAN="7" ALIGN="LEFT" bgcolor="#EEEEEE">cus_inv_name</TD>
+					</TR>
+					<TR>
+					  <TD COLSPAN="8" HEIGHT="19" ALIGN="LEFT"></TD>
+					</TR>
+					<TR>
+					  <TD HEIGHT="31" ALIGN="LEFT" bgcolor="#E1E1E1"><strong style="color: #666">Invoice No.</strong></TD>
+					  <TD colspan="7" ALIGN="LEFT" bgcolor="#EEEEEE">invoice_id</TD>
+					</TR>
+					<TR>
+					  <TD COLSPAN="8" HEIGHT="19" ALIGN="LEFT">&nbsp;</TD>
+					</TR>
+					<TR>
+					  <TD HEIGHT="31" ALIGN="LEFT" bgcolor="#E1E1E1"><strong style="color: #666">Invoice date</strong></TD>
+					  <TD COLSPAN="7" ALIGN="LEFT" bgcolor="#EEEEEE">invoice_date</TD>
+					</TR>
+					<TR>
+					  <TD HEIGHT="22" colspan="8" ALIGN="LEFT">&nbsp;</TD>
+					</TR>
+					<TR>
+					  <TD HEIGHT="34" ALIGN="LEFT" bgcolor="#E1E1E1"><strong style="color: #666">E mail address</strong></TD>
+					  <TD colspan="7" ALIGN="LEFT" bgcolor="#EEEEEE">cus_inv_email</TD>
+					</TR>
+					<TR>
+					  <TD HEIGHT="19" colspan="8" ALIGN="LEFT">&nbsp;</TD>
+					</TR>
+					<TR>
+					  <TD HEIGHT="31" ALIGN="LEFT" bgcolor="#E1E1E1"><strong style="color: #666">Description</strong><BR></TD>
+					  <TD colspan="7" ALIGN="LEFT" bgcolor="#EEEEEE">description</TD>
+					</TR>
+					<TR>
+					  <TD HEIGHT="19" colspan="8" ALIGN="LEFT">&nbsp;</TD>
+					</TR>
+					<TR>
+					  <TD HEIGHT="34" ALIGN="LEFT" bgcolor="#E1E1E1"><strong style="color: #666">Amount to be paid</strong><BR></TD>
+					  <TD colspan="7" ALIGN="LEFT" bgcolor="#EEEEEE">invoice_amount</TD>
+					</TR>
+					<TR>
+					  <TD HEIGHT="139" colspan="8" ALIGN="center">linkOri</TD>
+					</TR>
+					<TR>
+					  <TD HEIGHT="40" COLSPAN="8" ALIGN="CENTER" bgcolor="#000000"><strong><em style="color: #FFF; font-size: 16px;">- - - Deliver cutting edge service & value - - -</em></strong></TD>
+					</TR>
+				  </TBODY>
+				</TABLE>
 
-    // Set the email subject.
-    $subject = "New contact from $name";
+		';
 
-    // Build the email content.
-    $email_content = "Name: $name\n";
-    $email_content .= "Email: $email\n\n";
-    $email_content .= "Message:\n$message\n";
+    $mailsettings = new EmailSettings();
+    $mailsettings->setId(1);
+    $settingsData = $mailsettings -> getById();
+    $mailsettings->extractor($settingsData);
 
-    // Build the email headers.
-    $email_headers = "From: $name <$email>";
+    $mail  = new PHPMailer();
+    $mail->IsSMTP();
 
-    // Send the email.
-    if (mail($recipient, $subject, $email_content, $email_headers)) {
+    $mail->SMTPAuth = false;
+    if ($mailsettings->smtpAuthentication() == 1) {
+        $mail->SMTPAuth = true; // enable SMTP authentication
+    }
+    $mail->SMTPSecure = "ssl";
+    $mail->Host       = $mailsettings->smtpHost();
+    $mail->Port       = $mailsettings->smtpPort();
+    $mail->Username   = $mailsettings->smtpUsername();
+    $mail->Password   = $mailsettings->smtpPassword();
+    $mail->From       = $mailsettings->smtpUsername();
+    $mail->FromName   = 'ISIC.LK';
+
+    $mail->Subject    = "Your ISIC card Details";
+    $mail->WordWrap   = 50; // set word wrap
+
+    $mail->MsgHTML($msg);
+    $mail->AddAddress($email,"ISIC.LK - ISIC Card Details");
+    $mail->AddAddress('asith2u@yahoo.com', 'Admin copy');
+
+//    $email_to = explode(',', $settingsData[0]['invoice_mail']);
+//    foreach ($email_to as $cv => $cb ){
+//        if( $emailAddress!=$cb ){
+//            $mail->AddAddress($cb);
+//        }
+//    }
+
+    $mail->IsHTML(true); // send as HTML
+
+    if($mail->Send()){
         Default_Common::jsonSuccess("Thank You! Your message has been sent.");
-    } else {
+    }else{
         Default_Common::jsonError("Oops! Something went wrong and we couldn't send your message.");
     }
+
 }
