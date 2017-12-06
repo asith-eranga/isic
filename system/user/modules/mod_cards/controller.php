@@ -157,8 +157,9 @@ function sortTable() {
 if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["start_date_location"])) {
 
     require "../../../../system/user/classes/emailsettings.php";
-    //require_once(DOC_ROOT.'system/application/libs/php/phpmailer/class.phpmailer.php');
-    //require_once(DOC_ROOT.'system/application/libs/php/phpmailer/class.smtp.php');
+    require "../../../../system/user/classes/variablemanager.php";
+    require_once('../../../../system/application/libs/php/phpmailer/class.phpmailer.php');
+    require_once('../../../../system/application/libs/php/phpmailer/class.smtp.php');
 
     // Get the form fields and remove whitespace.
     $start_date_location = $_POST["start_date_location"];
@@ -171,124 +172,145 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["start_date_location"]
     $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
     $message = trim($_POST["message"]);
 
-    $msg = '<TABLE style="font-family: arial; font-size: 14px;" width="530" BORDER="0" cellpadding="5" CELLSPACING="0" COLS="8" FRAME="VOID" RULES="NONE" WTDTH="800">
+    $token = random_int(10000, 99999);
+    $mail_body = '<TABLE style="font-family: arial; font-size: 14px;" width="600" BORDER="0" cellpadding="5" CELLSPACING="0" COLS="8" FRAME="VOID" RULES="NONE" WTDTH="800">
 				  <TBODY>
 					<TR>
-					  <TD COLSPAN="8" HEIGHT="46" ALIGN="CENTER"><img src="'.HTTP_PATH.'images/logo.png"/></TD>
+					  <TD COLSPAN="8" HEIGHT="46" ALIGN="CENTER"><img src="'.HTTP_PATH.'images/isic2_logo.png"/></TD>
 					</TR>
 					<TR>
-					  <TD COLSPAN="8" HEIGHT="46" ALIGN="CENTER"><strong style="font-size: 24px; color: #006699">Holidays By Design Sri Lanka.</strong></TD>
+					  <TD COLSPAN="8" HEIGHT="46" ALIGN="CENTER"><strong style="font-size: 24px; color: #006699">INTERNATIONAL STUDENT IDENTITY CARD (ISIC)</strong></TD>
 					</TR>
 					<TR>
 					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">54 | Walukarama Road | Colombo 3 | Sri Lanka.</TD>
 					</TR>
 					<TR>
-					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">Tel:  (+94) 115 48 48 48 / (+61) 413 62 72 81</TD>
+					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">Tel:  +94 11 5220017 | +94 11 5474747</TD>
 					</TR>
 					<TR>
-					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">Email: invoice@unitedventuressl.com </TD>
+					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">Email: isic@unitedventuressl.com </TD>
 					</TR>
 					<TR>
-					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">Web: www.hbdasia.com</TD>
+					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">Web: www.unitedventuressl.com</TD>
 					</TR>
 					<TR>
 					  <TD COLSPAN="8" HEIGHT="19" ALIGN="CENTER"><BR></TD>
 					</TR>
 					<TR>
-					  <TD HEIGHT="37" COLSPAN="8" ALIGN="CENTER" VALIGN="MIDDLE"><strong><em style="color: #036; font-size: 18px;">:: Online payment details::</em></strong></TD>
+					  <TD HEIGHT="37" COLSPAN="8" ALIGN="CENTER" VALIGN="MIDDLE"><strong><em style="color: #036; font-size: 18px;">:: Thank you for requesting a quote. We are processing it. ::</em></strong></TD>
 					</TR>
 					<TR>
-					  <TD HEIGHT="19" colspan="8" ALIGN="LEFT">&nbsp;</TD>
+					  <TD HEIGHT="20" colspan="8" ALIGN="LEFT">&nbsp;</TD>
+					</TR>
+<TR>
+					  <TD width="147" HEIGHT="31" ALIGN="LEFT" bgcolor="#E1E1E1"><strong style="color: #666666; font-size: 14px;">Token</strong></TD>
+					  <TD width="348" COLSPAN="7" ALIGN="LEFT" bgcolor="#EEEEEE">'.$token.'</TD>
 					</TR>
 					<TR>
-					  <TD width="147" HEIGHT="31" ALIGN="LEFT" bgcolor="#E1E1E1"><strong style="color: #666666; font-size: 14px;">Name</strong></TD>
-					  <TD width="348" COLSPAN="7" ALIGN="LEFT" bgcolor="#EEEEEE">cus_inv_name</TD>
+					  <TD COLSPAN="8" HEIGHT="1" ALIGN="LEFT"></TD>
 					</TR>
 					<TR>
-					  <TD COLSPAN="8" HEIGHT="19" ALIGN="LEFT"></TD>
+					  <TD width="147" HEIGHT="31" ALIGN="LEFT" bgcolor="#E1E1E1"><strong style="color: #666666; font-size: 14px;">From</strong></TD>
+					  <TD width="348" COLSPAN="7" ALIGN="LEFT" bgcolor="#EEEEEE">'.$start_date_location.'</TD>
 					</TR>
 					<TR>
-					  <TD HEIGHT="31" ALIGN="LEFT" bgcolor="#E1E1E1"><strong style="color: #666">Invoice No.</strong></TD>
-					  <TD colspan="7" ALIGN="LEFT" bgcolor="#EEEEEE">invoice_id</TD>
+					  <TD COLSPAN="8" HEIGHT="1" ALIGN="LEFT"></TD>
 					</TR>
 					<TR>
-					  <TD COLSPAN="8" HEIGHT="19" ALIGN="LEFT">&nbsp;</TD>
+					  <TD HEIGHT="31" ALIGN="LEFT" bgcolor="#E1E1E1"><strong style="color: #666">To</strong></TD>
+					  <TD colspan="7" ALIGN="LEFT" bgcolor="#EEEEEE">'.$end_date_location.'</TD>
 					</TR>
 					<TR>
-					  <TD HEIGHT="31" ALIGN="LEFT" bgcolor="#E1E1E1"><strong style="color: #666">Invoice date</strong></TD>
-					  <TD COLSPAN="7" ALIGN="LEFT" bgcolor="#EEEEEE">invoice_date</TD>
+					  <TD COLSPAN="8" HEIGHT="1" ALIGN="LEFT"></TD>
 					</TR>
 					<TR>
-					  <TD HEIGHT="22" colspan="8" ALIGN="LEFT">&nbsp;</TD>
+					  <TD HEIGHT="31" ALIGN="LEFT" bgcolor="#E1E1E1"><strong style="color: #666">Departure</strong></TD>
+					  <TD COLSPAN="7" ALIGN="LEFT" bgcolor="#EEEEEE">'.$start_date.'</TD>
 					</TR>
 					<TR>
-					  <TD HEIGHT="34" ALIGN="LEFT" bgcolor="#E1E1E1"><strong style="color: #666">E mail address</strong></TD>
-					  <TD colspan="7" ALIGN="LEFT" bgcolor="#EEEEEE">cus_inv_email</TD>
+					  <TD HEIGHT="1" colspan="8" ALIGN="LEFT"></TD>
 					</TR>
 					<TR>
-					  <TD HEIGHT="19" colspan="8" ALIGN="LEFT">&nbsp;</TD>
+					  <TD HEIGHT="31" ALIGN="LEFT" bgcolor="#E1E1E1"><strong style="color: #666">Return</strong></TD>
+					  <TD colspan="7" ALIGN="LEFT" bgcolor="#EEEEEE">'.$end_date.'</TD>
 					</TR>
 					<TR>
-					  <TD HEIGHT="31" ALIGN="LEFT" bgcolor="#E1E1E1"><strong style="color: #666">Description</strong><BR></TD>
-					  <TD colspan="7" ALIGN="LEFT" bgcolor="#EEEEEE">description</TD>
+					  <TD HEIGHT="1" colspan="8" ALIGN="LEFT"></TD>
 					</TR>
 					<TR>
-					  <TD HEIGHT="19" colspan="8" ALIGN="LEFT">&nbsp;</TD>
+					  <TD HEIGHT="31" ALIGN="LEFT" bgcolor="#E1E1E1"><strong style="color: #666">User type</strong><BR></TD>
+					  <TD colspan="7" ALIGN="LEFT" bgcolor="#EEEEEE">'.$user_type.'</TD>
 					</TR>
 					<TR>
-					  <TD HEIGHT="34" ALIGN="LEFT" bgcolor="#E1E1E1"><strong style="color: #666">Amount to be paid</strong><BR></TD>
-					  <TD colspan="7" ALIGN="LEFT" bgcolor="#EEEEEE">invoice_amount</TD>
+					  <TD HEIGHT="1" colspan="8" ALIGN="LEFT"></TD>
 					</TR>
 					<TR>
-					  <TD HEIGHT="139" colspan="8" ALIGN="center">linkOri</TD>
+					  <TD HEIGHT="31" ALIGN="LEFT" bgcolor="#E1E1E1"><strong style="color: #666">Ticket type</strong><BR></TD>
+					  <TD colspan="7" ALIGN="LEFT" bgcolor="#EEEEEE">'.$ticket_type.'</TD>
+					</TR>
+<TR>
+					  <TD HEIGHT="1" colspan="8" ALIGN="LEFT"></TD>
+					</TR>
+					<TR>
+					  <TD HEIGHT="31" ALIGN="LEFT" bgcolor="#E1E1E1"><strong style="color: #666">Mobile</strong><BR></TD>
+					  <TD colspan="7" ALIGN="LEFT" bgcolor="#EEEEEE">'.$mobile.'</TD>
+					</TR>
+					<TR>
+					  <TD HEIGHT="1" colspan="8" ALIGN="LEFT"></TD>
+					</TR>
+					<TR>
+					  <TD HEIGHT="31" ALIGN="LEFT" bgcolor="#E1E1E1"><strong style="color: #666">Message</strong><BR></TD>
+					  <TD colspan="7" ALIGN="LEFT" bgcolor="#EEEEEE">'.$message.'</TD>
+					</TR>
+					<TR>
+					  <TD HEIGHT="2" colspan="8" ALIGN="center">&nbsp;</TD>
 					</TR>
 					<TR>
 					  <TD HEIGHT="40" COLSPAN="8" ALIGN="CENTER" bgcolor="#000000"><strong><em style="color: #FFF; font-size: 16px;">- - - Deliver cutting edge service & value - - -</em></strong></TD>
 					</TR>
 				  </TBODY>
-				</TABLE>
-
-		';
+				</TABLE>';
 
     $mailsettings = new EmailSettings();
     $mailsettings->setId(1);
     $settingsData = $mailsettings -> getById();
     $mailsettings->extractor($settingsData);
 
-    $mail  = new PHPMailer();
-    $mail->IsSMTP();
+    $mail = new PHPMailer(true);    // Passing `true` enables exceptions
+    try {
+        //Server settings
+        $mail->SMTPDebug = 1;                               // Enable verbose debug output
+        $mail->isSMTP();                                    // Set mailer to use SMTP
+        $mail->Host = $mailsettings->smtpHost();            // Specify main and backup SMTP servers
+        $mail->SMTPAuth = true;                             // Enable SMTP authentication
+        $mail->Username = $mailsettings->smtpUsername();    // SMTP username
+        $mail->Password = $mailsettings->smtpPassword();    // SMTP password
+        $mail->SMTPSecure = 'ssl';                          // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = $mailsettings->smtpPort();            // TCP port to connect to
 
-    $mail->SMTPAuth = false;
-    if ($mailsettings->smtpAuthentication() == 1) {
-        $mail->SMTPAuth = true; // enable SMTP authentication
-    }
-    $mail->SMTPSecure = "ssl";
-    $mail->Host       = $mailsettings->smtpHost();
-    $mail->Port       = $mailsettings->smtpPort();
-    $mail->Username   = $mailsettings->smtpUsername();
-    $mail->Password   = $mailsettings->smtpPassword();
-    $mail->From       = $mailsettings->smtpUsername();
-    $mail->FromName   = 'ISIC.LK';
+        //Recipients
+        $mail->setFrom($mailsettings->smtpUsername(), 'ISIC.LK');
+        $mail->addReplyTo($mailsettings->smtpUsername(), 'ISIC.LK');
 
-    $mail->Subject    = "Your ISIC card Details";
-    $mail->WordWrap   = 50; // set word wrap
+        // send user email
+        $mail->AddAddress($email, $email);
 
-    $mail->MsgHTML($msg);
-    $mail->AddAddress($email,"ISIC.LK - ISIC Card Details");
-    $mail->AddAddress('asith2u@yahoo.com', 'Admin copy');
+        // send admin email
+        $variable_manager = new VariableManager();;
+        $admin_email = $variable_manager->getVariableValue("card_send_email", array("value" => "", "mod_name" => "user"));
+        if (!empty($admin_email)) {
+            $mail->AddAddress($admin_email, 'ISIC Ticket Admin');
+        }
 
-//    $email_to = explode(',', $settingsData[0]['invoice_mail']);
-//    foreach ($email_to as $cv => $cb ){
-//        if( $emailAddress!=$cb ){
-//            $mail->AddAddress($cb);
-//        }
-//    }
+        //Content
+        $mail->isHTML(true); // Set email format to HTML
+        $mail->Subject = 'Thank you for requesting a quote.';
+        $mail->Body = $mail_body;
+        $mail->WordWrap = 50; // set word wrap
 
-    $mail->IsHTML(true); // send as HTML
-
-    if($mail->Send()){
+        $mail->send();
         Default_Common::jsonSuccess("Thank You! Your message has been sent.");
-    }else{
+    } catch (Exception $e) {
         Default_Common::jsonError("Oops! Something went wrong and we couldn't send your message.");
     }
 
