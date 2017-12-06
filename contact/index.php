@@ -103,37 +103,45 @@ require_once(DOC_ROOT . 'system/user/modules/mod_contact/helper.php');
                     <?php } ?>
                 </div>
                 <div class="col-md-12 col-xs-12 bg-black txt-white padd-v-40 marg-v-20">
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" id="contact-form" action="">
 
                         <div class="col-sm-10 col-xs-12 float-n center-block dis-flex" style="float:none">
                             <div class="col-sm-4 padd-v-10">
                                 <div class="input-container">
                                     <label for="firstname" class="text-upper">Name</label>
-                                    <input class="material" type="text" id="firstname">
+                                    <input class="material" type="text" id="contact_name" name="contact_name" required>
                                 </div>
                                 <div class="input-container">
                                     <label for="lastname" class="text-upper">E-mail</label>
-                                    <input class="material" type="text" id="lastname">
+                                    <input class="material" type="text" id="contact_email" name="contact_email" required>
                                 </div>
                                 <div class="input-container">
                                     <label for="company" class="text-upper">Phone</label>
-                                    <input class="material" type="text" id="company">
+                                    <input class="material" type="text" id="contact_phone" name="contact_phone">
                                 </div>
 
                             </div>
                             <div class="col-sm-6 padd-v-10">
                                 <div class="input-group">
-                                    <textarea id="appendedcheckbox" name="appendedcheckbox" class="form-control bg-black border-2-white" type="text" placeholder="MESSAGE" rows="8"></textarea>
-
+                                    <textarea id="contact_message" name="contact_message" class="form-control bg-black border-2-white" placeholder="MESSAGE" rows="8"></textarea>
                                 </div>
-
                             </div>
                             <div class="col-sm-2 padd-v-10">
                                 <div class="dis-tbl full-height full-width">
                                     <div class="dis-tbl-cell full-height full-width tbl-con-algn-btm">
-                                        <button class="btn btn-submit marg-v-10 text-upper"><strong>Submit</strong></button>
+                                        <button class="btn btn-submit marg-v-10 text-upper contact-button"><strong>Submit</strong></button>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="col-sm-10" style="display: none" id="contact-success-message">
+                                <h5 class="txt-green-light pull-right">
+                                    Thank You! Your message has been sent
+                                </h5>
+                            </div>
+                            <div class="col-sm-10" style="display: none" id="contact-error-message">
+                                <h5 class="txt-yellow pull-right">
+                                    Oops! Something went wrong and we couldn't send your message
+                                </h5>
                             </div>
                         </div>
                     </form>
@@ -158,6 +166,7 @@ require_once(DOC_ROOT . 'system/user/modules/mod_contact/helper.php');
 </body>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtr3FT0uDFpjx-VisBICLWclTjETC6UTc">
 </script>
+<script type='text/javascript' src='<?php echo HTTP_PATH; ?>js/contact.js'></script>
 <script>
     jQuery(function() {
         jQuery("input, textarea").on("focusin", function() {
