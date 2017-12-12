@@ -2334,10 +2334,10 @@ ul.menu.bsm-initialized li.menu-item-has-children.better-anim-buzz.bsm-enter>.su
     padding: 0 12px;
     line-height: 32px
 }
-
+ 
 .top-menu.menu>li .sub-menu {
-    width: 180px;
-    background-color: #222
+    width: 300px;
+    background-color: #026868
 }
 
 .top-menu.menu .sub-menu>li,
@@ -2355,13 +2355,14 @@ ul.menu.bsm-initialized li.menu-item-has-children.better-anim-buzz.bsm-enter>.su
     padding: 0!important;
     border: none!important;
     left: -15px;
-    top: 114%!important
+    top: 114%!important;
+    display: inline-block;
 }
 
 .top-menu.menu .display-more-items .bs-pretty-tabs-elements {
     opacity: 1;
     visibility: visible!important;
-    padding: 0!important;
+    padding: 10px !important;
     border: none!important
 }
 

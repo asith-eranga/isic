@@ -131,39 +131,37 @@ require_once("../system/load.php");
                         Application Form
                     </h2>
                     <h5 class="txt-white text-center">ISIC | IYTC | ITIC</h5>
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" id="get-your-card" action="">
 
                         <div class="col-sm-10 col-xs-12 float-n center-block dis-flex" style="float:none">
                             <div class="col-sm-8 padd-v-10">
                                 <div class="input-container">
-                                    <label for="universityCollege" class="text-upper">University / College</label>
-                                    <input class="material" type="text" id="universityCollege">
+                                    <label for="get-your-card-university" class="text-upper">University / College</label>
+                                    <input class="material" type="text" id="get-your-card-university" name="get-your-card-university" required>
                                 </div>
                                 <div class="input-container">
-                                    <label for="fullname" class="text-upper">Full Name</label>
-                                    <input class="material" type="text" id="fullname">
+                                    <label for="get-your-card-fullname" class="text-upper">Full Name</label>
+                                    <input class="material" type="text" id="get-your-card-fullname" name="get-your-card-fullname" required>
                                 </div>
                                 <div class="input-container">
-                                    <label for="birthday" class="text-upper">Date of Birth</label>
-                                    <input class="material" type="text" id="birthday">
+                                    <label for="get-your-card-birthday" class="text-upper">Date of Birth</label>
+                                    <input class="material" type="text" id="get-your-card-birthday" name="get-your-card-birthday" required>
                                 </div>
-
-                                <div class="input-container col-sm-5 no-padd float-n  dis-in-blk">
-                                    <label for="email" class="text-upper">E-mail</label>
-                                    <input class="material" type="text" id="email">
+                                <div class="input-container col-sm-5 no-padd float-n dis-in-blk">
+                                    <label for="get-your-card-email" class="text-upper">E-mail</label>
+                                    <input class="material" type="email" id="get-your-card-email" name="get-your-card-email" required>
                                 </div>
-                              	<div class="input-container col-sm-1 float-n dis-in-blk padd-h-30"> </div>
-                                <div class="input-container col-sm-5 float-n  dis-in-blk">
-                                    <label for="telephone" class="text-upper">Telephone</label>
-                                    <input class="material" type="text" id="telephone">
+                                <div class="input-container col-sm-5 no-padd float-n dis-in-blk pull-right">
+                                    <label for="get-your-card-telephone" class="text-upper">Telephone</label>
+                                    <input class="material" type="text" id="get-your-card-telephone" name="get-your-card-telephone" required>
                                 </div>
                                 <div class="input-container clearfix"></div>
                                 <div class="input-container">
-                                    <label for="hear" class="text-upper">How did you hear about us?</label>
-                                    <input class="material" type="text" id="hear">
+                                    <label for="get-your-card-hear" class="text-upper">How did you hear about us?</label>
+                                    <input class="material" type="text" id="get-your-card-hear" name="get-your-card-hear" required>
                                 </div>
                                 <div class="input-group marg-tp-30">
-                                    <textarea id="address" name="address" class="form-control bg-black border-2-white" type="text" placeholder="ADDRESS" rows="5"></textarea>
+                                    <textarea id="get-your-card-address" name="get-your-card-address" class="form-control bg-black border-2-white" type="text" placeholder="ADDRESS" rows="5" required></textarea>
                                 </div>
                             </div>
                             <div class="col-sm-4 padd-v-10">
@@ -173,32 +171,39 @@ require_once("../system/load.php");
                                     </div>
                                     <div class="right text-center">
                                         <div class="input-container">
-
-                                            <input class="material" type="hidden" id="birthday" class="img-path" disabled>
+                                            <input class="material" type="hidden" id="img-path" name="img-path" disabled>
                                         </div>
-
                                         <span class="file-wrapper marg-v-10">
-  <input type="file" name="photo" id="imgInp" class="uploader">
-  <span class="btn btn-large btn-alpha">Upload Image</span>
-</span>
+                                            <input type="file" name="photo" id="imgInp" class="uploader">
+                                            <span class="btn btn-large btn-alpha">Upload Image</span>
+                                        </span>
                                     </div>
                                 </div>
- <div class="input-container left">
-		<span id="filename">Select your file</span>
-		<label for="file-upload" class="file-wrapper marg-v-10 full-width text-center">
- <input type="file" id="file-upload">
-  <span class="btn btn-large btn-alpha">Upload CV</span>
-</label>
+                                <div class="input-container left">
+		                            <span id="filename">Select your file</span>
+		                            <label for="file-upload" class="file-wrapper marg-v-10 full-width text-center">
+                                        <input type="file" id="file-upload" name="file-upload">
+                                        <span class="btn btn-large btn-alpha">Upload CV</span>
+                                    </label>
 
-  </div>
-
+                                </div>
                             </div>
                             <div class="col-sm-2 padd-v-10">
                                 <div class="dis-tbl full-height full-width">
                                     <div class="dis-tbl-cell full-height full-width tbl-con-algn-btm">
-                                        <button class="btn btn-submit marg-v-10 text-upper"><strong>Submit</strong></button>
+                                        <button class="btn btn-submit marg-v-10 text-upper get-your-card-button" type="submit"><strong>Apply Card</strong></button>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="col-sm-12" style="display: none" id="get-your-card-success-message">
+                                <h5 class="txt-green-light">
+                                    Thank You! Your application submitted. We'll contact you soon.
+                                </h5>
+                            </div>
+                            <div class="col-sm-12" style="display: none" id="get-your-card-error-message">
+                                <h5 class="txt-yellow">
+                                    Oops! Something went wrong and we couldn't submit your application. Please try again later.
+                                </h5>
                             </div>
                         </div>
                     </form>
@@ -216,6 +221,7 @@ require_once("../system/load.php");
     </div>
 <?php include(DOC_ROOT . 'partials/mobile-menu.php'); ?>
 </body>
+<script type='text/javascript' src='<?php echo HTTP_PATH; ?>js/get-your-card.js'></script>
 <script>
     jQuery(function() {
         jQuery("input, textarea").on("focusin", function() {
