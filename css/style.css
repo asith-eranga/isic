@@ -2713,9 +2713,21 @@ ul.menu>li .sub-menu {
 }
 
 @media only screen and (max-width:700px) {
-    .site-header {
-        display: none
-    }
+    .site-header .bg-green h3 {
+		font-size: 16px;
+	}
+    .site-header .bg-green h2 {
+		font-size: 18px;
+	} 
+	.rh-header .logo-container img,.site-header .main-menu.menu{display:none;}
+	.site-header .menu-action-buttons{width:100%;}
+	.rh-header .pinned .logo-container img{display:block;}
+	.off-canvas-inner>div {padding: 10px 5px 14px;}
+	.off-canvas-container.right {
+    position: fixed;
+    z-index: 10000000;
+    overflow: scroll;
+	}
     .rh-header {
         display: block
     }
