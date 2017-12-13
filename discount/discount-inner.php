@@ -86,7 +86,8 @@
                         </div>
 
                         <?php
-                            $discounts_related_data = $discounts_inner->getRelatedDiscounts($discounts_inner->cardType(), $discounts_inner->category());
+                            $discounts_inner_related = new Mod_Discounts();
+                            $discounts_related_data = $discounts_inner_related->getRelatedDiscounts($discounts_inner->cardType(), $discounts_inner->category());
                             if (count($discounts_related_data) > 1) {
                         ?>
                         <br><br>
@@ -95,17 +96,17 @@
                             <div id="RelatedProducts" class="owl-carousel owl-theme">
                             <?php
                                 for ($i = 0; $i < count($discounts_related_data); $i++) {
-                                    $discounts_inner->extractor($discounts_related_data, $i);
-                                    if ($discounts_inner->id() != $id) {
+                                    $discounts_inner_related->extractor($discounts_related_data, $i);
+                                    if ($discounts_inner_related->id() != $id) {
                             ?>
                                 <div class="item">
                                     <div class="padd-10">
                                         <article class="type-post format-standard has-post-thumbnail  listing-item-1 listing-item listing-mg-item listing-mg-type-2 listing-mg-1-item ">
                                             <div class="item-content">
-                                                <a title="..." href="#" class="img-cont b-loaded" style="background-image: url(<?php echo $discounts_inner->image(); ?>);"></a>
+                                                <a title="..." href="#" class="img-cont b-loaded" style="background-image: url(<?php echo $discounts_inner_related->image(); ?>);"></a>
                                             </div>
                                         </article>
-                                        <h5 class="txt-white"><?php echo $discounts_inner->name(); ?></h5>
+                                        <h5 class="txt-white"><?php echo $discounts_inner_related->name(); ?></h5>
                                     </div>
                                 </div>
                             <?php } } ?>
@@ -136,7 +137,7 @@ jQuery('button').on('click', function() {
 
         function initialize() {
             var myLatlng = new google.maps.LatLng(<?php echo $discounts_inner->mapCoordinates(); ?>);
-            var imagePath = 'images/Pin-location.png'
+            var imagePath = '../images/Pin-location.png'
             var mapOptions = {
                 zoom: 17,
                 center: myLatlng,
@@ -188,7 +189,7 @@ jQuery('button').on('click', function() {
         });
 
         jQuery('#RelatedProducts').owlCarousel({
-            loop:true,
+            loop:false,
             margin:5,
             nav:false,
             dots:true,
