@@ -103,7 +103,7 @@
                                     <div class="padd-10">
                                         <article class="type-post format-standard has-post-thumbnail  listing-item-1 listing-item listing-mg-item listing-mg-type-2 listing-mg-1-item ">
                                             <div class="item-content">
-                                                <a title="..." href="#" class="img-cont b-loaded" style="background-image: url(<?php echo $discounts_inner_related->image(); ?>);"></a>
+                                                <a title="..." href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts_inner_related->id(); ?>" class="img-cont b-loaded" style="background-image: url(<?php echo $discounts_inner_related->image(); ?>);"></a>
                                             </div>
                                         </article>
                                         <h5 class="txt-white"><?php echo $discounts_inner_related->name(); ?></h5>
