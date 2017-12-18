@@ -100,24 +100,24 @@
                                             <div class="radio">
                                                 <label>
                                                     <span>one way</span>
-                                                    <input type="radio" name="ticket_type" id="ticket_type" value="one way" checked>
+                                                    <input type="radio" name="ticket_type" id="ticket_type" value="one way">
                                                     <span class="input-group-addon"><span class="custom-radio"></span></span>
                                                 </label>
                                             </div>
                                             <div class="radio">
                                                 <label>
                                                     <span>return</span>
-                                                    <input type="radio" name="ticket_type" id="ticket_type" value="return">
+                                                    <input type="radio" name="ticket_type" id="ticket_type" value="return" checked>
                                                     <span class="input-group-addon"><span class="custom-radio"></span></span>
                                                 </label>
                                             </div>
-                                            <div class="radio">
+                                            <!--<div class="radio">
                                                 <label>
                                                     <span>multiple</span>
                                                     <input type="radio" name="ticket_type" id="ticket_type" value="multiple">
                                                     <span class="input-group-addon"><span class="custom-radio"></span></span>
                                                 </label>
-                                            </div>
+                                            </div>-->
                                         </div>
                                     </div>
                                 </div>
