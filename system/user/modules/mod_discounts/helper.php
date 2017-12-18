@@ -178,40 +178,40 @@ class Mod_Discounts extends Default_DBConnection implements Default_DBInterface 
 
       function selectAll() {
 
-            $this->MDatabase->select($this->table_name, "*", " status=1 ", "id ASC");
+            $this->MDatabase->select($this->table_name, "*", " status=1 ", "sort_order ASC");
             return $this->MDatabase->result;
       }
 
       function selectAllCount() {
 
-            $this->MDatabase->select($this->table_name, "*", "", "id ASC");
+            $this->MDatabase->select($this->table_name, "*", "", "sort_order ASC");
             return $this->MDatabase->result;
       }
 
       function getById() {
 
-            $this->MDatabase->select($this->table_name, "*", "id='" . $this->id() . "'", "id DESC");
+            $this->MDatabase->select($this->table_name, "*", "id='" . $this->id() . "'", "sort_order DESC");
             return $this->MDatabase->result;
       }
 
       function getByName() {
 
-            $this->MDatabase->select($this->table_name, "*", "LOWER(name) LIKE '%" . $this->name() . "%' OR LOWER(description) LIKE '%" . $this->name() . "%'", "id DESC");
+            $this->MDatabase->select($this->table_name, "*", "LOWER(name) LIKE '%" . $this->name() . "%' OR LOWER(description) LIKE '%" . $this->name() . "%'", "sort_order DESC");
             return $this->MDatabase->result;
       }
 
     function getByCardType() {
-        $this->MDatabase->select($this->table_name, "*", "card_type = " . $this->cardType() , "id DESC");
+        $this->MDatabase->select($this->table_name, "*", "card_type = " . $this->cardType() , "sort_order DESC");
         return $this->MDatabase->result;
     }
 
     function getByCategoryType() {
-        $this->MDatabase->select($this->table_name, "*", "category = " . $this->category() , "id DESC");
+        $this->MDatabase->select($this->table_name, "*", "category = " . $this->category() , "sort_order DESC");
         return $this->MDatabase->result;
     }
 
     function getRelatedDiscounts($card, $category) {
-        $this->MDatabase->select($this->table_name, "*", "card_type = " . $card ." OR category = " . $category , "id DESC");
+        $this->MDatabase->select($this->table_name, "*", "card_type = " . $card ." OR category = " . $category , "sort_order DESC");
         return $this->MDatabase->result;
     }
 

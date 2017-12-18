@@ -114,17 +114,17 @@ class Mod_FlyNowPayLater extends Default_DBConnection implements Default_DBInter
       }
 
       function selectAll() {
-            $this->MDatabase->select($this->table_name, "*", " status=1 ", "id ASC");
+            $this->MDatabase->select($this->table_name, "*", " status=1 ", "sort_order ASC");
             return $this->MDatabase->result;
       }
 
       function selectAllCount() {
-            $this->MDatabase->select($this->table_name, "*", "", "id ASC");
+            $this->MDatabase->select($this->table_name, "*", "", "sort_order ASC");
             return $this->MDatabase->result;
       }
 
       function getById() {
-            $this->MDatabase->select($this->table_name, "*", "id='" . $this->id() . "'", "id DESC");
+            $this->MDatabase->select($this->table_name, "*", "id='" . $this->id() . "'", "sort_order DESC");
             return $this->MDatabase->result;
       }
 
