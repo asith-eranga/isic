@@ -69,9 +69,6 @@ $status 		= $testimonials->getAllStatus();
   </h2>
   <div class="ui small form segment">
     <form id="data_form">
-    
-      <div class="ui error message"></div>
-      <div id="form_submit_msg" class="ui green message"><i class="ok sign icon"></i></div>
       
       <div class="field">
         <label>Name</label>
@@ -113,6 +110,9 @@ $status 		= $testimonials->getAllStatus();
       </div>
       
       <div class="small ui submit button floated right green" onclick="tinyMCE.triggerSave()">Save</div>
+
+        <div class="ui error message"></div>
+        <div id="form_submit_msg" class="ui green message"><i class="ok sign icon"></i></div>
       
     </form>
   </div>

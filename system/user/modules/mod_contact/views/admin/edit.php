@@ -77,9 +77,6 @@ $(document).ready(function(){
 
 	<form id="data_form">
 
-	  <div class="ui error message"></div>
-	  <div id="form_submit_msg" class="ui green message"><i class="ok sign icon"></i></div>
-
       <input type="hidden" id="id" name="id" value="<?php echo $contact->id(); ?>" />
       
       <div class="field">
@@ -110,6 +107,10 @@ $(document).ready(function(){
 	  </div>
 	    
 	  <div class="small ui submit button floated right green" onclick="tinyMCE.triggerSave()">Save</div>
+
+        <div class="ui error message"></div>
+        <div id="form_submit_msg" class="ui green message"><i class="ok sign icon"></i></div>
+
 	</form>
 	</div>
 
