@@ -81,7 +81,7 @@ require_once(DOC_ROOT . 'system/user/modules/mod_discounts/helper.php');
                                                 <?php } ?>
                                                 <a href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->id(); ?>" class="listing-mg-1-item">
                                                     <img src="<?php echo $discounts->image(); ?>" class="img-responsive"/>
-                                                    <!--<span class="format-icon format-audio"><i class="fa fa-eye"></i></span>-->
+                                                    <!--<span class="format-icon format-audio"><i class="fa fa-eye"></i></span>
                                                     <div class="content-container pos-abs bottom_0 ">
                                                         <img src="<?php echo $discounts->logo(); ?>" class="img-responsive pull-left">
                                                         <div class="padd-10 over-hidden">
@@ -95,7 +95,7 @@ require_once(DOC_ROOT . 'system/user/modules/mod_discounts/helper.php');
                                                                     <?php echo substr(str_replace(['<pre>', '</pre>'], '', $discounts->description()), 0, 150) . '...'; ?>
                                                                 </span>
                                                         </div>
-                                                    </div>
+                                                    </div>-->
                                                 </a>
                                             </div>
                                     <?php } ?>
