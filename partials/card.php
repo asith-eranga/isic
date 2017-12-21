@@ -57,7 +57,7 @@
                                                     <input id="end-date" name="end" class="form-control text-upper" type="text" placeholder="return" data-date-format="DD, MM d">
                                                     <div class="input-group-addon bg-white"><i class="fa fa-calendar" aria-hidden="true"></i></div>
                                                 </div>
-                                            </div>
+                                            </div> 
                                         </div>
                                     </div>
                                 </div>
@@ -152,7 +152,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3 col-xs-12 pos-rela take-top1k" style="background:url(<?php echo HTTP_PATH . 'images/header-back.jpg'; ?>) right bottom / cover">
+        <div class="col-md-3 col-xs-12 pos-rela take-top1k off-canvas-menu-icon-parent" style="background:url(<?php echo HTTP_PATH . 'images/header-back.jpg'; ?>) right bottom / cover;cursor: pointer;">
             <h3 class="txt-green-light text-upper"><span class="txt-yellow">click here to <br>enjoy your journey</h3>
             <img src="<?php echo HTTP_PATH; ?>images/airplane.png" class="off-canvas-menu-icon marg-n-left-25">
         </div>

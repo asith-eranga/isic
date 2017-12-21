@@ -78,12 +78,15 @@
                         <div class="col-xs-12">
                             <?php echo str_replace(['<pre>', '</pre>'], '', $discounts_inner->description()); ?>
                         </div>
-                        <div class="col-xs-12">
-                            <span class="bder-L-shape right">
-                                <div id="map_container"></div>
-                                <div id="map"></div>
-                            </span>
-                        </div>
+
+                        <?php if (!empty($discounts_inner->mapCoordinates())) { ?>
+                            <div class="col-xs-12">
+                                <span class="bder-L-shape right">
+                                    <div id="map_container"></div>
+                                    <div id="map"></div>
+                                </span>
+                            </div>
+                        <?php } ?>
 
                         <?php
                             $discounts_inner_related = new Mod_Discounts();
