@@ -180,10 +180,11 @@ require_once("../system/load.php");
                                     </div>
                                 </div>
                                 <div class="input-container left">
-		                            <span id="filename">Select your file</span>
+		                            <span id="filename">Select your files</span>
 		                            <label for="file-upload" class="file-wrapper marg-v-10 full-width text-center">
-                                        <input type="file" id="file-upload" name="file-upload">
-                                        <span class="btn btn-large btn-alpha">Upload CV</span>
+                                        <input type="file" id="file-upload" name="file-upload" multiple>
+<ul id="output" class="no-padd"></ul>
+                                        <span class="btn btn-large btn-alpha">Upload Documents</span>
                                     </label>
 
                                 </div>
@@ -274,10 +275,12 @@ require_once("../system/load.php");
       readURL(this);
     });
 jQuery('#file-upload').change(function() {
-    var filepath = this.value;
-    var m = filepath.match(/([^\/\\]+)$/);
-    var filename = m[1];
-    jQuery('#filename').html(filename);
+    var ele = document.getElementById($(this).attr('id'));
+    var result = ele.files;
+    for(var x = 0;x< result.length;x++){
+     var fle = result[x];
+        $("#output").append("<li>" + fle.name +"</li>");        
+    }
 
 });
 </script>

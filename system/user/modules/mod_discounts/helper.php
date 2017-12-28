@@ -182,6 +182,18 @@ class Mod_Discounts extends Default_DBConnection implements Default_DBInterface 
             return $this->MDatabase->result;
       }
 
+      function selectAllNormal() {
+
+        $this->MDatabase->select($this->table_name, "*", "display_type=0 AND status=1 ", "sort_order ASC");
+        return $this->MDatabase->result;
+      }
+
+      function selectAllFeatured() {
+
+        $this->MDatabase->select($this->table_name, "*", "display_type=1 AND status=1 ", "sort_order ASC");
+        return $this->MDatabase->result;
+      }
+
       function selectAllCount() {
 
             $this->MDatabase->select($this->table_name, "*", "", "sort_order ASC");

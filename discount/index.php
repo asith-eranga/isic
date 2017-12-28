@@ -20,6 +20,18 @@ require_once(DOC_ROOT . 'system/user/modules/mod_discounts/helper.php');
     <title>ISIC | Discount</title>
     <?php include(DOC_ROOT . 'partials/head.php'); ?>
 <style>
+.grid .grid-item {overflow:hidden;}
+.grid .grid-item .back-img{
+   -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+.grid .grid-item:hover .back-img{
+    transform: scale3d(1.1, 1.1, 1);
+    -webkit-transform: scale3d(1.1, 1.1, 1);
+    -moz-transform: scale3d(1.1, 1.1, 1)
+}
 
 	</style>
 </head>
@@ -51,7 +63,7 @@ require_once(DOC_ROOT . 'system/user/modules/mod_discounts/helper.php');
                                         $discounts->setCategory($_GET['category']);
                                         $discounts_data = $discounts->getByCategoryType();
                                     } else {
-                                        $discounts_data = $discounts->selectAll();
+                                        $discounts_data = $discounts->selectAllNormal();
                                     }
                                     for ($i = 0; $i < count($discounts_data); $i++) {
                                         $discounts->extractor($discounts_data, $i);
@@ -74,30 +86,32 @@ require_once(DOC_ROOT . 'system/user/modules/mod_discounts/helper.php');
                                             $height = 'grid-item--height2';
                                         }
 
-                                        if ($discounts->displayType() == 0) { ?>
+//                                        if ($discounts->displayType() == 0) { ?>
+<!--                                        <div class="grid-item --><?php //echo $width . ' ' . $height . ' card-' . $discounts->cardType() . ' category-' . $discounts->category(); ?><!--">-->
+<!--                                            --><?php //} else { ?>
+<!--                                            <div class="grid-item grid-item--width2 --><?php //echo 'card-' . $discounts->cardType() . ' category-' . $discounts->category(); ?><!--">-->
+<!--                                                --><?php //} ?>
                                         <div class="grid-item <?php echo $width . ' ' . $height . ' card-' . $discounts->cardType() . ' category-' . $discounts->category(); ?>">
-                                            <?php } else { ?>
-                                            <div class="grid-item grid-item--width2 <?php echo 'card-' . $discounts->cardType() . ' category-' . $discounts->category(); ?>">
-                                                <?php } ?>
-                                                <a href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->id(); ?>" class="listing-mg-1-item">
-                                                    <img src="<?php echo $discounts->image(); ?>" class="img-responsive"/>
-                                                    <!--<span class="format-icon format-audio"><i class="fa fa-eye"></i></span>
-                                                    <div class="content-container pos-abs bottom_0 ">
-                                                        <img src="<?php echo $discounts->logo(); ?>" class="img-responsive pull-left">
-                                                        <div class="padd-10 over-hidden">
-                                                                <span class="title text-yellow">
-                                                                    <span class="post-url post-title">
-                                                                        <?php echo $discounts->name(); ?>
-                                                                    </span>
+                                            <a href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->id(); ?>" class="listing-mg-1-item">
+                                                <img src="<?php echo $discounts->image(); ?>" class="img-responsive"/>
+<div class="back-img" style="background:url(<?php echo $discounts->image(); ?>)center / cover;position:absolute;width:100%;height:100%;top: 0;"></div>
+                                                <!--<span class="format-icon format-audio"><i class="fa fa-eye"></i></span>
+                                                <div class="content-container pos-abs bottom_0 ">
+                                                    <img src="<?php echo $discounts->logo(); ?>" class="img-responsive pull-left">
+                                                    <div class="padd-10 over-hidden">
+                                                            <span class="title text-yellow">
+                                                                <span class="post-url post-title">
+                                                                    <?php echo $discounts->name(); ?>
                                                                 </span>
-                                                            <br>
-                                                            <span class="txt-white">
-                                                                    <?php echo substr(str_replace(['<pre>', '</pre>'], '', $discounts->description()), 0, 150) . '...'; ?>
-                                                                </span>
-                                                        </div>
-                                                    </div>-->
-                                                </a>
-                                            </div>
+                                                            </span>
+                                                        <br>
+                                                        <span class="txt-white">
+                                                                <?php echo substr(str_replace(['<pre>', '</pre>'], '', $discounts->description()), 0, 150) . '...'; ?>
+                                                            </span>
+                                                    </div>
+                                                </div>-->
+                                            </a>
+                                        </div>
                                     <?php } ?>
                             </div>
 
@@ -124,7 +138,7 @@ require_once(DOC_ROOT . 'system/user/modules/mod_discounts/helper.php');
         });
         // layout Isotope after each image loads
         $grid.imagesLoaded().progress( function() {
-            $grid.isotope('layout');
+            $grid.isotope('packery');
         });
         jQuery('.filter-button-group').on( 'click', '.flt-button', function() {
 

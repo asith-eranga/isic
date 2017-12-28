@@ -22,6 +22,7 @@
     <title>ISIC</title>
 
     <?php include_once(DOC_ROOT . 'partials/head.php'); ?>
+
 </head>
 
 <body class="main-menu-sticky-smart ">
@@ -41,7 +42,7 @@
                             <div class="grid">
                                 <?php
                                 $discounts = new Mod_Discounts();
-                                $discounts_data = $discounts->selectAll();
+                                $discounts_data = $discounts->selectAllNormal();
                                 for ($i = 0; $i < count($discounts_data); $i++) {
                                     if($i==6){
                                         break;
@@ -66,13 +67,16 @@
                                         $height = 'grid-item--height2';
                                     }
 
-                                    if ($discounts->displayType() == 0) { ?>
+//                                    if ($discounts->displayType() == 0) { ?>
+<!--                                        <div class="type-post format-standard grid-item --><?php //echo $width . ' ' . $height . ' card-' . $discounts->cardType() . ' category-' . $discounts->category(); ?><!--">-->
+<!--                                    --><?php //} else { ?>
+<!--                                        <div class="type-post format-standard grid-item grid-item--width2 --><?php //echo 'card-' . $discounts->cardType() . ' category-' . $discounts->category(); ?><!--">-->
+<!--                                    --><?php //} ?>
                                         <div class="type-post format-standard grid-item <?php echo $width . ' ' . $height . ' card-' . $discounts->cardType() . ' category-' . $discounts->category(); ?>">
-                                    <?php } else { ?>
-                                        <div class="type-post format-standard grid-item grid-item--width2 <?php echo 'card-' . $discounts->cardType() . ' category-' . $discounts->category(); ?>">
-                                    <?php } ?>
                                             <a href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->id(); ?>" class="listing-mg-1-item">
                                                 <img src="<?php echo $discounts->image(); ?>" class="img-responsive"/>
+
+<div class="back-img" style="background:url(<?php echo $discounts->image(); ?>)center / cover;position:absolute;width:100%;height:100%;top: 0;"></div>
                                                 <!--<span class="format-icon format-audio"><i class="fa fa-eye"></i></span>
                                                 <div class="content-container pos-abs bottom_0 ">
                                                     <img src="<?php echo $discounts->logo(); ?>" class="img-responsive pull-left">
