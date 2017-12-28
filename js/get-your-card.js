@@ -1,5 +1,6 @@
 jQuery(function($) { 
-    $(".get-your-card-button").click(function() {
+    $("#get-your-card").submit(function(e){
+
         // validate and process form here
         var error = false;
 
@@ -71,32 +72,32 @@ jQuery(function($) {
         if (error == true) {
             return false;
         } else {
-            var dataString = 'get_your_card_university='+ get_your_card_university +
-                '&get_your_card_fullname=' + get_your_card_fullname +
-                '&get_your_card_birthday=' + get_your_card_birthday +
-                '&get_your_card_email=' + get_your_card_email +
-                '&get_your_card_telephone=' + get_your_card_telephone +
-                '&get_your_card_hear=' + get_your_card_hear +
-                '&get_your_card_address=' + get_your_card_address;
 
-            $.ajax({
-                type: "POST",
-                url: "../system/user/modules/mod_cards/controller.php",
-                data: dataString,
-                success: function(res) {
-                    var obj = jQuery.parseJSON(res);
-                    if(obj.code==200){
-                        $("#get-your-card-success-message").css({ display: "block" });
-                        setTimeout(function(){
-                            $("#get-your-card-success-message").css({ display: "none" });
-                            $('#get-your-card')[0].reset();
-                        }, 5000);
-                    } else {
-                        $("#get-your-card-error-message").css({ display: "block" });
-                        setTimeout(function(){
-                            $("#get-your-card-error-message").css({ display: "none" });
-                        }, 5000);
-                    }
+            var post_url = $(this).attr("action"); //get form action url
+            var request_method = $(this).attr("method"); //get form GET/POST method
+            var form_data = new FormData(this); //Creates new FormData object
+
+            $.ajax({ //ajax form submit
+                url : post_url,
+                type: request_method,
+                data : form_data,
+                dataType : "json",
+                contentType: false,
+                cache: false,
+                processData:false
+            }).done(function(res){ //fetch server "json" messages when done
+                if(res.type == "error"){
+                    $("#get-your-card-error-message").css({ display: "block" });
+                    setTimeout(function(){
+                        $("#get-your-card-error-message").css({ display: "none" });
+                    }, 5000);
+                }
+                if(res.type == "done"){
+                    $("#get-your-card-success-message").css({ display: "block" });
+                    setTimeout(function(){
+                        $("#get-your-card-success-message").css({ display: "none" });
+                        $('#get-your-card')[0].reset();
+                    }, 5000);
                 }
             });
             return false;

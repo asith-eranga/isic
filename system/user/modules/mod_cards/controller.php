@@ -317,7 +317,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    if (!empty($_POST["get_your_card_university"])) {
+    if (!empty($_POST["get-your-card-university"])) {
 
         require "../../../../system/user/classes/emailsettings.php";
         require "../../../../system/user/classes/variablemanager.php";
@@ -325,13 +325,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         require_once('../../../../system/application/libs/php/phpmailer/class.smtp.php');
 
         // Get the form fields and remove whitespace.
-        $get_your_card_university = $_POST["get_your_card_university"];
-        $get_your_card_fullname = $_POST["get_your_card_fullname"];
-        $get_your_card_birthday = $_POST["get_your_card_birthday"];
-        $mobile = filter_var(trim($_POST["get_your_card_telephone"]), FILTER_SANITIZE_NUMBER_INT);
-        $email = filter_var(trim($_POST["get_your_card_email"]), FILTER_SANITIZE_EMAIL);
-        $get_your_card_hear = trim($_POST["get_your_card_hear"]);
-        $get_your_card_address = trim($_POST["get_your_card_address"]);
+        $get_your_card_university = $_POST["get-your-card-university"];
+        $get_your_card_fullname = $_POST["get-your-card-fullname"];
+        $get_your_card_birthday = $_POST["get-your-card-birthday"];
+        $mobile = filter_var(trim($_POST["get-your-card-telephone"]), FILTER_SANITIZE_NUMBER_INT);
+        $email = filter_var(trim($_POST["get-your-card-email"]), FILTER_SANITIZE_EMAIL);
+        $get_your_card_hear = trim($_POST["get-your-card-hear"]);
+        $get_your_card_address = trim($_POST["get-your-card-address"]);
 
         $token = random_int(10000, 99999);
         $mail_body = '<TABLE style="font-family: arial; font-size: 14px;" width="600" BORDER="0" cellpadding="5" CELLSPACING="0" COLS="8" FRAME="VOID" RULES="NONE" WTDTH="800">
@@ -449,6 +449,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->SMTPSecure = 'ssl';                          // Enable TLS encryption, `ssl` also accepted
             $mail->Port = $mailsettings->smtpPort();            // TCP port to connect to
 
+            $mail->HeaderLine('Content-Type', 'multipart/mixed');
+
+            if (!empty($_FILES['photo'])) {
+                $user_photo = $_FILES['photo'];
+                $mail->AddAttachment($user_photo['tmp_name'], $user_photo['name']);
+            }
+
+            if (!empty($_FILES['file-upload'])) {
+                $attachments = $_FILES['file-upload'];
+                $file_count = count($attachments['name']);
+                if($file_count > 0){
+                    for ($x = 0; $x < $file_count; $x++){
+                        $mail->AddAttachment($attachments['tmp_name'][$x], $attachments['name'][$x]);
+                    }
+                }
+            }
+
             //Recipients
             $mail->setFrom($mailsettings->smtpUsername(), 'ISIC.LK');
             $mail->addReplyTo($mailsettings->smtpUsername(), 'ISIC.LK');
@@ -470,9 +487,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->WordWrap = 50; // set word wrap
 
             $mail->send();
-            Default_Common::jsonSuccess("Thank You! Your message has been sent.");
+            print json_encode(array('type'=>'done', 'text' => 'Thank you for your email'));
+            exit;
         } catch (Exception $e) {
-            Default_Common::jsonError("Oops! Something went wrong and we couldn't send your message.");
+            print json_encode(array('type'=>'error', 'text' => 'Could not send mail! Please check your PHP mail configuration.'));
+            exit;
         }
     }
 

@@ -131,7 +131,7 @@ require_once("../system/load.php");
                         Application Form
                     </h2>
                     <h5 class="txt-white text-center">ISIC | IYTC | ITIC</h5>
-                    <form class="form-horizontal" id="get-your-card" action="">
+                    <form class="form-horizontal" id="get-your-card" action="../system/user/modules/mod_cards/controller.php" method="post" enctype="multipart/form-data">
 
                         <div class="col-sm-10 col-xs-12 float-n center-block dis-flex" style="float:none">
                             <div class="col-sm-8 padd-v-10">
@@ -174,7 +174,7 @@ require_once("../system/load.php");
                                             <input class="material" type="hidden" id="img-path" name="img-path" disabled>
                                         </div>
                                         <span class="file-wrapper marg-v-10">
-                                            <input type="file" name="photo" id="imgInp" class="uploader">
+                                            <input type="file" name="photo" id="photo" class="uploader">
                                             <span class="btn btn-large btn-alpha">Upload Image</span>
                                         </span>
                                     </div>
@@ -182,7 +182,7 @@ require_once("../system/load.php");
                                 <div class="input-container left">
 		                            <span id="filename">Select your files</span>
 		                            <label for="file-upload" class="file-wrapper marg-v-10 full-width text-center">
-                                        <input type="file" id="file-upload" name="file-upload" multiple>
+                                        <input type="file" id="file-upload" name="file-upload[]" multiple>
 <ul id="output" class="no-padd"></ul>
                                         <span class="btn btn-large btn-alpha">Upload Documents</span>
                                     </label>
