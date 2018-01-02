@@ -66,34 +66,13 @@
                                     } else {
                                         $height = 'grid-item--height2';
                                     }
-
-//                                    if ($discounts->displayType() == 0) { ?>
-<!--                                        <div class="type-post format-standard grid-item --><?php //echo $width . ' ' . $height . ' card-' . $discounts->cardType() . ' category-' . $discounts->category(); ?><!--">-->
-<!--                                    --><?php //} else { ?>
-<!--                                        <div class="type-post format-standard grid-item grid-item--width2 --><?php //echo 'card-' . $discounts->cardType() . ' category-' . $discounts->category(); ?><!--">-->
-<!--                                    --><?php //} ?>
-                                        <div class="type-post format-standard grid-item <?php echo $width . ' ' . $height . ' card-' . $discounts->cardType() . ' category-' . $discounts->category(); ?>">
-                                            <a href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->id(); ?>" class="listing-mg-1-item">
-                                                <img src="<?php echo $discounts->image(); ?>" class="img-responsive"/>
-
-<div class="back-img" style="background:url(<?php echo $discounts->image(); ?>)center / cover;position:absolute;width:100%;height:100%;top: 0;"></div>
-                                                <!--<span class="format-icon format-audio"><i class="fa fa-eye"></i></span>
-                                                <div class="content-container pos-abs bottom_0 ">
-                                                    <img src="<?php echo $discounts->logo(); ?>" class="img-responsive pull-left">
-                                                    <div class="padd-10 over-hidden">
-                                                        <span class="title text-yellow">
-                                                            <span class="post-url post-title">
-                                                                <?php echo $discounts->name(); ?>
-                                                            </span>
-                                                        </span>
-                                                        <br>
-                                                        <span class="txt-white">
-                                                            <?php echo substr(str_replace(['<pre>', '</pre>'], '', $discounts->description()), 0, 150) . '...'; ?>
-                                                        </span>
-                                                    </div>
-                                                </div>-->
-                                            </a>
-                                        </div>
+                                ?>
+                                    <div class="type-post format-standard grid-item <?php echo $width . ' ' . $height . ' card-' . $discounts->cardType() . ' category-' . $discounts->category(); ?>">
+                                        <a href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->id(); ?>" class="listing-mg-1-item">
+                                            <img src="<?php echo $discounts->image(); ?>" class="img-responsive"/>
+                                            <div class="back-img" style="background:url(<?php echo $discounts->image(); ?>)center / cover;position:absolute;width:100%;height:100%;top: 0;"></div>
+                                        </a>
+                                    </div>
                                 <?php } ?>
                             </div>
                         </div>
@@ -115,7 +94,7 @@
                     <div class="pos-rela text-center">
                         <div class="center-yellow-line">
                             <div class="mg-col mg-col-1 ">
-                                <article class="type-post format-standard has-post-thumbnail  listing-item-1 listing-item listing-mg-item listing-mg-type-2 listing-mg-1-item ">
+                                <article class="type-post format-standard has-post-thumbnail listing-item-1 listing-item listing-mg-item listing-mg-type-2 listing-mg-1-item ">
                                     <div class="item-content">
                                         <a title="..." data-src="<?php echo HTTP_PATH; ?>images/img-7.jpg" href="#" class="img-cont"></a>
                                     </div>
@@ -154,11 +133,12 @@
                     </div>
                 </div>
                 <div class="col-md-3 col-xs-12 no-padd text-center center-yellow-line">
-                    <div class=" bg-white ">
-                        <h2 class="fnt-80 l-hght-80 txt-black dis-in-blk text-left no-marg marg-tp-10 take-top100 pos-rela">FOR<br>WHO<br>IS<br></h2>
-                    </div>
-                    <div class=" bg-black ">
-                        <h2 class="fnt-80 l-hght-80 txt-white dis-in-blk text-left no-marg take-top100 pos-rela">IT?</h2>
+                    <div class="mg-col mg-col-1 ">
+                        <article class="type-post format-standard has-post-thumbnail listing-item-1 listing-item listing-mg-item listing-mg-type-2 listing-mg-1-item ">
+                            <div class="item-content">
+                                <a title="..." data-src="<?php echo HTTP_PATH; ?>images/img-5.jpg" href="#" class="img-cont"></a>
+                            </div>
+                        </article>
                     </div>
                 </div>
 

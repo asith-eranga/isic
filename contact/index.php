@@ -95,7 +95,7 @@ require_once(DOC_ROOT . 'system/user/modules/mod_contact/helper.php');
                     <?php } ?>
                     <?php if (!empty($system_settings->fax())){ ?>
                         <p class="txt-black text-upper no-marg">
-                            General fax
+                            Telephone
                         </p>
                         <p class="txt-white">
                             <?php echo $system_settings->fax(); ?>
@@ -189,7 +189,7 @@ require_once(DOC_ROOT . 'system/user/modules/mod_contact/helper.php');
 
             var map = new google.maps.Map(document.getElementById('map'), mapOptions);
             //Callout Content
-            var contentString = 'Some address here..';
+            var contentString = '<p class="txt-black text-upper no-marg"><strong><?php echo $system_settings->addressLine1(); ?></strong></p></br><p class="txt-black text-upper no-marg"><?php if (!empty($system_settings->addressLine2())) { echo $system_settings->addressLine2(); }if (!empty($system_settings->addressLine3())) { echo ', ' . $system_settings->addressLine3();}if (!empty($system_settings->addressLine4())) {echo ', ' . $system_settings->addressLine4();}if (!empty($system_settings->addressLine5())) { echo ', ' . $system_settings->addressLine5() . '.';}?></p></br> <?php if (!empty($system_settings->email())){ ?><p class="txt-black text-upper no-marg">General mail</p><p class="txt-black"><?php echo $system_settings->email(); ?>x</p><?php } ?><?php if (!empty($system_settings->fax())){ ?><p class="txt-black text-upper no-marg">General fax</p><p class="txt-black"><?php echo $system_settings->fax(); ?></p> <?php } ?>'; 
             //Set window width + content
             var infowindow = new google.maps.InfoWindow({
                 content: contentString,

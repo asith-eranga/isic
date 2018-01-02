@@ -85,31 +85,11 @@ require_once(DOC_ROOT . 'system/user/modules/mod_discounts/helper.php');
                                         } else {
                                             $height = 'grid-item--height2';
                                         }
-
-//                                        if ($discounts->displayType() == 0) { ?>
-<!--                                        <div class="grid-item --><?php //echo $width . ' ' . $height . ' card-' . $discounts->cardType() . ' category-' . $discounts->category(); ?><!--">-->
-<!--                                            --><?php //} else { ?>
-<!--                                            <div class="grid-item grid-item--width2 --><?php //echo 'card-' . $discounts->cardType() . ' category-' . $discounts->category(); ?><!--">-->
-<!--                                                --><?php //} ?>
+                                    ?>
                                         <div class="grid-item <?php echo $width . ' ' . $height . ' card-' . $discounts->cardType() . ' category-' . $discounts->category(); ?>">
                                             <a href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->id(); ?>" class="listing-mg-1-item">
                                                 <img src="<?php echo $discounts->image(); ?>" class="img-responsive"/>
-<div class="back-img" style="background:url(<?php echo $discounts->image(); ?>)center / cover;position:absolute;width:100%;height:100%;top: 0;"></div>
-                                                <!--<span class="format-icon format-audio"><i class="fa fa-eye"></i></span>
-                                                <div class="content-container pos-abs bottom_0 ">
-                                                    <img src="<?php echo $discounts->logo(); ?>" class="img-responsive pull-left">
-                                                    <div class="padd-10 over-hidden">
-                                                            <span class="title text-yellow">
-                                                                <span class="post-url post-title">
-                                                                    <?php echo $discounts->name(); ?>
-                                                                </span>
-                                                            </span>
-                                                        <br>
-                                                        <span class="txt-white">
-                                                                <?php echo substr(str_replace(['<pre>', '</pre>'], '', $discounts->description()), 0, 150) . '...'; ?>
-                                                            </span>
-                                                    </div>
-                                                </div>-->
+                                                <div class="back-img" style="background:url(<?php echo $discounts->image(); ?>)center / cover;position:absolute;width:100%;height:100%;top: 0;"></div>
                                             </a>
                                         </div>
                                     <?php } ?>

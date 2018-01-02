@@ -114,7 +114,7 @@ $(document).ready(function(){
         </div>
         <div class="two fields">
             <div class="field">
-                <label>Fax</label>
+                <label>Telephone / Fax</label>
             </div>
             <div class="field">
                 <input placeholder="Fax" id="fax" name="fax" type="text" value="<?php echo $system_settings->fax(); ?>">

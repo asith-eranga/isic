@@ -80,7 +80,7 @@ $categories = $discounts->getAllCategories();
       </div>
 
         <div class="field">
-            <label>Discount (Rs.)</label>
+            <label>Discount</label>
             <input placeholder="Discount" id="discount" name="discount" type="text">
         </div>
 

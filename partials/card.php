@@ -10,7 +10,10 @@
         <div class="col-md-9 col-xs-12 text-upper padd-h-25">
             <div class="card-messages" id="default-message">
                 <h2 class="txt-green-light">Stay connected with us!</h2>
-                <h3 class="txt-green-light"><span class="txt-yellow">The ISIC card,</span><br>the only internationally accepted student identity card <br>which can provide proof, various benefits and more!</h3>
+                <h3 class="txt-green-light">
+                    <span class="txt-yellow">The ISIC card,</span><br>
+                    The only UNESCO endorsed, internationally accepted proof of student status that offers over 150,000 student discounts in 130 countries.
+                </h3>
             </div>
             <div class="card-messages" id="success-message" style="display: none;">
                 <h2 class="txt-green-light">Thank you for requesting</h2>

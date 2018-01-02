@@ -64,9 +64,12 @@
                     <br>
                     <br>
                 <?php } ?>
-                <img src="" alt="...." data-src="<?php echo HTTP_PATH; ?>images/google-play-icon.png" class="img-responsive img-cont pull-left">
-                <img src="" alt="...." data-src="<?php echo HTTP_PATH; ?>images/apple-app-store.png" class="img-responsive img-cont pull-left">
-
+                <a href="https://play.google.com/store/apps/details?id=nl.jool.isic&hl=en" target="_blank">
+                    <img src="" alt="...." data-src="<?php echo HTTP_PATH; ?>images/google-play-icon.png" class="img-responsive img-cont pull-left">
+                </a>
+                <a href="https://itunes.apple.com/nl/app/isic/id886109982?mt=8" target="_blank">
+                    <img src="" alt="...." data-src="<?php echo HTTP_PATH; ?>images/apple-app-store.png" class="img-responsive img-cont pull-left">
+                </a>
             </div>
         </div>
         <div class="col-md-3 col-xs-12 bg-white no-padd-h">
@@ -81,7 +84,7 @@
                 </div>
                 <div class="dis-tbl-row full-height full-width tbl-con-algn-center">
                     <div class="bg-black padd-15">
-                        <span class="txt-white">Newsletter</span>
+                        <span class="txt-white">Join Our Mailing List</span>
                         <form class="newsletter" action="" id="newsletter">
                             <div class="padd-v-15">
                                 <div class="input-group pos-rela">
@@ -133,7 +136,7 @@
 
 </div>
 <div class="col-md-12 col-xs-12 bg-black txt-white padd-v-10 text-center text-upper no-padd-h">
-    <span>© 2017 ISIC. All rights reserved </span>
+    <span>© 2017. <a href="https://www.unitedventuressl.com/" target="_blank">United Ventures Pvt Ltd</a>. All Rights Reserved.</span>
 </div>
 
 <span class="back-top"><i class="fa fa-arrow-up"></i></span>

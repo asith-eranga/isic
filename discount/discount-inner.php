@@ -8,6 +8,8 @@
     $discounts_inner->setId($id);
     $discounts_inner_data = $discounts_inner->getById();
     $discounts_inner->extractor($discounts_inner_data);
+
+    $discounts_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 ?>
 
 <!DOCTYPE html>
@@ -24,30 +26,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta property="og:url" content="https://www.your-domain.com/your-page.html" />
+    <meta property="og:url" content="<?php echo $discounts_link; ?>" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="<?php echo $discounts_inner->name(); ?>" />
     <meta property="og:image" content="<?php echo $discounts_inner->image(); ?>" />
 
     <title>ISIC | Discount</title>
     <?php include(DOC_ROOT . 'partials/head.php'); ?>
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.11';
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
- <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.css' type='text/css' media='all' />
- <style>
-	 .owl-theme .owl-dots .owl-dot span {
-    background: #9e9c79;
-	}
-	.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
-    background: #fff333;
-}
-	 </style>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.css' type='text/css' media='all' />
+    <style>
+	    .owl-theme .owl-dots .owl-dot span {
+            background: #9e9c79;
+	    }
+	    .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+            background: #fff333;
+        }
+    </style>
+    <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5a4bb2957820fd001360b580&product=inline-share-buttons"></script>
 </head>
 
 <body class="main-menu-sticky-smart ">
@@ -69,12 +64,12 @@
                                 <?php echo $discounts_inner->name(); ?>
                             </h3>
                         </div>
-                        <div class="col-xs-12">
-                            <h3 class="btn btn-primary txt-black pull-left">Rs <?php echo $discounts_inner->discount(); ?> Discount</h3>
+                        <div class="col-xs-10">
+                            <h3 class="btn btn-primary txt-black pull-left"><?php echo $discounts_inner->discount(); ?></h3>
                             <h4 class="txt-yellow text-upper dis-in-blk padd-15">offer valid for</h4>
                             <img src="<?php echo HTTP_PATH; ?>images/icons/cat-<?php echo $discounts_inner->cardType()+1; ?>.png">
-                            <div class="fb-share-button" data-href="https://www.facebook.com/ISICsrilanka/" data-layout="box_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2FISICsrilanka%2F&amp;src=sdkpreparse">Share</a></div>
                         </div>
+                        <div class="sharethis-inline-share-buttons col-xs-2"></div>
                         <div class="col-xs-12">
                             <?php echo str_replace(['<pre>', '</pre>'], '', $discounts_inner->description()); ?>
                         </div>

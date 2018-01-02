@@ -92,7 +92,7 @@ $(document).ready(function(){
         </div>
 
         <div class="field">
-            <label>Discount (Rs.)</label>
+            <label>Discount</label>
             <input placeholder="Discount" id="discount" name="discount" type="text" value="<?php echo $discounts->discount(); ?>">
         </div>
 
