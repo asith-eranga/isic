@@ -85,8 +85,18 @@ require_once(DOC_ROOT . 'system/user/modules/mod_discounts/helper.php');
                                         } else {
                                             $height = 'grid-item--height2';
                                         }
+
+                                        $saved_card_types = unserialize($discounts->cardType());
+                                        $saved_categories = unserialize($discounts->category());
                                     ?>
-                                        <div class="grid-item <?php echo $width . ' ' . $height . ' card-' . $discounts->cardType() . ' category-' . $discounts->category(); ?>">
+                                        <div class="grid-item <?php echo $width . ' ' . $height;
+                                                foreach ($saved_card_types as $saved_card_type) {
+                                                    echo ' card-' . $saved_card_type;
+                                                }
+                                                foreach ($saved_categories as $saved_category) {
+                                                    echo ' category-' . $saved_category;
+                                                }
+                                            ?>">
                                             <a href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->id(); ?>" class="listing-mg-1-item">
                                                 <img src="<?php echo $discounts->image(); ?>" class="img-responsive"/>
                                                 <div class="back-img" style="background:url(<?php echo $discounts->image(); ?>)center / cover;position:absolute;width:100%;height:100%;top: 0;"></div>
@@ -94,7 +104,6 @@ require_once(DOC_ROOT . 'system/user/modules/mod_discounts/helper.php');
                                         </div>
                                     <?php } ?>
                             </div>
-
                         </div>
                     </div>
                 </div>

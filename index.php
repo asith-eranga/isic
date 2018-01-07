@@ -91,19 +91,25 @@
                         youth
                     </h3>
                     <br>
+                    <?php
+                        $featured_discounts = new Mod_Discounts();
+                        $featured_discounts_data = $featured_discounts->selectAllFeatured();
+                    ?>
                     <div class="pos-rela text-center">
                         <div class="center-yellow-line">
+                            <?php $featured_discounts->extractor($featured_discounts_data, 0); ?>
                             <div class="mg-col mg-col-1 ">
-                                <article class="type-post format-standard has-post-thumbnail listing-item-1 listing-item listing-mg-item listing-mg-type-2 listing-mg-1-item ">
+                                <article class="type-post format-standard has-post-thumbnail listing-item-1 listing-item listing-mg-item listing-mg-type-2 listing-mg-1-item">
                                     <div class="item-content">
-                                        <a title="..." data-src="<?php echo HTTP_PATH; ?>images/img-7.jpg" href="#" class="img-cont"></a>
+                                        <a title="..." data-src="<?php echo $featured_discounts->image(); ?>" href="<?php echo HTTP_PATH; ?>discount/<?php echo $featured_discounts->id(); ?>" class="img-cont"></a>
                                     </div>
                                 </article>
                             </div>
+                            <?php $featured_discounts->extractor($featured_discounts_data, 1); ?>
                             <div class="mg-col mg-col-1">
                                 <article class="type-post format-standard listing-item-1 listing-item listing-mg-item listing-mg-type-2 listing-mg-2-item">
                                     <div class="item-content">
-                                        <a title="#" data-src="<?php echo HTTP_PATH; ?>images/img-8.jpg" class="img-cont" href="#" style=""></a>
+                                        <a title="#" data-src="<?php echo $featured_discounts->image(); ?>" class="img-cont" href="<?php echo HTTP_PATH; ?>discount/<?php echo $featured_discounts->id(); ?>" style=""></a>
                                     </div>
                                 </article>
                             </div>
@@ -133,10 +139,11 @@
                     </div>
                 </div>
                 <div class="col-md-3 col-xs-12 no-padd text-center center-yellow-line">
+                    <?php $featured_discounts->extractor($featured_discounts_data, 2); ?>
                     <div class="mg-col mg-col-1 ">
-                        <article class="type-post format-standard has-post-thumbnail listing-item-1 listing-item listing-mg-item listing-mg-type-2 listing-mg-1-item ">
+                        <article class="type-post format-standard has-post-thumbnail  listing-item-1 listing-item listing-mg-item listing-mg-type-2 listing-mg-1-item ">
                             <div class="item-content">
-                                <a title="..." data-src="<?php echo HTTP_PATH; ?>images/img-5.jpg" href="#" class="img-cont"></a>
+                                <a title="..." data-src="<?php echo $featured_discounts->image(); ?>" href="<?php echo HTTP_PATH; ?>discount/<?php echo $featured_discounts->id(); ?>" class="img-cont"></a>
                             </div>
                         </article>
                     </div>

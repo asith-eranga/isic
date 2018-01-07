@@ -9,6 +9,8 @@
     $discounts_inner_data = $discounts_inner->getById();
     $discounts_inner->extractor($discounts_inner_data);
 
+    $saved_card_types = unserialize($discounts_inner->cardType());
+    $saved_categories = unserialize($discounts_inner->category());
     $discounts_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 ?>
 
@@ -67,7 +69,11 @@
                         <div class="col-xs-10">
                             <h3 class="btn btn-primary txt-black pull-left"><?php echo $discounts_inner->discount(); ?></h3>
                             <h4 class="txt-yellow text-upper dis-in-blk padd-15">offer valid for</h4>
-                            <img src="<?php echo HTTP_PATH; ?>images/icons/cat-<?php echo $discounts_inner->cardType()+1; ?>.png">
+                            <?php
+                                foreach ($saved_card_types as $saved_card_type) {
+                                    if (!empty($saved_card_type)) { ?>
+                                        <img src="<?php echo HTTP_PATH; ?>images/icons/cat-<?php echo $saved_card_type+1; ?>.png">
+                            <?php } } ?>
                         </div>
                         <div class="sharethis-inline-share-buttons col-xs-2"></div>
                         <div class="col-xs-12">
@@ -85,8 +91,7 @@
 
                         <?php
                             $discounts_inner_related = new Mod_Discounts();
-                            $discounts_related_data = $discounts_inner_related->getRelatedDiscounts($discounts_inner->cardType(), $discounts_inner->category());
-                            if (count($discounts_related_data) > 1) {
+                            $discounts_related_data = $discounts_inner_related->selectAll();
                         ?>
                         <br><br>
 					    <div class="col-xs-12 padd-v-25">
@@ -95,7 +100,9 @@
                             <?php
                                 for ($i = 0; $i < count($discounts_related_data); $i++) {
                                     $discounts_inner_related->extractor($discounts_related_data, $i);
-                                    if ($discounts_inner_related->id() != $id) {
+                                    if ($discounts_inner_related->id() != $id ) {
+                                        if ( count(array_intersect($saved_card_types, unserialize($discounts_inner_related->cardType()))) > 0
+                                        || count(array_intersect($saved_categories, unserialize($discounts_inner_related->category()))) > 0) {
                             ?>
                                 <div class="item">
                                     <div class="padd-10">
@@ -107,10 +114,9 @@
                                         <h5 class="txt-white"><?php echo $discounts_inner_related->name(); ?></h5>
                                     </div>
                                 </div>
-                            <?php } } ?>
+                            <?php } } } ?>
                             </div>
 					    </div>
-                        <?php } ?>
                     </div>
                 </div>
                 <?php include(DOC_ROOT . 'partials/search-discount-inner.php'); ?>

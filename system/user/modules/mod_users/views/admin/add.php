@@ -123,10 +123,11 @@ $permission_data = $permission->selectAll();
                         <input type="password" id="password" name="password">
                   </div>
 
-                  <div class="small ui submit button floated right green">Save</div>
-
                 <div class="ui error message"></div>
                 <div id="form_submit_msg" class="ui green message"><i class="ok sign icon"></i></div>
+
+                  <div class="small ui submit button floated right green">Save</div>
+
       </div>
 
 </form>

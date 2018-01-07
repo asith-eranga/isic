@@ -39,7 +39,7 @@ $categories = $discounts->getAllCategories();
 					rules: [
 						{
 							type: 'empty',
-							prompt: 'Please enter room type name'
+							prompt: 'Please enter discount name'
 						}
 					]
 				},				
@@ -48,7 +48,7 @@ $categories = $discounts->getAllCategories();
 					rules: [
 						{
 							type: 'empty',
-							prompt: 'Please enter room type content'
+							prompt: 'Please enter discount content'
 						}
 					]
 				},
@@ -125,7 +125,27 @@ $categories = $discounts->getAllCategories();
         </div>
 
         <div class="field">
-            <div class="four fields">
+            <label>Card Type</label>
+            <?php foreach ($card_types as $k => $v) { ?>
+                <div class="ui checkbox">
+                    <input type="checkbox" name="card_type[]" value="<?php echo $k; ?>" class="view">
+                    <label><?php echo $v; ?></label>
+                </div>
+            <?php } ?>
+        </div>
+
+        <div class="field">
+            <label>Category</label>
+            <?php foreach ($categories as $k => $v) { ?>
+                <div class="ui checkbox">
+                    <input type="checkbox" name="category[]" value="<?php echo $k; ?>" class="view">
+                    <label><?php echo $v; ?></label>
+                </div>
+            <?php } ?>
+        </div>
+
+        <div class="field">
+            <div class="two fields">
                 <div class="field">
                     <label>Display Type</label>
                     <div class="ui selection dropdown">
@@ -134,34 +154,6 @@ $categories = $discounts->getAllCategories();
                         <i class="dropdown icon"></i>
                         <div class="menu ui transition hidden">
                             <?php foreach ($display_types as $k => $v) { ?>
-                                <div class="item" data-value="<?php echo $k; ?>"><?php echo $v; ?></div>
-                            <?php } ?>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label>Card Type</label>
-                    <div class="ui selection dropdown">
-                        <input type="hidden" id="card_type" name="card_type" value="1">
-                        <div class="default text">ISIC</div>
-                        <i class="dropdown icon"></i>
-                        <div class="menu ui transition hidden">
-                            <?php foreach ($card_types as $k => $v) { ?>
-                                <div class="item" data-value="<?php echo $k; ?>"><?php echo $v; ?></div>
-                            <?php } ?>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label>Category</label>
-                    <div class="ui selection dropdown">
-                        <input type="hidden" id="category" name="category" value="1">
-                        <div class="default text">ACCOMMODATION</div>
-                        <i class="dropdown icon"></i>
-                        <div class="menu ui transition hidden">
-                            <?php foreach ($categories as $k => $v) { ?>
                                 <div class="item" data-value="<?php echo $k; ?>"><?php echo $v; ?></div>
                             <?php } ?>
                         </div>
@@ -183,11 +175,11 @@ $categories = $discounts->getAllCategories();
                 </div>
             </div>
         </div>
-      
-      <div class="small ui submit button floated right green" onclick="tinyMCE.triggerSave()">Save</div>
 
         <div class="ui error message"></div>
-        <div id="form_submit_msg" class="ui green message"><i class="ok sign icon"></i></div>
+        <div id="form_submit_msg" class="ui green message"><i class="check circle icon"></i></div>
+
+      <div class="small ui submit button floated right green" onclick="tinyMCE.triggerSave()">Save</div>
       
     </form>
   </div>

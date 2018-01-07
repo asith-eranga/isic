@@ -79,6 +79,8 @@ function addPost() {
       $discounts = new Mod_Discounts();
 
       $discounts->setValues($_POST);
+      $discounts->setCardType(serialize($_POST['card_type']));
+      $discounts->setCategory(serialize($_POST['category']));
 	  $discounts->setSortOrder($discounts->nextOrderValue());
       $discounts->setCreatedBy(Sessions::getAdminId());
       $discounts->setCreatedDate(time());
@@ -109,7 +111,8 @@ function updatePost() {
       $discounts = new Mod_Discounts();
 
       $discounts->setValues($_POST);
-
+      $discounts->setCardType(serialize($_POST['card_type']));
+      $discounts->setCategory(serialize($_POST['category']));
       $discounts->setModifiedBy(Sessions::getAdminId());
       $discounts->setModifiedDate(time());
 

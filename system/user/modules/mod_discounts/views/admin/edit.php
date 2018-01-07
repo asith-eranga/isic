@@ -1,15 +1,17 @@
 <?php
 $discounts = new Mod_Discounts();
 $discounts->setId($_POST['id']);
-$bt_data   = $discounts->getById();
+$bt_data = $discounts->getById();
 $discounts->extractor($bt_data);
 
-$data		= $discounts->selectAll();
+$data           = $discounts->selectAll();
+$status         = $discounts->getAllStatus();
+$display_types  = $discounts->getAllDisplayTypes();
+$card_types     = $discounts->getAllCardTypes();
+$categories     = $discounts->getAllCategories();
 
-$status     = $discounts->getAllStatus();
-$display_types = $discounts->getAllDisplayTypes();
-$card_types = $discounts->getAllCardTypes();
-$categories = $discounts->getAllCategories();
+$saved_card_types = unserialize($discounts->cardType());
+$saved_categories = unserialize($discounts->category());
 
 ?>
 <script type="text/javascript">
@@ -22,7 +24,7 @@ $(document).ready(function(){
 			rules: [
 				{
 					type: 'empty',
-					prompt: 'Please enter room type name'
+					prompt: 'Please enter discount name'
 				}
 			]
 		},				
@@ -31,7 +33,7 @@ $(document).ready(function(){
 			rules: [
 				{
 					type: 'empty',
-					prompt: 'Please enter room type content'
+					prompt: 'Please enter discount content'
 				}
 			]
 		},
@@ -139,7 +141,31 @@ $(document).ready(function(){
         </div>
 
         <div class="field">
-            <div class="four fields">
+            <label>Card Type</label>
+            <?php foreach ($card_types as $k => $v) { ?>
+                <div class="ui checkbox">
+                    <input type="checkbox" name="card_type[]" value="<?php echo $k; ?>" class="view"
+                        <?php if(in_array($k, $saved_card_types)){ echo " checked "; } ?>
+                    >
+                    <label><?php echo $v; ?></label>
+                </div>
+            <?php } ?>
+        </div>
+
+        <div class="field">
+            <label>Category</label>
+            <?php foreach ($categories as $k => $v) { ?>
+                <div class="ui checkbox">
+                    <input type="checkbox" name="category[]" value="<?php echo $k; ?>" class="view"
+                        <?php if(in_array($k, $saved_categories)){ echo " checked "; } ?>
+                    >
+                    <label><?php echo $v; ?></label>
+                </div>
+            <?php } ?>
+        </div>
+
+        <div class="field">
+            <div class="two fields">
                 <div class="field">
                     <label>Display Type</label>
                     <div class="ui selection dropdown">
@@ -148,34 +174,6 @@ $(document).ready(function(){
                         <i class="dropdown icon"></i>
                         <div class="menu ui transition hidden">
                             <?php foreach ($display_types as $k => $v) { ?>
-                                <div class="item" data-value="<?php echo $k; ?>"><?php echo $v; ?></div>
-                            <?php } ?>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label>Card Type</label>
-                    <div class="ui selection dropdown">
-                        <input type="hidden" id="card_type" name="card_type" value="<?php echo $discounts->cardType(); ?>">
-                        <div class="default text"><?php echo $card_types[$discounts->cardType()]; ?></div>
-                        <i class="dropdown icon"></i>
-                        <div class="menu ui transition hidden">
-                            <?php foreach ($card_types as $k => $v) { ?>
-                                <div class="item" data-value="<?php echo $k; ?>"><?php echo $v; ?></div>
-                            <?php } ?>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label>Category</label>
-                    <div class="ui selection dropdown">
-                        <input type="hidden" id="category" name="category" value="<?php echo $discounts->category(); ?>">
-                        <div class="default text"><?php echo $categories[$discounts->category()]; ?></div>
-                        <i class="dropdown icon"></i>
-                        <div class="menu ui transition hidden">
-                            <?php foreach ($categories as $k => $v) { ?>
                                 <div class="item" data-value="<?php echo $k; ?>"><?php echo $v; ?></div>
                             <?php } ?>
                         </div>
@@ -197,11 +195,11 @@ $(document).ready(function(){
                 </div>
             </div>
         </div>
-	    
-	  <div class="small ui submit button floated right green" onclick="tinyMCE.triggerSave()">Save</div>
 
         <div class="ui error message"></div>
         <div id="form_submit_msg" class="ui green message"><i class="ok sign icon"></i></div>
+	    
+	  <div class="small ui submit button floated right green" onclick="tinyMCE.triggerSave()">Save</div>
 
 	</form>
 	</div>

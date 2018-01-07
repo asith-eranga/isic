@@ -58,7 +58,7 @@
                     <br>
                 <?php } ?>
                 <?php if (!empty($system_settings->fax())){ ?>
-                    <span>GENERAL FAX</span>
+                    <span>TELEPHONE</span>
                     <br>
                     <span><?php echo $system_settings->fax(); ?></span>
                     <br>

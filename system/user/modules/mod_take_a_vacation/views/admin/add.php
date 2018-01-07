@@ -108,11 +108,11 @@ $status 		= $take_a_vacation->getAllStatus();
           </div>
         </div>
       </div>
-      
-      <div class="small ui submit button floated right green" onclick="tinyMCE.triggerSave()">Save</div>
 
         <div class="ui error message"></div>
         <div id="form_submit_msg" class="ui green message"><i class="ok sign icon"></i></div>
+
+      <div class="small ui submit button floated right green" onclick="tinyMCE.triggerSave()">Save</div>
       
     </form>
   </div>

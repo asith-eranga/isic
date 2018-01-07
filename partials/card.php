@@ -90,8 +90,8 @@
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    <span>Other</span>
-                                                    <input type="radio" name="user_type" id="user_type" value="other">
+                                                    <span>Others</span>
+                                                    <input type="radio" name="user_type" id="user_type" value="others">
                                                     <span class="input-group-addon"><span class="custom-radio"></span></span>
                                                 </label>
                                             </div>
