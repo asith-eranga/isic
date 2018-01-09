@@ -207,6 +207,7 @@ require_once(DOC_ROOT . 'system/user/modules/mod_contact/helper.php');
             google.maps.event.addListener(marker, 'click', function() {
                 infowindow.open(map, marker);
             });
+            infowindow.open(map, marker);
 
             //Resize Function
             google.maps.event.addDomListener(window, "resize", function() {

@@ -213,17 +213,17 @@ class Mod_Discounts extends Default_DBConnection implements Default_DBInterface 
       }
 
     function getByCardType() {
-        $this->MDatabase->select($this->table_name, "*", $this->cardType() . " IN (card_type)" , "sort_order DESC");
+        $this->MDatabase->select($this->table_name, "*", $this->cardType() . " IN (card_type) AND display_type = " . $this->displayType(), "sort_order DESC");
         return $this->MDatabase->result;
     }
 
     function getByCategoryType() {
-        $this->MDatabase->select($this->table_name, "*", $this->category() . " IN (category)" , "sort_order DESC");
+        $this->MDatabase->select($this->table_name, "*", $this->category() . " IN (category) AND display_type = " . $this->displayType(), "sort_order DESC");
         return $this->MDatabase->result;
     }
 
     function getByCardTypeAndCategoryType($card, $category) {
-        $this->MDatabase->select($this->table_name, "*",  $card ." IN (card_type)" . $category . " IN (category)", "sort_order DESC");
+        $this->MDatabase->select($this->table_name, "*",  $card ." IN (card_type) AND " . $category . " IN (category) AND display_type = " . $this->displayType(), "sort_order DESC");
         return $this->MDatabase->result;
     }
 

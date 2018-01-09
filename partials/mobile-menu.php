@@ -47,7 +47,7 @@ $current_page_class = 'current-menu-item current_page_item';
                                 <?php } ?>
                             </ul>
                         </li>
-					    <li class="menu-item menu-item-object-page <?php if ($current_path == 'discount') { echo $current_page_class; } ?>"><a href="<?php echo HTTP_PATH; ?>discount">discounts</a></li>
+					    <li class="menu-item menu-item-object-page <?php if ($current_path == 'discount') { echo $current_page_class; } ?>"><a href="<?php echo HTTP_PATH; ?>discount">Discounts</a></li>
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children <?php if ($current_path == 'partner-with-isic') { echo $current_page_class; } ?>">
                             <a href="<?php echo HTTP_PATH; ?>partner-with-isic"> Partner with isic </a>
                             <ul class="sub-menu">
@@ -104,7 +104,7 @@ $current_page_class = 'current-menu-item current_page_item';
                                 <?php } ?>
                             </ul>
                         </li>
-                        <li class="menu-item menu-item-type-taxonomy menu-item-object-category  better-anim-fade <?php if ($current_path == 'contact') { echo $current_page_class; } ?>"><a href="<?php echo HTTP_PATH; ?>contact"> contact </a></li>
+                        <li class="menu-item menu-item-type-taxonomy menu-item-object-category  better-anim-fade <?php if ($current_path == 'contact') { echo $current_page_class; } ?>"><a href="<?php echo HTTP_PATH; ?>contact">Contact</a></li>
                     </ul>
                    
                 </div>

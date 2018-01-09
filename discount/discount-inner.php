@@ -67,7 +67,7 @@
                             </h3>
                         </div>
                         <div class="col-xs-10">
-                            <h3 class="btn btn-primary txt-black pull-left"><?php echo $discounts_inner->discount(); ?></h3>
+                            <h3 class="btn btn-primary txt-black pull-left" style="font-size: 24px;"><?php echo $discounts_inner->discount(); ?></h3>
                             <h4 class="txt-yellow text-upper dis-in-blk padd-15">offer valid for</h4>
                             <?php
                                 foreach ($saved_card_types as $saved_card_type) {
@@ -75,7 +75,9 @@
                                         <img src="<?php echo HTTP_PATH; ?>images/icons/cat-<?php echo $saved_card_type+1; ?>.png">
                             <?php } } ?>
                         </div>
-                        <div class="sharethis-inline-share-buttons col-xs-2"></div>
+                        <div class="col-xs-2" style="padding-top: 20px;">
+                            <div class="sharethis-inline-share-buttons"></div>
+                        </div>
                         <div class="col-xs-12">
                             <?php echo str_replace(['<pre>', '</pre>'], '', $discounts_inner->description()); ?>
                         </div>
@@ -91,24 +93,30 @@
 
                         <?php
                             $discounts_inner_related = new Mod_Discounts();
-                            $discounts_related_data = $discounts_inner_related->selectAll();
+                            $discounts_related_data = $discounts_inner_related->selectAllNormal();
                         ?>
                         <br><br>
 					    <div class="col-xs-12 padd-v-25">
-                            <h3 class="dis-in-blk text-upper padd-h-15 txt-black">Related Discounts</h3>
+                            <?php
+                            for ($i = 0; $i < count($discounts_related_data); $i++) {
+                                $discounts_inner_related->extractor($discounts_related_data, $i);
+                                    if ($discounts_inner_related->id() != $id ) {
+                                        if ( count(array_intersect($saved_categories, unserialize($discounts_inner_related->category()))) > 0) {
+                            ?>
+                                <h3 class="dis-in-blk text-upper padd-h-15 txt-black">Related Discounts</h3>
+                            <?php break; } } } ?>
                             <div id="RelatedProducts" class="owl-carousel owl-theme">
                             <?php
                                 for ($i = 0; $i < count($discounts_related_data); $i++) {
                                     $discounts_inner_related->extractor($discounts_related_data, $i);
                                     if ($discounts_inner_related->id() != $id ) {
-                                        if ( count(array_intersect($saved_card_types, unserialize($discounts_inner_related->cardType()))) > 0
-                                        || count(array_intersect($saved_categories, unserialize($discounts_inner_related->category()))) > 0) {
+                                        if ( count(array_intersect($saved_categories, unserialize($discounts_inner_related->category()))) > 0) {
                             ?>
                                 <div class="item">
                                     <div class="padd-10">
                                         <article class="type-post format-standard has-post-thumbnail  listing-item-1 listing-item listing-mg-item listing-mg-type-2 listing-mg-1-item ">
                                             <div class="item-content">
-                                                <a title="..." href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts_inner_related->id(); ?>" class="img-cont b-loaded" style="background-image: url(<?php echo $discounts_inner_related->image(); ?>);"></a>
+                                                <a title="<?php echo $discounts_inner_related->name(); ?>" href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts_inner_related->id(); ?>" class="img-cont b-loaded" style="background-image: url(<?php echo $discounts_inner_related->image(); ?>);"></a>
                                             </div>
                                         </article>
                                         <h5 class="txt-white"><?php echo $discounts_inner_related->name(); ?></h5>
@@ -161,7 +169,7 @@ jQuery('button').on('click', function() {
             var marker = new google.maps.Marker({
                 position: myLatlng,
                 map: map,
-               // icon: imagePath,
+                icon: imagePath,
                 title: 'image title'
             });
 

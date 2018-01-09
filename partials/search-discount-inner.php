@@ -43,19 +43,21 @@ $discount_categories = $discounts->getAllCategories();
                         </a>
                     </div>
                     <?php
-                        $discounts->setCardType($k);
-                        $discount_cards_types = $discounts->getByCardType();
-                        if (count($discount_cards_types) > 0) {
+                        $discount_cards_types = $discounts->selectAllNormal();
+                        for ($i = 0; $i < count($discount_cards_types); $i++) {
+                            $discounts->extractor($discount_cards_types, $i);
+                            if ( in_array($k, unserialize($discounts->cardType())) ) {
                     ?>
-                    <div class="expand fnt-12 txt-white pos-abs padd-h-5" style=" top: 8px; right: 20px;"><i class="fa fa-plus" aria-hidden="true"></i></div>
-                    <?php } ?>
+                        <div class="expand fnt-12 txt-white pos-abs padd-h-5" style="top: 8px; right: 20px; cursor: pointer;">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </div>
+                    <?php break; } } ?>
                 </div>
                 <div class="panel pos-rela">
                     <?php
-                        $discounts->setCardType($k);
-                        $discount_cards_types = $discounts->getByCardType();
                         for ($i = 0; $i < count($discount_cards_types); $i++) {
                             $discounts->extractor($discount_cards_types, $i);
+                            if ( in_array($k, unserialize($discounts->cardType())) ) {
                     ?>
                     <!-- sub types - start -->
                     <div class="flt-button padd-v-5 pos-rela bg-lite-green">
@@ -64,7 +66,7 @@ $discount_categories = $discounts->getAllCategories();
                         </a>
                     </div>
                     <!-- sub types - end -->
-                    <?php } ?>
+                    <?php } } ?>
                 </div>
                 <?php } ?>
             </div>
@@ -88,26 +90,30 @@ $discount_categories = $discounts->getAllCategories();
                         </a>
                     </div>
                     <?php
-                        $discounts->setCategory($k);
-                        $discount_category_types = $discounts->getByCategoryType();
-                        if (count($discount_category_types) > 0) {
+                        $discount_category_types = $discounts->selectAllNormal();
+                        for ($i = 0; $i < count($discount_category_types); $i++) {
+                            $discounts->extractor($discount_category_types, $i);
+                            if ( in_array($k, unserialize($discounts->category())) ) {
                     ?>
-                    <div class="expand fnt-12 txt-white pos-abs padd-h-5" style=" top: 8px; right: 20px;"><i class="fa fa-plus" aria-hidden="true"></i></div>
-                    <?php } ?>
+                    <div class="expand fnt-12 txt-white pos-abs padd-h-5" style="top: 8px; right: 20px; cursor: pointer;">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </div>
+                    <?php break; } } ?>
                 </div>
                 <div class="panel pos-rela">
-                    <!-- sub categories - start -->
                     <?php
                         for ($i = 0; $i < count($discount_category_types); $i++) {
                             $discounts->extractor($discount_category_types, $i);
+                            if ( in_array($k, unserialize($discounts->category())) ) {
                         ?>
-                        <div class="flt-button padd-v-5 pos-rela bg-lite-green">
-                            <a class="txt-white" href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->id(); ?>">
-                              <?php echo $discounts->name(); ?>
-                            </a>
-                        </div>
-                    <?php } ?>
-                    <!-- sub categories - end -->
+                            <!-- sub categories - start -->
+                            <div class="flt-button padd-v-5 pos-rela bg-lite-green">
+                                <a class="txt-white" href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->id(); ?>">
+                                  <?php echo $discounts->name(); ?>
+                                </a>
+                            </div>
+                            <!-- sub categories - end -->
+                    <?php } } ?>
                 </div>
                 <?php } ?>
             </div>

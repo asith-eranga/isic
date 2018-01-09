@@ -5,10 +5,10 @@
  * Time: 6:51 PM
  */
 
-$discounts = new Mod_Discounts();
+$discounts_card_search = new Mod_Discounts();
 
-$discount_cards = $discounts->getAllCardTypes();
-$discount_categories = $discounts->getAllCategories();
+$discount_cards = $discounts_card_search->getAllCardTypes();
+$discount_categories = $discounts_card_search->getAllCategories();
 ?>
 
 <div class="col-md-3 col-xs-12 no-padd">
@@ -43,28 +43,30 @@ $discount_categories = $discounts->getAllCategories();
                         </a>
                     </div>
                     <?php
-                        $discounts->setCardType($k);
-                        $discount_cards_types = $discounts->getByCardType();
-                        if (count($discount_cards_types) > 0) {
+                        $discounts_card_search_data = $discounts_card_search->selectAllNormal();
+                        for ($i = 0; $i < count($discounts_card_search_data); $i++) {
+                            $discounts_card_search->extractor($discounts_card_search_data, $i);
+                            if ( in_array($k, unserialize($discounts_card_search->cardType())) ) {
                     ?>
-                    <div class="expand fnt-12 txt-white pos-abs padd-h-5" style=" top: 8px; right: 20px;"><i class="fa fa-plus" aria-hidden="true"></i></div>
-                    <?php } ?>
+                        <div class="expand fnt-12 txt-white pos-abs padd-h-5" style=" top: 8px; right: 20px; cursor: pointer;">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </div>
+                    <?php break; } } ?>
                 </div>
                 <div class="panel pos-rela">
                     <?php
-                        $discounts->setCardType($k);
-                        $discount_cards_types = $discounts->getByCardType();
-                        for ($i = 0; $i < count($discount_cards_types); $i++) {
-                            $discounts->extractor($discount_cards_types, $i);
+                    for ($i = 0; $i < count($discounts_card_search_data); $i++) {
+                        $discounts_card_search->extractor($discounts_card_search_data, $i);
+                        if ( in_array($k, unserialize($discounts_card_search->cardType())) ) {
                     ?>
-                    <!-- sub types - start -->
-                    <div class="flt-button padd-v-5 pos-rela bg-lite-green">
-                        <a class="txt-white" href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->id(); ?>">
-                          <?php echo $discounts->name(); ?>
-                        </a>
-                    </div>
-                    <!-- sub types - end -->
-                    <?php } ?>
+                        <!-- sub types - start -->
+                        <div class="flt-button padd-v-5 pos-rela bg-lite-green">
+                            <a class="txt-white" href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts_card_search->id(); ?>">
+                              <?php echo $discounts_card_search->name(); ?>
+                            </a>
+                        </div>
+                        <!-- sub types - end -->
+                    <?php } } ?>
                 </div>
                 <?php } ?>
             </div>
@@ -88,26 +90,30 @@ $discount_categories = $discounts->getAllCategories();
                         </a>
                     </div>
                     <?php
-                        $discounts->setCategory($k);
-                        $discount_category_types = $discounts->getByCategoryType();
-                        if (count($discount_category_types) > 0) {
+                        $discount_category_types = $discounts_card_search->selectAllNormal();
+                        for ($i = 0; $i < count($discount_category_types); $i++) {
+                            $discounts_card_search->extractor($discount_category_types, $i);
+                                if ( in_array($k, unserialize($discounts_card_search->category())) ) {
                     ?>
-                    <div class="expand fnt-12 txt-white pos-abs padd-h-5" style=" top: 8px; right: 20px;"><i class="fa fa-plus" aria-hidden="true"></i></div>
-                    <?php } ?>
+                        <div class="expand fnt-12 txt-white pos-abs padd-h-5" style=" top: 8px; right: 20px; cursor: pointer;">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </div>
+                    <?php break; } } ?>
                 </div>
                 <div class="panel pos-rela">
-                    <!-- sub categories - start -->
                     <?php
-                        for ($i = 0; $i < count($discount_category_types); $i++) {
-                            $discounts->extractor($discount_category_types, $i);
-                        ?>
-                        <div class="flt-button padd-v-5 pos-rela bg-lite-green">
-                            <a class="txt-white" href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->id(); ?>">
-                              <?php echo $discounts->name(); ?>
-                            </a>
-                        </div>
-                    <?php } ?>
-                    <!-- sub categories - end -->
+                    for ($i = 0; $i < count($discount_category_types); $i++) {
+                        $discounts_card_search->extractor($discount_category_types, $i);
+                        if ( in_array($k, unserialize($discounts_card_search->category())) ) {
+                    ?>
+                        <!-- sub categories - start -->
+                            <div class="flt-button padd-v-5 pos-rela bg-lite-green">
+                                <a class="txt-white" href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts_card_search->id(); ?>">
+                                  <?php echo $discounts_card_search->name(); ?>
+                                </a>
+                            </div>
+                        <!-- sub categories - end -->
+                    <?php } } ?>
                 </div>
                 <?php } ?>
             </div>
