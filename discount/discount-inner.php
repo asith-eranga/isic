@@ -93,7 +93,7 @@
 
                         <?php
                             $discounts_inner_related = new Mod_Discounts();
-                            $discounts_related_data = $discounts_inner_related->selectAllNormal();
+                            $discounts_related_data = $discounts_inner_related->selectAll();
                         ?>
                         <br><br>
 					    <div class="col-xs-12 padd-v-25">
