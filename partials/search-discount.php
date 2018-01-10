@@ -43,7 +43,7 @@ $discount_categories = $discounts_card_search->getAllCategories();
                         </a>
                     </div>
                     <?php
-                        $discounts_card_search_data = $discounts_card_search->selectAllNormal();
+                        $discounts_card_search_data = $discounts_card_search->selectAll();
                         for ($i = 0; $i < count($discounts_card_search_data); $i++) {
                             $discounts_card_search->extractor($discounts_card_search_data, $i);
                             if ( in_array($k, unserialize($discounts_card_search->cardType())) ) {
@@ -90,7 +90,7 @@ $discount_categories = $discounts_card_search->getAllCategories();
                         </a>
                     </div>
                     <?php
-                        $discount_category_types = $discounts_card_search->selectAllNormal();
+                        $discount_category_types = $discounts_card_search->selectAll();
                         for ($i = 0; $i < count($discount_category_types); $i++) {
                             $discounts_card_search->extractor($discount_category_types, $i);
                                 if ( in_array($k, unserialize($discounts_card_search->category())) ) {
@@ -118,7 +118,8 @@ $discount_categories = $discounts_card_search->getAllCategories();
                 <?php } ?>
             </div>
         </div>
-        <!--<div class="dis-tbl-ftr-grp">
+        <?php echo 'ddd ' . $_GET['page']; ?>
+        <div class="dis-tbl-ftr-grp">
             <ul class="text-center bg-green no-marg text-white">
                 <li class="dis-in-blk"><a href="#" class="txt-white">PRE</a></li>
                 <li class="dis-in-blk"><a href="#" class="txt-white">1</a></li>
@@ -129,10 +130,8 @@ $discount_categories = $discounts_card_search->getAllCategories();
                 <li class="dis-in-blk"><a href="#" class="txt-white">....</a></li>
                 <li class="dis-in-blk"><a href="#" class="txt-white">LAST</a></li>
             </ul>
-        </div>-->
+        </div>
     </div>
-
-
 </div>
 
 <div class="col-md-12 col-xs-12 bg-green padd-v-15 txt-white ">

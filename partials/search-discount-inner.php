@@ -43,7 +43,7 @@ $discount_categories = $discounts->getAllCategories();
                         </a>
                     </div>
                     <?php
-                        $discount_cards_types = $discounts->selectAllNormal();
+                        $discount_cards_types = $discounts->selectAll();
                         for ($i = 0; $i < count($discount_cards_types); $i++) {
                             $discounts->extractor($discount_cards_types, $i);
                             if ( in_array($k, unserialize($discounts->cardType())) ) {
@@ -90,7 +90,7 @@ $discount_categories = $discounts->getAllCategories();
                         </a>
                     </div>
                     <?php
-                        $discount_category_types = $discounts->selectAllNormal();
+                        $discount_category_types = $discounts->selectAll();
                         for ($i = 0; $i < count($discount_category_types); $i++) {
                             $discounts->extractor($discount_category_types, $i);
                             if ( in_array($k, unserialize($discounts->category())) ) {
