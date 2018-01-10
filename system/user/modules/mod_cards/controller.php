@@ -311,6 +311,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->WordWrap = 50; // set word wrap
 
             $mail->send();
+
+            // Send SMS
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL,"http://203.153.222.25:5000/sms/send_sms.php");
+            curl_setopt($ch, CURLOPT_POST, 1);
+            $sms_message = "Your flight ticket request submitted successfully. We are processing your request. We'll respond as soon as possible.";
+            $sms_parameters = "username=isec&password=Is123C&src=ISEC&dst=" . $mobile . "&msg=" . $sms_message . "&dr=1";
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $sms_parameters);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_exec($ch);
+
             Default_Common::jsonSuccess("Thank You! Your message has been sent.");
         } catch (Exception $e) {
             Default_Common::jsonError("Oops! Something went wrong and we couldn't send your message.");
@@ -487,6 +498,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->WordWrap = 50; // set word wrap
 
             $mail->send();
+
+            // Send SMS
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL,"http://203.153.222.25:5000/sms/send_sms.php");
+            curl_setopt($ch, CURLOPT_POST, 1);
+            $sms_message = "Thank You! Your application submitted. We'll contact you soon.";
+            $sms_parameters = "username=isec&password=Is123C&src=ISEC&dst=" . $mobile . "&msg=" . $sms_message . "&dr=1";
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $sms_parameters);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_exec($ch);
+
             print json_encode(array('type'=>'done', 'text' => 'Thank you for your email'));
             exit;
         } catch (Exception $e) {
