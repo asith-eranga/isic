@@ -343,7 +343,7 @@ class Mod_Cards extends Default_DBConnection implements Default_DBInterface {
 	  }
 
 	  function getCountryList() {
-          $this->MDatabase->select('world_airports', "*", "", "id ASC");
+          $this->MDatabase->select('airports', "*", "", "code ASC");
           return $this->MDatabase->result;
       }
 
