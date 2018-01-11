@@ -91,6 +91,10 @@ require_once("../system/load.php");
                                     <i class="newspaper outline icon"></i>
                                     <?php echo Default_ModManager::niceName('mod_about'); ?>
                                 </a>
+                                <a onclick="loadModule('mod_card_page')" class="item main-menu">
+                                    <i class="address book outline icon"></i>
+                                    <?php echo Default_ModManager::niceName('mod_card'); ?>
+                                </a>
                                 <a onclick="loadModule('mod_contact')" class="item main-menu">
                                     <i class="mail outline icon"></i>
                                     <?php echo Default_ModManager::niceName('mod_contact'); ?>
