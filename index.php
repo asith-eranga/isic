@@ -126,7 +126,7 @@
                 <div class="col-md-9 col-xs-12 bg-green txt-white dis-flex">
                     <div class="col-md-7 col-xs-12 padd-10">
                         <h1 class="fnt-50 txt-black"><?php echo $home_1->title(); ?></h1>
-                        <p class="text-upper txt-white">
+                        <p class="txt-white">
                             <?php echo str_replace(['<p>', '</p>', '<pre>', '</pre>'], '', $home_1->description()); ?>
                         </p>
                     </div>
@@ -170,12 +170,9 @@
                                             <div class="bdr-5-yellow bg-black pos-rela take-top100">
                                                 <div class="padd-h-30">
                                                     <h4 class="txt-green"><?php echo $events->name(); ?></h4>
-                                                    <p class="text-upper">
-                                                        <?php echo str_replace(['<p>', '</p>', '<pre>', '</pre>'], '', $events->description()); ?>
-                                                    </p>
+                                                    <?php echo $events->description(); ?>
                                                 </div>
                                             </div>
-                                            <!--<a class="text-upper padd-h-30 txt-green padd-v-15 show" href="#">view all...</a>-->
                                         </div>
                                     </div>
                                     <?php } ?>

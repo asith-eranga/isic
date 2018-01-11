@@ -14,13 +14,13 @@ ul.menu a {
 
 @font-face {
     font-family: lettergothicstd;
-    src: url(../fonts/LetterGothicStdMedium.ttf);
+    src: url(../fonts/LucidaGrandeRegular.ttf);
 
 }
 
 body {
     background: #000;
-letter-spacing:-1px;
+    /*letter-spacing:-1px;*/
 }
 
 body.boxed {
