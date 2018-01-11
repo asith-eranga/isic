@@ -30,7 +30,7 @@ $current_page_class = 'current-menu-item current_page_item';
 						<li class="menu-item menu-item-object-page better-anim-fade <?php if ($current_path == 'isic') { echo $current_page_class; } ?>"><a href="<?php  echo HTTP_PATH; ?>">Home</a></li>
                         <li class="menu-item menu-item-object-page <?php if ($current_path == 'about') { echo $current_page_class; } ?>"><a href="<?php echo HTTP_PATH; ?>about">About</a></li>
 						<li class="menu-item menu-item-type-taxonomy menu-item-object-category better-anim-slide-bottom-in menu-item-has-children menu-item-has-mega menu-item-mega-tabbed-grid-posts  bsm-leave">
-                            <a href="#">Cards</a>
+                            <a href="<?php echo HTTP_PATH; ?>cards">Cards</a>
                             <ul class="sub-menu">
                                 <?php
                                     $cards = new Mod_Cards();
