@@ -3,7 +3,6 @@
     $seo->setId($_POST['id']);
     $bt_data = $seo->getById();
     $seo->extractor($bt_data);
-    $data = $seo->selectAll();
 ?>
 <script type="text/javascript">
     $(document).ready(function(){
@@ -31,24 +30,7 @@
                 onSuccess:function(){ updatePost(); }
             }
         );
-
-        try{ tinyMCE.remove() }catch(e){}
-        tinymce.init({
-            selector: 'textarea',
-            height: 200,
-            theme: 'modern',
-            plugins: 'print preview fullpage searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount   imagetools    contextmenu colorpicker textpattern help',
-            toolbar1: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
-            image_advtab: true,
-            templates: [
-                { title: 'Test template 1', content: 'Test 1' },
-                { title: 'Test template 2', content: 'Test 2' }
-            ],
-            content_css: [
-                'https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
-                'https://www.tinymce.com/css/codepen.min.css'
-            ]
-        });
+        
 	    $('.ui.checkbox').checkbox();
     });
 </script>
@@ -87,7 +69,7 @@
 
             <div class="field">
                 <label>Meta keywords</label>
-                <textarea cols="10" rows="5" placeholder="Meta keywords" id="meta_keywords" name="meta_keywords"><?php echo $seo->metaKeywords(); ?></textarea>
+                <input placeholder="Meta keywords" id="meta_keywords" name="meta_keywords" type="text" value="<?php echo $seo->metaKeywords(); ?>">
             </div>
 
             <div class="ui error message"></div>
