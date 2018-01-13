@@ -1,6 +1,7 @@
 <?php
-define("_MEXEC", "OK");
-require_once("../system/load.php");
+    define("_MEXEC", "OK");
+    require_once("../system/load.php");
+    require_once(DOC_ROOT . 'system/user/modules/mod_seo/helper.php');
 ?>
 
 <!DOCTYPE html>
@@ -16,33 +17,43 @@ require_once("../system/load.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ISIC - Get Your Card</title>
+
+    <?php
+        $seo = new Mod_SEO();
+        $seo->setId(10);
+        $seo_data = $seo->getById();
+        $seo->extractor($seo_data);
+    ?>
+    <title><?php echo $seo->pageTitle(); ?></title>
+    <meta name="title" content="<?php echo $seo->metaTitle(); ?>">
+    <meta name="description" content="<?php echo $seo->metaDescription(); ?>">
+    <meta name="keywords" content="<?php echo $seo->metaKeywords(); ?>">
+
     <?php include(DOC_ROOT . 'partials/head.php'); ?>
 	<style>
 	    .input-container + .input-container {
             margin-top: 1.5em;
         }
-.float-n{float:none}
-#file-upload {
-  position: absolute;
-  left: -9999px;
-}
-
-#filename {
-     padding: 0.5em;
-    display: block;
-    width: 100%;
-    overflow: hidden;
-    border: 2px solid white;
-    font-size: 1em;
-     padding: 7px;
-    cursor: text;
-    transition: all .35s;
-    color: #999;
-    text-transform: uppercase;
-    font-weight: 700;
-}
-.file-holder{display:none;}
+        .float-n{float:none}
+        #file-upload {
+          position: absolute;
+          left: -9999px;
+        }
+        #filename {
+             padding: 0.5em;
+            display: block;
+            width: 100%;
+            overflow: hidden;
+            border: 2px solid white;
+            font-size: 1em;
+             padding: 7px;
+            cursor: text;
+            transition: all .35s;
+            color: #999;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        .file-holder{display:none;}
 	</style>
 </head>
 

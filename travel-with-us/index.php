@@ -1,6 +1,7 @@
 <?php
     define("_MEXEC", "OK");
     require_once("../system/load.php");
+    require_once(DOC_ROOT . 'system/user/modules/mod_seo/helper.php');
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +18,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ISIC | Travel with us</title>
+    <?php
+        $seo = new Mod_SEO();
+        $seo->setId(6);
+        $seo_data = $seo->getById();
+        $seo->extractor($seo_data);
+    ?>
+    <title><?php echo $seo->pageTitle(); ?></title>
+    <meta name="title" content="<?php echo $seo->metaTitle(); ?>">
+    <meta name="description" content="<?php echo $seo->metaDescription(); ?>">
+    <meta name="keywords" content="<?php echo $seo->metaKeywords(); ?>">
+
     <?php include(DOC_ROOT . 'partials/head.php'); ?>
 </head>
 

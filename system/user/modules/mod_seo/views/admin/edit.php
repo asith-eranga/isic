@@ -30,7 +30,7 @@
                 onSuccess:function(){ updatePost(); }
             }
         );
-        
+
 	    $('.ui.checkbox').checkbox();
     });
 </script>
