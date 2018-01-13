@@ -32,10 +32,14 @@
 
     <meta property="og:url" content="<?php echo $discounts_link; ?>" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="<?php echo $discounts_inner->name(); ?>" />
+    <meta property="og:title" content="<?php echo $discounts_inner->metaTitle(); ?>" />
     <meta property="og:image" content="<?php echo $discounts_inner->image(); ?>" />
 
-    <title>ISIC | Discount</title>
+    <title><?php echo $discounts_inner->pageTitle(); ?></title>
+    <meta name="title" content="<?php echo $discounts_inner->metaTitle(); ?>">
+    <meta name="description" content="<?php echo $discounts_inner->metaDescription(); ?>">
+    <meta name="keywords" content="<?php echo $discounts_inner->metaKeywords(); ?>">
+
     <?php include(DOC_ROOT . 'partials/head.php'); ?>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.css' type='text/css' media='all' />
     <style>

@@ -4,6 +4,10 @@ class Mod_Discounts extends Default_DBConnection implements Default_DBInterface 
 
       private $id;
       private $name;
+    private $page_title;
+    private $meta_title;
+    private $meta_description;
+    private $meta_keywords;
     private $discount;
     private $map_coordinates;
 	  private $description;
@@ -27,6 +31,22 @@ class Mod_Discounts extends Default_DBConnection implements Default_DBInterface 
       function name() {
         return $this->name;
       }
+
+    function pageTitle() {
+        return $this->page_title;
+    }
+
+    function metaTitle() {
+        return $this->meta_title;
+    }
+
+    function metaDescription() {
+        return $this->meta_description;
+    }
+
+    function metaKeywords() {
+        return $this->meta_keywords;
+    }
 
     function discount() {
         return $this->discount;
@@ -94,6 +114,22 @@ class Mod_Discounts extends Default_DBConnection implements Default_DBInterface 
           $this->name = $name;
       }
 
+    function setPageTitle($page_title) {
+        $this->page_title = $page_title;
+    }
+
+    function setMetaTitle($meta_title) {
+        $this->meta_title = $meta_title;
+    }
+
+    function setMetaDescription($meta_description) {
+        $this->meta_description = $meta_description;
+    }
+
+    function setMetaKeywords($meta_keywords) {
+        $this->meta_keywords = $meta_keywords;
+    }
+
     function setDiscount($discount) {
         $this->discount = $discount;
     }
@@ -154,6 +190,10 @@ class Mod_Discounts extends Default_DBConnection implements Default_DBInterface 
 
             $this->setId($results[$row]['id']);
             $this->setName($results[$row]['name']);
+          $this->setPageTitle($results[$row]['page_title']);
+          $this->setMetaTitle($results[$row]['meta_title']);
+          $this->setMetaDescription($results[$row]['meta_description']);
+          $this->setMetaKeywords($results[$row]['meta_keywords']);
             $this->setDiscount($results[$row]['discount']);
             $this->setMapCoordinates($results[$row]['map_coordinates']);
             $this->setDescription($results[$row]['description']);
@@ -246,6 +286,10 @@ class Mod_Discounts extends Default_DBConnection implements Default_DBInterface 
       function insert() {
             $status = $this->MDatabase->insert($this->table_name, array(
                 "name" => $this->name(),
+                "page_title" => $this->pageTitle(),
+                "meta_title" => $this->metaTitle(),
+                "meta_description" => $this->metaDescription(),
+                "meta_keywords" => $this->metaKeywords(),
                 "discount" => $this->discount(),
                 "map_coordinates" => $this->mapCoordinates(),
                 "description" => $this->description(),
@@ -266,6 +310,10 @@ class Mod_Discounts extends Default_DBConnection implements Default_DBInterface 
 
             $status = $this->MDatabase->update($this->table_name, array(
                 "name" => $this->name(),
+                "page_title" => $this->pageTitle(),
+                "meta_title" => $this->metaTitle(),
+                "meta_description" => $this->metaDescription(),
+                "meta_keywords" => $this->metaKeywords(),
                 "discount" => $this->discount(),
                 "map_coordinates" => $this->mapCoordinates(),
                 "description" => $this->description(),
@@ -300,6 +348,10 @@ class Mod_Discounts extends Default_DBConnection implements Default_DBInterface 
 					CREATE TABLE IF NOT EXISTS `discounts` (
 					`id` INT(11) NOT NULL AUTO_INCREMENT,
 					`name` VARCHAR(200) NULL DEFAULT NULL,
+					`page_title` VARCHAR(200) NULL DEFAULT NULL,
+				    `meta_title` VARCHAR(200) NULL DEFAULT NULL,
+				    `meta_description` VARCHAR(200) NULL DEFAULT NULL,
+				    `meta_keywords` VARCHAR(200) NULL DEFAULT NULL,
 					`discount` VARCHAR(50) NULL DEFAULT NULL,
 					`map_coordinates` VARCHAR(100) NULL DEFAULT NULL,
 					`description` TEXT NULL DEFAULT NULL,

@@ -94,6 +94,26 @@ $(document).ready(function(){
         </div>
 
         <div class="field">
+            <label>Page title</label>
+            <input placeholder="Page title" id="page_title" name="page_title" type="text" value="<?php echo $discounts->pageTitle(); ?>">
+        </div>
+
+        <div class="field">
+            <label>Meta title</label>
+            <input placeholder="Meta title" id="meta_title" name="meta_title" type="text" value="<?php echo $discounts->metaTitle(); ?>">
+        </div>
+
+        <div class="field">
+            <label>Meta description</label>
+            <input placeholder="Meta description" id="meta_description" name="meta_description" type="text" value="<?php echo $discounts->metaDescription(); ?>">
+        </div>
+
+        <div class="field">
+            <label>Meta keywords</label>
+            <input placeholder="Meta keywords" id="meta_keywords" name="meta_keywords" type="text" value="<?php echo $discounts->metaKeywords(); ?>">
+        </div>
+
+        <div class="field">
             <label>Discount</label>
             <input placeholder="Discount" id="discount" name="discount" type="text" value="<?php echo $discounts->discount(); ?>">
         </div>
