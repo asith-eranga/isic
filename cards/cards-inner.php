@@ -51,9 +51,7 @@ require_once(DOC_ROOT . 'system/user/modules/mod_testimonials/helper.php');
                         <h1 class="fnt-40 text-upper txt-black">
                             <?php echo $card->title1(); ?>
                         </h1>
-                        <p class="txt-white">
-                            <?php echo str_replace(['<p>', '</p>', '<pre>', '</pre>'], '', $card->description1()); ?>
-                        </p>
+                        <?php echo $card->description1(); ?>
                     </div>
                 </div>
                 <div class="col-md-3 col-xs-12 no-padd text-left bg-green no-padd">
