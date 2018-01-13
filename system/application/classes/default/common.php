@@ -121,7 +121,7 @@ class Default_Common{
 
     static function currencyConvert($from,$to,$value){
 
-        $url = "http://rate-exchange.appspot.com/currency?from=".$from."&to=".$to."&q=".$value;
+        $url = "https://rate-exchange.appspot.com/currency?from=".$from."&to=".$to."&q=".$value;
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_BINARYTRANSFER, true);

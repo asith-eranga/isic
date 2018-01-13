@@ -6,17 +6,19 @@ if (isset($_POST['search_text'])) {
       $count = $discounts->searchCount($_POST['search_text']);
 } else {
       $data = $discounts->selectAllPaginated($_POST['page']);
-      $count = $discounts->selectAllCount();
+      $count = count($discounts->selectAllCount());
 }
 
 $status = $discounts->getAllStatus();
 
 $pagination = new Default_Pagination();
-$pagination->setLimit(30);
+$pagination->setLimit(10);
 $pagination->setPage($_POST['page']);
 $pagination->setJSCallback("view");
 $pagination->setTotalPages($count);
 $pagination->makePagination();
+
+$display_types = $discounts->getAllDisplayTypes();
 
 ?>
 <?php if ($_POST['page'] == 1) { ?>
@@ -74,6 +76,7 @@ $pagination->makePagination();
                   <tr>
                         <th width="2px"></th>
                         <th>Name</th>
+                        <th>Featured</th>
                         <th>Order</th>
                         <th>Status</th>
                         <th></th>
@@ -87,7 +90,8 @@ $pagination->makePagination();
                         <tr id="row_<?php echo $discounts->id(); ?>">
                               <td><i class="sort icon"></i></td>
                               <td><?php echo $discounts->name(); ?></td>
-                              <td><?php echo $discounts->sortOrder(); ?></td>                             
+                              <td><?php if($discounts->displayType() == 1) { echo 'Yes'; } else { echo 'No'; } ?></td>
+                              <td><?php echo $discounts->sortOrder(); ?></td>
                               <td><?php echo $status[$discounts->status()]; ?></td>
                               <td>
                               	<div class="ui icon buttons">

@@ -1,15 +1,17 @@
 <?php
 $discounts = new Mod_Discounts();
 $discounts->setId($_POST['id']);
-$bt_data   = $discounts->getById();
+$bt_data = $discounts->getById();
 $discounts->extractor($bt_data);
 
-$data		= $discounts->selectAll();
+$data           = $discounts->selectAll();
+$status         = $discounts->getAllStatus();
+$display_types  = $discounts->getAllDisplayTypes();
+$card_types     = $discounts->getAllCardTypes();
+$categories     = $discounts->getAllCategories();
 
-$status     = $discounts->getAllStatus();
-$display_types = $discounts->getAllDisplayTypes();
-$card_types = $discounts->getAllCardTypes();
-$categories = $discounts->getAllCategories();
+$saved_card_types = unserialize($discounts->cardType());
+$saved_categories = unserialize($discounts->category());
 
 ?>
 <script type="text/javascript">
@@ -22,7 +24,7 @@ $(document).ready(function(){
 			rules: [
 				{
 					type: 'empty',
-					prompt: 'Please enter room type name'
+					prompt: 'Please enter discount name'
 				}
 			]
 		},				
@@ -31,7 +33,7 @@ $(document).ready(function(){
 			rules: [
 				{
 					type: 'empty',
-					prompt: 'Please enter room type content'
+					prompt: 'Please enter discount content'
 				}
 			]
 		},
@@ -47,18 +49,24 @@ $(document).ready(function(){
 	 try{ tinyMCE.remove() }catch(e){}
 
 	tinymce.init({
-	    selector: "textarea",
-	    plugins: [
-	        "advlist autolink lists link image charmap print preview anchor",
-	        "searchreplace visualblocks code fullscreen",
-	        "insertdatetime media table contextmenu paste filemanager"
-	    ],
-	    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
-		relative_urls: false,
-	    remove_script_host: false
+        selector: 'textarea',
+        height: 500,
+        theme: 'modern',
+        plugins: 'print preview fullpage searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount   imagetools    contextmenu colorpicker textpattern help',
+        toolbar1: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
+        image_advtab: true,
+        templates: [
+            { title: 'Test template 1', content: 'Test 1' },
+            { title: 'Test template 2', content: 'Test 2' }
+        ],
+        content_css: [
+            'https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+            'https://www.tinymce.com/css/codepen.min.css'
+        ]
 	});
 	
 	$("#image").imagemanager({image_plugin_wrapper: "#image_preview_wrapper", image_select: "#selected_file"});
+    $("#logo").imagemanager({image_plugin_wrapper: "#image_preview_wrapper_logo", image_select: "#selected_file_logo"});
 	$('.ui.checkbox').checkbox();
 
 });
@@ -78,14 +86,21 @@ $(document).ready(function(){
 
 	<form id="data_form">
 
-	  <div class="ui error message"></div>
-	  <div id="form_submit_msg" class="ui green message"><i class="ok sign icon"></i></div>
-
       <input type="hidden" id="id" name="id" value="<?php echo $discounts->id(); ?>" />
 
         <div class="field">
             <label>Name</label>
             <input placeholder="Name" id="name" name="name" type="text" value="<?php echo $discounts->name(); ?>">
+        </div>
+
+        <div class="field">
+            <label>Discount</label>
+            <input placeholder="Discount" id="discount" name="discount" type="text" value="<?php echo $discounts->discount(); ?>">
+        </div>
+
+        <div class="field">
+            <label>Map Coordinates</label>
+            <input placeholder="Map Coordinates" id="map_coordinates" name="map_coordinates" type="text" value="<?php echo $discounts->mapCoordinates(); ?>">
         </div>
 
         <div class="field">
@@ -110,8 +125,47 @@ $(document).ready(function(){
 
 	  </div>
 
+        <div class="fields" id="image_preview_wrapper_logo">
+            <input type="hidden" id="logo" name="logo" value="<?php echo $discounts->logo(); ?>" />
+            <div class="six wide field">
+                <label>Logo</label>
+                <input placeholder="Select Image" name="selected_file_logo" id="selected_file_logo" type="text" readonly>
+            </div>
+            <div class="four wide field">
+                <label>&nbsp;</label>
+                <div class="small ui button teal select_image">Select Image</div>
+                <div class="small ui icon button teal add_to_preview"><i class="add icon"></i></div>
+            </div>
+            <div class="sixteen wide field ui small images image_list">
+            </div>
+        </div>
+
         <div class="field">
-            <div class="four fields">
+            <label>Card Type</label>
+            <?php foreach ($card_types as $k => $v) { ?>
+                <div class="ui checkbox">
+                    <input type="checkbox" name="card_type[]" value="<?php echo $k; ?>" class="view"
+                        <?php if(in_array($k, $saved_card_types)){ echo " checked "; } ?>
+                    >
+                    <label><?php echo $v; ?></label>
+                </div>
+            <?php } ?>
+        </div>
+
+        <div class="field">
+            <label>Category</label>
+            <?php foreach ($categories as $k => $v) { ?>
+                <div class="ui checkbox">
+                    <input type="checkbox" name="category[]" value="<?php echo $k; ?>" class="view"
+                        <?php if(in_array($k, $saved_categories)){ echo " checked "; } ?>
+                    >
+                    <label><?php echo $v; ?></label>
+                </div>
+            <?php } ?>
+        </div>
+
+        <div class="field">
+            <div class="two fields">
                 <div class="field">
                     <label>Display Type</label>
                     <div class="ui selection dropdown">
@@ -120,34 +174,6 @@ $(document).ready(function(){
                         <i class="dropdown icon"></i>
                         <div class="menu ui transition hidden">
                             <?php foreach ($display_types as $k => $v) { ?>
-                                <div class="item" data-value="<?php echo $k; ?>"><?php echo $v; ?></div>
-                            <?php } ?>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label>Card Type</label>
-                    <div class="ui selection dropdown">
-                        <input type="hidden" id="card_type" name="card_type" value="<?php echo $discounts->cardType(); ?>">
-                        <div class="default text"><?php echo $card_types[$discounts->cardType()]; ?></div>
-                        <i class="dropdown icon"></i>
-                        <div class="menu ui transition hidden">
-                            <?php foreach ($card_types as $k => $v) { ?>
-                                <div class="item" data-value="<?php echo $k; ?>"><?php echo $v; ?></div>
-                            <?php } ?>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label>Category</label>
-                    <div class="ui selection dropdown">
-                        <input type="hidden" id="category" name="category" value="<?php echo $discounts->category(); ?>">
-                        <div class="default text"><?php echo $categories[$discounts->category()]; ?></div>
-                        <i class="dropdown icon"></i>
-                        <div class="menu ui transition hidden">
-                            <?php foreach ($categories as $k => $v) { ?>
                                 <div class="item" data-value="<?php echo $k; ?>"><?php echo $v; ?></div>
                             <?php } ?>
                         </div>
@@ -169,8 +195,12 @@ $(document).ready(function(){
                 </div>
             </div>
         </div>
+
+        <div class="ui error message"></div>
+        <div id="form_submit_msg" class="ui green message"><i class="ok sign icon"></i></div>
 	    
 	  <div class="small ui submit button floated right green" onclick="tinyMCE.triggerSave()">Save</div>
+
 	</form>
 	</div>
 

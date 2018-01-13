@@ -6,13 +6,13 @@ if (isset($_POST['search_text'])) {
       $count = $partner_with_isic->searchCount($_POST['search_text']);
 } else {
       $data = $partner_with_isic->selectAllPaginated($_POST['page']);
-      $count = $partner_with_isic->selectAllCount();
+      $count = count($partner_with_isic->selectAllCount());
 }
 
 $status = $partner_with_isic->getAllStatus();
 
 $pagination = new Default_Pagination();
-$pagination->setLimit(30);
+$pagination->setLimit(10);
 $pagination->setPage($_POST['page']);
 $pagination->setJSCallback("view");
 $pagination->setTotalPages($count);

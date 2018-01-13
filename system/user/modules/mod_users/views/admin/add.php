@@ -83,9 +83,6 @@ $permission_data = $permission->selectAll();
 
             <form id="data_form">
 
-                  <div class="ui error message"></div>
-                  <div id="form_submit_msg" class="ui green message"><i class="ok sign icon"></i></div>
-
                   <div class="two fields">
                         <div class="field">
                               <label>First Name</label>
@@ -126,7 +123,11 @@ $permission_data = $permission->selectAll();
                         <input type="password" id="password" name="password">
                   </div>
 
+                <div class="ui error message"></div>
+                <div id="form_submit_msg" class="ui green message"><i class="ok sign icon"></i></div>
+
                   <div class="small ui submit button floated right green">Save</div>
+
       </div>
 
 </form>

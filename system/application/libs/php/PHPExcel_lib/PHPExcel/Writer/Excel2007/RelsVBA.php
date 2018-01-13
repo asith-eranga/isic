@@ -56,10 +56,10 @@ class PHPExcel_Writer_Excel2007_RelsVBA extends PHPExcel_Writer_Excel2007_Writer
 
 		// Relationships
 		$objWriter->startElement('Relationships');
-		$objWriter->writeAttribute('xmlns', 'http://schemas.openxmlformats.org/package/2006/relationships');
+		$objWriter->writeAttribute('xmlns', 'https://schemas.openxmlformats.org/package/2006/relationships');
 		$objWriter->startElement('Relationship');
 		$objWriter->writeAttribute('Id', 'rId1');
-		$objWriter->writeAttribute('Type', 'http://schemas.microsoft.com/office/2006/relationships/vbaProjectSignature');
+		$objWriter->writeAttribute('Type', 'https://schemas.microsoft.com/office/2006/relationships/vbaProjectSignature');
 		$objWriter->writeAttribute('Target', 'vbaProjectSignature.bin');
 		$objWriter->endElement();//Relationship
 		$objWriter->endElement();//Relationships

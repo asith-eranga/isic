@@ -8,7 +8,7 @@ require_once("../system/load.php");
 
             <title>ISIC | Administrator</title>
 
-            <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>
+            <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>
             <link rel="stylesheet" type="text/css" href="../admin/ui/packaged/semantic.css">
             <link rel="stylesheet" type="text/css" href="../admin/ui/packaged/colorpicker.css">
             <link rel="stylesheet" type="text/css" href="../admin/ui/packaged/components/tab.css">
@@ -91,6 +91,14 @@ require_once("../system/load.php");
                                     <i class="newspaper outline icon"></i>
                                     <?php echo Default_ModManager::niceName('mod_about'); ?>
                                 </a>
+                                <a onclick="loadModule('mod_card_page')" class="item main-menu">
+                                    <i class="address book outline icon"></i>
+                                    <?php echo Default_ModManager::niceName('mod_card'); ?>
+                                </a>
+                                <a onclick="loadModule('mod_contact')" class="item main-menu">
+                                    <i class="mail outline icon"></i>
+                                    <?php echo Default_ModManager::niceName('mod_contact'); ?>
+                                </a>
                                 <a onclick="loadModule('mod_partner_with_isic')" class="item main-menu">
                                     <i class="child icon"></i>
                                     <?php echo Default_ModManager::niceName('mod_partner_with_ISIC'); ?>
@@ -103,6 +111,10 @@ require_once("../system/load.php");
                                     <i class="travel icon"></i>
                                     <?php echo Default_ModManager::niceName('mod_take_a_vacation'); ?>
                                 </a>
+                                <a onclick="loadModule('mod_fly_now_pay_later')" class="item main-menu">
+                                    <i class="plane icon"></i>
+                                    <?php echo Default_ModManager::niceName('mod_fly_now_pay_later'); ?>
+                                </a>
                             </div>
                         </div>
 
@@ -114,8 +126,22 @@ require_once("../system/load.php");
                             <i class="dollar icon"></i> <?php echo Default_ModManager::niceName('mod_discounts'); ?>
                         </a>
 
-                        <a class="item" onclick="loadModule('mod_testimonials')" >
-                            <i class="comments outline icon"></i> <?php echo Default_ModManager::niceName('mod_testimonials'); ?>
+                        <div class="ui dropdown item main-menu">
+                            Misc. <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <a onclick="loadModule('mod_testimonials')" class="item main-menu">
+                                    <i class="comments outline icon"></i>
+                                    <?php echo Default_ModManager::niceName('mod_testimonials'); ?>
+                                </a>
+                                <a onclick="loadModule('mod_events')" class="item main-menu">
+                                    <i class="ticket icon"></i>
+                                    <?php echo Default_ModManager::niceName('mod_events'); ?>
+                                </a>
+                            </div>
+                        </div>
+
+                        <a class="item" onclick="loadModule('mod_seo')" >
+                            <i class="line chart icon"></i> <?php echo Default_ModManager::niceName('mod_seo'); ?>
                         </a>
 
                         <a class="item" onclick="adminLoadNav('settings');">

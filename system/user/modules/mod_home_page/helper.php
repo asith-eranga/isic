@@ -85,17 +85,17 @@ class Mod_HomePage extends Default_DBConnection implements Default_DBInterface {
     }
 
     function selectAll() {
-        $this->MDatabase->select($this->table_name, "*", " status=1 ", "id ASC");
+        $this->MDatabase->select($this->table_name, "*", " status=1 ", "sort_order ASC");
         return $this->MDatabase->result;
     }
 
     function selectAllCount() {
-        $this->MDatabase->select($this->table_name, "COUNT(*) as count", " ", "");
+        $this->MDatabase->select($this->table_name, "COUNT(*) as count", " ", "sort_order ASC");
         return $this->MDatabase->result[0]["count"];
     }
 
     function getById() {
-        $this->MDatabase->select($this->table_name, "*", "id='" . $this->id() . "'", "id DESC");
+        $this->MDatabase->select($this->table_name, "*", "id='" . $this->id() . "'", "sort_order DESC");
         return $this->MDatabase->result;
     }
 

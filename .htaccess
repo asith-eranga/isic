@@ -8,10 +8,10 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
 #-------------- Cards -------------------------------------------
-RewriteRule ^cards/([a-zA-Z0-9_-]+)$ cards/index.php?card_name=$1 [L]
+RewriteRule ^cards/([a-zA-Z0-9_-]+)$ cards/cards-inner.php?card_name=$1 [L]
 
 #-------------- Discounts -------------------------------------------
-RewriteRule ^discount/([a-zA-Z0-9_-]+)$ discount/index.php?$1 [L]
+RewriteRule ^discount/([a-zA-Z0-9_-]+)$ discount/discount-inner.php?id=$1 [L]
 
 #-------------- Partner With ISIC -------------------------------------------
 RewriteRule ^partner-with-isic/([a-zA-Z0-9_-]+)$ partner-with-isic/index.php#$1 [L]
@@ -21,3 +21,6 @@ RewriteRule ^travel-with-us/([a-zA-Z0-9_-]+)$ travel-with-us/index.php#$1 [L]
 
 #-------------- Take A Vacation -------------------------------------------
 RewriteRule ^take-a-vacation/([a-zA-Z0-9_-]+)$ take-a-vacation/index.php#$1 [L]
+
+#-------------- Fly Now, Pay Later -------------------------------------------
+RewriteRule ^fly-now-pay-later/([a-zA-Z0-9_-]+)$ fly-now-pay-later/index.php#$1 [L]

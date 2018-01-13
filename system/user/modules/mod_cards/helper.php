@@ -198,14 +198,14 @@ class Mod_Cards extends Default_DBConnection implements Default_DBInterface {
 
       function selectAll() {
 
-            $this->MDatabase->select($this->table_name, "*", " status=1 ", "id ASC");
+            $this->MDatabase->select($this->table_name, "*", " status=1 ", "sort_order ASC");
             return $this->MDatabase->result;
       }
 
       function selectAllCount() {
 
-            $this->MDatabase->select($this->table_name, "COUNT(*) as count", " ", "");
-            return $this->MDatabase->result[0]["count"];
+            $this->MDatabase->select($this->table_name, "*", "", "sort_order ASC");
+            return $this->MDatabase->result;
       }
 
       function getById() {
@@ -216,7 +216,7 @@ class Mod_Cards extends Default_DBConnection implements Default_DBInterface {
 
       function getByName() {
 
-            $this->MDatabase->select($this->table_name, "*", "LOWER(name)='" . $this->name() . "'", "id DESC");
+            $this->MDatabase->select($this->table_name, "*", "LOWER(name)='" . $this->name() . "'", "sort_order DESC");
             return $this->MDatabase->result;
       }
 
@@ -341,5 +341,10 @@ class Mod_Cards extends Default_DBConnection implements Default_DBInterface {
 			$this->MDatabase->select($this->table_name, "MAX(sort_order) as next_value", "", "");
             return $this->MDatabase->result[0]["next_value"]+1;
 	  }
+
+	  function getCountryList() {
+          $this->MDatabase->select('airports', "*", "", "code ASC");
+          return $this->MDatabase->result;
+      }
 
 }

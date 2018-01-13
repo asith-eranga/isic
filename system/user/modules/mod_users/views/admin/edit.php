@@ -78,9 +78,6 @@ $users->extractor($user_details);
 
             <form id="data_form">
 
-                  <div class="ui error message"></div>
-                  <div id="form_submit_msg" class="ui green message"><i class="ok sign icon"></i>New user has been added Successfully.</div>
-
                   <input type="hidden" id="id" name="id" value="<?php echo $users->id(); ?>" />
 
                   <div class="two fields">
@@ -124,7 +121,11 @@ $users->extractor($user_details);
                         <input type="password" id="password" name="password" value="">
                   </div>
 
+                <div class="ui error message"></div>
+                <div id="form_submit_msg" class="ui green message"><i class="ok sign icon"></i>New user has been added Successfully.</div>
+
                   <div class="small ui submit button floated right green">Save</div>
+
       </div>
 
 </form>

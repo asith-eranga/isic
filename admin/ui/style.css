@@ -158,7 +158,7 @@ i.brown.icon {
 }
 
 .settings_nav_block .ui.basic{
-	padding-top: 5px;
+	padding-top: 15px;
 }
 .ui.order tbody tr:nth-child(2n) {
 	background: none !important;
@@ -318,3 +318,7 @@ i.brown.icon {
 * html .clearfix { height: 1%; }
 .clearfix { display: block; }
 /* close commented backslash hack */
+
+.ui.form .fields {
+	padding-top: 5px;
+}

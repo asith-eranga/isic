@@ -1,6 +1,19 @@
 <?php
     define("_MEXEC", "OK");
     require_once("../system/load.php");
+    require_once(DOC_ROOT . 'system/user/modules/mod_discounts/helper.php');
+
+    $id = $_GET['id'];
+    $discounts_inner = new Mod_Discounts();
+    $discounts_inner->setId($id);
+    $discounts_inner_data = $discounts_inner->getById();
+    $discounts_inner->extractor($discounts_inner_data);
+
+    $saved_card_types = unserialize($discounts_inner->cardType());
+    $saved_categories = unserialize($discounts_inner->category());
+    $discounts_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+    $path_info_discounts_inner_logo = pathinfo($discounts_inner->logo());
 ?>
 
 <!DOCTYPE html>
@@ -17,8 +30,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ISIC | Discount inner</title>
+    <meta property="og:url" content="<?php echo $discounts_link; ?>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="<?php echo $discounts_inner->name(); ?>" />
+    <meta property="og:image" content="<?php echo $discounts_inner->image(); ?>" />
+
+    <title>ISIC | Discount</title>
     <?php include(DOC_ROOT . 'partials/head.php'); ?>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.css' type='text/css' media='all' />
+    <style>
+	    .owl-theme .owl-dots .owl-dot span {
+            background: #9e9c79;
+	    }
+	    .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+            background: #fff333;
+        }
+    </style>
+    <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5a4bb2957820fd001360b580&product=inline-share-buttons"></script>
 </head>
 
 <body class="main-menu-sticky-smart ">
@@ -34,53 +62,81 @@
             <main id="content" class="content-container dis-flex">
                 <div class="col-md-9 col-xs-12 padd-v-10 padd-h-25 marg-tp-5 layout-bc-before  bg-green">
                     <div class="main-section padd-v-25 ">
-					<div class="col-xs-12">
-                        <img src="<?php echo HTTP_PATH; ?>images/power-world-logo2.jpg" class="img-responsive pull-left">
-						<h3 class="dis-in-blk text-upper padd-h-15 txt-black">Power World- Colombo/Kandy/jaffna</h3>
-                    </div>
-					<div class="col-xs-12">
-						<h3 class="btn btn-primary txt-black pull-left">Rs 5,000.00 Discount</h3>
-						<h4 class="txt-yellow text-upper dis-in-blk padd-15">offer valid for</h4>
-						<img src="<?php echo HTTP_PATH; ?>images/offer-labels.jpg">
-						<span class="share-handler padd-h-15">
-							<i class="bf-icon  fa fa-share-alt txt-yellow fnt-20"></i> 
-						</span>
-					</div>
-					<div class="col-xs-12">
-						<p class="txt-white">Excellent choice for busy corporate executives to walk in any time for the work out, for those who are unable to exercise during the morning and daytime and for those who prefer to end the day with an energising work out. </p>
-						
-						<p class="txt-white">Ideal for those wanting to stay active throughout the day with an early work out, for those who work late hours and are too tired to work out in the evening. for those who are early birds and for those who work flexi hours. </p>
-						<p class="txt-white">All ISIC cardholdaers receive a <span class="txt-yellow">Rs.5,000 discount</span> for their caffeine quota for the day I So grab yours now I </p>
-						<br>
-					</div>
-					<div class="col-xs-12">
-						<span class="bder-L-shape ">
-		<img src="<?php echo HTTP_PATH; ?>images/gym-image.jpg" alt="...." class="img-responsive img-cont ">
-		</span>
-		
-					</div>
-					<br>
-					<div class="col-xs-12 padd-v-25">
-					<p class="txt-white">Excellent choice for busy corporate executives to walk in any time for the work out, for those who are unable to exercise during the morning and daytime and for those who prefer to end the day with an energising work out. </p>
-					</div>
-					<div class="col-xs-12">
-					<span class="bder-L-shape right">
-		<div id="map_container"></div>
-                        <div id="map"></div>
-		</span>
-						
-					</div>
-					
-					
+                        <div class="col-xs-12">
+                            <img src="<?php echo $discounts_inner->logo(); ?>" class="img-responsive pull-left" alt="<?php echo $path_info_discounts_inner_logo['filename']; ?>">
+                            <h3 class="dis-in-blk text-upper padd-h-15 txt-black">
+                                <?php echo $discounts_inner->name(); ?>
+                            </h3>
+                        </div>
+                        <div class="col-xs-10">
+                            <h3 class="btn btn-primary txt-black pull-left" style="font-size: 24px;"><?php echo $discounts_inner->discount(); ?></h3>
+                            <h4 class="txt-yellow text-upper dis-in-blk padd-15">offer valid for</h4>
+                            <?php
+                                foreach ($saved_card_types as $saved_card_type) {
+                                    if (!empty($saved_card_type)) { ?>
+                                        <img src="<?php echo HTTP_PATH; ?>images/icons/cat-<?php echo $saved_card_type+1; ?>.png">
+                            <?php } } ?>
+                        </div>
+                        <div class="col-xs-2" style="padding-top: 20px;">
+                            <div class="sharethis-inline-share-buttons"></div>
+                        </div>
+                        <div class="col-xs-12">
+                            <?php echo str_replace(['<pre>', '</pre>'], '', $discounts_inner->description()); ?>
+                        </div>
+
+                        <?php if (!empty($discounts_inner->mapCoordinates())) { ?>
+                            <div class="col-xs-12">
+                                <span class="bder-L-shape right">
+                                    <div id="map_container"></div>
+                                    <div id="map"></div>
+                                </span>
+                            </div>
+                        <?php } ?>
+
+                        <?php
+                            $discounts_inner_related = new Mod_Discounts();
+                            $discounts_related_data = $discounts_inner_related->selectAll();
+                        ?>
+                        <br><br>
+					    <div class="col-xs-12 padd-v-25">
+                            <?php
+                            for ($i = 0; $i < count($discounts_related_data); $i++) {
+                                $discounts_inner_related->extractor($discounts_related_data, $i);
+                                    if ($discounts_inner_related->id() != $id ) {
+                                        if ( count(array_intersect($saved_categories, unserialize($discounts_inner_related->category()))) > 0) {
+                            ?>
+                                <h3 class="dis-in-blk text-upper padd-h-15 txt-black">Related Discounts</h3>
+                            <?php break; } } } ?>
+                            <div id="RelatedProducts" class="owl-carousel owl-theme">
+                            <?php
+                                for ($i = 0; $i < count($discounts_related_data); $i++) {
+                                    $discounts_inner_related->extractor($discounts_related_data, $i);
+                                    if ($discounts_inner_related->id() != $id ) {
+                                        if ( count(array_intersect($saved_categories, unserialize($discounts_inner_related->category()))) > 0) {
+                            ?>
+                                <div class="item">
+                                    <div class="padd-10">
+                                        <article class="type-post format-standard has-post-thumbnail  listing-item-1 listing-item listing-mg-item listing-mg-type-2 listing-mg-1-item ">
+                                            <div class="item-content">
+                                                <a title="<?php echo $discounts_inner_related->name(); ?>" href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts_inner_related->id(); ?>" class="img-cont b-loaded" style="background-image: url(<?php echo $discounts_inner_related->image(); ?>);"></a>
+                                            </div>
+                                        </article>
+                                        <h5 class="txt-white"><?php echo $discounts_inner_related->name(); ?></h5>
+                                    </div>
+                                </div>
+                            <?php } } } ?>
+                            </div>
+					    </div>
                     </div>
                 </div>
-                <?php include(DOC_ROOT . 'partials/search-discount.php'); ?>
+                <?php include(DOC_ROOT . 'partials/search-discount-inner.php'); ?>
             </main>
             <footer>
                 <?php include(DOC_ROOT . 'partials/footer.php'); ?>
             </footer>
         </div>
     </div>
+<?php include(DOC_ROOT . 'partials/mobile-menu.php'); ?>
 </body>
 <script>
 jQuery('button').on('click', function() {
@@ -94,8 +150,8 @@ jQuery('button').on('click', function() {
     jQuery(document).ready(function() {
 
         function initialize() {
-            var myLatlng = new google.maps.LatLng(6.904856, 79.853174);
-            var imagePath = 'images/Pin-location.png'
+            var myLatlng = new google.maps.LatLng(<?php echo $discounts_inner->mapCoordinates(); ?>);
+            var imagePath = '../images/Pin-location.png'
             var mapOptions = {
                 zoom: 17,
                 center: myLatlng,
@@ -115,7 +171,7 @@ jQuery('button').on('click', function() {
             var marker = new google.maps.Marker({
                 position: myLatlng,
                 map: map,
-               // icon: imagePath,
+                icon: imagePath,
                 title: 'image title'
             });
 
@@ -132,6 +188,40 @@ jQuery('button').on('click', function() {
         }
 
         google.maps.event.addDomListener(window, 'load', initialize);
+
+        jQuery('.filter-button-group').on( 'click', '.expand', function() {
+            if(jQuery(this).hasClass('active'))
+            {
+                jQuery(this).removeClass('active');
+                jQuery(this).html("<i class=\"fa fa-plus\" aria-hidden=\"true\"></i>");
+                jQuery(this).parent().next().stop().slideUp(300);
+            } else {
+                jQuery(this).addClass('active');
+                jQuery(this).html("<i class=\"fa fa-minus\" aria-hidden=\"true\"></i>");
+                jQuery(this).parent().next().stop().slideDown(300);
+            }
+        });
+
+        jQuery('#RelatedProducts').owlCarousel({
+            loop:false,
+            margin:5,
+            nav:false,
+            dots:true,
+            autoplay:true,
+            autoplayTimeout:10000,
+            autoplayHoverPause:false,
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:1
+                },
+                1000:{
+                    items:3
+                }
+            }
+        })
 
     });
 </script>

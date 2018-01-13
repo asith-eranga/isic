@@ -43,15 +43,20 @@ $(document).ready(function(){
 	 try{ tinyMCE.remove() }catch(e){}
 
 	tinymce.init({
-	    selector: "textarea",
-	    plugins: [
-	        "advlist autolink lists link image charmap print preview anchor",
-	        "searchreplace visualblocks code fullscreen",
-	        "insertdatetime media table contextmenu paste filemanager"
-	    ],
-	    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
-		relative_urls: false,
-	    remove_script_host: false
+        selector: 'textarea',
+        height: 500,
+        theme: 'modern',
+        plugins: 'print preview fullpage searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount   imagetools    contextmenu colorpicker textpattern help',
+        toolbar1: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
+        image_advtab: true,
+        templates: [
+            { title: 'Test template 1', content: 'Test 1' },
+            { title: 'Test template 2', content: 'Test 2' }
+        ],
+        content_css: [
+            'https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+            'https://www.tinymce.com/css/codepen.min.css'
+        ]
 	});
 	
 	$("#image").imagemanager({image_plugin_wrapper: "#image_preview_wrapper", image_select: "#selected_file"});
@@ -73,9 +78,6 @@ $(document).ready(function(){
 	<div class="ui small form segment">
 
 	<form id="data_form">
-
-	  <div class="ui error message"></div>
-	  <div id="form_submit_msg" class="ui green message"><i class="ok sign icon"></i></div>
 
       <input type="hidden" id="id" name="id" value="<?php echo $partner_with_isic->id(); ?>" />
       
@@ -122,8 +124,12 @@ $(document).ready(function(){
           </div>
         </div>
 	  </div>
-	    
+
+        <div class="ui error message"></div>
+        <div id="form_submit_msg" class="ui green message"><i class="ok sign icon"></i></div>
+
 	  <div class="small ui submit button floated right green" onclick="tinyMCE.triggerSave()">Save</div>
+
 	</form>
 	</div>
 

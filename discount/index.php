@@ -1,7 +1,8 @@
 <?php
-define("_MEXEC", "OK");
-require_once("../system/load.php");
-require_once(DOC_ROOT . 'system/user/modules/mod_discounts/helper.php');
+    define("_MEXEC", "OK");
+    require_once("../system/load.php");
+    require_once(DOC_ROOT . 'system/user/modules/mod_discounts/helper.php');
+    require_once(DOC_ROOT . 'system/user/modules/mod_seo/helper.php');
 ?>
 <!DOCTYPE html>
 <!--[if IE 8]>
@@ -17,8 +18,32 @@ require_once(DOC_ROOT . 'system/user/modules/mod_discounts/helper.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ISIC | Discount</title>
+    <?php
+        $seo = new Mod_SEO();
+        $seo->setId(4);
+        $seo_data = $seo->getById();
+        $seo->extractor($seo_data);
+    ?>
+    <title><?php echo $seo->pageTitle(); ?></title>
+    <meta name="title" content="<?php echo $seo->metaTitle(); ?>">
+    <meta name="description" content="<?php echo $seo->metaDescription(); ?>">
+    <meta name="keywords" content="<?php echo $seo->metaKeywords(); ?>">
+
     <?php include(DOC_ROOT . 'partials/head.php'); ?>
+    <style>
+        .grid .grid-item {overflow:hidden;}
+        .grid .grid-item .back-img{
+           -webkit-transition: all .5s;
+            -moz-transition: all .5s;
+            -o-transition: all .5s;
+            transition: all .5s;
+        }
+        .grid .grid-item:hover .back-img{
+            transform: scale3d(1.1, 1.1, 1);
+            -webkit-transform: scale3d(1.1, 1.1, 1);
+            -moz-transform: scale3d(1.1, 1.1, 1)
+        }
+	</style>
 </head>
 
 <body class="main-menu-sticky-smart ">
@@ -35,81 +60,60 @@ require_once(DOC_ROOT . 'system/user/modules/mod_discounts/helper.php');
                 <div class="col-md-9 col-xs-12 layout-1-col layout-no-sidebar layout-bc-before no-padd">
                     <div class="main-section">
                         <div class="content-column">
-                            <div class="slider-container clearfix slider-type-custom-blocks  slider-style-2-container slider-overlay-simple">
-                                <div class="listing listing-modern-grid listing-modern-grid-1 clearfix slider-overlay-simple">
+                            <div class="grid">
+                                <?php
+                                    $discounts = new Mod_Discounts();
+                                    if (!empty($_POST['keyword'])) {
+                                        $discounts->setName($_POST['keyword']);
+                                        $discounts_data = $discounts->getByName();
+                                    } else if ($_GET['card'] != null) {
+                                        $discounts->setCardType($_GET['card']);
+                                        $discounts_data = $discounts->getByCardType();
+                                    } else if ($_GET['category'] != null) {
+                                        $discounts->setCategory($_GET['category']);
+                                        $discounts_data = $discounts->getByCategoryType();
+                                    } else {
+                                        $discounts_data = $discounts->selectAllNormal();
+                                    }
+                                    for ($i = 0; $i < count($discounts_data); $i++) {
+                                        $discounts->extractor($discounts_data, $i);
 
-                                    <div class="mg-col mg-col-2">
-                                        <div class="mg-row mg-row-1">
-                                            <div class="item-3-cont">
-                                                <article class="type-post format-standard has-post-thumbnail  listing-item-3 listing-item listing-mg-item listing-mg-type-1 listing-mg-1-item main-term-2">
-                                                    <div class="item-content">
-                                                        <a title="See how the fashion world was influenced by Prince’s Legendary" data-src="<?php echo HTTP_PATH; ?>images/img-1.jpg" class="img-cont" href="#"></a>
+                                        // generate the image size classes
+                                        $image_properties = getimagesize($discounts->image());
+                                        if ($image_properties[0] <= 340) {
+                                            $width = null;
+                                        } elseif ($image_properties[0] < 506) {
+                                            $width = 'grid-item--half';
+                                        } elseif ($image_properties[0] < 676) {
+                                            $width = 'grid-item--width2';
+                                        } else {
+                                            $width = 'grid-item--full';
+                                        }
 
-                                                    </div>
-                                                </article>
-                                            </div>
-                                            <div class="item-4-cont">
-                                                <article class="type-post format-standard has-post-thumbnail  listing-item-4 listing-item listing-mg-item listing-mg-type-1 listing-mg-1-item main-term-3">
-                                                    <div class="item-content">
-                                                        <a title="..." data-src="<?php echo HTTP_PATH; ?>images/img-2.jpg" class="img-cont" href="#"></a>
+                                        if ($image_properties[1] > 340) {
+                                            $height = 'grid-item--height2';
+                                        }
 
-                                                    </div>
-                                                </article>
-                                            </div>
+                                        $saved_card_types = unserialize($discounts->cardType());
+                                        $saved_categories = unserialize($discounts->category());
+
+                                        $path_info_discounts = pathinfo($discounts->image());
+                                    ?>
+                                        <div class="grid-item <?php echo $width . ' ' . $height;
+                                                foreach ($saved_card_types as $saved_card_type) {
+                                                    echo ' card-' . $saved_card_type;
+                                                }
+                                                foreach ($saved_categories as $saved_category) {
+                                                    echo ' category-' . $saved_category;
+                                                }
+                                            ?>">
+                                            <a href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->id(); ?>" class="listing-mg-1-item">
+                                                <img src="<?php echo $discounts->image(); ?>" class="img-responsive" alt="<?php echo $path_info_discounts['filename']; ?>"/>
+                                                <div class="back-img" style="background:url(<?php echo $discounts->image(); ?>)center / cover;position:absolute;width:100%;height:100%;top: 0;"></div>
+                                            </a>
                                         </div>
-                                        <div class="mg-row mg-row-2">
-                                            <article class="type-post format-standard has-post-thumbnail  listing-item-2 listing-item listing-mg-item listing-mg-type-1 listing-mg-1-item main-term-2">
-                                                <div class="item-content">
-                                                    <a title="..." data-src="<?php echo HTTP_PATH; ?>images/img-4.jpg" class="img-cont" href="#"></a>
-                                                    <span class="format-icon format-audio"><i class="fa fa-eye"></i></span>
-
-                                                    <div class="content-container">
-                                                        <img src="<?php echo HTTP_PATH; ?>images/power-world-logo.jpg" class="img-responsive pull-left">
-                                                        <div class="padd-10 over-hidden">
-                                                            <span class="title text-yellow"> <a href="#" class="post-url post-title">
-RS. 5000/- DISCOUNT</a></span>
-                                                            <br>
-                                                            <span class="txt-white">from 5.00am to 5.00 pm - monday to saturday
-Providing a quality healthcare service and giving our
-members control over their health is paramount ....</span>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </article>
-                                        </div>
-
-                                    </div>
-                                    <div class="mg-col mg-col-1">
-                                        <article class="type-post format-standard has-post-thumbnail  listing-item-1 listing-item listing-mg-item listing-mg-type-1 listing-mg-1-item main-term-4">
-                                            <div class="item-content">
-                                                <a title="..." data-src="<?php echo HTTP_PATH; ?>images/img-3.jpg" class="img-cont " href="#"></a>
-
-                                            </div>
-                                        </article>
-                                    </div>
-                                    <div class="">
-                                        <div class="item-3-cont">
-                                            <article class="type-post format-standard has-post-thumbnail  listing-item-5 listing-item listing-mg-item listing-mg-type-1 listing-mg-1-item main-term-2">
-                                                <div class="item-content">
-                                                    <a title="See how the fashion world was influenced by Prince’s Legendary" data-src="<?php echo HTTP_PATH; ?>images/img-5.jpg" class="img-cont " href="#"></a>
-
-                                                </div>
-                                            </article>
-                                        </div>
-                                        <div class="item-4-cont">
-                                            <article class="type-post format-standard has-post-thumbnail listing-item-6 listing-item listing-mg-item listing-mg-type-1 listing-mg-1-item main-term-3">
-                                                <div class="item-content">
-                                                    <a title="..." data-src="<?php echo HTTP_PATH; ?>images/img-6.jpg" class="img-cont" href="#"></a>
-
-                                                </div>
-                                            </article>
-                                        </div>
-
-                                    </div>
-                                </div>
+                                    <?php } ?>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -120,6 +124,41 @@ members control over their health is paramount ....</span>
             </footer>
         </div>
     </div>
+<?php include(DOC_ROOT . 'partials/mobile-menu.php'); ?>
 </body>
+<script type="text/javascript" src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+<script type="text/javascript" src="https://unpkg.com/isotope-packery@2/packery-mode.pkgd.js"></script>
+<script type="text/javascript" src="https://imagesloaded.desandro.com/imagesloaded.pkgd.js"></script>
+<script>
+    jQuery(window).load(function () {
+        var $grid = jQuery('.grid').isotope({
+            layoutMode: 'packery',
+            itemSelector: '.grid-item'
+        });
+        // layout Isotope after each image loads
+        $grid.imagesLoaded().progress( function() {
+            $grid.isotope('packery');
+        });
+        jQuery('.filter-button-group').on( 'click', '.flt-button', function() {
 
+            var filterValue = jQuery(this).attr('data-filter');
+            $grid.isotope({ filter: filterValue });
+        });
+    });
+
+    jQuery(document).ready(function(){
+        jQuery('.filter-button-group').on( 'click', '.expand', function() {
+            if(jQuery(this).hasClass('active'))
+            {
+                jQuery(this).removeClass('active');
+                jQuery(this).html("<i class=\"fa fa-plus\" aria-hidden=\"true\"></i>");
+                jQuery(this).parent().next().stop().slideUp(300);
+            } else {
+                jQuery(this).addClass('active');
+                jQuery(this).html("<i class=\"fa fa-minus\" aria-hidden=\"true\"></i>");
+                jQuery(this).parent().next().stop().slideDown(300);
+            }
+        });
+    });
+</script>
 </html>

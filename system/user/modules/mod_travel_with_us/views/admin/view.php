@@ -6,13 +6,13 @@ if (isset($_POST['search_text'])) {
       $count = $travel_with_us->searchCount($_POST['search_text']);
 } else {
       $data = $travel_with_us->selectAllPaginated($_POST['page']);
-      $count = $travel_with_us->selectAllCount();
+      $count = count($travel_with_us->selectAllCount());
 }
 
 $status = $travel_with_us->getAllStatus();
 
 $pagination = new Default_Pagination();
-$pagination->setLimit(30);
+$pagination->setLimit(10);
 $pagination->setPage($_POST['page']);
 $pagination->setJSCallback("view");
 $pagination->setTotalPages($count);

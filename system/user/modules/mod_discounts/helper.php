@@ -4,11 +4,14 @@ class Mod_Discounts extends Default_DBConnection implements Default_DBInterface 
 
       private $id;
       private $name;
+    private $discount;
+    private $map_coordinates;
 	  private $description;
       private $display_type;
       private $card_type;
       private $category;
       private $image;
+    private $logo;
 	  private $sort_order;
       private $status;
       private $created_by;
@@ -24,6 +27,14 @@ class Mod_Discounts extends Default_DBConnection implements Default_DBInterface 
       function name() {
         return $this->name;
       }
+
+    function discount() {
+        return $this->discount;
+    }
+
+    function mapCoordinates() {
+        return $this->map_coordinates;
+    }
 
       function description() {
           return $this->description;
@@ -44,6 +55,10 @@ class Mod_Discounts extends Default_DBConnection implements Default_DBInterface 
       function image() {
             return $this->image;
       }
+
+    function logo() {
+        return $this->logo;
+    }
 	  
 	  function sortOrder() {
             return $this->sort_order;
@@ -79,6 +94,14 @@ class Mod_Discounts extends Default_DBConnection implements Default_DBInterface 
           $this->name = $name;
       }
 
+    function setDiscount($discount) {
+        $this->discount = $discount;
+    }
+
+    function setMapCoordinates($map_coordinates) {
+        $this->map_coordinates = $map_coordinates;
+    }
+
       function setDescription($description) {
           $this->description = $description;
       }
@@ -98,6 +121,10 @@ class Mod_Discounts extends Default_DBConnection implements Default_DBInterface 
       function setImage($image) {
             $this->image = $image;
       }
+
+    function setLogo($logo) {
+        $this->logo = $logo;
+    }
 	  
 	  function setSortOrder($sort_order) {
             $this->sort_order = $sort_order;
@@ -127,11 +154,14 @@ class Mod_Discounts extends Default_DBConnection implements Default_DBInterface 
 
             $this->setId($results[$row]['id']);
             $this->setName($results[$row]['name']);
+            $this->setDiscount($results[$row]['discount']);
+            $this->setMapCoordinates($results[$row]['map_coordinates']);
             $this->setDescription($results[$row]['description']);
             $this->setDisplayType($results[$row]['display_type']);
             $this->setCardType($results[$row]['card_type']);
             $this->setCategory($results[$row]['category']);
             $this->setImage($results[$row]['image']);
+            $this->setLogo($results[$row]['logo']);
 			$this->setSortOrder($results[$row]['sort_order']);
             $this->setStatus($results[$row]['status']);
             $this->setCreatedBy($results[$row]['created_by']);
@@ -148,27 +178,54 @@ class Mod_Discounts extends Default_DBConnection implements Default_DBInterface 
 
       function selectAll() {
 
-            $this->MDatabase->select($this->table_name, "*", " status=1 ", "id ASC");
+            $this->MDatabase->select($this->table_name, "*", " status=1 ", "sort_order ASC");
             return $this->MDatabase->result;
+      }
+
+      function selectAllNormal() {
+
+        $this->MDatabase->select($this->table_name, "*", "display_type=0 AND status=1 ", "sort_order ASC");
+        return $this->MDatabase->result;
+      }
+
+      function selectAllFeatured() {
+
+        $this->MDatabase->select($this->table_name, "*", "display_type=1 AND status=1 ", "sort_order ASC");
+        return $this->MDatabase->result;
       }
 
       function selectAllCount() {
 
-            $this->MDatabase->select($this->table_name, "COUNT(*) as count", " ", "");
-            return $this->MDatabase->result[0]["count"];
+            $this->MDatabase->select($this->table_name, "*", "", "sort_order ASC");
+            return $this->MDatabase->result;
       }
 
       function getById() {
 
-            $this->MDatabase->select($this->table_name, "*", "id='" . $this->id() . "'", "id DESC");
+            $this->MDatabase->select($this->table_name, "*", "id='" . $this->id() . "'", "sort_order DESC");
             return $this->MDatabase->result;
       }
 
       function getByName() {
 
-            $this->MDatabase->select($this->table_name, "*", "LOWER(name)='" . $this->name() . "'", "id DESC");
+            $this->MDatabase->select($this->table_name, "*", "LOWER(name) LIKE '%" . $this->name() . "%' OR LOWER(description) LIKE '%" . $this->name() . "%'", "sort_order DESC");
             return $this->MDatabase->result;
       }
+
+    function getByCardType() {
+        $this->MDatabase->select($this->table_name, "*", $this->cardType() . " IN (card_type) AND display_type = " . $this->displayType(), "sort_order DESC");
+        return $this->MDatabase->result;
+    }
+
+    function getByCategoryType() {
+        $this->MDatabase->select($this->table_name, "*", $this->category() . " IN (category) AND display_type = " . $this->displayType(), "sort_order DESC");
+        return $this->MDatabase->result;
+    }
+
+    function getByCardTypeAndCategoryType($card, $category) {
+        $this->MDatabase->select($this->table_name, "*",  $card ." IN (card_type) AND " . $category . " IN (category) AND display_type = " . $this->displayType(), "sort_order DESC");
+        return $this->MDatabase->result;
+    }
 
       function search() {
             
@@ -189,11 +246,14 @@ class Mod_Discounts extends Default_DBConnection implements Default_DBInterface 
       function insert() {
             $status = $this->MDatabase->insert($this->table_name, array(
                 "name" => $this->name(),
+                "discount" => $this->discount(),
+                "map_coordinates" => $this->mapCoordinates(),
                 "description" => $this->description(),
                 "display_type" => $this->displayType(),
                 "card_type" => $this->cardType(),
                 "category" => $this->category(),
                 "image" => $this->image(),
+                "logo" => $this->logo(),
 				"sort_order" => $this->sortOrder(),
                 "status" => $this->status(),
                 "created_by" => $this->createdBy(),
@@ -206,11 +266,14 @@ class Mod_Discounts extends Default_DBConnection implements Default_DBInterface 
 
             $status = $this->MDatabase->update($this->table_name, array(
                 "name" => $this->name(),
+                "discount" => $this->discount(),
+                "map_coordinates" => $this->mapCoordinates(),
                 "description" => $this->description(),
                 "display_type" => $this->displayType(),
                 "card_type" => $this->cardType(),
                 "category" => $this->category(),
                 "image" => $this->image(),
+                "logo" => $this->logo(),
                 "status" => $this->status(),
                 "modified_by" => $this->modifiedBy(),
                 "modified_date" => $this->modifiedDate()
@@ -237,11 +300,14 @@ class Mod_Discounts extends Default_DBConnection implements Default_DBInterface 
 					CREATE TABLE IF NOT EXISTS `discounts` (
 					`id` INT(11) NOT NULL AUTO_INCREMENT,
 					`name` VARCHAR(200) NULL DEFAULT NULL,
+					`discount` VARCHAR(50) NULL DEFAULT NULL,
+					`map_coordinates` VARCHAR(100) NULL DEFAULT NULL,
 					`description` TEXT NULL DEFAULT NULL,
 					`display_type` TEXT NULL DEFAULT NULL,
 					`card_type` TEXT NULL DEFAULT NULL,
 					`category` VARCHAR(200) NULL DEFAULT NULL,
-					`image` VARCHAR(500) NULL DEFAULT NULL,					
+					`image` VARCHAR(500) NULL DEFAULT NULL,
+					`logo` VARCHAR(500) NULL DEFAULT NULL,						
 					`sort_order` INT(11) NULL DEFAULT NULL,
 					`status` INT(11) NULL DEFAULT NULL,
 					`created_by` INT(11) NULL DEFAULT NULL,

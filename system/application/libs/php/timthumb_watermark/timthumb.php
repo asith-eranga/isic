@@ -1127,7 +1127,7 @@ class timthumb {
 		}
 	}
 	protected function sanityFail($msg){
-		return $this->error("There is a problem in the timthumb code. Message: Please report this error at <a href='http://code.google.com/p/timthumb/issues/list'>timthumb's bug tracking page</a>: $msg");
+		return $this->error("There is a problem in the timthumb code. Message: Please report this error at <a href='https://code.google.com/p/timthumb/issues/list'>timthumb's bug tracking page</a>: $msg");
 	}
 	protected function getMimeType($file){
 		$info = getimagesize($file);
