@@ -69,13 +69,14 @@ require_once(DOC_ROOT . 'system/user/modules/mod_testimonials/helper.php');
                                 $data = $testimonials->selectAll();
                                 for ($i = 0; $i < count($data); $i++) {
                                     $testimonials->extractor($data, $i);
+                                    $path_info_testimonials = pathinfo($testimonials->image());
                             ?>
                             <div class="item">
                                 <div class="padd-20 dis-in-blk">
                                     <p class="txt-white padd-h-15">
                                         <?php echo str_replace(['<p>', '</p>', '<pre>', '</pre>'], '', $testimonials->description()); ?>
                                     </p>
-                                    <img src="<?php echo $testimonials->image(); ?>" alt=".." class="img-responsive pull-right" style="width:auto;"/>
+                                    <img src="<?php echo $testimonials->image(); ?>" alt="<?php echo $path_info_testimonials['filename']; ?>" class="img-responsive pull-right" style="width:auto;"/>
                                     <h4 class="txt-green"><?php echo $testimonials->name(); ?></h4>
                                 </div>
                             </div>
@@ -100,15 +101,15 @@ require_once(DOC_ROOT . 'system/user/modules/mod_testimonials/helper.php');
                     </div>
                     <div class="col-md-4 col-xs-12 text-left marg-btm-20 padd-v-30">
                         <div class="padd-v-10 col-xs-12 ">
-                            <img src="<?php echo HTTP_PATH; ?>images/card_icon_1.jpg" alt=".." class="pull-right" />
+                            <img src="<?php echo HTTP_PATH; ?>images/card_icon_1.jpg" alt="isic_card_warranty_icon" class="pull-right" />
                             <h4 class="txt-yellow text-right fnt-18"><?php echo $card->dateOfIssue(); ?> <br>from the <br>date of issue</h4>
                         </div>
                         <div class="padd-v-10 col-xs-12 ">
-                            <img src="<?php echo HTTP_PATH; ?>images/card_icon_2.jpg" alt=".." class="pull-right" />
+                            <img src="<?php echo HTTP_PATH; ?>images/card_icon_2.jpg" alt="isic_card_price_icon" class="pull-right" />
                             <h4 class="txt-yellow text-right fnt-18 padd-v-20"><?php echo $card->price(); ?></h4>
                         </div>
                         <div class="padd-v-10 col-xs-12 ">
-                            <img src="<?php echo HTTP_PATH; ?>images/card_icon_3.jpg" alt=".." class="pull-right" />
+                            <img src="<?php echo HTTP_PATH; ?>images/card_icon_3.jpg" alt="isic_card_refundable_icon" class="pull-right" />
                             <h4 class="txt-yellow text-right fnt-18">ISIC / IYTC / ITIC <br>cards are<br>non-refundable</h4>
                         </div>
                     </div>

@@ -108,8 +108,8 @@
             <div id="site-branding" class="site-branding">
                 <h1 id="site-title" class="logo h1 img-logo">
                     <a href="<?php echo HTTP_PATH; ?>" rel="home">
-                        <img id="logo" src="<?php echo $system_settings->siteLogo(); ?>"
-                             alt="isic logo"  />
+                        <?php $path_info_main_logo = pathinfo($system_settings->siteLogo()); ?>
+                        <img id="logo" src="<?php echo $system_settings->siteLogo(); ?>" alt="<?php echo $path_info_main_logo['filename']; ?>"  />
                         <span class="site-title">ISIC - Sri Lanka</span>
                     </a>
                 </h1>

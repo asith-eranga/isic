@@ -76,10 +76,12 @@
                                     } else {
                                         $height = 'grid-item--height2';
                                     }
+
+                                    $path_info_discounts = pathinfo($discounts->image());
                                 ?>
                                     <div class="type-post format-standard grid-item <?php echo $width . ' ' . $height . ' card-' . $discounts->cardType() . ' category-' . $discounts->category(); ?>">
                                         <a href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->id(); ?>" class="listing-mg-1-item">
-                                            <img src="<?php echo $discounts->image(); ?>" class="img-responsive"/>
+                                            <img src="<?php echo $discounts->image(); ?>" class="img-responsive" alt="<?php echo $path_info_discounts['filename']; ?>"/>
                                             <div class="back-img" style="background:url(<?php echo $discounts->image(); ?>)center / cover;position:absolute;width:100%;height:100%;top: 0;"></div>
                                         </a>
                                     </div>
@@ -107,19 +109,25 @@
                     ?>
                     <div class="pos-rela text-center">
                         <div class="center-yellow-line">
-                            <?php $featured_discounts->extractor($featured_discounts_data, 0); ?>
+                            <?php
+                                $featured_discounts->extractor($featured_discounts_data, 0);
+                                $path_info_featured_discounts = pathinfo($featured_discounts->image());
+                            ?>
                             <div class="mg-col mg-col-1 ">
                                 <article class="type-post format-standard has-post-thumbnail listing-item-1 listing-item listing-mg-item listing-mg-type-2 listing-mg-1-item">
                                     <div class="item-content">
-                                        <a title="..." data-src="<?php echo $featured_discounts->image(); ?>" href="<?php echo HTTP_PATH; ?>discount/<?php echo $featured_discounts->id(); ?>" class="img-cont"></a>
+                                        <a title="<?php echo $path_info_featured_discounts['filename']; ?>" data-src="<?php echo $featured_discounts->image(); ?>" href="<?php echo HTTP_PATH; ?>discount/<?php echo $featured_discounts->id(); ?>" class="img-cont"></a>
                                     </div>
                                 </article>
                             </div>
-                            <?php $featured_discounts->extractor($featured_discounts_data, 1); ?>
+                            <?php
+                                $featured_discounts->extractor($featured_discounts_data, 1);
+                                $path_info_featured_discounts = pathinfo($featured_discounts->image());
+                            ?>
                             <div class="mg-col mg-col-1">
                                 <article class="type-post format-standard listing-item-1 listing-item listing-mg-item listing-mg-type-2 listing-mg-2-item">
                                     <div class="item-content">
-                                        <a title="#" data-src="<?php echo $featured_discounts->image(); ?>" class="img-cont" href="<?php echo HTTP_PATH; ?>discount/<?php echo $featured_discounts->id(); ?>" style=""></a>
+                                        <a title="<?php echo $path_info_featured_discounts['filename']; ?>" data-src="<?php echo $featured_discounts->image(); ?>" class="img-cont" href="<?php echo HTTP_PATH; ?>discount/<?php echo $featured_discounts->id(); ?>" style=""></a>
                                     </div>
                                 </article>
                             </div>
@@ -132,6 +140,7 @@
                     $home_1->setId(1);
                     $home_data_1 = $home_1->getById();
                     $home_1->extractor($home_data_1);
+                    $path_info_home_1 = pathinfo($home_1->image());
                 ?>
                 <div class="col-md-9 col-xs-12 bg-green txt-white dis-flex">
                     <div class="col-md-7 col-xs-12 padd-10">
@@ -143,17 +152,20 @@
                     <div class="col-md-5 col-xs-12 ">
                         <div class="dis-tbl full-height full-width">
                             <div class="dis-tbl-cell full-height full-width tbl-con-algn-center">
-                                <img src="<?php echo $home_1->image(); ?>" alt="...." data-src="<?php echo $home_1->image(); ?>" class="img-responsive img-cont center-block"></a>
+                                <img src="<?php echo $home_1->image(); ?>" alt="<?php echo $path_info_home_1['filename']; ?>" data-src="<?php echo $home_1->image(); ?>" class="img-responsive img-cont center-block"></a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3 col-xs-12 no-padd text-center center-yellow-line">
-                    <?php $featured_discounts->extractor($featured_discounts_data, 2); ?>
+                    <?php
+                        $featured_discounts->extractor($featured_discounts_data, 2);
+                        $path_info_featured_discounts = pathinfo($featured_discounts->image());
+                    ?>
                     <div class="mg-col mg-col-1 ">
                         <article class="type-post format-standard has-post-thumbnail  listing-item-1 listing-item listing-mg-item listing-mg-type-2 listing-mg-1-item ">
                             <div class="item-content">
-                                <a title="..." data-src="<?php echo $featured_discounts->image(); ?>" href="<?php echo HTTP_PATH; ?>discount/<?php echo $featured_discounts->id(); ?>" class="img-cont"></a>
+                                <a title="<?php echo $path_info_featured_discounts['filename']; ?>" data-src="<?php echo $featured_discounts->image(); ?>" href="<?php echo HTTP_PATH; ?>discount/<?php echo $featured_discounts->id(); ?>" class="img-cont"></a>
                             </div>
                         </article>
                     </div>
@@ -168,11 +180,12 @@
                                         $events_data = $events->selectAll();
                                         for ($i = 0; $i < count($events_data); $i++) {
                                             $events->extractor($events_data, $i);
+                                            $path_info_events = pathinfo($events->image());
                                     ?>
                                     <div class="item">
                                         <div class="col-md-6 col-xs-12 ">
                                             <span class="bder-L-shape ">
-		                                        <img src="" alt="...." data-src="<?php echo $events->image(); ?>" class="img-responsive img-cont " >
+		                                        <img src="" alt="<?php echo $path_info_events['filename']; ?>" data-src="<?php echo $events->image(); ?>" class="img-responsive img-cont " >
 		                                    </span>
                                         </div>
                                         <div class="col-md-6 col-xs-12 no-padd ">

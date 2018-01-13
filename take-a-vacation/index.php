@@ -49,12 +49,13 @@
                     for ($i = 0; $i < count($take_a_vacation_data); $i++) {
                         $take_a_vacation->extractor($take_a_vacation_data, $i);
                         $take_a_vacation_target = strtolower(str_replace(' ', '-', $take_a_vacation->name()));
+                        $path_info_take_a_vacation = pathinfo($take_a_vacation->image());
                         if ($i%2 == 0){
                 ?>
                 <div class="bg-green padd-v-30" id="<?php echo $take_a_vacation_target; ?>">
                     <div class="col-md-6 col-xs-12 text-left bg-green col-md-push-6 no-padd-rght">
                         <span class="bder-L-shape">
-		                    <img src="" alt="...." data-src="<?php echo $take_a_vacation->image(); ?>" class="img-responsive img-cont full-width " >
+		                    <img src="" alt="<?php echo $path_info_take_a_vacation['filename']; ?>" data-src="<?php echo $take_a_vacation->image(); ?>" class="img-responsive img-cont full-width " >
 		                </span>
                     </div>
                     <div class="col-md-6 col-xs-12 txt-white bg-green col-md-pull-6 ">
@@ -68,7 +69,7 @@
                 <div class="bg-green padd-v-30" id="<?php echo $take_a_vacation_target; ?>">
                     <div class="col-md-6 col-xs-12 text-left bg-green no-padd-left">
                         <span class="bder-L-shape right">
-		                    <img src="" alt="...." data-src="<?php echo $take_a_vacation->image(); ?>" class="img-responsive img-cont full-width " >
+		                    <img src="" alt="<?php echo $path_info_take_a_vacation['filename']; ?>" data-src="<?php echo $take_a_vacation->image(); ?>" class="img-responsive img-cont full-width " >
 		                </span>
                     </div>
                     <div class="col-md-6 col-xs-12 txt-white bg-green ">

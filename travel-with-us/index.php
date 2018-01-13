@@ -49,12 +49,13 @@
                     for ($i = 0; $i < count($travel_with_us_data); $i++) {
                         $travel_with_us->extractor($travel_with_us_data, $i);
                         $travel_with_us_target = strtolower(str_replace(' ', '-', $travel_with_us->name()));
+                        $path_info_travel_with_us = pathinfo($travel_with_us->image());
                         if ($i%2 == 0){
                 ?>
                 <div class="bg-green padd-v-30" id="<?php echo $travel_with_us_target; ?>">
                     <div class="col-md-6 col-xs-12 text-left bg-green col-md-push-6 no-padd-rght">
                         <span class="bder-L-shape">
-		                    <img src="" alt="...." data-src="<?php echo $travel_with_us->image(); ?>" class="img-responsive img-cont full-width " >
+		                    <img src="" alt="<?php echo $path_info_travel_with_us['filename']; ?>" data-src="<?php echo $travel_with_us->image(); ?>" class="img-responsive img-cont full-width " >
 		                </span>
                     </div>
                     <div class="col-md-6 col-xs-12 txt-white bg-green col-md-pull-6 ">
@@ -68,7 +69,7 @@
                 <div class="bg-green padd-v-30" id="<?php echo $travel_with_us_target; ?>">
                     <div class="col-md-6 col-xs-12 text-left bg-green no-padd-left">
                         <span class="bder-L-shape right">
-		                    <img src="" alt="...." data-src="<?php echo $travel_with_us->image(); ?>" class="img-responsive img-cont full-width " >
+		                    <img src="" alt="<?php echo $path_info_travel_with_us['filename']; ?>" data-src="<?php echo $travel_with_us->image(); ?>" class="img-responsive img-cont full-width " >
 		                </span>
                     </div>
                     <div class="col-md-6 col-xs-12 txt-white bg-green ">

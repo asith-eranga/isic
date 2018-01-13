@@ -65,10 +65,10 @@
                     <br>
                 <?php } ?>
                 <a href="https://play.google.com/store/apps/details?id=nl.jool.isic&hl=en" target="_blank">
-                    <img src="" alt="...." data-src="<?php echo HTTP_PATH; ?>images/google-play-icon.png" class="img-responsive img-cont pull-left">
+                    <img src="" alt="isic-google-play-icon" data-src="<?php echo HTTP_PATH; ?>images/google-play-icon.png" class="img-responsive img-cont pull-left">
                 </a>
                 <a href="https://itunes.apple.com/nl/app/isic/id886109982?mt=8" target="_blank">
-                    <img src="" alt="...." data-src="<?php echo HTTP_PATH; ?>images/apple-app-store.png" class="img-responsive img-cont pull-left">
+                    <img src="" alt="isic-apple-app-store-icon" data-src="<?php echo HTTP_PATH; ?>images/apple-app-store.png" class="img-responsive img-cont pull-left">
                 </a>
             </div>
         </div>
@@ -77,8 +77,7 @@
                 <div class="dis-tbl-row full-height full-width tbl-con-algn-center">
                     <div class="dis-tbl full-height full-width">
                         <div class="dis-tbl-cell full-height full-width tbl-con-algn-center">
-                            <img id="logo" src="<?php echo $system_settings->siteLogo(); ?>" alt="isic logo" class="img-responsive padd-v-15 center-block" />
-
+                            <img id="logo" src="<?php echo $system_settings->siteLogo(); ?>" alt="<?php echo $path_info_main_logo['filename']; ?>" class="img-responsive padd-v-15 center-block" />
                         </div>
                     </div>
                 </div>

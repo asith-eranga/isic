@@ -12,6 +12,8 @@
     $saved_card_types = unserialize($discounts_inner->cardType());
     $saved_categories = unserialize($discounts_inner->category());
     $discounts_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+    $path_info_discounts_inner_logo = pathinfo($discounts_inner->logo());
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +63,7 @@
                 <div class="col-md-9 col-xs-12 padd-v-10 padd-h-25 marg-tp-5 layout-bc-before  bg-green">
                     <div class="main-section padd-v-25 ">
                         <div class="col-xs-12">
-                            <img src="<?php echo $discounts_inner->logo(); ?>" class="img-responsive pull-left">
+                            <img src="<?php echo $discounts_inner->logo(); ?>" class="img-responsive pull-left" alt="<?php echo $path_info_discounts_inner_logo['filename']; ?>">
                             <h3 class="dis-in-blk text-upper padd-h-15 txt-black">
                                 <?php echo $discounts_inner->name(); ?>
                             </h3>
@@ -205,6 +207,9 @@ jQuery('button').on('click', function() {
             margin:5,
             nav:false,
             dots:true,
+            autoplay:true,
+            autoplayTimeout:10000,
+            autoplayHoverPause:false,
             responsive:{
                 0:{
                     items:1

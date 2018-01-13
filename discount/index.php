@@ -30,20 +30,19 @@
     <meta name="keywords" content="<?php echo $seo->metaKeywords(); ?>">
 
     <?php include(DOC_ROOT . 'partials/head.php'); ?>
-<style>
-.grid .grid-item {overflow:hidden;}
-.grid .grid-item .back-img{
-   -webkit-transition: all .5s;
-    -moz-transition: all .5s;
-    -o-transition: all .5s;
-    transition: all .5s;
-}
-.grid .grid-item:hover .back-img{
-    transform: scale3d(1.1, 1.1, 1);
-    -webkit-transform: scale3d(1.1, 1.1, 1);
-    -moz-transform: scale3d(1.1, 1.1, 1)
-}
-
+    <style>
+        .grid .grid-item {overflow:hidden;}
+        .grid .grid-item .back-img{
+           -webkit-transition: all .5s;
+            -moz-transition: all .5s;
+            -o-transition: all .5s;
+            transition: all .5s;
+        }
+        .grid .grid-item:hover .back-img{
+            transform: scale3d(1.1, 1.1, 1);
+            -webkit-transform: scale3d(1.1, 1.1, 1);
+            -moz-transform: scale3d(1.1, 1.1, 1)
+        }
 	</style>
 </head>
 
@@ -97,6 +96,8 @@
 
                                         $saved_card_types = unserialize($discounts->cardType());
                                         $saved_categories = unserialize($discounts->category());
+
+                                        $path_info_discounts = pathinfo($discounts->image());
                                     ?>
                                         <div class="grid-item <?php echo $width . ' ' . $height;
                                                 foreach ($saved_card_types as $saved_card_type) {
@@ -107,7 +108,7 @@
                                                 }
                                             ?>">
                                             <a href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->id(); ?>" class="listing-mg-1-item">
-                                                <img src="<?php echo $discounts->image(); ?>" class="img-responsive"/>
+                                                <img src="<?php echo $discounts->image(); ?>" class="img-responsive" alt="<?php echo $path_info_discounts['filename']; ?>"/>
                                                 <div class="back-img" style="background:url(<?php echo $discounts->image(); ?>)center / cover;position:absolute;width:100%;height:100%;top: 0;"></div>
                                             </a>
                                         </div>

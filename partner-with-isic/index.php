@@ -49,12 +49,13 @@
                     for ($i = 0; $i < count($partner_with_isic_data); $i++) {
                         $partner_with_isic->extractor($partner_with_isic_data, $i);
                         $partner_with_isic_target = strtolower(str_replace(' ', '-', $partner_with_isic->name()));
+                        $path_info_partner_with_isic = pathinfo($partner_with_isic->image());
                         if ($i%2 == 0){
                 ?>
                 <div class="bg-green padd-v-30" id="<?php echo $partner_with_isic_target; ?>">
                     <div class="col-md-6 col-xs-12 text-left bg-green col-md-push-6 no-padd-rght">
                         <span class="bder-L-shape">
-		                    <img src="" alt="...." data-src="<?php echo $partner_with_isic->image(); ?>" class="img-responsive img-cont full-width " >
+		                    <img src="" alt="<?php echo $path_info_partner_with_isic['filename']; ?>" data-src="<?php echo $partner_with_isic->image(); ?>" class="img-responsive img-cont full-width " >
 		                </span>
                     </div>
                     <div class="col-md-6 col-xs-12 txt-white bg-green col-md-pull-6 ">
@@ -68,7 +69,7 @@
                 <div class="bg-green padd-v-30" id="<?php echo $partner_with_isic_target; ?>">
                     <div class="col-md-6 col-xs-12 text-left bg-green no-padd-left">
                         <span class="bder-L-shape right">
-		                    <img src="" alt="...." data-src="<?php echo $partner_with_isic->image(); ?>" class="img-responsive img-cont full-width " >
+		                    <img src="" alt="<?php echo $path_info_partner_with_isic['filename']; ?>" data-src="<?php echo $partner_with_isic->image(); ?>" class="img-responsive img-cont full-width " >
 		                </span>
                     </div>
                     <div class="col-md-6 col-xs-12 txt-white bg-green ">
