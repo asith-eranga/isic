@@ -140,6 +140,10 @@ require_once("../system/load.php");
                             </div>
                         </div>
 
+                        <a class="item" onclick="loadModule('mod_seo')" >
+                            <i class="line chart icon"></i> <?php echo Default_ModManager::niceName('mod_seo'); ?>
+                        </a>
+
                         <a class="item" onclick="adminLoadNav('settings');">
                               <i class="laptop icon"></i> System
                         </a>
