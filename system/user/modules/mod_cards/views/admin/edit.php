@@ -1,12 +1,10 @@
 <?php
-$mod_cards = new Mod_Cards();
-$mod_cards->setId($_POST['id']);
-$bt_data   = $mod_cards->getById();
-$mod_cards->extractor($bt_data);
+    $mod_cards = new Mod_Cards();
+    $mod_cards->setId($_POST['id']);
+    $bt_data   = $mod_cards->getById();
+    $mod_cards->extractor($bt_data);
 
-$data		= $mod_cards->selectAll();
-$status     = $mod_cards->getAllStatus();
-
+    $status     = $mod_cards->getAllStatus();
 ?>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -84,6 +82,26 @@ $(document).ready(function(){
         <div class="field">
             <label>Name</label>
             <input placeholder="Name" id="name" name="name" type="text" value="<?php echo $mod_cards->name(); ?>">
+        </div>
+
+        <div class="field">
+            <label>Page title</label>
+            <input placeholder="Page title" id="page_title" name="page_title" type="text" value="<?php echo $mod_cards->pageTitle(); ?>">
+        </div>
+
+        <div class="field">
+            <label>Meta title</label>
+            <input placeholder="Meta title" id="meta_title" name="meta_title" type="text" value="<?php echo $mod_cards->metaTitle(); ?>">
+        </div>
+
+        <div class="field">
+            <label>Meta description</label>
+            <input placeholder="Meta description" id="meta_description" name="meta_description" type="text" value="<?php echo $mod_cards->metaDescription(); ?>">
+        </div>
+
+        <div class="field">
+            <label>Meta keywords</label>
+            <input placeholder="Meta keywords" id="meta_keywords" name="meta_keywords" type="text" value="<?php echo $mod_cards->metaKeywords(); ?>">
         </div>
 
         <div class="field">

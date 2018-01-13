@@ -4,6 +4,10 @@ class Mod_Cards extends Default_DBConnection implements Default_DBInterface {
 
       private $id;
       private $name;
+      private $page_title;
+      private $meta_title;
+      private $meta_description;
+      private $meta_keywords;
 	  private $title_1;
 	  private $description_1;
       private $title_2;
@@ -29,6 +33,22 @@ class Mod_Cards extends Default_DBConnection implements Default_DBInterface {
       function name() {
         return $this->name;
       }
+
+        function pageTitle() {
+            return $this->page_title;
+        }
+
+        function metaTitle() {
+            return $this->meta_title;
+        }
+
+        function metaDescription() {
+            return $this->meta_description;
+        }
+
+        function metaKeywords() {
+            return $this->meta_keywords;
+        }
 	  
 	  function title1() {
             return $this->title_1;
@@ -103,6 +123,22 @@ class Mod_Cards extends Default_DBConnection implements Default_DBInterface {
       function setName($name) {
           $this->name = $name;
       }
+
+        function setPageTitle($page_title) {
+            $this->page_title = $page_title;
+        }
+
+        function setMetaTitle($meta_title) {
+            $this->meta_title = $meta_title;
+        }
+
+        function setMetaDescription($meta_description) {
+            $this->meta_description = $meta_description;
+        }
+
+        function setMetaKeywords($meta_keywords) {
+            $this->meta_keywords = $meta_keywords;
+        }
 	  
 	  function setTitle1($title_1) {
             $this->title_1 = $title_1;
@@ -172,6 +208,10 @@ class Mod_Cards extends Default_DBConnection implements Default_DBInterface {
 
             $this->setId($results[$row]['id']);
             $this->setName($results[$row]['name']);
+            $this->setPageTitle($results[$row]['page_title']);
+            $this->setMetaTitle($results[$row]['meta_title']);
+            $this->setMetaDescription($results[$row]['meta_description']);
+            $this->setMetaKeywords($results[$row]['meta_keywords']);
 			$this->setTitle1($results[$row]['title_1']);
             $this->setTitle2($results[$row]['title_2']);
             $this->setTitle3($results[$row]['title_3']);
@@ -191,31 +231,26 @@ class Mod_Cards extends Default_DBConnection implements Default_DBInterface {
       }
 
       function selectAllPaginated($page) {
-
             $this->MDatabase->select($this->table_name, "*", "", "sort_order ASC", $page);
             return $this->MDatabase->result;
       }
 
       function selectAll() {
-
             $this->MDatabase->select($this->table_name, "*", " status=1 ", "sort_order ASC");
             return $this->MDatabase->result;
       }
 
       function selectAllCount() {
-
             $this->MDatabase->select($this->table_name, "*", "", "sort_order ASC");
             return $this->MDatabase->result;
       }
 
       function getById() {
-
             $this->MDatabase->select($this->table_name, "*", "id='" . $this->id() . "'", "id DESC");
             return $this->MDatabase->result;
       }
 
       function getByName() {
-
             $this->MDatabase->select($this->table_name, "*", "LOWER(name)='" . $this->name() . "'", "sort_order DESC");
             return $this->MDatabase->result;
       }
@@ -239,6 +274,10 @@ class Mod_Cards extends Default_DBConnection implements Default_DBInterface {
       function insert() {
             $status = $this->MDatabase->insert($this->table_name, array(
                 "name" => $this->name(),
+                "page_title" => $this->pageTitle(),
+                "meta_title" => $this->metaTitle(),
+                "meta_description" => $this->metaDescription(),
+                "meta_keywords" => $this->metaKeywords(),
                 "title_1" => $this->title1(),
                 "title_2" => $this->title2(),
                 "title_3" => $this->title3(),
@@ -261,6 +300,10 @@ class Mod_Cards extends Default_DBConnection implements Default_DBInterface {
 
             $status = $this->MDatabase->update($this->table_name, array(
                 "name" => $this->name(),
+                "page_title" => $this->pageTitle(),
+                "meta_title" => $this->metaTitle(),
+                "meta_description" => $this->metaDescription(),
+                "meta_keywords" => $this->metaKeywords(),
                 "title_1" => $this->title1(),
                 "title_2" => $this->title2(),
                 "title_3" => $this->title3(),
@@ -279,58 +322,53 @@ class Mod_Cards extends Default_DBConnection implements Default_DBInterface {
       }
 
       function delete() {
-
             $status = $this->MDatabase->delete($this->table_name, "id='" . $this->id() . "'");
             return $status;
       }
 
       function setValues($data) {
-
             foreach ($data as $k => $v) {
                   $this->$k = $v;
             }
       }
 
       function createTable() {
-
-            $sql = '
-					CREATE TABLE IF NOT EXISTS `cards` (
-					`id` INT(11) NOT NULL AUTO_INCREMENT,
-					`name` VARCHAR(200) NULL DEFAULT NULL,
-					`title_1` VARCHAR(200) NULL DEFAULT NULL,
-					`title_2` VARCHAR(200) NULL DEFAULT NULL,
-					`title_3` VARCHAR(200) NULL DEFAULT NULL,
-					`description_1` TEXT NULL DEFAULT NULL,
-					`description_2` TEXT NULL DEFAULT NULL,
-					`description_3` TEXT NULL DEFAULT NULL,
-					`date_of_issue` VARCHAR(200) NULL DEFAULT NULL,
-					`price` VARCHAR(200) NULL DEFAULT NULL,
-					`itinerary` VARCHAR(200) NULL DEFAULT NULL,
-					`image` VARCHAR(500) NULL DEFAULT NULL,					
-					`sort_order` INT(11) NULL DEFAULT NULL,
-					`status` INT(11) NULL DEFAULT NULL,
-					`created_by` INT(11) NULL DEFAULT NULL,
-					`created_date` VARCHAR(15) NULL DEFAULT NULL,
-					`modified_by` INT(11) NULL DEFAULT NULL,
-					`modified_date` VARCHAR(15) NULL DEFAULT NULL,
-					
-					PRIMARY KEY (`id`)
-				  )
-				  AUTO_INCREMENT=1;';
-
-            $status = $this->MDatabase->customNoResults($sql);
+            $sql = 'CREATE TABLE IF NOT EXISTS `cards` (
+					  `id` INT(11) NOT NULL AUTO_INCREMENT,
+					  `name` VARCHAR(200) NULL DEFAULT NULL,
+					  `page_title` VARCHAR(200) NULL DEFAULT NULL,
+					  `meta_title` VARCHAR(200) NULL DEFAULT NULL,
+					  `meta_description` VARCHAR(200) NULL DEFAULT NULL,
+					  `meta_keywords` VARCHAR(200) NULL DEFAULT NULL,
+					  `title_1` VARCHAR(200) NULL DEFAULT NULL,
+					  `title_2` VARCHAR(200) NULL DEFAULT NULL,
+					  `title_3` VARCHAR(200) NULL DEFAULT NULL,
+					  `description_1` TEXT NULL DEFAULT NULL,
+					  `description_2` TEXT NULL DEFAULT NULL,
+					  `description_3` TEXT NULL DEFAULT NULL,
+					  `date_of_issue` VARCHAR(200) NULL DEFAULT NULL,
+					  `price` VARCHAR(200) NULL DEFAULT NULL,
+					  `itinerary` VARCHAR(200) NULL DEFAULT NULL,
+					  `image` VARCHAR(500) NULL DEFAULT NULL,					
+					  `sort_order` INT(11) NULL DEFAULT NULL,
+					  `status` INT(11) NULL DEFAULT NULL,
+					  `created_by` INT(11) NULL DEFAULT NULL,
+					  `created_date` VARCHAR(15) NULL DEFAULT NULL,
+					  `modified_by` INT(11) NULL DEFAULT NULL,
+					  `modified_date` VARCHAR(15) NULL DEFAULT NULL,
+					  PRIMARY KEY (`id`)
+				    )
+				    AUTO_INCREMENT=1;';
+            $this->MDatabase->customNoResults($sql);
       }
 
       function getAllStatus() {
-
             $variable_manager = new VariableManager();
             $data = $variable_manager->getVariableValue("mod_cards_status", array("value" => "Disable,Enable", "mod_name" => "mod_cards"));
-
             return explode(",", $data);
       }
 
       function updateSortOrder() {
-
             $status = $this->MDatabase->update($this->table_name, array(
                 "sort_order" => $this->sortOrder(),
                     ), array("id" => $this->id()));
@@ -346,5 +384,4 @@ class Mod_Cards extends Default_DBConnection implements Default_DBInterface {
           $this->MDatabase->select('airports', "*", "", "code ASC");
           return $this->MDatabase->result;
       }
-
 }
