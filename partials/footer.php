@@ -140,18 +140,6 @@
 
 <span class="back-top"><i class="fa fa-arrow-up"></i></span>
 
-<?php
-    $cards = new Mod_Cards();
-    $airport_list = [];
-    $data = $cards->getCountryList();
-    for ($i = 0; $i < count($data); $i++) {
-        $cards->extractor($data, $i);
-        $airport_list[] = $cards->name();
-    }
-    $airport_list_names = implode(",", $airport_list);
-    $airport_list_names = '"' . str_replace(',','","', $airport_list_names) . '"';
-?>
-
 <script>
     var dateSelect     = jQuery('#flight-datepicker');
     var dateDepart     = jQuery('#start-date');
@@ -172,10 +160,10 @@
         spanReturn.text(end);
     });
 
-    jQuery(function(){
-        var location = [<?php echo $airport_list_names; ?>];
-        jQuery("#start-date-location, #end-date-location").autocomplete({
-            source: location,
+    $(function() {
+        //autocomplete
+        $("#start-date-location, #end-date-location").autocomplete({
+            source: "http://localhost/isic/system/user/modules/mod_cards/controller.php",
             minLength: 3
         });
     });

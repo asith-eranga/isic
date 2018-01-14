@@ -380,8 +380,8 @@ class Mod_Cards extends Default_DBConnection implements Default_DBInterface {
             return $this->MDatabase->result[0]["next_value"]+1;
 	  }
 
-	  function getCountryList() {
-          $this->MDatabase->select('airports', "*", "", "code ASC");
+	  function getCountryList($term) {
+          $this->MDatabase->select('airports', "*", "code LIKE '%" . $term . "%' OR name LIKE '%" . $term . "%' OR cityName LIKE '%" . $term . "%' OR countryName LIKE '%" . $term . "%'", "code ASC");
           return $this->MDatabase->result;
       }
 }

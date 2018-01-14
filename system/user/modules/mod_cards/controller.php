@@ -154,6 +154,20 @@ function sortTable() {
       }
 }
 
+if (isset($_GET['term'])) {
+    require_once(dirname(__FILE__) . '/helper.php');
+
+    $cards_airport = new Mod_Cards();
+    $airport_list = [];
+    $cards_airport_data = $cards_airport->getCountryList($_GET['term']);
+    for ($i = 0; $i < count($cards_airport_data); $i++) {
+        $cards_airport->extractor($cards_airport_data, $i);
+        $airport_list[] = $cards_airport->name();
+    }
+
+    echo json_encode($airport_list);
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (!empty($_POST["start_date_location"])) {
