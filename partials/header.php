@@ -51,9 +51,9 @@
                                             if (!empty($system_settings->addressLine4())) {
                                                 $site_address .= ' | ' . $system_settings->addressLine4();
                                             }
-                                            /*if (!empty($system_settings->addressLine5())) {
+                                            if (!empty($system_settings->addressLine5())) {
                                                 $site_address .= ' | ' . $system_settings->addressLine5();
-                                            }*/
+                                            }
                                             echo $site_address;
                                         ?>
                                     </span>

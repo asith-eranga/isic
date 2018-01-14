@@ -71,22 +71,23 @@
                         </p>
                     <?php } ?>
                     <?php if (!empty($system_settings->addressLine1())){ ?>
-                        <p class="txt-black text-upper no-marg">
-                            <?php echo $system_settings->addressLine1(); ?>
-                        </p>
+                        <p class="txt-black text-upper no-marg">Address</p>
                         <p class="txt-white">
                             <?php
+                                if (!empty($system_settings->addressLine1())) {
+                                    echo $system_settings->addressLine1();
+                                }
                                 if (!empty($system_settings->addressLine2())) {
-                                   echo $system_settings->addressLine2();
+                                   echo ', ' . $system_settings->addressLine2();
                                 }
                                 if (!empty($system_settings->addressLine3())) {
                                     echo ', ' . $system_settings->addressLine3();
                                 }
                                 if (!empty($system_settings->addressLine4())) {
-                                    echo ', ' . $system_settings->addressLine4();
+                                    echo  ', ' . $system_settings->addressLine4();
                                 }
                                 if (!empty($system_settings->addressLine5())) {
-                                    echo ', ' . $system_settings->addressLine5() . '.';
+                                    echo ', ' . $system_settings->addressLine5();
                                 }
                             ?>
                         </p>

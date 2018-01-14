@@ -28,19 +28,25 @@
                     <br><br>
                 <?php } ?>
                 <?php if (!empty($system_settings->addressLine1())){ ?>
-                    <span><?php echo $system_settings->addressLine1(); ?></span>
+                    <span>ADDRESS</span>
                     <br>
-                    <?php if (!empty($system_settings->addressLine2()) && !empty($system_settings->addressLine3())){ ?>
-                        <span><?php echo $system_settings->addressLine2(); ?>, <?php echo $system_settings->addressLine3(); ?>,</span>
-                        <br>
-                    <?php } ?>
-                    <?php if (!empty($system_settings->addressLine4())){ ?>
-                        <span><?php echo $system_settings->addressLine4(); ?>,</span>
-                        <br>
-                    <?php } ?>
-                    <?php if (!empty($system_settings->addressLine5())){ ?>
-                        <span><?php echo $system_settings->addressLine5(); ?>.</span>
-                    <?php } ?>
+                    <span>
+                        <?php if (!empty($system_settings->addressLine1())){ ?>
+                            <?php echo $system_settings->addressLine1(); ?>,
+                        <?php } ?>
+                        <?php if (!empty($system_settings->addressLine2())){ ?>
+                            <?php echo $system_settings->addressLine2(); ?>,
+                        <?php } ?>
+                        <?php if (!empty($system_settings->addressLine3())){ ?>
+                            <?php echo $system_settings->addressLine3(); ?>,
+                        <?php } ?>
+                        <?php if (!empty($system_settings->addressLine4())){ ?>
+                            <?php echo $system_settings->addressLine4(); ?>,
+                        <?php } ?>
+                        <?php if (!empty($system_settings->addressLine5())){ ?>
+                            <?php echo $system_settings->addressLine5(); ?>
+                        <?php } ?>
+                    </span>
                 <?php } ?>
             </div>
             <div class="col-sm-4 col-xs-12 bg-white padd-v-15 ">
