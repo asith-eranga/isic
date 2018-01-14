@@ -33,9 +33,6 @@
                                     <span class="topbar-sign-in ">
                                         <img src="<?php echo HTTP_PATH; ?>images/icons/phone.png">
                                          <a href="tel:<?php echo $system_settings->telephone1(); ?>" class="topbar-sign-in"><?php echo $system_settings->telephone1(); ?></a>
-                                        <?php if (!empty($system_settings->telephone2())){ ?>
-                                            | <a href="tel:<?php echo $system_settings->telephone2(); ?>" class="topbar-sign-in"><?php echo $system_settings->telephone2(); ?></a>
-                                        <?php } ?>
                                     </span>
                                 </li>
                                 <?php } ?>

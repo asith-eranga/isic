@@ -23,15 +23,9 @@
             </div>
             <div class="col-sm-4 col-xs-12 bg-white padd-v-15 ">
                 <?php if (!empty($system_settings->telephone1())){ ?>
-                    <span>HOTLINES</span>
-                    <br>
+                    <span>HOTLINES</span><br>
                     <span><?php echo $system_settings->telephone1(); ?></span>
-                    <br>
-                    <?php if (!empty($system_settings->telephone2())){ ?>
-                        <span><?php echo $system_settings->telephone2(); ?></span>
-                        <br>
-                    <?php } ?>
-                    <br>
+                    <br><br>
                 <?php } ?>
                 <?php if (!empty($system_settings->addressLine1())){ ?>
                     <span><?php echo $system_settings->addressLine1(); ?></span>
@@ -57,10 +51,10 @@
                     <br>
                     <br>
                 <?php } ?>
-                <?php if (!empty($system_settings->fax())){ ?>
+                <?php if (!empty($system_settings->telephone2())){ ?>
                     <span>TELEPHONE</span>
                     <br>
-                    <span><?php echo $system_settings->fax(); ?></span>
+                    <span><?php echo $system_settings->telephone2(); ?></span>
                     <br>
                     <br>
                 <?php } ?>

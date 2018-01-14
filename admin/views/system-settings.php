@@ -112,25 +112,25 @@ $(document).ready(function(){
                 <input placeholder="Email" id="email" name="email" type="text" value="<?php echo $system_settings->email(); ?>">
             </div>
         </div>
+<!--        <div class="two fields">-->
+<!--            <div class="field">-->
+<!--                <label>Telephone / Fax</label>-->
+<!--            </div>-->
+<!--            <div class="field">-->
+<!--                <input placeholder="Fax" id="fax" name="fax" type="text" value="--><?php //echo $system_settings->fax(); ?><!--">-->
+<!--            </div>-->
+<!--        </div>-->
         <div class="two fields">
             <div class="field">
-                <label>Telephone / Fax</label>
+                <label>Hotlines</label>
             </div>
             <div class="field">
-                <input placeholder="Fax" id="fax" name="fax" type="text" value="<?php echo $system_settings->fax(); ?>">
+                <input placeholder="Hotlines" id="telephone_1" name="telephone_1" type="text" value="<?php echo $system_settings->telephone1(); ?>">
             </div>
         </div>
         <div class="two fields">
             <div class="field">
-                <label>Telephone 1</label>
-            </div>
-            <div class="field">
-                <input placeholder="Telephone 1" id="telephone_1" name="telephone_1" type="text" value="<?php echo $system_settings->telephone1(); ?>">
-            </div>
-        </div>
-        <div class="two fields">
-            <div class="field">
-                <label>Telephone 2</label>
+                <label>Telephone</label>
             </div>
             <div class="field">
                 <input placeholder="Telephone 2" id="telephone_2" name="telephone_2" type="text" value="<?php echo $system_settings->telephone2(); ?>">

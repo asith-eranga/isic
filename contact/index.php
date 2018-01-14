@@ -68,11 +68,6 @@
                         </p>
                         <p class="txt-white">
                             <?php echo $system_settings->telephone1(); ?>
-                            <?php
-                                if (!empty($system_settings->telephone2())) {
-                                    echo ' | ' . $system_settings->telephone2();
-                                }
-                            ?>
                         </p>
                     <?php } ?>
                     <?php if (!empty($system_settings->addressLine1())){ ?>
@@ -104,12 +99,12 @@
                             <?php echo $system_settings->email(); ?>
                         </p>
                     <?php } ?>
-                    <?php if (!empty($system_settings->fax())){ ?>
+                    <?php if (!empty($system_settings->telephone2())){ ?>
                         <p class="txt-black text-upper no-marg">
                             Telephone
                         </p>
                         <p class="txt-white">
-                            <?php echo $system_settings->fax(); ?>
+                            <?php echo $system_settings->telephone2(); ?>
                         </p>
                     <?php } ?>
                 </div>
@@ -200,7 +195,7 @@
 
             var map = new google.maps.Map(document.getElementById('map'), mapOptions);
             //Callout Content
-            var contentString = '<p class="txt-black text-upper no-marg"><strong><?php echo $system_settings->addressLine1(); ?></strong></p></br><p class="txt-black text-upper no-marg"><?php if (!empty($system_settings->addressLine2())) { echo $system_settings->addressLine2(); }if (!empty($system_settings->addressLine3())) { echo ', ' . $system_settings->addressLine3();}if (!empty($system_settings->addressLine4())) {echo ', ' . $system_settings->addressLine4();}if (!empty($system_settings->addressLine5())) { echo ', ' . $system_settings->addressLine5() . '.';}?></p></br> <?php if (!empty($system_settings->email())){ ?><p class="txt-black text-upper no-marg">General mail</p><p class="txt-black"><?php echo $system_settings->email(); ?>x</p><?php } ?><?php if (!empty($system_settings->fax())){ ?><p class="txt-black text-upper no-marg">General fax</p><p class="txt-black"><?php echo $system_settings->fax(); ?></p> <?php } ?>'; 
+            var contentString = '<p class="txt-black text-upper no-marg"><strong><?php echo $system_settings->addressLine1(); ?></strong></p></br><p class="txt-black text-upper no-marg"><?php if (!empty($system_settings->addressLine2())) { echo $system_settings->addressLine2(); }if (!empty($system_settings->addressLine3())) { echo ', ' . $system_settings->addressLine3();}if (!empty($system_settings->addressLine4())) {echo ',</br>' . $system_settings->addressLine4();}if (!empty($system_settings->addressLine5())) { echo ', ' . $system_settings->addressLine5() . '.';}?></p>';
             //Set window width + content
             var infowindow = new google.maps.InfoWindow({
                 content: contentString,
