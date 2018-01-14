@@ -66,17 +66,22 @@
                                     if (!empty($_POST['keyword'])) {
                                         $discounts->setName($_POST['keyword']);
                                         $discounts_data = $discounts->getByName();
-                                    } else if ($_GET['card'] != null) {
-                                        $discounts->setCardType($_GET['card']);
-                                        $discounts_data = $discounts->getByCardType();
-                                    } else if ($_GET['category'] != null) {
-                                        $discounts->setCategory($_GET['category']);
-                                        $discounts_data = $discounts->getByCategoryType();
                                     } else {
                                         $discounts_data = $discounts->selectAllNormal();
                                     }
                                     for ($i = 0; $i < count($discounts_data); $i++) {
                                         $discounts->extractor($discounts_data, $i);
+
+                                        $saved_card_types = unserialize($discounts->cardType());
+                                        $saved_categories = unserialize($discounts->category());
+
+                                        if ($_GET['card'] != null && !in_array($_GET['card'], $saved_card_types)) {
+                                            continue;
+                                        }
+
+                                        if ($_GET['category'] != null && !in_array($_GET['category'], $saved_categories)) {
+                                            continue;
+                                        }
 
                                         // generate the image size classes
                                         $image_properties = getimagesize($discounts->image());
@@ -93,9 +98,6 @@
                                         if ($image_properties[1] > 340) {
                                             $height = 'grid-item--height2';
                                         }
-
-                                        $saved_card_types = unserialize($discounts->cardType());
-                                        $saved_categories = unserialize($discounts->category());
 
                                         $path_info_discounts = pathinfo($discounts->image());
                                     ?>
