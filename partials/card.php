@@ -139,7 +139,7 @@
                                     </div>
                                     <div class="col-sm-12 padd-h-5">
                                         <div class="input-group">
-                                            <textarea id="message" cols="5" rows="3" name="message" class="form-control text-upper" placeholder="message"></textarea>
+                                            <textarea id="message" cols="5" rows="3" name="message" class="form-control text-upper" placeholder="message(optional)"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 padd-h-5">
