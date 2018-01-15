@@ -87,34 +87,38 @@
                     </h1>
                     <?php if (!empty($system_settings->telephone1())){ ?>
                         <p class="txt-black text-upper no-marg">
-                            Hotlines
+                            Hotline
                         </p>
                         <p class="txt-white">
                             <?php echo $system_settings->telephone1(); ?>
-                            <?php
-                            if (!empty($system_settings->telephone2())) {
-                                echo ' | ' . $system_settings->telephone2();
-                            }
-                            ?>
+                        </p>
+                    <?php } ?>
+                    <?php if (!empty($system_settings->telephone2())){ ?>
+                        <p class="txt-black text-upper no-marg">
+                            Telephone
+                        </p>
+                        <p class="txt-white">
+                            <?php echo $system_settings->telephone2(); ?>
                         </p>
                     <?php } ?>
                     <?php if (!empty($system_settings->addressLine1())){ ?>
-                        <p class="txt-black text-upper no-marg">
-                            <?php echo $system_settings->addressLine1(); ?>
-                        </p>
+                        <p class="txt-black text-upper no-marg">Address</p>
                         <p class="txt-white">
                             <?php
+                            if (!empty($system_settings->addressLine1())) {
+                                echo $system_settings->addressLine1();
+                            }
                             if (!empty($system_settings->addressLine2())) {
-                                echo $system_settings->addressLine2();
+                                echo ', ' . $system_settings->addressLine2();
                             }
                             if (!empty($system_settings->addressLine3())) {
                                 echo ', ' . $system_settings->addressLine3();
                             }
                             if (!empty($system_settings->addressLine4())) {
-                                echo ', ' . $system_settings->addressLine4();
+                                echo  ', ' . $system_settings->addressLine4();
                             }
                             if (!empty($system_settings->addressLine5())) {
-                                echo ', ' . $system_settings->addressLine5() . '.';
+                                echo ', ' . $system_settings->addressLine5();
                             }
                             ?>
                         </p>
@@ -154,9 +158,9 @@
                                     <label for="get-your-card-fullname" class="text-upper">Full Name</label>
                                     <input class="material" type="text" id="get-your-card-fullname" name="get-your-card-fullname" required>
                                 </div>
-                                <div class="input-container">
+                                <div id="flight-datepicker" class="input-container ">
                                     <label for="get-your-card-birthday" class="text-upper">Date of Birth</label>
-                                    <input class="material" type="text" id="get-your-card-birthday" name="get-your-card-birthday" required>
+                                    <input class="material " type="text" id="get-your-card-birthday" name="get-your-card-birthday" required>
                                 </div>
                                 <div class="input-container col-sm-5 no-padd float-n dis-in-blk">
                                     <label for="get-your-card-email" class="text-upper">E-mail</label>
@@ -178,23 +182,24 @@
                             <div class="col-sm-4 padd-v-10">
                                 <div class="input-container">
                                     <div class="left">
-                                        <img id="img-uploaded" src="https://placehold.it/350x450" alt="your image">
+                                        <img id="img-uploaded" src="https://placehold.it/322x382" alt="your image">
                                     </div>
                                     <div class="right text-center">
                                         <div class="input-container">
                                             <input class="material" type="hidden" id="img-path" name="img-path" disabled>
                                         </div>
                                         <span class="file-wrapper marg-v-10">
-                                            <input type="file" name="photo" id="photo" class="uploader">
+                                            <input type="file" name="photo" id="photo" class="uploader" required>
                                             <span class="btn btn-large btn-alpha">Upload Image</span>
                                         </span>
+                                        <span class="show">* please upload images with height of 382px and width of 322px</span>
                                     </div>
                                 </div>
                                 <div class="input-container left">
 		                            <span id="filename">Select your files</span>
 		                            <label for="file-upload" class="file-wrapper marg-v-10 full-width text-center">
-                                        <input type="file" id="file-upload" name="file-upload[]" multiple>
-<ul id="output" class="no-padd"></ul>
+                                        <input type="file" id="file-upload" name="file-upload[]" multiple required>
+                                        <ul id="output" class="no-padd"></ul>
                                         <span class="btn btn-large btn-alpha">Upload Documents</span>
                                     </label>
 
@@ -235,6 +240,9 @@
 </body>
 <script type='text/javascript' src='<?php echo HTTP_PATH; ?>js/get-your-card.js'></script>
 <script>
+  
+$('#get-your-card-birthday').datepicker();
+
     jQuery(function() {
         jQuery("input, textarea").on("focusin", function() {
             jQuery(this).parent().addClass("active");

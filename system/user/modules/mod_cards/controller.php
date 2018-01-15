@@ -438,10 +438,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					  <TD HEIGHT="1" colspan="8" ALIGN="LEFT"></TD>
 					</TR>
 					<TR>
-					  <TD HEIGHT="31" ALIGN="LEFT" bgcolor="#E1E1E1"><strong style="color: #666">Mobile</strong><BR></TD>
-					  <TD colspan="7" ALIGN="LEFT" bgcolor="#EEEEEE">'.$mobile.'</TD>
-					</TR>
-					<TR>
 					  <TD HEIGHT="1" colspan="8" ALIGN="LEFT"></TD>
 					</TR>
 					<TR>
@@ -476,12 +472,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $mail->HeaderLine('Content-Type', 'multipart/mixed');
 
-            if (!empty($_FILES['photo'])) {
+            if (isset($_FILES['photo'])) {
                 $user_photo = $_FILES['photo'];
                 $mail->AddAttachment($user_photo['tmp_name'], $user_photo['name']);
             }
 
-            if (!empty($_FILES['file-upload'])) {
+            if (isset($_FILES['file-upload'])) {
                 $attachments = $_FILES['file-upload'];
                 $file_count = count($attachments['name']);
                 if($file_count > 0){
@@ -517,7 +513,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL,"http://203.153.222.25:5000/sms/send_sms.php");
             curl_setopt($ch, CURLOPT_POST, 1);
-            $sms_message = "Thank You! Your application submitted. We'll contact you soon.";
+            $sms_message = "Thank You! Your application submitted. We'll contact you soon. Your token: " . $token;
             $sms_parameters = "username=isec&password=Is123C&src=ISEC&dst=" . $mobile . "&msg=" . $sms_message . "&dr=1";
             curl_setopt($ch, CURLOPT_POSTFIELDS, $sms_parameters);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
