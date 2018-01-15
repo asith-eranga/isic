@@ -42,7 +42,7 @@ jQuery(function($) {
         }
 
         var get_your_card_telephone = $("input#get-your-card-telephone").val();
-        var mobile_filter = /^\d*(?:\.\d{1,2})?$/;
+        var mobile_filter = /^\+?\d{6,20}$/;
         if (get_your_card_telephone == "" || !mobile_filter.test(get_your_card_telephone)) {
             $("input#get-your-card-telephone").addClass('error');
             $("input#get-your-card-telephone").focus();
@@ -77,6 +77,8 @@ jQuery(function($) {
             var request_method = $(this).attr("method"); //get form GET/POST method
             var form_data = new FormData(this); //Creates new FormData object
 
+            $("#get-your-card").attr("disabled", "disabled");
+
             $.ajax({ //ajax form submit
                 url : post_url,
                 type: request_method,
@@ -99,6 +101,7 @@ jQuery(function($) {
                         $('#get-your-card')[0].reset();
                     }, 5000);
                 }
+                $("#get-your-card").removeAttr("disabled");
             });
             return false;
         }

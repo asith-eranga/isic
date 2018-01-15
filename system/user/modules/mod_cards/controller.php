@@ -330,7 +330,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL,"http://203.153.222.25:5000/sms/send_sms.php");
             curl_setopt($ch, CURLOPT_POST, 1);
-            $sms_message = "Your flight ticket request submitted successfully. We are processing your request. We'll respond as soon as possible.";
+            $sms_message = "Your flight ticket request submitted successfully. We are processing your request. We'll respond as soon as possible. Your token: " . $token;
             $sms_parameters = "username=isec&password=Is123C&src=ISEC&dst=" . $mobile . "&msg=" . $sms_message . "&dr=1";
             curl_setopt($ch, CURLOPT_POSTFIELDS, $sms_parameters);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

@@ -84,7 +84,7 @@ jQuery(function($) {
 
             $.ajax({
                 type: "POST",
-                url: "system/user/modules/mod_cards/controller.php",
+                url: "http://localhost/isic/system/user/modules/mod_cards/controller.php",
                 data: dataString,
                 success: function(res) {
                     var obj = jQuery.parseJSON(res);
