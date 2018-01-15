@@ -64,10 +64,18 @@
                     <h1></h1>
                     <?php if (!empty($system_settings->telephone1())){ ?>
                         <p class="txt-black text-upper no-marg">
-                            Hotlines
+                            Hotline
                         </p>
                         <p class="txt-white">
                             <?php echo $system_settings->telephone1(); ?>
+                        </p>
+                    <?php } ?>
+                    <?php if (!empty($system_settings->telephone2())){ ?>
+                        <p class="txt-black text-upper no-marg">
+                            Telephone
+                        </p>
+                        <p class="txt-white">
+                            <?php echo $system_settings->telephone2(); ?>
                         </p>
                     <?php } ?>
                     <?php if (!empty($system_settings->addressLine1())){ ?>
@@ -98,14 +106,6 @@
                         </p>
                         <p class="txt-white">
                             <?php echo $system_settings->email(); ?>
-                        </p>
-                    <?php } ?>
-                    <?php if (!empty($system_settings->telephone2())){ ?>
-                        <p class="txt-black text-upper no-marg">
-                            Telephone
-                        </p>
-                        <p class="txt-white">
-                            <?php echo $system_settings->telephone2(); ?>
                         </p>
                     <?php } ?>
                 </div>
