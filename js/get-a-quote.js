@@ -4,7 +4,7 @@ jQuery(function($) {
         var error = false;
 
         var start_date_location = $("input#start-date-location").val();
-        if (start_date_location == "" || !start_date_location.match("^[a-zA-Z\(\)]+$")) {
+        if (start_date_location == "") {
             $("input#start-date-location").addClass('error');
             $("input#start-date-location").focus();
             error = true;
@@ -13,7 +13,7 @@ jQuery(function($) {
         }
 
         var end_date_location = $("input#end-date-location").val();
-        if (end_date_location == "" || !end_date_location.match("^[a-zA-Z\(\)]+$")) {
+        if (end_date_location == "") {
             $("input#end-date-location").addClass('error');
             $("input#end-date-location").focus();
             error = true;
@@ -40,7 +40,7 @@ jQuery(function($) {
         }
 
         var mobile = $("input#mobile").val();
-        var mobile_filter = /^\d*(?:\.\d{1,2})?$/;
+        var mobile_filter = /^\+?\d{6,20}$/;
         if (mobile == "" || !mobile_filter.test(mobile)) {
             $("input#mobile").addClass('error');
             $("input#mobile").focus();
@@ -71,6 +71,7 @@ jQuery(function($) {
         if (error == true) {
             return false;
         } else {
+            $(".button").attr("disabled", "disabled");
             var dataString = 'start_date_location='+ start_date_location +
                 '&end_date_location=' + end_date_location +
                 '&start_date=' + start_date +
@@ -90,6 +91,7 @@ jQuery(function($) {
                     $(".canvas-close").trigger("click");
                     $("#default-message").css({ display: "none" });
                     if(obj.code==200){
+                        $('#get-a-quote')[0].reset();
                         $("#success-message").css({ display: "block" });
                         setTimeout(function(){
                             $("#success-message").css({ display: "none" });
@@ -102,6 +104,7 @@ jQuery(function($) {
                             $("#default-message").css({ display: "block" });
                         }, 5000);
                     }
+                    $(".button").removeAttr("disabled");
                 }
             });
             return false;
