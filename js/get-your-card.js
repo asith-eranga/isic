@@ -77,7 +77,7 @@ jQuery(function($) {
             var request_method = $(this).attr("method"); //get form GET/POST method
             var form_data = new FormData(this); //Creates new FormData object
 
-            $("#get-your-card").attr("disabled", "disabled");
+            $(".get-your-card-button").attr("disabled", "disabled");
 
             $.ajax({ //ajax form submit
                 url : post_url,
@@ -101,7 +101,7 @@ jQuery(function($) {
                         $('#get-your-card')[0].reset();
                     }, 5000);
                 }
-                $("#get-your-card").removeAttr("disabled");
+                $(".get-your-card-button").removeAttr("disabled");
             });
             return false;
         }
