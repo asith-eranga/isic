@@ -32,19 +32,19 @@
                     <br>
                     <span>
                         <?php if (!empty($system_settings->addressLine1())){ ?>
-                            <?php echo $system_settings->addressLine1(); ?>,
+                            <?php echo $system_settings->addressLine1(); ?>
                         <?php } ?>
                         <?php if (!empty($system_settings->addressLine2())){ ?>
-                            <?php echo $system_settings->addressLine2(); ?>,
+                            , <?php echo $system_settings->addressLine2(); ?>
                         <?php } ?>
                         <?php if (!empty($system_settings->addressLine3())){ ?>
-                            <?php echo $system_settings->addressLine3(); ?>,
+                            , <?php echo $system_settings->addressLine3(); ?>
                         <?php } ?>
                         <?php if (!empty($system_settings->addressLine4())){ ?>
-                            <?php echo $system_settings->addressLine4(); ?>,
+                            , <?php echo $system_settings->addressLine4(); ?>
                         <?php } ?>
                         <?php if (!empty($system_settings->addressLine5())){ ?>
-                            <?php echo $system_settings->addressLine5(); ?>
+                            , <?php echo $system_settings->addressLine5(); ?>
                         <?php } ?>
                     </span>
                 <?php } ?>
@@ -163,7 +163,7 @@
     $(function() {
         //autocomplete
         $("#start-date-location, #end-date-location").autocomplete({
-            source: "http://localhost/isic/system/user/modules/mod_cards/controller.php",
+            source: "https://www.unitedventuressl.com/isiclk/system/user/modules/mod_cards/controller.php",
             minLength: 3
         });
     });
