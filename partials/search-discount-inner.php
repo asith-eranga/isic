@@ -13,7 +13,7 @@ $discount_categories = $discounts->getAllCategories();
 
 <div class="col-md-3 col-xs-12 no-padd">
     <div class="dis-tbl full-height full-width">
-        <form class="form-inline" action="<?php echo HTTP_PATH; ?>discount/index.php" method="post">
+        <form class="form-inline" action="<?php echo HTTP_PATH; ?>discount" method="post">
             <div class="padd-v-15 col-sm-10 center-block" style="float:none">
                 <div class="input-group  input-container">
                     <div class="input-group-addon  padd-h-5 fnt-20 txt-green"><i class="fa fa-search" aria-hidden="true"></i></div>
