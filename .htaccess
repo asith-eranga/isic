@@ -24,4 +24,4 @@ RewriteRule ^travel-with-us/([a-zA-Z0-9_-]+)$ /isic/travel-with-us/index.php?tar
 RewriteRule ^take-a-vacation/([a-zA-Z0-9_-]+)$ /isic/take-a-vacation/index.php?target=$1 [L]
 
 #-------------- Fly Now, Pay Later -------------------------------------------
-RewriteRule ^fly-now-pay-later/([a-zA-Z0-9_-]+)$ /isic/fly-now-pay-later/index.php?targest=$1 [L]
+RewriteRule ^fly-now-pay-later/([a-zA-Z0-9_-]+)$ /isic/fly-now-pay-later/index.php?target=$1 [L]
