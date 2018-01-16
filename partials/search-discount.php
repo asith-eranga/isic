@@ -13,7 +13,7 @@ $discount_categories = $discounts_card_search->getAllCategories();
 
 <div class="col-md-3 col-xs-12 no-padd">
     <div class="dis-tbl full-height full-width">
-        <form class="form-inline" action="<?php echo HTTP_PATH; ?>discount/index.php" method="post">
+        <form class="form-inline" action="<?php echo HTTP_PATH; ?>discount" method="post">
             <div class="padd-v-15 col-sm-10 center-block" style="float:none">
                 <div class="input-group input-container">
                     <div class="input-group-addon  padd-h-5 fnt-20 txt-green"><i class="fa fa-search" aria-hidden="true"></i></div>
@@ -118,7 +118,6 @@ $discount_categories = $discounts_card_search->getAllCategories();
                 <?php } ?>
             </div>
         </div>
-        <?php echo 'ddd ' . $_GET['page']; ?>
         <div class="dis-tbl-ftr-grp">
             <ul class="text-center bg-green no-marg text-white">
                 <li class="dis-in-blk"><a href="#" class="txt-white">PRE</a></li>
