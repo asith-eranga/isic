@@ -36,3 +36,11 @@
 <script type='text/javascript' src='<?php echo HTTP_PATH; ?>js/respond.min.js?ver=3.3.0'></script>
 <![endif]-->
 <link rel='stylesheet' href='<?php echo HTTP_PATH; ?>css/common.css' type='text/css' media='all' />
+
+<!-- Google Code for Remarketing Tag --> <!-------------------------------------------------- Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. See more information and instructions on how to setup the tag on: http://google.com/ads/remarketingsetup ---------------------------------------------------> <script type="text/javascript"> /* <![CDATA[ */ var google_conversion_id = 821105373; var google_custom_params = window.google_tag_params; var google_remarketing_only = true; /* ]]> */ </script> <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"> </script> <noscript> <div style="display:inline;"> <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/821105373/?guid=ON&amp;script=0"/> </div> </noscript>
+
+<?php
+    $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+    $actual_link = rtrim(strtolower($actual_link), '/');
+?>
+<link rel="canonical" href="<?php echo $actual_link; ?>" />
