@@ -1,5 +1,13 @@
-Options -Indexes +FollowSymLinks
 RewriteEngine on
+RewriteBase /
+
+# force url to lowercase if upper case is found
+RewriteCond %{REQUEST_URI} [A-Z]
+# ensure it is not a file on the drive first
+RewriteCond %{REQUEST_FILENAME} !-s
+RewriteRule (.*) http://localhost/isic/rewrite-strtolower.php?rewrite-strtolower-url=$1 [QSA,L]
+
+Options -Indexes +FollowSymLinks
 RewriteCond %{REQUEST_URI} !^/admin(/|$)
 RewriteCond %{REQUEST_URI} !^/system(/|$)
 RewriteCond %{REQUEST_URI} !^/templates(/|$)
