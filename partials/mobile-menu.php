@@ -58,7 +58,7 @@ $current_page_class = 'current-menu-item current_page_item';
                                     $partner_with_isic->extractor($partner_with_isic_data, $i);
                                     $partner_with_isic_page_url = strtolower(str_replace(' ', '-', $partner_with_isic->name()));
                                     ?>
-                                    <li class="menu-item better-anim-fade"><a href="<?php echo HTTP_PATH; ?>partner-with-isic#<?php echo $partner_with_isic_page_url; ?>"><?php echo $partner_with_isic->name(); ?></a></li>
+                                    <li class="menu-item better-anim-fade"><a href="<?php echo HTTP_PATH; ?>partner-with-isic/<?php echo $partner_with_isic_page_url; ?>"><?php echo $partner_with_isic->name(); ?></a></li>
                                 <?php } ?>
                             </ul>
                         </li>
@@ -72,7 +72,7 @@ $current_page_class = 'current-menu-item current_page_item';
                                     $travel_with_us->extractor($travel_with_us_data, $i);
                                     $travel_with_us_page_url = strtolower(str_replace(' ', '-', $travel_with_us->name()));
                                     ?>
-                                    <li class="menu-item better-anim-fade"><a href="<?php echo HTTP_PATH; ?>travel-with-us#<?php echo $travel_with_us_page_url; ?>"><?php echo $travel_with_us->name(); ?></a></li>
+                                    <li class="menu-item better-anim-fade"><a href="<?php echo HTTP_PATH; ?>travel-with-us/<?php echo $travel_with_us_page_url; ?>"><?php echo $travel_with_us->name(); ?></a></li>
                                 <?php } ?>
                             </ul>
                         </li>
@@ -86,7 +86,7 @@ $current_page_class = 'current-menu-item current_page_item';
                                     $take_a_vacation->extractor($take_a_vacation_data, $i);
                                     $take_a_vacation_page_url = strtolower(str_replace(' ', '-', $take_a_vacation->name()));
                                     ?>
-                                    <li class="menu-item better-anim-fade"><a href="<?php echo HTTP_PATH; ?>take-a-vacation#<?php echo $take_a_vacation_page_url; ?>"><?php echo $take_a_vacation->name(); ?></a></li>
+                                    <li class="menu-item better-anim-fade"><a href="<?php echo HTTP_PATH; ?>take-a-vacation/<?php echo $take_a_vacation_page_url; ?>"><?php echo $take_a_vacation->name(); ?></a></li>
                                 <?php } ?>
                             </ul>
                         </li>
@@ -100,7 +100,7 @@ $current_page_class = 'current-menu-item current_page_item';
                                     $fly_now_pay_later->extractor($fly_now_pay_later_data, $i);
                                     $fly_now_pay_later_page_url = strtolower(str_replace(' ', '-', $fly_now_pay_later->name()));
                                     ?>
-                                    <li class="menu-item better-anim-fade"><a href="<?php echo HTTP_PATH; ?>fly-now-pay-later#<?php echo $fly_now_pay_later_page_url; ?>"><?php echo $fly_now_pay_later->name(); ?></a></li>
+                                    <li class="menu-item better-anim-fade"><a href="<?php echo HTTP_PATH; ?>fly-now-pay-later/<?php echo $fly_now_pay_later_page_url; ?>"><?php echo $fly_now_pay_later->name(); ?></a></li>
                                 <?php } ?>
                             </ul>
                         </li>

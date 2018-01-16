@@ -1,11 +1,4 @@
 RewriteEngine on
-RewriteBase /
-
-# force url to lowercase if upper case is found
-RewriteCond %{REQUEST_URI} [A-Z]
-# ensure it is not a file on the drive first
-RewriteCond %{REQUEST_FILENAME} !-s
-RewriteRule (.*) http://localhost/isic/rewrite-strtolower.php?rewrite-strtolower-url=$1 [QSA,L]
 
 Options -Indexes +FollowSymLinks
 RewriteCond %{REQUEST_URI} !^/admin(/|$)
@@ -16,19 +9,19 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
 #-------------- Cards -------------------------------------------
-RewriteRule ^cards/([a-zA-Z0-9_-]+)$ cards/cards-inner.php?card_name=$1 [L]
+RewriteRule ^cards/([a-zA-Z0-9_-]+)$ /isic/cards/cards-inner.php?card_name=$1 [L]
 
 #-------------- Discounts -------------------------------------------
-RewriteRule ^discount/([a-zA-Z0-9_-]+)$ discount/discount-inner.php?id=$1 [L]
+RewriteRule ^discount/([a-zA-Z0-9_-]+)$ /isic/discount/discount-inner.php?id=$1 [L]
 
 #-------------- Partner With ISIC -------------------------------------------
-RewriteRule ^partner-with-isic/([a-zA-Z0-9_-]+)$ partner-with-isic/index.php#$1 [L]
+RewriteRule ^partner-with-isic/([a-zA-Z0-9_-]+)$ /isic/partner-with-isic/index.php?target=$1 [L]
 
 #-------------- Travel With Us -------------------------------------------
-RewriteRule ^travel-with-us/([a-zA-Z0-9_-]+)$ travel-with-us/index.php#$1 [L]
+RewriteRule ^travel-with-us/([a-zA-Z0-9_-]+)$ /isic/travel-with-us/index.php?target=$1 [L]
 
 #-------------- Take A Vacation -------------------------------------------
-RewriteRule ^take-a-vacation/([a-zA-Z0-9_-]+)$ take-a-vacation/index.php#$1 [L]
+RewriteRule ^take-a-vacation/([a-zA-Z0-9_-]+)$ /isic/take-a-vacation/index.php?target=$1 [L]
 
 #-------------- Fly Now, Pay Later -------------------------------------------
-RewriteRule ^fly-now-pay-later/([a-zA-Z0-9_-]+)$ fly-now-pay-later/index.php#$1 [L]
+RewriteRule ^fly-now-pay-later/([a-zA-Z0-9_-]+)$ /isic/fly-now-pay-later/index.php?targest=$1 [L]

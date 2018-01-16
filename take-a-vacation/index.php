@@ -88,5 +88,13 @@
     </div>
 <?php include(DOC_ROOT . 'partials/mobile-menu.php'); ?>
 </body>
-
+<?php if (!empty($_GET['target'])) { ?>
+    <script>
+        $(function() {
+            $('html, body').animate({
+                scrollTop: $("#<?php echo $_GET['target']; ?>").offset().top
+            }, 1000);
+        });
+    </script>
+<?php } ?>
 </html>
