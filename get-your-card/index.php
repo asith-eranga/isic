@@ -82,9 +82,9 @@
                     </div>
                 </div>
                 <div class="col-md-3 col-xs-12 no-padd text-left bg-green padd-h-15">
-                    <h1 class="fnt-40 text-upper txt-black">
+                    <h2 class="text-upper txt-black">
                         Contacts
-                    </h1>
+                    </h2>
                     <?php if (!empty($system_settings->telephone1())){ ?>
                         <p class="txt-black text-upper no-marg">
                             Hotline

@@ -59,9 +59,9 @@
                     </div>
                 </div>
                 <div class="col-md-3 col-xs-12 no-padd text-left bg-green no-padd">
-                    <h1 class="fnt-40 text-upper txt-black padd-v-10">
+                    <h2 class="text-upper txt-black padd-v-10">
                         <?php echo $card_inner->title2(); ?>
-			        </h1>
+			        </h2>
                     <?php echo str_replace(['<p>', '</p>', '<pre>', '</pre>'], '', $card_inner->description2()); ?>
                     <br>
                     <div class="bdr-5-yellow bg-black pos-rela take-top100 marg-btm-15">
@@ -89,13 +89,13 @@
                 </div>
                 <div class="col-md-12 col-xs-12 text-left bg-black ">
                     <div class="col-md-8 col-xs-12 text-left marg-btm-20">
-                        <h1 class="fnt-40 text-upper txt-yellow padd-v-10">
+                        <h2 class="text-upper txt-yellow padd-v-10">
                             <?php echo $card_inner->title3(); ?>
-                        </h1>
+                        </h2>
                         <p class="txt-white ">
                             <?php echo str_replace(['<p>', '</p>', '<pre>', '</pre>'], '', $card_inner->description3()); ?>
                         </p>
-                        <h3 class="fnt-30 text-upper pull-right marg-v-10">
+                        <h3 class="text-upper pull-right marg-v-10">
                             <a href="<?php echo HTTP_PATH; ?>get-your-card">
                                 <span class="txt-yellow">apply now >></span>
                             </a>

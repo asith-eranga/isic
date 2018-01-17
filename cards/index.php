@@ -67,7 +67,7 @@
                         $card_data_2 = $card_2->getById();
                         $card_2->extractor($card_data_2);
                     ?>
-                    <h1 class="fnt-40 txt-black"><?php echo $card_2->title(); ?></h1>
+                    <h2 class="txt-black"><?php echo $card_2->title(); ?></h2>
                     <p class="txt-white">
                         <?php echo str_replace(['<p>', '</p>', '<pre>', '</pre>'], '', $card_2->description()); ?>
                     </p>
@@ -78,7 +78,7 @@
                         $card_data_3 = $card_3->getById();
                         $card_3->extractor($card_data_3);
                     ?>
-                    <h1 class="fnt-40 txt-black"><?php echo $card_3->title(); ?></h1>
+                    <h2 class="txt-black"><?php echo $card_3->title(); ?></h2>
                     <p class="txt-white">
                         <?php echo str_replace(['<p>', '</p>', '<pre>', '</pre>'], '', $card_3->description()); ?>
                     </p>

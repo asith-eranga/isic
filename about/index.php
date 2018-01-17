@@ -67,7 +67,7 @@
                         $about_data_2 = $about_2->getById();
                         $about_2->extractor($about_data_2);
                     ?>
-                    <h1 class="fnt-40 text-upper txt-black"><?php echo $about_2->title(); ?></h1>
+                    <h2 class="text-upper txt-black"><?php echo $about_2->title(); ?></h2>
                     <p class="txt-white">
                         <?php echo str_replace(['<p>', '</p>', '<pre>', '</pre>'], '', $about_2->description()); ?>
                     </p>
@@ -78,7 +78,7 @@
                         $about_data_3 = $about_3->getById();
                         $about_3->extractor($about_data_3);
                     ?>
-                    <h1 class="fnt-40 text-upper txt-black"><?php echo $about_3->title(); ?></h1>
+                    <h2 class="text-upper txt-black"><?php echo $about_3->title(); ?></h2>
                     <p class="txt-white">
                         <?php echo str_replace(['<p>', '</p>', '<pre>', '</pre>'], '', $about_3->description()); ?>
                     </p>
