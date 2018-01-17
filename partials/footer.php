@@ -168,3 +168,46 @@
         });
     });
 </script>
+
+<!-- Google Code for Remarketing Tag
+Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. See more information and instructions on how to setup the tag on: http://google.com/ads/remarketingsetup -->
+<script>
+    /* <![CDATA[ */
+    var google_conversion_id = 821105373;
+    var google_custom_params = window.google_tag_params;
+    var google_remarketing_only = true;
+    /* ]]> */
+</script>
+<script src="//www.googleadservices.com/pagead/conversion.js"> </script>
+<noscript>
+    <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/821105373/?guid=ON&amp;script=0"/>
+    </div>
+</noscript>
+
+<!-- Google Code for Website Quote submissions Conversion Page In your html page, add the snippet and call goog_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+    /* <![CDATA[ */
+    goog_snippet_vars = function() {
+        var w = window;
+        w.google_conversion_id = 821105373;
+        w.google_conversion_label = "IdNrCIPrsnsQ3aXEhwM";
+        w.google_remarketing_only = false;
+    }
+    // DO NOT CHANGE THE CODE BELOW.
+    goog_report_conversion = function(url) {
+        goog_snippet_vars();
+        window.google_conversion_format = "3";
+        var opt = new Object();
+        opt.onload_callback = function() {
+            if (typeof(url) != 'undefined') {
+                window.location = url;
+            }
+        }
+        var conv_handler = window['google_trackConversion'];
+        if (typeof(conv_handler) == 'function') {
+            conv_handler(opt);
+        }
+    } /* ]]> */
+</script>
+<script src="//www.googleadservices.com/pagead/conversion_async.js"> </script>

@@ -35,7 +35,7 @@
 
 </head>
 
-<body class="main-menu-sticky-smart ">
+<body class="main-menu-sticky-smart">
 
     <div class="main-wrap content-main-wrap">
         <header id="header" class="site-header header-style-1 boxed">
@@ -46,7 +46,7 @@
         <?php include(DOC_ROOT . 'partials/mobile-logo.php'); ?>
         <div class="content-wrap">
             <main id="content" class="content-container dis-flex">
-                <div class="col-md-9 col-xs-12 layout-1-col layout-no-sidebar layout-bc-before no-padd">
+                <div id="left_col" class="col-md-9 col-xs-12 layout-1-col layout-no-sidebar layout-bc-before no-padd">
                     <div class="main-section">
                         <div class="content-column">
                             <div class="grid">
@@ -91,7 +91,8 @@
                     </div>
                 </div>
 
-                <div class="col-md-3 col-xs-12 no-padd">
+                <div id="right_col" class="col-md-3 col-xs-12 no-padd">
+<div class="right_text">
                     <h3 class="padd-h-60 text-upper txt-green">
                         FEATURED<br>
                         offers<br>
@@ -103,6 +104,7 @@
                         youth
                     </h3>
                     <br>
+</div>
                     <?php
                         $featured_discounts = new Mod_Discounts();
                         $featured_discounts_data = $featured_discounts->selectAllFeatured();
@@ -231,6 +233,9 @@
         loop:true,
         margin:10,
         nav:true,
+        autoplay:true,
+        autoplayTimeout:10000,
+        autoplayHoverPause:false,
         navText : ["<i class='fa fa-chevron-left fnt-20 padd-5'></i>","<i class='fa fa-chevron-right fnt-20 padd-5'></i>"],
         responsive:{
             0:{
@@ -245,6 +250,7 @@
         }
     });
 jQuery(window).load(function () {
+     
        var $grid = jQuery('.grid').isotope({
             layoutMode: 'packery',
             itemSelector: '.grid-item'
@@ -254,6 +260,13 @@ jQuery(window).load(function () {
 
             $grid.isotope('layout');
         });
+       var $rightHeight = jQuery('.grid').height();
+       var $leftHeight = jQuery('#left_col').height();
+       var $leftTextHeight = jQuery('.right_text').height();
+
+      jQuery('.listing-mg-1-item').css('height',($rightHeight-$leftTextHeight)*0.35);
+      jQuery('.listing-mg-2-item').css('height',($rightHeight-$leftTextHeight)*0.7);
+
     });
 </script>
 </html>
