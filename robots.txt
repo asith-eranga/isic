@@ -1,0 +1,12 @@
+User-Agent: *
+Disallow:
+Disallow: /admin
+Disallow: /css
+Disallow: /database
+Disallow: /fonts
+Disallow: /js
+Disallow: /partials
+Disallow: /system
+Disallow: /uploads
+
+Sitemap: https://www.unitedventuressl.com/isiclk/sitemap.xml
