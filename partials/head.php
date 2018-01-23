@@ -5,6 +5,15 @@
  * Time: 3:11 PM
  */
 ?>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script  async  src="https://www.googletagmanager.com/gtag/js?id=UA-112601179-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-112601179-1');
+</script>
+
 <link rel='stylesheet' href='<?php echo HTTP_PATH; ?>css/boostrap-libs.min.css' type='text/css' media='all' />
 <link rel='stylesheet' href='<?php echo HTTP_PATH; ?>css/font-awesome.min.css' type='text/css' media='all' />
 <link rel='stylesheet' href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css' type='text/css' media='all' />
