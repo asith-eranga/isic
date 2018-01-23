@@ -6548,3 +6548,19 @@ min-width: auto;
 .sitemap a { color:#fff; }
 .sitemap a:hover { color:#f0ff00; }
 .sitemap ,.sitemap li ul { list-style: disc;}
+
+.ui-autocomplete {
+  max-height: 300px;
+  overflow-y: auto;
+  /* prevent horizontal scrollbar */
+  overflow-x: hidden;
+  /* add padding to account for vertical scrollbar */
+  padding-right: 20px;
+}
+
+/* IE 6 doesn't support max-height
+ * we use height instead, but this forces the menu to always be this tall
+ */
+* html .ui-autocomplete {
+  height: 300px;
+}
