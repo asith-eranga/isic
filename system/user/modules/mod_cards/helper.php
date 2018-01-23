@@ -381,7 +381,7 @@ class Mod_Cards extends Default_DBConnection implements Default_DBInterface {
 	  }
 
 	  function getCountryList($term) {
-          $this->MDatabase->select('airports', "*", "code LIKE '%" . $term . "%' OR name LIKE '%" . $term . "%' OR cityName LIKE '%" . $term . "%' OR countryName LIKE '%" . $term . "%'", "code ASC");
+          $this->MDatabase->select('airports', "*", "code LIKE '%" . strtoupper($term) . "%' OR name LIKE '%" . $term . "%' OR cityName LIKE '%" . $term . "%' OR countryName LIKE '%" . strtoupper($term) . "%'", "code ASC");
           return $this->MDatabase->result;
       }
 }
