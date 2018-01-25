@@ -149,9 +149,9 @@ function doDelete() {
 function sortTable() {
       require_once(dirname(__FILE__) . '/helper.php');
       foreach ($_POST['row'] as $position => $item) {
-
+            $new_position = $position + (($_POST['page'] - 1) * 10);
             $discounts = new Mod_Discounts();
-            $discounts->setSortOrder($position);
+            $discounts->setSortOrder($new_position);
             $discounts->setId($item);
             $discounts->updateSortOrder();
       }

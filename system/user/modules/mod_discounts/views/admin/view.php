@@ -21,38 +21,37 @@ $pagination->makePagination();
 $display_types = $discounts->getAllDisplayTypes();
 
 ?>
-<?php if ($_POST['page'] == 1) { ?>
-      <script>
-            function fixWidthHelper(e, ui) {
-                  ui.children().each(function () {
-                        $(this).width($(this).width());
-                  });
-                  return ui;
-            }
-            $(document).ready(
-				function () {
-					  $("#sortTable").attr("style", "cursor:move");
-					  $("#sortTable").sortable({
-							helper: fixWidthHelper,
-							update: function () {
-								  serial = $('#sortTable').sortable('serialize');
-								  serial += '&action=sortTable';
-								  serial += '&thisid=' + $(this);
+<script>
+    function fixWidthHelper(e, ui) {
+          ui.children().each(function () {
+                $(this).width($(this).width());
+          });
+          return ui;
+    }
+    $(document).ready(
+        function () {
+              $("#sortTable").attr("style", "cursor:move");
+              $("#sortTable").sortable({
+                    helper: fixWidthHelper,
+                    update: function () {
+                          serial = $('#sortTable').sortable('serialize');
+                          serial += '&action=sortTable';
+                          serial += '&thisid=' + $(this);
+                          serial += '&page=' + <?php echo $_POST['page'] ?>;
 
-								  $.ajax({
-										url: "../system/user/modules/mod_discounts/controller.php",
-										type: "post",
-										data: serial,
-										error: function () {
-											  alert("there's an error with AJAX");
-										}
-								  });
-							}
-					  }).disableSelection();
-				}
-      		);
-      </script>
-<?php } ?>
+                          $.ajax({
+                                url: "../system/user/modules/mod_discounts/controller.php",
+                                type: "post",
+                                data: serial,
+                                error: function () {
+                                      alert("there's an error with AJAX");
+                                }
+                          });
+                    }
+              }).disableSelection();
+        }
+    );
+</script>
 <div class="thirteen wide column">
 
       <h2 class="ui header">
