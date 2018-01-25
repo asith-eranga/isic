@@ -61,7 +61,7 @@ $discount_categories = $discounts_card_search->getAllCategories();
                     ?>
                         <!-- sub types - start -->
                         <div class="flt-button padd-v-5 pos-rela bg-lite-green">
-                            <a class="txt-white" href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts_card_search->id(); ?>">
+                            <a class="txt-white" href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts_card_search->pageUrl(); ?>">
                               <?php echo $discounts_card_search->name(); ?>
                             </a>
                         </div>
@@ -108,7 +108,7 @@ $discount_categories = $discounts_card_search->getAllCategories();
                     ?>
                         <!-- sub categories - start -->
                             <div class="flt-button padd-v-5 pos-rela bg-lite-green">
-                                <a class="txt-white" href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts_card_search->id(); ?>">
+                                <a class="txt-white" href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts_card_search->pageUrl(); ?>">
                                   <?php echo $discounts_card_search->name(); ?>
                                 </a>
                             </div>

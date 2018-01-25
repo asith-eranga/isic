@@ -3,10 +3,10 @@
     require_once("../system/load.php");
     require_once(DOC_ROOT . 'system/user/modules/mod_discounts/helper.php');
 
-    $id = $_GET['id'];
+    $page_url = $_GET['url'];
     $discounts_inner = new Mod_Discounts();
-    $discounts_inner->setId($id);
-    $discounts_inner_data = $discounts_inner->getById();
+    $discounts_inner->setPageUrl(str_replace(' ', '-', strtolower($page_url)));
+    $discounts_inner_data = $discounts_inner->getByPageUrl();
     $discounts_inner->extractor($discounts_inner_data);
 
     $saved_card_types = unserialize($discounts_inner->cardType());
@@ -106,7 +106,7 @@
                             <?php
                             for ($i = 0; $i < count($discounts_related_data); $i++) {
                                 $discounts_inner_related->extractor($discounts_related_data, $i);
-                                    if ($discounts_inner_related->id() != $id ) {
+                                    if ($discounts_inner_related->id() != $discounts_inner->id() ) {
                                         if ( count(array_intersect($saved_categories, unserialize($discounts_inner_related->category()))) > 0) {
                             ?>
                                 <h3 class="dis-in-blk text-upper padd-h-15 txt-black">Related Discounts</h3>
@@ -115,14 +115,14 @@
                             <?php
                                 for ($i = 0; $i < count($discounts_related_data); $i++) {
                                     $discounts_inner_related->extractor($discounts_related_data, $i);
-                                    if ($discounts_inner_related->id() != $id ) {
+                                    if ($discounts_inner_related->id() != $discounts_inner->id() ) {
                                         if ( count(array_intersect($saved_categories, unserialize($discounts_inner_related->category()))) > 0) {
                             ?>
                                 <div class="item">
                                     <div class="padd-10">
                                         <article class="type-post format-standard has-post-thumbnail  listing-item-1 listing-item listing-mg-item listing-mg-type-2 listing-mg-1-item ">
                                             <div class="item-content">
-                                                <a title="<?php echo $discounts_inner_related->name(); ?>" href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts_inner_related->id(); ?>" class="img-cont b-loaded" style="background-image: url(<?php echo $discounts_inner_related->image(); ?>);"></a>
+                                                <a title="<?php echo $discounts_inner_related->name(); ?>" href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts_inner_related->pageUrl(); ?>" class="img-cont b-loaded" style="background-image: url(<?php echo $discounts_inner_related->image(); ?>);"></a>
                                             </div>
                                         </article>
                                         <h5 class="txt-white"><?php echo $discounts_inner_related->name(); ?></h5>

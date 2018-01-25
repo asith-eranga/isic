@@ -109,7 +109,7 @@
                                                     echo ' category-' . $saved_category;
                                                 }
                                             ?>">
-                                            <a href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->id(); ?>" class="listing-mg-1-item">
+                                            <a href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->pageUrl(); ?>" class="listing-mg-1-item">
                                                 <img src="<?php echo $discounts->image(); ?>" class="img-responsive" alt="<?php echo $path_info_discounts['filename']; ?>"/>
                                                 <div class="back-img" style="background:url(<?php echo $discounts->image(); ?>)center / cover;position:absolute;width:100%;height:100%;top: 0;"></div>
                                             </a>

@@ -30,6 +30,9 @@
     <meta name="title" content="<?php echo $seo->metaTitle(); ?>">
     <meta name="description" content="<?php echo $seo->metaDescription(); ?>">
     <meta name="keywords" content="<?php echo $seo->metaKeywords(); ?>">
+    
+    <meta name="google-site- verification" content=" tPC68Mh7sOpgANOloWLYlqVbdu9mec Iml8wske4n96w" />
+    <meta name="msvalidate.01" content=" 0261BF4E2372909D35043283085167 78" />
 
     <?php include_once(DOC_ROOT . 'partials/head.php'); ?>
 
@@ -80,7 +83,7 @@
                                     $path_info_discounts = pathinfo($discounts->image());
                                 ?>
                                     <div class="type-post format-standard grid-item <?php echo $width . ' ' . $height . ' card-' . $discounts->cardType() . ' category-' . $discounts->category(); ?>">
-                                        <a href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->id(); ?>" class="listing-mg-1-item">
+                                        <a href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->pageUrl(); ?>" class="listing-mg-1-item">
                                             <img src="<?php echo $discounts->image(); ?>" class="img-responsive" alt="<?php echo $path_info_discounts['filename']; ?>"/>
                                             <div class="back-img" style="background:url(<?php echo $discounts->image(); ?>)center / cover;position:absolute;width:100%;height:100%;top: 0;"></div>
                                         </a>
@@ -118,7 +121,7 @@
                             <div class="mg-col mg-col-1 ">
                                 <article class="type-post format-standard has-post-thumbnail listing-item-1 listing-item listing-mg-item listing-mg-type-2 listing-mg-1-item">
                                     <div class="item-content">
-                                        <a title="<?php echo $path_info_featured_discounts['filename']; ?>" data-src="<?php echo $featured_discounts->image(); ?>" href="<?php echo HTTP_PATH; ?>discount/<?php echo $featured_discounts->id(); ?>" class="img-cont"></a>
+                                        <a title="<?php echo $path_info_featured_discounts['filename']; ?>" style="background:url('<?php echo $featured_discounts->image(); ?>')top center/cover;height: 100%;" href="<?php echo HTTP_PATH; ?>discount/<?php echo $featured_discounts->pageUrl(); ?>" class="show"></a>
                                     </div>
                                 </article>
                             </div>
@@ -129,7 +132,7 @@
                             <div class="mg-col mg-col-1">
                                 <article class="type-post format-standard listing-item-1 listing-item listing-mg-item listing-mg-type-2 listing-mg-2-item">
                                     <div class="item-content">
-                                        <a title="<?php echo $path_info_featured_discounts['filename']; ?>" data-src="<?php echo $featured_discounts->image(); ?>" class="img-cont" href="<?php echo HTTP_PATH; ?>discount/<?php echo $featured_discounts->id(); ?>" style=""></a>
+                                        <a title="<?php echo $path_info_featured_discounts['filename']; ?>" style="background:url('<?php echo $featured_discounts->image(); ?>')top /cover;height: 100%;" class="show" href="<?php echo HTTP_PATH; ?>discount/<?php echo $featured_discounts->pageUrl(); ?>"></a>
                                     </div>
                                 </article>
                             </div>
@@ -154,7 +157,7 @@
                     <div class="col-md-5 col-xs-12 ">
                         <div class="dis-tbl full-height full-width">
                             <div class="dis-tbl-cell full-height full-width tbl-con-algn-center">
-                                <img src="<?php echo $home_1->image(); ?>" alt="<?php echo $path_info_home_1['filename']; ?>" data-src="<?php echo $home_1->image(); ?>" class="img-responsive img-cont center-block"></a>
+                                <img src="<?php echo $home_1->image(); ?>" alt="<?php echo $path_info_home_1['filename']; ?>" class="img-responsive center-block"></a>
                             </div>
                         </div>
                     </div>
@@ -167,7 +170,7 @@
                     <div class="mg-col mg-col-1 ">
                         <article class="type-post format-standard has-post-thumbnail  listing-item-1 listing-item listing-mg-item listing-mg-type-2 listing-mg-1-item ">
                             <div class="item-content">
-                                <a title="<?php echo $path_info_featured_discounts['filename']; ?>" data-src="<?php echo $featured_discounts->image(); ?>" href="<?php echo HTTP_PATH; ?>discount/<?php echo $featured_discounts->id(); ?>" class="img-cont"></a>
+                                <a title="<?php echo $path_info_featured_discounts['filename']; ?>" style="background:url(<?php echo $featured_discounts->image(); ?>" href="<?php echo HTTP_PATH; ?>discount/<?php echo $featured_discounts->pageUrl(); ?>" class=""></a>
                             </div>
                         </article>
                     </div>
@@ -187,7 +190,7 @@
                                     <div class="item">
                                         <div class="col-md-6 col-xs-12 ">
                                             <span class="bder-L-shape ">
-		                                        <img src="" alt="<?php echo $path_info_events['filename']; ?>" data-src="<?php echo $events->image(); ?>" class="img-responsive img-cont " >
+		                                        <img alt="<?php echo $path_info_events['filename']; ?>" src="<?php echo $events->image(); ?>" class="img-responsive" >
 		                                    </span>
                                         </div>
                                         <div class="col-md-6 col-xs-12 no-padd ">

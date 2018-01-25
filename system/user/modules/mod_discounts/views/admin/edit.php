@@ -27,7 +27,16 @@ $(document).ready(function(){
 					prompt: 'Please enter discount name'
 				}
 			]
-		},				
+		},
+        page_url: {
+            identifier: 'page_url',
+            rules: [
+                {
+                    type: 'empty',
+                    prompt: 'Please enter correct page url'
+                }
+            ]
+        },
 		description: {
 			identifier: 'description',
 			rules: [
@@ -121,6 +130,11 @@ $(document).ready(function(){
         <div class="field">
             <label>Map Coordinates</label>
             <input placeholder="Map Coordinates" id="map_coordinates" name="map_coordinates" type="text" value="<?php echo $discounts->mapCoordinates(); ?>">
+        </div>
+
+        <div class="field">
+            <label>Page URL</label>
+            <input placeholder="Add only words and hyphens" id="page_url" name="page_url" type="text" value="<?php echo $discounts->pageUrl(); ?>">
         </div>
 
         <div class="field">

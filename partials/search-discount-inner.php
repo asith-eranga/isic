@@ -61,7 +61,7 @@ $discount_categories = $discounts->getAllCategories();
                     ?>
                     <!-- sub types - start -->
                     <div class="flt-button padd-v-5 pos-rela bg-lite-green">
-                        <a class="txt-white" href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->id(); ?>">
+                        <a class="txt-white" href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->pageUrl(); ?>">
                           <?php echo $discounts->name(); ?>
                         </a>
                     </div>
@@ -108,7 +108,7 @@ $discount_categories = $discounts->getAllCategories();
                         ?>
                             <!-- sub categories - start -->
                             <div class="flt-button padd-v-5 pos-rela bg-lite-green">
-                                <a class="txt-white" href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->id(); ?>">
+                                <a class="txt-white" href="<?php echo HTTP_PATH; ?>discount/<?php echo $discounts->pageUrl(); ?>">
                                   <?php echo $discounts->name(); ?>
                                 </a>
                             </div>
