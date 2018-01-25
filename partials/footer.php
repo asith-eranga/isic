@@ -168,6 +168,10 @@
             minLength: 3
         });
     });
+
+$('.input-group-addon').click(function() {
+   $(this).parent().find('input').focus();
+  });
 </script>
 
 <!-- Google Code for Remarketing Tag

@@ -76,9 +76,9 @@
                             <h3 class="btn btn-primary txt-black pull-left" style="font-size: 24px;"><?php echo $discounts_inner->discount(); ?></h3>
                             <h4 class="txt-yellow text-upper dis-in-blk padd-15">offer valid for</h4>
                             <?php
-                                foreach ($saved_card_types as $saved_card_type) {
-                                    if (!empty($saved_card_type)) { ?>
-                                        <img src="<?php echo HTTP_PATH; ?>images/icons/cat-<?php echo $saved_card_type+1; ?>.png">
+                            	if (!empty($saved_card_types)) {
+                                	foreach ($saved_card_types as $saved_card_type) { ?>
+                                        <img src="<?php echo HTTP_PATH; ?>images/icons/cat-<?php echo $saved_card_type+1; ?>.png" style="width: 30px;">
                             <?php } } ?>
                         </div>
                         <div class="col-xs-2" style="padding-top: 20px;">
@@ -212,7 +212,7 @@ jQuery('button').on('click', function() {
             nav:false,
             dots:true,
             autoplay:true,
-            autoplayTimeout:10000,
+            autoplayTimeout:5000,
             autoplayHoverPause:false,
             responsive:{
                 0:{
