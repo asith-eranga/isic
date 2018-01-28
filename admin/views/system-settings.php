@@ -138,10 +138,10 @@ $(document).ready(function(){
         </div>
         <div class="two fields">
             <div class="field">
-                <label>Map Coordinates</label>
+                <label>Map embed code src</label>
             </div>
             <div class="field">
-                <input placeholder="Map Coordinates" id="map_coordinates" name="map_coordinates" type="text" value="<?php echo $system_settings->mapCoordinates(); ?>">
+                <input placeholder="Map embed code src" id="map_embed_code_src" name="map_embed_code_src" type="text" value="<?php echo $system_settings->mapCoordinates(); ?>">
             </div>
         </div>
         <h4 class="ui dividing header"> Socials</h4>

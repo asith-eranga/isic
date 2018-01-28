@@ -146,8 +146,6 @@ jQuery('button').on('click', function() {
   jQuery(this).parent().toggleClass('start-animation');
 });
 </script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtr3FT0uDFpjx-VisBICLWclTjETC6UTc">
-</script>
 <script>
  
     jQuery(document).ready(function() {

@@ -156,9 +156,7 @@
                 </div>
                 <div class="col-md-12 col-xs-12 bg-green txt-white ">
                     <div class="row">
-
-                        <div id="map_container"></div>
-                        <div id="map"></div>
+                        <iframe src="<?php echo $system_settings->mapEmbedCodeSRC(); ?>" width="100%" height="400px" frameborder="0" style="border:0" allowfullscreen></iframe>
                     </div>
                 </div>
                 <div class="col-md-12 col-xs-12 text-left bg-green padd-v-10 ">
@@ -171,8 +169,6 @@
     </div>
 <?php include(DOC_ROOT . 'partials/mobile-menu.php'); ?>
 </body>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtr3FT0uDFpjx-VisBICLWclTjETC6UTc">
-</script>
 <script type='text/javascript' src='<?php echo HTTP_PATH; ?>js/contact.js'></script>
 <script>
     jQuery(function() {
@@ -182,50 +178,6 @@
         jQuery("input").on("focusout", function() {
             jQuery(this).val() === "" ? jQuery(this).parent().removeClass("active") : false;
         })
-    });
-    jQuery(document).ready(function() {
-
-        function initialize() {
-            var myLatlng = new google.maps.LatLng(<?php echo $system_settings->mapCoordinates(); ?>);
-            var imagePath = '../images/Pin-location.png'
-            var mapOptions = {
-                zoom: 17,
-                center: myLatlng,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            }
-
-            var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-            //Callout Content
-            var contentString = '<p class="txt-black text-upper no-marg"><strong><?php echo $system_settings->addressLine1(); ?></strong></p></br><p class="txt-black text-upper no-marg"><?php if (!empty($system_settings->addressLine2())) { echo $system_settings->addressLine2(); }if (!empty($system_settings->addressLine3())) { echo ', ' . $system_settings->addressLine3();}if (!empty($system_settings->addressLine4())) {echo ',</br>' . $system_settings->addressLine4();}if (!empty($system_settings->addressLine5())) { echo ', ' . $system_settings->addressLine5() . '.';}?></p>';
-            //Set window width + content
-            var infowindow = new google.maps.InfoWindow({
-                content: contentString,
-                maxWidth: 500
-            });
-
-            //Add Marker
-            var marker = new google.maps.Marker({
-                position: myLatlng,
-                map: map,
-                icon: imagePath,
-                title: 'image title'
-            });
-
-            google.maps.event.addListener(marker, 'click', function() {
-                infowindow.open(map, marker);
-            });
-            infowindow.open(map, marker);
-
-            //Resize Function
-            google.maps.event.addDomListener(window, "resize", function() {
-                var center = map.getCenter();
-                google.maps.event.trigger(map, "resize");
-                map.setCenter(center);
-            });
-        }
-
-        google.maps.event.addDomListener(window, 'load', initialize);
-
     });
 </script>
 

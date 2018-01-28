@@ -14,7 +14,7 @@ class SystemSettings extends Default_DBConnection implements Default_DBInterface
     private $telephone_2;
     private $email;
     private $fax;
-    private $map_coordinates;
+    private $map_embed_code_src;
     private $facebook;
     private $twitter;
     private $instagram;
@@ -70,8 +70,8 @@ class SystemSettings extends Default_DBConnection implements Default_DBInterface
         return $this->fax;
     }
 
-    function mapCoordinates(){
-        return $this->map_coordinates;
+    function mapEmbedCodeSRC(){
+        return $this->map_embed_code_src;
     }
 
     function facebook(){
@@ -140,8 +140,8 @@ class SystemSettings extends Default_DBConnection implements Default_DBInterface
         $this->fax = $fax;
     }
 
-    function setMapCoordinates($map_coordinates){
-        $this->map_coordinates = $map_coordinates;
+    function setMapEmbedCodeSRC($map_embed_code_src){
+        $this->map_embed_code_src = $map_embed_code_src;
     }
 
     function setFacebook($facebook){
@@ -174,7 +174,7 @@ class SystemSettings extends Default_DBConnection implements Default_DBInterface
        $this->setTelephone2($results[$row]['telephone_2']);
        $this->setEmail($results[$row]['email']);
        $this->setFax($results[$row]['fax']);
-       $this->setMapCoordinates($results[$row]['map_coordinates']);
+       $this->setMapEmbedCodeSRC($results[$row]['map_embed_code_src']);
        $this->setFacebook($results[$row]['facebook']);
        $this->setTwitter($results[$row]['twitter']);
        $this->setInstagram($results[$row]['instagram']);
@@ -227,7 +227,7 @@ class SystemSettings extends Default_DBConnection implements Default_DBInterface
           "address_line_5" => $this->addressLine5(),
           "email" => $this->email(),
           "fax" => $this->fax(),
-          "map_coordinates" => $this->mapCoordinates(),
+          "map_embed_code_src" => $this->mapEmbedCodeSRC(),
           "telephone_1" => $this->telephone1(),
           "telephone_2" => $this->telephone2(),
           "facebook" => $this->facebook(),
@@ -249,7 +249,7 @@ class SystemSettings extends Default_DBConnection implements Default_DBInterface
            "address_line_5" => $this->addressLine5(),
            "email" => $this->email(),
            "fax" => $this->fax(),
-           "map_coordinates" => $this->mapCoordinates(),
+           "map_embed_code_src" => $this->mapEmbedCodeSRC(),
            "telephone_1" => $this->telephone1(),
            "telephone_2" => $this->telephone2(),
            "facebook" => $this->facebook(),
@@ -282,7 +282,7 @@ class SystemSettings extends Default_DBConnection implements Default_DBInterface
                 `address_line_5` VARCHAR(200) NULL DEFAULT NULL,
                 `email` VARCHAR(100) NULL DEFAULT NULL,
                 `fax` VARCHAR(100) NULL DEFAULT NULL,
-                `map_coordinates` VARCHAR(100) NULL DEFAULT NULL,
+                `map_embed_code_src` VARCHAR(500) NULL DEFAULT NULL,
                 `telephone_1` VARCHAR(100) NULL DEFAULT NULL,
                 `telephone_2` VARCHAR(100) NULL DEFAULT NULL,
                 `facebook` VARCHAR(100) NULL DEFAULT NULL,
