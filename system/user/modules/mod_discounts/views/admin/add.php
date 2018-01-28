@@ -114,8 +114,8 @@ $categories = $discounts->getAllCategories();
         </div>
 
         <div class="field">
-            <label>Map Coordinates</label>
-            <input placeholder="Map Coordinates" id="map_coordinates" name="map_coordinates" type="text">
+            <label>Map embed code src</label>
+            <input placeholder="Map embed code src" id="map_embed_code_src" name="map_embed_code_src" type="text">
         </div>
 
         <div class="field">

@@ -128,8 +128,8 @@ $(document).ready(function(){
         </div>
 
         <div class="field">
-            <label>Map Coordinates</label>
-            <input placeholder="Map Coordinates" id="map_coordinates" name="map_coordinates" type="text" value="<?php echo $discounts->mapCoordinates(); ?>">
+            <label>Map embed code src</label>
+            <input placeholder="Map embed code src" id="map_embed_code_src" name="map_embed_code_src" type="text" value="<?php echo $discounts->mapEmbedCodeSRC(); ?>">
         </div>
 
         <div class="field">

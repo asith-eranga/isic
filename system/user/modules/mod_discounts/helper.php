@@ -9,7 +9,7 @@ class Mod_Discounts extends Default_DBConnection implements Default_DBInterface 
     private $meta_description;
     private $meta_keywords;
     private $discount;
-    private $map_coordinates;
+    private $map_embed_code_src;
     private $page_url;
 	  private $description;
       private $display_type;
@@ -53,8 +53,8 @@ class Mod_Discounts extends Default_DBConnection implements Default_DBInterface 
         return $this->discount;
     }
 
-    function mapCoordinates() {
-        return $this->map_coordinates;
+    function mapEmbedCodeSRC() {
+        return $this->map_embed_code_src;
     }
 
     function pageUrl() {
@@ -139,8 +139,8 @@ class Mod_Discounts extends Default_DBConnection implements Default_DBInterface 
         $this->discount = $discount;
     }
 
-    function setMapCoordinates($map_coordinates) {
-        $this->map_coordinates = $map_coordinates;
+    function setMapEmbedCodeSRC($map_embed_code_src) {
+        $this->map_embed_code_src = $map_embed_code_src;
     }
 
     function setPageUrl($page_url) {
@@ -204,7 +204,7 @@ class Mod_Discounts extends Default_DBConnection implements Default_DBInterface 
           $this->setMetaDescription($results[$row]['meta_description']);
           $this->setMetaKeywords($results[$row]['meta_keywords']);
             $this->setDiscount($results[$row]['discount']);
-            $this->setMapCoordinates($results[$row]['map_coordinates']);
+            $this->setMapEmbedCodeSRC($results[$row]['map_embed_code_src']);
           $this->setPageUrl($results[$row]['page_url']);
             $this->setDescription($results[$row]['description']);
             $this->setDisplayType($results[$row]['display_type']);
@@ -307,7 +307,7 @@ class Mod_Discounts extends Default_DBConnection implements Default_DBInterface 
                 "meta_description" => $this->metaDescription(),
                 "meta_keywords" => $this->metaKeywords(),
                 "discount" => $this->discount(),
-                "map_coordinates" => $this->mapCoordinates(),
+                "map_embed_code_src" => $this->mapEmbedCodeSRC(),
                 "page_url" => str_replace(' ', '-', strtolower($this->pageUrl())),
                 "description" => $this->description(),
                 "display_type" => $this->displayType(),
@@ -332,7 +332,7 @@ class Mod_Discounts extends Default_DBConnection implements Default_DBInterface 
                 "meta_description" => $this->metaDescription(),
                 "meta_keywords" => $this->metaKeywords(),
                 "discount" => $this->discount(),
-                "map_coordinates" => $this->mapCoordinates(),
+                "map_embed_code_src" => $this->mapEmbedCodeSRC(),
                 "page_url" => str_replace(' ', '-', strtolower($this->pageUrl())),
                 "description" => $this->description(),
                 "display_type" => $this->displayType(),
@@ -371,7 +371,7 @@ class Mod_Discounts extends Default_DBConnection implements Default_DBInterface 
 				    `meta_description` VARCHAR(200) NULL DEFAULT NULL,
 				    `meta_keywords` VARCHAR(200) NULL DEFAULT NULL,
 					`discount` VARCHAR(50) NULL DEFAULT NULL,
-					`map_coordinates` VARCHAR(100) NULL DEFAULT NULL,
+					`map_embed_code_src` VARCHAR(500) NULL DEFAULT NULL,
 					`page_url` VARCHAR(300) NULL DEFAULT NULL,
 					`description` TEXT NULL DEFAULT NULL,
 					`display_type` TEXT NULL DEFAULT NULL,

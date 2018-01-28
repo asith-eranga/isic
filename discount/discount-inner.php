@@ -88,11 +88,10 @@
                             <?php echo str_replace(['<pre>', '</pre>'], '', $discounts_inner->description()); ?>
                         </div>
 
-                        <?php if (!empty($discounts_inner->mapCoordinates())) { ?>
+                        <?php if (!empty($discounts_inner->mapEmbedCodeSRC())) { ?>
                             <div class="col-xs-12">
                                 <span class="bder-L-shape right">
-                                    <div id="map_container"></div>
-                                    <div id="map"></div>
+                                    <iframe src="<?php echo $discounts_inner->mapEmbedCodeSRC(); ?>" width="100%" height="300px" frameborder="0" style="border:0" allowfullscreen></iframe>
                                 </span>
                             </div>
                         <?php } ?>
@@ -152,46 +151,6 @@ jQuery('button').on('click', function() {
 <script>
  
     jQuery(document).ready(function() {
-
-        function initialize() {
-            var myLatlng = new google.maps.LatLng(<?php echo $discounts_inner->mapCoordinates(); ?>);
-            var imagePath = '../images/Pin-location.png'
-            var mapOptions = {
-                zoom: 17,
-                center: myLatlng,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            }
-
-            var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-            //Callout Content
-            var contentString = 'Some address here..';
-            //Set window width + content
-            var infowindow = new google.maps.InfoWindow({
-                content: contentString,
-                maxWidth: 500
-            });
-
-            //Add Marker
-            var marker = new google.maps.Marker({
-                position: myLatlng,
-                map: map,
-                icon: imagePath,
-                title: 'image title'
-            });
-
-            google.maps.event.addListener(marker, 'click', function() {
-                infowindow.open(map, marker);
-            });
-
-            //Resize Function
-            google.maps.event.addDomListener(window, "resize", function() {
-                var center = map.getCenter();
-                google.maps.event.trigger(map, "resize");
-                map.setCenter(center);
-            });
-        }
-
-        google.maps.event.addDomListener(window, 'load', initialize);
 
         jQuery('.filter-button-group').on( 'click', '.expand', function() {
             if(jQuery(this).hasClass('active'))
