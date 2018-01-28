@@ -14,6 +14,8 @@ RewriteRule ^cards/([a-zA-Z0-9_-]+)$ /isic/cards/cards-inner.php?card_name=$1 [L
 #-------------- Discounts -------------------------------------------
 RewriteRule ^discount/([a-zA-Z0-9_-]+)$ /isic/discount/discount-inner.php?url=$1 [L]
 RewriteRule ^discount/page/([a-zA-Z0-9_-]+)$ /isic/discount/index.php?page=$1 [L]
+RewriteRule ^discount/card/([a-zA-Z0-9_-]+)$ /isic/discount/index.php?card=$1 [L]
+RewriteRule ^discount/category/([a-zA-Z0-9_-]+)$ /isic/discount/index.php?category=$1 [L]
 
 #-------------- Partner With ISIC -------------------------------------------
 RewriteRule ^partner-with-isic/([a-zA-Z0-9_-]+)$ /isic/partner-with-isic/index.php?target=$1 [L]

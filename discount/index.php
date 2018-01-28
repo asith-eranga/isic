@@ -63,15 +63,20 @@
                             <div class="grid">
                                 <?php
                                     $discounts = new Mod_Discounts();
+
+                                    $page = 1;
+                                    if (isset($_GET['page'])) {
+                                        $page = $_GET['page'];
+                                    }
+                                    if (isset($_GET['card']) || isset($_GET['category'])) {
+                                        $page = null;
+                                    }
+
                                     if (!empty($_POST['keyword'])) {
                                         $discounts->setName($_POST['keyword']);
                                         $discounts_data = $discounts->getByName();
                                         $total_discounts = count($discounts->getByName());
                                     } else {
-                                        $page = 1;
-                                        if (isset($_GET['page'])) {
-                                            $page = $_GET['page'];
-                                        }
                                         $discounts_data = $discounts->selectAllNormal($page);
                                         $total_discounts = count($discounts->selectAllNormal(null));
                                     }
@@ -81,12 +86,30 @@
                                         $saved_card_types = unserialize($discounts->cardType());
                                         $saved_categories = unserialize($discounts->category());
 
-                                        if ($_GET['card'] != null && !in_array($_GET['card'], $saved_card_types)) {
-                                            continue;
+                                        if (isset($_GET['card'])) {
+                                            $card_types = $discounts->getAllCardTypes();
+                                            foreach ($card_types as $k => $v) {
+                                                if($_GET['card'] == str_replace(' ', '-', strtolower($v)) ){
+                                                    $card_type = $k;
+                                                    break;
+                                                }
+                                            }
+                                            if (!in_array($card_type, $saved_card_types)) {
+                                                continue;
+                                            }
                                         }
 
-                                        if ($_GET['category'] != null && !in_array($_GET['category'], $saved_categories)) {
-                                            continue;
+                                        if (isset($_GET['category'])) {
+                                            $categories = $discounts->getAllCategories();
+                                            foreach ($categories as $k => $v) {
+                                                if($_GET['category'] == str_replace(' ', '-', strtolower($v)) ){
+                                                    $category = $k;
+                                                    break;
+                                                }
+                                            }
+                                            if (!in_array($category, $saved_categories)) {
+                                                continue;
+                                            }
                                         }
 
                                         // generate the image size classes

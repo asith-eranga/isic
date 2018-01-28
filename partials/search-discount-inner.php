@@ -38,7 +38,7 @@ $discount_categories = $discounts->getAllCategories();
                 ?>
                 <div class="pos-rela">
                     <div class="flt-button padd-v-5 pos-rela" data-filter=".card-<?php echo $k; ?>">
-                        <a class="txt-white" href="<?php echo HTTP_PATH; ?>discount/index.php?card=<?php echo $k; ?>">
+                        <a class="txt-white" href="<?php echo HTTP_PATH; ?>discount/card/<?php echo str_replace(' ', '-', strtolower($discount_card)); ?>">
                             <?php echo $discount_card; ?> <img src="<?php echo HTTP_PATH; ?>images/icons/cat-<?php echo $k+1; ?>.png">
                         </a>
                     </div>
@@ -85,7 +85,7 @@ $discount_categories = $discounts->getAllCategories();
                 ?>
                 <div class="pos-rela">
                     <div class="flt-button padd-v-5 pos-rela" data-filter=".category-<?php echo $k; ?>">
-                        <a class="txt-white text-upper" href="<?php echo HTTP_PATH; ?>discount/index.php?category=<?php echo $k; ?>">
+                        <a class="txt-white text-upper" href="<?php echo HTTP_PATH; ?>discount/category/<?php echo str_replace(' ', '-', strtolower($discount_category)); ?>">
                             <?php echo $discount_category; ?>
                         </a>
                     </div>
@@ -118,20 +118,7 @@ $discount_categories = $discounts->getAllCategories();
                 <?php } ?>
             </div>
         </div>
-        <!--<div class="dis-tbl-ftr-grp">
-            <ul class="text-center bg-green no-marg text-white">
-                <li class="dis-in-blk"><a href="#" class="txt-white">PRE</a></li>
-                <li class="dis-in-blk"><a href="#" class="txt-white">1</a></li>
-                <li class="dis-in-blk"><a href="#" class="txt-white">2</a></li>
-                <li class="dis-in-blk"><a href="#" class="txt-white">3</a></li>
-                <li class="dis-in-blk"><a href="#" class="txt-white">4</a></li>
-                <li class="dis-in-blk"><a href="#" class="txt-white">5</a></li>
-                <li class="dis-in-blk"><a href="#" class="txt-white">....</a></li>
-                <li class="dis-in-blk"><a href="#" class="txt-white">LAST</a></li>
-            </ul>
-        </div>-->
     </div>
-
 
 </div>
 
