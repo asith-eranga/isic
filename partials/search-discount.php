@@ -120,14 +120,27 @@ $discount_categories = $discounts_card_search->getAllCategories();
         </div>
         <div class="dis-tbl-ftr-grp">
             <ul class="text-center bg-green no-marg text-white">
-                <li class="dis-in-blk"><a href="#" class="txt-white">PRE</a></li>
-                <li class="dis-in-blk"><a href="#" class="txt-white">1</a></li>
-                <li class="dis-in-blk"><a href="#" class="txt-white">2</a></li>
-                <li class="dis-in-blk"><a href="#" class="txt-white">3</a></li>
-                <li class="dis-in-blk"><a href="#" class="txt-white">4</a></li>
-                <li class="dis-in-blk"><a href="#" class="txt-white">5</a></li>
-                <li class="dis-in-blk"><a href="#" class="txt-white">....</a></li>
-                <li class="dis-in-blk"><a href="#" class="txt-white">LAST</a></li>
+                <?php if ($page > 1) { ?>
+                    <li class="dis-in-blk"><span class="txt-white"><<</span></li>
+                <?php } ?>
+                <?php for ($i = ($page - 1); $i >= 1; $i--) {
+                    if ($i == ($page - 5)) {
+                        break;
+                    }
+                ?>
+                    <li class="dis-in-blk"><a href="<?php echo HTTP_PATH; ?>discount/page/<?php echo $i; ?>" class="txt-white"><?php echo $i; ?></a></li>
+                <?php } ?>
+                <li class="dis-in-blk"><a href="<?php echo HTTP_PATH; ?>discount/page/<?php echo $page; ?>" class="txt-yellow"><?php echo $page; ?></a></li>
+                <?php for ($i = ($page + 1); $i <= ceil($total_discounts / 10); $i++) {
+                    if ($i == ($page + 5)) {
+                        break;
+                    }
+                ?>
+                    <li class="dis-in-blk"><a href="<?php echo HTTP_PATH; ?>discount/page/<?php echo $i; ?>" class="txt-white"><?php echo $i; ?></a></li>
+                <?php } ?>
+                <?php if ($page < ceil($total_discounts / 10)) { ?>
+                    <li class="dis-in-blk"><span class="txt-white">>></span></li>
+                <?php } ?>
             </ul>
         </div>
     </div>

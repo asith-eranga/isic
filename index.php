@@ -55,7 +55,7 @@
                             <div class="grid">
                                 <?php
                                 $discounts = new Mod_Discounts();
-                                $discounts_data = $discounts->selectAllNormal();
+                                $discounts_data = $discounts->selectAllNormal(null);
                                 for ($i = 0; $i < count($discounts_data); $i++) {
                                     if($i==6){
                                         break;

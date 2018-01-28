@@ -232,9 +232,9 @@ class Mod_Discounts extends Default_DBConnection implements Default_DBInterface 
             return $this->MDatabase->result;
       }
 
-      function selectAllNormal() {
+      function selectAllNormal($page) {
 
-        $this->MDatabase->select($this->table_name, "*", "display_type=0 AND status=1 ", "sort_order ASC");
+        $this->MDatabase->select($this->table_name, "*", "display_type=0 AND status=1 ", "sort_order ASC", $page);
         return $this->MDatabase->result;
       }
 

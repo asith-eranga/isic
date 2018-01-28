@@ -9,19 +9,20 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
 #-------------- Cards -------------------------------------------
-RewriteRule ^cards/([a-zA-Z0-9_-]+)$ /isiclk/cards/cards-inner.php?card_name=$1 [L]
+RewriteRule ^cards/([a-zA-Z0-9_-]+)$ /isic/cards/cards-inner.php?card_name=$1 [L]
 
 #-------------- Discounts -------------------------------------------
-RewriteRule ^discount/([a-zA-Z0-9_-]+)$ /isiclk/discount/discount-inner.php?url=$1 [L]
+RewriteRule ^discount/([a-zA-Z0-9_-]+)$ /isic/discount/discount-inner.php?url=$1 [L]
+RewriteRule ^discount/page/([a-zA-Z0-9_-]+)$ /isic/discount/index.php?page=$1 [L]
 
 #-------------- Partner With ISIC -------------------------------------------
-RewriteRule ^partner-with-isic/([a-zA-Z0-9_-]+)$ /isiclk/partner-with-isic/index.php?target=$1 [L]
+RewriteRule ^partner-with-isic/([a-zA-Z0-9_-]+)$ /isic/partner-with-isic/index.php?target=$1 [L]
 
 #-------------- Travel With Us -------------------------------------------
-RewriteRule ^travel-with-us/([a-zA-Z0-9_-]+)$ /isiclk/travel-with-us/index.php?target=$1 [L]
+RewriteRule ^travel-with-us/([a-zA-Z0-9_-]+)$ /isic/travel-with-us/index.php?target=$1 [L]
 
 #-------------- Take A Vacation -------------------------------------------
-RewriteRule ^take-a-vacation/([a-zA-Z0-9_-]+)$ /isiclk/take-a-vacation/index.php?target=$1 [L]
+RewriteRule ^take-a-vacation/([a-zA-Z0-9_-]+)$ /isic/take-a-vacation/index.php?target=$1 [L]
 
 #-------------- Fly Now, Pay Later -------------------------------------------
-RewriteRule ^fly-now-pay-later/([a-zA-Z0-9_-]+)$ /isiclk/fly-now-pay-later/index.php?target=$1 [L]
+RewriteRule ^fly-now-pay-later/([a-zA-Z0-9_-]+)$ /isic/fly-now-pay-later/index.php?target=$1 [L]

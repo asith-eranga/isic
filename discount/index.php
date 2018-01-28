@@ -66,8 +66,14 @@
                                     if (!empty($_POST['keyword'])) {
                                         $discounts->setName($_POST['keyword']);
                                         $discounts_data = $discounts->getByName();
+                                        $total_discounts = count($discounts->getByName());
                                     } else {
-                                        $discounts_data = $discounts->selectAllNormal();
+                                        $page = 1;
+                                        if (isset($_GET['page'])) {
+                                            $page = $_GET['page'];
+                                        }
+                                        $discounts_data = $discounts->selectAllNormal($page);
+                                        $total_discounts = count($discounts->selectAllNormal(null));
                                     }
                                     for ($i = 0; $i < count($discounts_data); $i++) {
                                         $discounts->extractor($discounts_data, $i);
