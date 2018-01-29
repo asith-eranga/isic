@@ -88,6 +88,7 @@ jQuery(function($) {
                 data: dataString,
                 success: function(res) {
                     var obj = jQuery.parseJSON(res);
+                    alert(res); alert(obj)
                     $(".canvas-close").trigger("click");
                     $("#default-message").css({ display: "none" });
                     if(obj.code==200){
