@@ -23,8 +23,16 @@
         $seo->setId(4);
         $seo_data = $seo->getById();
         $seo->extractor($seo_data);
+
+        $title = $seo->pageTitle();
+        if (isset($_GET['card'])) {
+            $title .= ' | ' . strtoupper($_GET['card']);
+        }
+        if (isset($_GET['category'])) {
+            $title .= ' | ' . strtoupper($_GET['category']);
+        }
     ?>
-    <title><?php echo $seo->pageTitle(); ?></title>
+    <title><?php echo $title; ?></title>
     <meta name="title" content="<?php echo $seo->metaTitle(); ?>">
     <meta name="description" content="<?php echo $seo->metaDescription(); ?>">
     <meta name="keywords" content="<?php echo $seo->metaKeywords(); ?>">
