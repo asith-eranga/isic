@@ -59,14 +59,14 @@ jQuery(function($) {
             $("input#email").removeClass('error');
         }
 
-        var message = $("textarea#message").val();
+        /*var message = $("textarea#message").val();
         if (message == "") {
             $("textarea#message").addClass('error');
             $("textarea#message").focus();
             error = true;
         } else {
             $("textarea#message").removeClass('error');
-        }
+        }*/
 
         if (error == true) {
             return false;
@@ -84,11 +84,10 @@ jQuery(function($) {
 
             $.ajax({
                 type: "POST",
-                url: "http://localhost/isic/system/user/modules/mod_cards/controller.php",
+                url: "https://www.unitedventuressl.com/isiclk/system/user/modules/mod_cards/controller.php",
                 data: dataString,
                 success: function(res) {
-                    var obj = jQuery.parseJSON(res);
-                    alert(res); alert(obj)
+                    var obj = jQuery.parseJSON(res);                    
                     $(".canvas-close").trigger("click");
                     $("#default-message").css({ display: "none" });
                     if(obj.code==200){
