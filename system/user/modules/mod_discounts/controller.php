@@ -118,6 +118,8 @@ function updatePost() {
 
       if ($discounts->update()) {
 
+          setDiscountOrder($_POST['sort_order']);
+
             $activity_log = new ActivityLog();
             $activity_log->newLogRecord("Mod_Discounts", "edit", "Discount detail has been Updated successfully.");
 
@@ -155,4 +157,17 @@ function sortTable() {
             $discounts->setId($item);
             $discounts->updateSortOrder();
       }
+}
+
+function setDiscountOrder($sort_order) {
+    require_once(dirname(__FILE__) . '/helper.php');
+    $discounts = new Mod_Discounts();
+    $discounts_need_to_update = $discounts->getRequiredDiscountToUpdate($sort_order);
+
+    for ($i = 0; $i < count($discounts_need_to_update); $i++) {
+        $discounts->extractor($discounts_need_to_update, $i);
+        $discounts->setSortOrder($sort_order + $i);
+        $discounts->setId($discounts->id());
+        $discounts->updateSortOrder();
+    }
 }

@@ -13,6 +13,8 @@ $categories     = $discounts->getAllCategories();
 $saved_card_types = unserialize($discounts->cardType());
 $saved_categories = unserialize($discounts->category());
 
+$order_values = range(0, $discounts->nextOrderValue()-1);
+
 ?>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -199,7 +201,7 @@ $(document).ready(function(){
         </div>
 
         <div class="field">
-            <div class="two fields">
+            <div class="three fields">
                 <div class="field">
                     <label>Display Type</label>
                     <div class="ui selection dropdown">
@@ -222,6 +224,20 @@ $(document).ready(function(){
                         <i class="dropdown icon"></i>
                         <div class="menu ui transition hidden">
                             <?php foreach ($status as $k => $v) { ?>
+                                <div class="item" data-value="<?php echo $k; ?>"><?php echo $v; ?></div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Order</label>
+                    <div class="ui selection dropdown">
+                        <input type="hidden" id="sort_order" name="sort_order" value="<?php echo $discounts->sortOrder(); ?>">
+                        <div class="default text"><?php echo $order_values[$discounts->status()]; ?></div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu ui transition hidden">
+                            <?php foreach ($order_values as $k => $v) { ?>
                                 <div class="item" data-value="<?php echo $k; ?>"><?php echo $v; ?></div>
                             <?php } ?>
                         </div>

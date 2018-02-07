@@ -340,6 +340,7 @@ class Mod_Discounts extends Default_DBConnection implements Default_DBInterface 
                 "category" => $this->category(),
                 "image" => $this->image(),
                 "logo" => $this->logo(),
+                "sort_order" => $this->sortOrder(),
                 "status" => $this->status(),
                 "modified_by" => $this->modifiedBy(),
                 "modified_date" => $this->modifiedDate()
@@ -436,5 +437,10 @@ class Mod_Discounts extends Default_DBConnection implements Default_DBInterface 
 			$this->MDatabase->select($this->table_name, "MAX(sort_order) as next_value", "", "");
             return $this->MDatabase->result[0]["next_value"]+1;
 	  }
+
+    function getRequiredDiscountToUpdate($sort_order){
+        $this->MDatabase->select($this->table_name, "*", "sort_order >= '" . $sort_order . "' ", "sort_order ASC");
+        return $this->MDatabase->result;
+    }
 
 }
