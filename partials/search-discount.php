@@ -13,11 +13,11 @@ $discount_categories = $discounts_card_search->getAllCategories();
 
 <div class="col-md-3 col-xs-12 no-padd">
     <div class="dis-tbl full-height full-width">
-        <form class="form-inline" action="<?php echo HTTP_PATH; ?>discount" method="post">
+        <form class="form-inline" action="<?php echo HTTP_PATH; ?>discount/index.php" method="post">
             <div class="padd-v-15 col-sm-10 center-block" style="float:none">
                 <div class="input-group input-container">
                     <div class="input-group-addon  padd-h-5 fnt-20 txt-green"><i class="fa fa-search" aria-hidden="true"></i></div>
-                    <input id="keyword" name="keyword" class="material form-control text-upper" type="text" placeholder="SEARCH DISCOUNTS">
+                    <input id="keyword" name="keyword" class="material form-control" type="text" placeholder="SEARCH DISCOUNTS">
                     <!--<div class="input-group-addon  padd-h-5 fnt-20 txt-green" style="border: 1px solid #026868;">
                         <a href="<?php echo HTTP_PATH; ?>discount/" ><i class="fa fa-times" aria-hidden="true"></i></a>
                     </div>-->
@@ -39,7 +39,7 @@ $discount_categories = $discounts_card_search->getAllCategories();
                 <div class="pos-rela">
                     <div class="flt-button padd-v-5 pos-rela" data-filter=".card-<?php echo $k; ?>">
                         <a class="txt-white" href="javascript:void(0);">
-                            <?php echo $discount_card; ?> <img src="<?php echo HTTP_PATH; ?>images/icons/cat-<?php echo $k+1; ?>.png">
+                            <span><?php echo $discount_card; ?></span> <img src="<?php echo HTTP_PATH; ?>images/icons/cat-<?php echo $k+1; ?>.png">
                         </a>
                     </div>
                     <?php
