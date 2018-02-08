@@ -165,9 +165,9 @@
     </div>
 <?php include(DOC_ROOT . 'partials/mobile-menu.php'); ?>
 </body>
-<script type="text/javascript" src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
-<script type="text/javascript" src="https://unpkg.com/isotope-packery@2/packery-mode.pkgd.js"></script>
-<script type="text/javascript" src="https://imagesloaded.desandro.com/imagesloaded.pkgd.js"></script>
+<script type="text/javascript" src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/isotope-packery@2/packery-mode.pkgd.min.js"></script>
+<script type="text/javascript" src="https://imagesloaded.desandro.com/imagesloaded.pkgd.min.js"></script>
 <script>
     jQuery(window).load(function () {
         var $grid = jQuery('.grid').isotope({

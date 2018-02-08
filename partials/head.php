@@ -27,11 +27,11 @@
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
         crossorigin="anonymous"></script>
 <script src='<?php echo HTTP_PATH; ?>js/jquery-migrate.min.js'></script>
-<script src='https://code.jquery.com/ui/1.12.1/jquery-ui.js'></script>
+<script src='https://code.jquery.com/ui/1.12.1/jquery-ui.min.js'></script>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-dateFormat/1.0/jquery.dateFormat.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-dateFormat/1.0/jquery.dateFormat.min.js'></script>
 <script src='<?php echo HTTP_PATH; ?>js/element-query.min.js'></script>
 <script src='<?php echo HTTP_PATH; ?>js/theme-libs.js'></script>
 <script src='<?php echo HTTP_PATH; ?>js/get-a-quote.js'></script>

@@ -228,8 +228,8 @@
     </div>
 <?php include(DOC_ROOT . 'partials/mobile-menu.php'); ?>
 </body>
-<script type="text/javascript" src="//unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
-<script type="text/javascript" src="//unpkg.com/isotope-packery@2/packery-mode.pkgd.js"></script>
+<script type="text/javascript" src="//unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+<script type="text/javascript" src="//unpkg.com/isotope-packery@2/packery-mode.pkgd.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.min.js"></script>
 <script>
     jQuery('.owl-carousel').owlCarousel({
