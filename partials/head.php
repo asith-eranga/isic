@@ -16,9 +16,9 @@
 
 <link rel='stylesheet' href='<?php echo HTTP_PATH; ?>css/boostrap-libs.min.css' type='text/css' media='all' />
 <link rel='stylesheet' href='<?php echo HTTP_PATH; ?>css/font-awesome.min.css' type='text/css' media='all' />
-<link rel='stylesheet' href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css' type='text/css' media='all' />
+<link rel='stylesheet' href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.min.css' type='text/css' media='all' />
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css' type='text/css' media='all' />
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/css/bootstrap-datepicker3.standalone.css' type='text/css' media='all' />
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/css/bootstrap-datepicker3.standalone.min.css' type='text/css' media='all' />
 <link rel='stylesheet' href='<?php echo HTTP_PATH; ?>css/style.css' type='text/css' media='all' />
 
 <script src='<?php echo HTTP_PATH; ?>js/blazy.js'></script>
