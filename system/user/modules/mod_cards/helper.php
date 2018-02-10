@@ -26,6 +26,10 @@ class Mod_Cards extends Default_DBConnection implements Default_DBInterface {
       private $modified_date;
       private $table_name = "cards";
 
+      // air port
+      private $cityName;
+      private $countryName;
+
       function id() {
             return $this->id;
       }
@@ -113,6 +117,14 @@ class Mod_Cards extends Default_DBConnection implements Default_DBInterface {
       function modifiedDate() {
             return $this->modified_date;
       }
+
+    function cityName() {
+        return $this->cityName;
+    }
+
+    function countryName() {
+        return $this->countryName;
+    }
 
       //------------------------//  
 
@@ -204,6 +216,14 @@ class Mod_Cards extends Default_DBConnection implements Default_DBInterface {
             $this->modified_date = $modified_date;
       }
 
+    function setCityName($cityName) {
+        $this->cityName = $cityName;
+    }
+
+    function setCountryName($countryName) {
+        $this->countryName = $countryName;
+    }
+
       function extractor($results, $row = 0) {
 
             $this->setId($results[$row]['id']);
@@ -228,6 +248,10 @@ class Mod_Cards extends Default_DBConnection implements Default_DBInterface {
             $this->setCreatedDate($results[$row]['created_date']);
             $this->setModifiedBy($results[$row]['modified_by']);
             $this->setModifiedDate($results[$row]['modified_date']);
+
+          $this->setCityName($results[$row]['cityName']);
+          $this->setCountryName($results[$row]['countryName']);
+
       }
 
       function selectAllPaginated($page) {

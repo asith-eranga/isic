@@ -97,14 +97,15 @@
                 <div id="right_col" class="col-md-3 col-xs-12 no-padd">
 <div class="right_text">
                     <h3 class="padd-h-60 text-upper txt-green">
-                        FEATURED<br>
-                        offers<br>
-                        <span class="fnt-18">for</span>
+                        Your dedicated
                     </h3>
                     <h3 class="padd-h-60 text-upper txt-yellow">
-                        Students<br>
-                        teachers<br>
-                        youth
+                        student<br>
+                        <span class="fnt-18">and</span><br>
+                        youth<br>
+                    </h3>
+                    <h3 class="padd-h-60 text-upper txt-green">
+                        travel specialist<br>
                     </h3>
                     <br>
 </div>

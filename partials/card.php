@@ -64,13 +64,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-3 no-padd">
+                                <div class="col-lg-3 col-md-4 col-sm-4 no-padd">
                                     <div class="col-sm-6 padd-h-5 form-inline">
                                         <div class="form-row">
                                             <div class="radio">
                                                 <label>
-                                                    <span>STUDENTS</span>
-                                                    <input type="radio" name="user_type" id="user_type" value="students" checked>
+                                                    <span>STUDENT</span>
+                                                    <input type="radio" name="user_type" id="user_type" value="student" checked>
                                                     <span class="input-group-addon"><span class="custom-radio"></span></span>
                                                 </label>
                                             </div>
@@ -124,7 +124,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-4 no-padd">
+                                <div class="col-lg-4 col-md-3 col-sm-3 no-padd">
                                     <div class="col-sm-12 no-padd">
                                         <div class="col-sm-4 padd-h-5">
                                             <div class="input-group">

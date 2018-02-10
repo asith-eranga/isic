@@ -59,8 +59,8 @@ jQuery(function($) {
             $("input#email").removeClass('error');
         }
 
-        /*var message = $("textarea#message").val();
-        if (message == "") {
+        var message = $("textarea#message").val();
+        /*if (message == "") {
             $("textarea#message").addClass('error');
             $("textarea#message").focus();
             error = true;

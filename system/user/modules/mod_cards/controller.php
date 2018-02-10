@@ -162,7 +162,7 @@ if (isset($_GET['term'])) {
     $cards_airport_data = $cards_airport->getCountryList($_GET['term']);
     for ($i = 0; $i < count($cards_airport_data); $i++) {
         $cards_airport->extractor($cards_airport_data, $i);
-        $airport_list[] = $cards_airport->name();
+        $airport_list[] = $cards_airport->name() . ', ' . ucfirst($cards_airport->cityName()) . ', ' . ucfirst(strtolower($cards_airport->countryName()));
     }
 
     echo json_encode($airport_list);
@@ -198,16 +198,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					  <TD COLSPAN="8" HEIGHT="46" ALIGN="CENTER"><strong style="font-size: 24px; color: #006699">INTERNATIONAL STUDENT IDENTITY CARD (ISIC)</strong></TD>
 					</TR>
 					<TR>
-					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">54 | Walukarama Road | Colombo 3 | Sri Lanka.</TD>
+					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">3rd Floor, No 54 | Walukarama Road | Colombo 3 | Sri Lanka.</TD>
 					</TR>
 					<TR>
-					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">Tel:  +94 11 5220017 | +94 11 5474747</TD>
+					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">Tel:  +94 115 47 47 47 | +94 115 22 00 85</TD>
 					</TR>
 					<TR>
-					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">Email: isic@unitedventuressl.com </TD>
+					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">Email: jude@unitedventuressl.com</TD>
 					</TR>
 					<TR>
-					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">Web: www.unitedventuressl.com</TD>
+					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">Web: www.isic.lk</TD>
 					</TR>
 					<TR>
 					  <TD COLSPAN="8" HEIGHT="19" ALIGN="CENTER"><BR></TD>
@@ -219,7 +219,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					  <TD HEIGHT="20" colspan="8" ALIGN="LEFT">&nbsp;</TD>
 					</TR>
 <TR>
-					  <TD width="147" HEIGHT="31" ALIGN="LEFT" bgcolor="#E1E1E1"><strong style="color: #666666; font-size: 14px;">Token</strong></TD>
+					  <TD width="147" HEIGHT="31" ALIGN="LEFT" bgcolor="#E1E1E1"><strong style="color: #666666; font-size: 14px;">Reference</strong></TD>
 					  <TD width="348" COLSPAN="7" ALIGN="LEFT" bgcolor="#EEEEEE">'.$token.'</TD>
 					</TR>
 					<TR>
@@ -273,12 +273,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					</TR>
 					<TR>
 					  <TD HEIGHT="1" colspan="8" ALIGN="LEFT"></TD>
-					</TR>
-					<TR>
+					</TR>';
+
+        if (!empty($message)) {
+            $mail_body .= '<TR>
 					  <TD HEIGHT="31" ALIGN="LEFT" bgcolor="#E1E1E1"><strong style="color: #666">Message</strong><BR></TD>
 					  <TD colspan="7" ALIGN="LEFT" bgcolor="#EEEEEE">'.$message.'</TD>
-					</TR>
-					<TR>
+					</TR>';
+        }
+
+        $mail_body .= '<TR>
 					  <TD HEIGHT="2" colspan="8" ALIGN="center">&nbsp;</TD>
 					</TR>
 					<TR>
@@ -330,7 +334,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL,"http://203.153.222.25:5000/sms/send_sms.php");
             curl_setopt($ch, CURLOPT_POST, 1);
-            $sms_message = "Your flight ticket request submitted successfully. We are processing your request. We'll respond as soon as possible. Your token: " . $token;
+            $sms_message = "Your flight ticket request submitted successfully. We are processing your request. We'll respond as soon as possible. Your reference: " . $token;
             $sms_parameters = "username=isec&password=Is123C&src=ISEC&dst=" . $mobile . "&msg=" . $sms_message . "&dr=1";
             curl_setopt($ch, CURLOPT_POSTFIELDS, $sms_parameters);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -369,28 +373,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					  <TD COLSPAN="8" HEIGHT="46" ALIGN="CENTER"><strong style="font-size: 24px; color: #006699">INTERNATIONAL STUDENT IDENTITY CARD (ISIC)</strong></TD>
 					</TR>
 					<TR>
-					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">54 | Walukarama Road | Colombo 3 | Sri Lanka.</TD>
+					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">3rd Floor, No 54 | Walukarama Road | Colombo 3 | Sri Lanka.</TD>
 					</TR>
 					<TR>
-					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">Tel:  +94 11 5220017 | +94 11 5474747</TD>
+					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">Tel:  +94 115 47 47 47 | +94 115 22 00 85</TD>
 					</TR>
 					<TR>
-					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">Email: isic@unitedventuressl.com </TD>
+					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">Email: jude@unitedventuressl.com</TD>
 					</TR>
 					<TR>
-					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">Web: www.unitedventuressl.com</TD>
+					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">Web: www.isic.lk</TD>
 					</TR>
 					<TR>
 					  <TD COLSPAN="8" HEIGHT="19" ALIGN="CENTER"><BR></TD>
 					</TR>
 					<TR>
-					  <TD HEIGHT="37" COLSPAN="8" ALIGN="CENTER" VALIGN="MIDDLE"><strong><em style="color: #036; font-size: 18px;">:: Thank you for apply ISIC card. We are processing it. ::</em></strong></TD>
+					  <TD HEIGHT="37" COLSPAN="8" ALIGN="CENTER" VALIGN="MIDDLE"><strong><em style="color: #036; font-size: 18px;">:: Thank you for applying for an ISIC card. We are currently processing it. ::</em></strong></TD>
 					</TR>
 					<TR>
 					  <TD HEIGHT="20" colspan="8" ALIGN="LEFT">&nbsp;</TD>
 					</TR>
 <TR>
-					  <TD width="147" HEIGHT="31" ALIGN="LEFT" bgcolor="#E1E1E1"><strong style="color: #666666; font-size: 14px;">Token</strong></TD>
+					  <TD width="147" HEIGHT="31" ALIGN="LEFT" bgcolor="#E1E1E1"><strong style="color: #666666; font-size: 14px;">Reference</strong></TD>
 					  <TD width="348" COLSPAN="7" ALIGN="LEFT" bgcolor="#EEEEEE">'.$token.'</TD>
 					</TR>
 					<TR>
@@ -504,7 +508,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             //Content
             $mail->isHTML(true); // Set email format to HTML
-            $mail->Subject = 'Thank you for applying a ISIC card.';
+            $mail->Subject = 'Thank you for applying for an ISIC card';
             $mail->Body = $mail_body;
             $mail->WordWrap = 50; // set word wrap
 
@@ -514,7 +518,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL,"http://203.153.222.25:5000/sms/send_sms.php");
             curl_setopt($ch, CURLOPT_POST, 1);
-            $sms_message = "Thank You! Your application submitted. We'll contact you soon. Your token: " . $token;
+            $sms_message = "Thank You! Your application submitted. We'll contact you soon. Your reference: " . $token;
             $sms_parameters = "username=isec&password=Is123C&src=ISEC&dst=" . $mobile . "&msg=" . $sms_message . "&dr=1";
             curl_setopt($ch, CURLOPT_POSTFIELDS, $sms_parameters);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
