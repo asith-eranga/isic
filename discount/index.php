@@ -73,7 +73,7 @@
                                     $discounts = new Mod_Discounts();
 
                                     $page = 1;
-                                    if (isset($_GET['page'])) {
+                                    if (isset($_GET['page']) && !empty($_GET['page'])) {
                                         $page = $_GET['page'];
                                     }
                                     if (isset($_GET['card']) || isset($_GET['category'])) {
