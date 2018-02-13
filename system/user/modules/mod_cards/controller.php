@@ -204,7 +204,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">Tel:  +94 115 47 47 47 | +94 115 22 00 85</TD>
 					</TR>
 					<TR>
-					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">Email: jude@unitedventuressl.com</TD>
+					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">Email: isic@unitedventuressl.com</TD>
 					</TR>
 					<TR>
 					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">Web: www.isic.lk</TD>
@@ -213,7 +213,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					  <TD COLSPAN="8" HEIGHT="19" ALIGN="CENTER"><BR></TD>
 					</TR>
 					<TR>
-					  <TD HEIGHT="37" COLSPAN="8" ALIGN="CENTER" VALIGN="MIDDLE"><strong><em style="color: #036; font-size: 18px;">:: Thank you for requesting a quote. We are processing it. ::</em></strong></TD>
+					  <TD HEIGHT="37" COLSPAN="8" ALIGN="CENTER" VALIGN="MIDDLE"><strong><em style="color: #036; font-size: 18px;">:: Thank you for requesting a quote. We are currently processing it. ::</em></strong></TD>
 					</TR>
 					<TR>
 					  <TD HEIGHT="20" colspan="8" ALIGN="LEFT">&nbsp;</TD>
@@ -286,7 +286,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					  <TD HEIGHT="2" colspan="8" ALIGN="center">&nbsp;</TD>
 					</TR>
 					<TR>
-					  <TD HEIGHT="40" COLSPAN="8" ALIGN="CENTER" bgcolor="#000000"><strong><em style="color: #FFF; font-size: 16px;">- - - Deliver cutting edge service & value - - -</em></strong></TD>
+					  <TD HEIGHT="40" COLSPAN="8" ALIGN="CENTER" bgcolor="#000000"><strong><em style="color: #FFF; font-size: 16px;">- - - Your Dedicated Student and Youth Travel Specialist - - -</em></strong></TD>
 					</TR>
 				  </TBODY>
 				</TABLE>';
@@ -334,7 +334,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL,"http://203.153.222.25:5000/sms/send_sms.php");
             curl_setopt($ch, CURLOPT_POST, 1);
-            $sms_message = "Your flight ticket request submitted successfully. We are processing your request. We'll respond as soon as possible. Your reference: " . $token;
+            $sms_message = "Your flight ticket request submitted successfully. We are currently processing your request. We'll respond as soon as possible. Your reference: " . $token;
             $sms_parameters = "username=isec&password=Is123C&src=ISEC&dst=" . $mobile . "&msg=" . $sms_message . "&dr=1";
             curl_setopt($ch, CURLOPT_POSTFIELDS, $sms_parameters);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -379,7 +379,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">Tel:  +94 115 47 47 47 | +94 115 22 00 85</TD>
 					</TR>
 					<TR>
-					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">Email: jude@unitedventuressl.com</TD>
+					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">Email: isic@unitedventuressl.com</TD>
 					</TR>
 					<TR>
 					  <TD HEIGHT="19" COLSPAN="8" ALIGN="CENTER" style="font-size: 14px">Web: www.isic.lk</TD>
@@ -453,7 +453,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					  <TD HEIGHT="2" colspan="8" ALIGN="center">&nbsp;</TD>
 					</TR>
 					<TR>
-					  <TD HEIGHT="40" COLSPAN="8" ALIGN="CENTER" bgcolor="#000000"><strong><em style="color: #FFF; font-size: 16px;">- - - Deliver cutting edge service & value - - -</em></strong></TD>
+					  <TD HEIGHT="40" COLSPAN="8" ALIGN="CENTER" bgcolor="#000000"><strong><em style="color: #FFF; font-size: 16px;">- - - Your Dedicated Student and Youth Travel Specialist - - -</em></strong></TD>
 					</TR>
 				  </TBODY>
 				</TABLE>';

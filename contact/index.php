@@ -123,7 +123,7 @@
                                     <input class="material" type="text" id="contact_email" name="contact_email" required>
                                 </div>
                                 <div class="input-container">
-                                    <label for="company" class="text-upper">Phone</label>
+                                    <label for="contact_phone" class="text-upper">Phone</label>
                                     <input class="material" type="text" id="contact_phone" name="contact_phone">
                                 </div>
 

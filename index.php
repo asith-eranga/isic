@@ -122,7 +122,7 @@
                             <div class="mg-col mg-col-1 ">
                                 <article class="type-post format-standard has-post-thumbnail listing-item-1 listing-item listing-mg-item listing-mg-type-2 listing-mg-1-item">
                                     <div class="item-content">
-                                        <a title="<?php echo $path_info_featured_discounts['filename']; ?>" style="background:url('<?php echo $featured_discounts->image(); ?>')top center/cover;height: 100%;" href="<?php echo HTTP_PATH; ?>discount/<?php echo $featured_discounts->pageUrl(); ?>" class="show"></a>
+                                        <a title="<?php echo $path_info_featured_discounts['filename']; ?>" style="background:url('<?php echo $featured_discounts->image(); ?>')top center/cover; height: 100%;" href="<?php echo HTTP_PATH; ?>discount/<?php echo $featured_discounts->pageUrl(); ?>" class="show"></a>
                                     </div>
                                 </article>
                             </div>
@@ -133,7 +133,7 @@
                             <div class="mg-col mg-col-1">
                                 <article class="type-post format-standard listing-item-1 listing-item listing-mg-item listing-mg-type-2 listing-mg-2-item">
                                     <div class="item-content">
-                                        <a title="<?php echo $path_info_featured_discounts['filename']; ?>" style="background:url('<?php echo $featured_discounts->image(); ?>')top /cover;height: 100%;" class="show" href="<?php echo HTTP_PATH; ?>discount/<?php echo $featured_discounts->pageUrl(); ?>"></a>
+                                        <a title="<?php echo $path_info_featured_discounts['filename']; ?>" style="background:url('<?php echo $featured_discounts->image(); ?>') top /cover; height: 100%;" class="show" href="<?php echo HTTP_PATH; ?>discount/<?php echo $featured_discounts->pageUrl(); ?>"></a>
                                     </div>
                                 </article>
                             </div>
@@ -171,7 +171,7 @@
                     <div class="mg-col mg-col-1 ">
                         <article class="type-post format-standard has-post-thumbnail  listing-item-1 listing-item listing-mg-item listing-mg-type-2 listing-mg-1-item ">
                             <div class="item-content">
-                                <a title="<?php echo $path_info_featured_discounts['filename']; ?>" style="background:url(<?php echo $featured_discounts->image(); ?>" href="<?php echo HTTP_PATH; ?>discount/<?php echo $featured_discounts->pageUrl(); ?>" class=""></a>
+                                <a title="<?php echo $path_info_featured_discounts['filename']; ?>" style="background:url(<?php echo $featured_discounts->image(); ?>)top center/cover; height: 100%;" href="<?php echo HTTP_PATH; ?>discount/<?php echo $featured_discounts->pageUrl(); ?>" class="show"></a>
                             </div>
                         </article>
                     </div>

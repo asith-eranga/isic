@@ -14,6 +14,8 @@
     gtag('config', 'UA-112601179-1');
 </script>
 
+<link rel="shortcut icon" type="image/png" href="<?php echo HTTP_PATH; ?>/images/icons/cat-1.png"/>
+
 <link rel='stylesheet' href='<?php echo HTTP_PATH; ?>css/boostrap-libs.min.css' type='text/css' media='all' />
 <link rel='stylesheet' href='<?php echo HTTP_PATH; ?>css/font-awesome.min.css' type='text/css' media='all' />
 <link rel='stylesheet' href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.min.css' type='text/css' media='all' />

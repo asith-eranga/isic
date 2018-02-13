@@ -32,14 +32,14 @@ jQuery(function($) {
         }
 
         var contact_phone = $("input#contact_phone").val();
-        // var mobile_filter = /^\d*(?:\.\d{1,2})?$/;
-        // if (phone == "" || !mobile_filter.test(phone)) {
-        //     $("input#phone").addClass('error');
-        //     $("input#phone").focus();
-        //     error = true;
-        // } else {
-        //     $("input#phone").removeClass('error');
-        // }
+        var mobile_filter = /^\+?\d{6,20}$/;
+        if (contact_phone == "" || !mobile_filter.test(contact_phone)) {
+            $("input#contact_phone").addClass('error');
+            $("input#contact_phone").focus();
+            error = true;
+        } else {
+            $("input#contact_phone").removeClass('error');
+        }
 
         if (error == true) {
             return false;
