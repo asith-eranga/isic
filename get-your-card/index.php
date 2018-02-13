@@ -149,7 +149,7 @@
                     <form class="form-horizontal" id="get-your-card" action="../system/user/modules/mod_cards/controller.php" method="post" enctype="multipart/form-data">
 
                         <div class="col-sm-10 col-xs-12 float-n center-block dis-flex" style="float:none">
-                            <div class="col-sm-8 padd-v-10">
+                            <div class="col-sm-8 col-xs-12 padd-v-10">
                                 <div class="input-container">
                                     <label for="get-your-card-university" class="text-upper">University / College</label>
                                     <input class="material" type="text" id="get-your-card-university" name="get-your-card-university" required>
@@ -162,11 +162,11 @@
                                     <label for="get-your-card-birthday" class="text-upper">Date of Birth</label>
                                     <input class="material " type="text" id="get-your-card-birthday" name="get-your-card-birthday" required>
                                 </div>
-                                <div class="input-container col-sm-5 no-padd float-n dis-in-blk">
+                                <div class="input-container col-sm-5 col-xs-12 no-padd float-n dis-in-blk">
                                     <label for="get-your-card-email" class="text-upper">E-mail</label>
                                     <input class="material" type="email" id="get-your-card-email" name="get-your-card-email" required>
                                 </div>
-                                <div class="input-container col-sm-5 no-padd float-n dis-in-blk pull-right">
+                                <div class="input-container col-sm-5 col-xs-12 no-padd float-n dis-in-blk pull-right">
                                     <label for="get-your-card-telephone" class="text-upper">Telephone</label>
                                     <input class="material" type="text" id="get-your-card-telephone" name="get-your-card-telephone" required>
                                 </div>
@@ -179,7 +179,7 @@
                                     <textarea id="get-your-card-address" name="get-your-card-address" class="form-control bg-black border-2-white" type="text" placeholder="ADDRESS" rows="5" required></textarea>
                                 </div>
                             </div>
-                            <div class="col-sm-4 padd-v-10">
+                            <div class="col-sm-4 col-xs-12 padd-v-10">
                                 <div class="input-container">
                                     <div class="left">
                                         <img id="img-uploaded" src="https://placehold.it/322x382" alt="your image">
@@ -205,19 +205,19 @@
 
                                 </div>
                             </div>
-                            <div class="col-sm-2 padd-v-10">
+                            <div class="col-sm-2 col-xs-12 padd-v-10">
                                 <div class="dis-tbl full-height full-width">
                                     <div class="dis-tbl-cell full-height full-width tbl-con-algn-btm">
-                                        <button class="btn btn-submit marg-v-10 text-upper get-your-card-button" type="submit"><strong>Apply Card</strong></button>
+                                        <button class="btn btn-submit marg-v-10 text-upper get-your-card-button" type="submit"><strong>SUBMIT</strong></button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-12" style="display: none" id="get-your-card-success-message">
+                            <div class="col-sm-12 col-xs-12" style="display: none" id="get-your-card-success-message">
                                 <h5 class="txt-green-light">
                                     Thank You! Your application submitted. We'll contact you soon.
                                 </h5>
                             </div>
-                            <div class="col-sm-12" style="display: none" id="get-your-card-error-message">
+                            <div class="col-sm-12 col-xs-12" style="display: none" id="get-your-card-error-message">
                                 <h5 class="txt-yellow">
                                     Oops! Something went wrong and we couldn't submit your application. Please try again later.
                                 </h5>

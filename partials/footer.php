@@ -17,7 +17,7 @@
                     <li><a href="<?php echo HTTP_PATH; ?>partner-with-isic">Partner With ISIC</a></li>
                     <li><a href="<?php echo HTTP_PATH; ?>travel-with-us">Travel With Us</a></li>
                     <li><a href="<?php echo HTTP_PATH; ?>take-a-vacation">Take a Vacation</a></li>
-                    <li><a href="<?php echo HTTP_PATH; ?>contact">Contacts</a></li>
+                    <li><a href="<?php echo HTTP_PATH; ?>contact">Contact</a></li>
                     <li><a href="<?php echo HTTP_PATH; ?>get-your-card">Get Your Card</a></li>
                     <li><a href="<?php echo HTTP_PATH; ?>sitemap">Sitemap</a></li>
                 </ul>
@@ -216,3 +216,4 @@ Remarketing tags may not be associated with personally identifiable information 
     } /* ]]> */
 </script>
 <script src="//www.googleadservices.com/pagead/conversion_async.js"> </script>
+
